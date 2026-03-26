@@ -2,18 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Brew Lab Mobile</title>
-    <link rel="apple-touch-icon" href="brewlab_icon.png?v=2">
-    <link rel="icon" type="image/png" href="brewlab_icon.png?v=2">
+    
+    <link rel="apple-touch-icon" href="brewlab_icon.png?v=3">
+    <link rel="icon" type="image/png" href="brewlab_icon.png?v=3">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="mobile-web-app-capable" content="yes">
-    <link rel="manifest" href="data:application/manifest+json,{'display':'standalone','start_url':'index.html'}">
+    
+    <link rel="manifest" href="manifest.json">
+
     <style>
         body { font-family: sans-serif; background: #1a1a1a; color: white; padding: 15px; margin: 0; }
-        .header { sticky; top: 0; background: #1a1a1a; padding-bottom: 10px; border-bottom: 1px solid #333; }
+        /* Fixed the 'sticky' header syntax here */
+        .header { position: sticky; top: 0; background: #1a1a1a; padding-bottom: 10px; border-bottom: 1px solid #333; z-index: 100; }
         #searchBar { width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #444; background: #2d2d2d; color: white; box-sizing: border-box; font-size: 16px; margin-top: 10px; }
         .recipe-card { background: #2d2d2d; padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 5px solid #f39c12; }
         .name { font-size: 1.2em; font-weight: bold; color: #f39c12; }
@@ -48,7 +52,6 @@
                 return;
             }
 
-            // Filter data based on search bar
             const filtered = recipeData.filter(r => 
                 r.display_name.toLowerCase().includes(term) || 
                 (r.style_name && r.style_name.toLowerCase().includes(term))
@@ -58,10 +61,7 @@
                 <div class="recipe-card">
                     <div class="name">${r.display_name}</div>
                     <div class="style">${r.style_name || 'No Style'}</div>
- <!--               <div class="notes"><em>${r.notes || ''}</em></div>  -->
-                    
                     <button class="details-btn" onclick="toggleDetails(${r.id})">▼ View Grains & Hops</button>
-                    
                     <div id="details-${r.id}" class="ingredients">
                         <strong>Grains:</strong>
                         <ul>${(r.grains || []).map(g => `<li>${g}</li>`).join('')}</ul>
@@ -74,7 +74,8 @@
     </script>
     <script>
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js');
+        // We added a 'v3' tag to the registration to force a clean update
+        navigator.serviceWorker.register('sw.js?v=3');
       }
     </script>
 </body>
