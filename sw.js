@@ -1,4 +1,4 @@
-const CACHE_NAME = 'brew-lab-v1774583233';
+const CACHE_NAME = 'brew-lab-v1774583415';
 const ASSETS = ['index.html', 'mobile_recipes.js', 'brewlab_icon.png'];
 
 self.addEventListener('install', (e) => {
@@ -15,15 +15,17 @@ self.addEventListener('install', () => {
 });
 
 
-self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request).then((response) => {
-      // 1. If we have it in the suitcase, return it
-      if (response) {
-        return response;
-      }
-      // 2. If not, go to GitHub to get it
-      return fetch(event.request);
-    })
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((keys) => {
+      return Promise.all(
+        keys.map((key) => {
+          // If the old suitcase doesn't match the NEW name, incinerate it.
+          if (key !== CACHE_NAME) {
+            return caches.delete(key);
+          }
+        })
+      );
+    }).then(() => self.clients.claim())
   );
 });
