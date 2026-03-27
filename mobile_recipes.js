@@ -121,18 +121,6 @@ const recipeData = [
         ]
     },
     {
-        "id": 108,
-        "display_name": "phone test",
-        "style_name": "Standard American Beer",
-        "notes": null,
-        "grains": [
-            "1.0 lbs Acidulated Malt"
-        ],
-        "hops": [
-            "1.0oz Amarillo (60 min)"
-        ]
-    },
-    {
         "id": 110,
         "display_name": "test 3",
         "style_name": "Standard American Beer",
