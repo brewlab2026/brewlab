@@ -35,7 +35,7 @@
 
     <div id="recipe-list">Loading recipes...</div>
 
-    <script src="mobile_recipes.js?v=1774581716"></script>
+    <script src="mobile_recipes.js?v=1774581817"></script>
 
     <script>
         function toggleDetails(id) {
@@ -78,22 +78,33 @@
         navigator.serviceWorker.register('sw.js?v=3');
       }
     </script>
-    <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('sw.js').then(reg => {
-      // Manual check for updates
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js').then(reg => {
+      // Look for updates
       reg.update();
     });
 
-    let refreshing = false; // The Safety Latch
+    let refreshing = false;
     navigator.serviceWorker.addEventListener('controllerchange', () => {
-      // If we've already triggered a refresh for this session, STOP.
       if (refreshing) return;
-      
+
+      // CHECK: Have we already refreshed in the last 10 seconds?
+      const lastRefresh = sessionStorage.getItem('last_brew_refresh');
+      const now = Date.now();
+
+      if (lastRefresh && (now - lastRefresh < 10000)) {
+        console.log("Blocking infinite loop - already refreshed recently.");
+        return;
+      }
+
+      // SET: Mark that we are refreshing now
+      sessionStorage.setItem('last_brew_refresh', now);
       refreshing = true;
       window.location.reload();
     });
   }
+</script>  }
 </script>  }
 </script>
 </body>
