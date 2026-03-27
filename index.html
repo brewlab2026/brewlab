@@ -35,7 +35,7 @@
 
     <div id="recipe-list">Loading recipes...</div>
 
-    <script src="mobile_recipes.js?v=1774581535"></script>
+    <script src="mobile_recipes.js?v=1774581716"></script>
 
     <script>
         function toggleDetails(id) {
@@ -79,20 +79,22 @@
       }
     </script>
     <script>
-       if ('serviceWorker' in navigator) {
-         navigator.serviceWorker.register('sw.js').then(reg => {
-      // Check for updates every time the app is opened
-         reg.update(); 
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js').then(reg => {
+      // Manual check for updates
+      reg.update();
     });
 
-    // Refresh the page automatically when the new service worker takes over
-    let refreshing;
+    let refreshing = false; // The Safety Latch
     navigator.serviceWorker.addEventListener('controllerchange', () => {
+      // If we've already triggered a refresh for this session, STOP.
       if (refreshing) return;
-      window.location.reload();
+      
       refreshing = true;
+      window.location.reload();
     });
   }
+</script>  }
 </script>
 </body>
 </html>
