@@ -35,7 +35,7 @@
 
     <div id="recipe-list">Loading recipes...</div>
 
-<script src="mobile_recipes.js?v=1774583415"></script>
+<script src="mobile_recipes.js?v=1774583543"></script>
 
     <script>
         function toggleDetails(id) {
@@ -73,19 +73,25 @@
         }
     </script>
 
-    <script>
+ <script>
   if ('serviceWorker' in navigator) {
-    // We add ?v= + the current time to the filename. 
-    // This forces the phone to see it as a "New" file every time you push.
-    navigator.serviceWorker.register('sw.js?v=' + Date.now()).then(reg => {
-      reg.update();
-    });
+    navigator.serviceWorker.register('sw.js').then(reg => {
+      // Check if there is already a waiting update
+      if (reg.waiting) {
+        console.log("New version found, updating...");
+        reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+      }
 
-    let refreshing = false;
-    navigator.serviceWorker.addEventListener('controllerchange', () => {
-      if (refreshing) return;
-      refreshing = true;
-      window.location.reload();
+      reg.onupdatefound = () => {
+        const newWorker = reg.installing;
+        newWorker.onstatechange = () => {
+          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+            // Instead of reloading automatically (which causes the flash), 
+            // we just tell the user or wait for the next manual refresh.
+            console.log("New content available. Please refresh.");
+          }
+        };
+      };
     });
   }
 </script>
