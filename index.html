@@ -35,7 +35,7 @@
 
     <div id="recipe-list">Loading recipes...</div>
 
-    <script src="mobile_recipes.js?v=1774581817"></script>
+<script src="mobile_recipes.js?v=1774581953"></script>
 
     <script>
         function toggleDetails(id) {
@@ -72,40 +72,32 @@
             `).join('');
         }
     </script>
+
     <script>
       if ('serviceWorker' in navigator) {
-        // We added a 'v3' tag to the registration to force a clean update
-        navigator.serviceWorker.register('sw.js?v=3');
+        // Register just ONCE
+        navigator.serviceWorker.register('sw.js').then(reg => {
+          reg.update(); // Look for updates
+        });
+
+        let refreshing = false;
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          if (refreshing) return;
+
+          // Guard against the "Ridiculous" Flash
+          const lastRefresh = sessionStorage.getItem('last_brew_refresh');
+          const now = Date.now();
+
+          if (lastRefresh && (now - lastRefresh < 10000)) {
+            console.log("Blocking infinite loop.");
+            return;
+          }
+
+          sessionStorage.setItem('last_brew_refresh', now);
+          refreshing = true;
+          window.location.reload();
+        });
       }
     </script>
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js').then(reg => {
-      // Look for updates
-      reg.update();
-    });
-
-    let refreshing = false;
-    navigator.serviceWorker.addEventListener('controllerchange', () => {
-      if (refreshing) return;
-
-      // CHECK: Have we already refreshed in the last 10 seconds?
-      const lastRefresh = sessionStorage.getItem('last_brew_refresh');
-      const now = Date.now();
-
-      if (lastRefresh && (now - lastRefresh < 10000)) {
-        console.log("Blocking infinite loop - already refreshed recently.");
-        return;
-      }
-
-      // SET: Mark that we are refreshing now
-      sessionStorage.setItem('last_brew_refresh', now);
-      refreshing = true;
-      window.location.reload();
-    });
-  }
-</script>  }
-</script>  }
-</script>
 </body>
 </html>
