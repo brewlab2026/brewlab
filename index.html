@@ -35,7 +35,7 @@
 
     <div id="recipe-list">Loading recipes...</div>
 
-<script src="mobile_recipes.js?v=1774582743"></script>
+<script src="mobile_recipes.js?v=1774583233"></script>
 
     <script>
         function toggleDetails(id) {
@@ -74,30 +74,20 @@
     </script>
 
     <script>
-      if ('serviceWorker' in navigator) {
-        // Register just ONCE
-        navigator.serviceWorker.register('sw.js').then(reg => {
-          reg.update(); // Look for updates
-        });
+  if ('serviceWorker' in navigator) {
+    // We add ?v= + the current time to the filename. 
+    // This forces the phone to see it as a "New" file every time you push.
+    navigator.serviceWorker.register('sw.js?v=' + Date.now()).then(reg => {
+      reg.update();
+    });
 
-        let refreshing = false;
-        navigator.serviceWorker.addEventListener('controllerchange', () => {
-          if (refreshing) return;
-
-          // Guard against the "Ridiculous" Flash
-          const lastRefresh = sessionStorage.getItem('last_brew_refresh');
-          const now = Date.now();
-
-          if (lastRefresh && (now - lastRefresh < 10000)) {
-            console.log("Blocking infinite loop.");
-            return;
-          }
-
-          sessionStorage.setItem('last_brew_refresh', now);
-          refreshing = true;
-          window.location.reload();
-        });
-      }
-    </script>
+    let refreshing = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (refreshing) return;
+      refreshing = true;
+      window.location.reload();
+    });
+  }
+</script>
 </body>
 </html>
