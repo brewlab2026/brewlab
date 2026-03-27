@@ -131,5 +131,17 @@ const recipeData = [
         "hops": [
             "1.0oz Amarillo (60 min)"
         ]
+    },
+    {
+        "id": 109,
+        "display_name": "test 2",
+        "style_name": "Standard American Beer",
+        "notes": null,
+        "grains": [
+            "3.25 lbs Brown Malt"
+        ],
+        "hops": [
+            "1.0oz Challenger (60 min)"
+        ]
     }
 ];
