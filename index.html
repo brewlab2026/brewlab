@@ -4,45 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Brew Lab Mobile</title>
-    <style>
-        body { font-family: -apple-system, sans-serif; background: #121212; color: #e0e0e0; padding: 0; margin: 0; }
-        
-        /* Fixed Header from Design Doc */
-        .header { 
-            position: sticky; top: 0; background: #1f1f1f; padding: 15px; 
-            border-bottom: 3px solid #3498db; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.5); 
-        }
-        #searchBar { width: 95%; padding: 12px; border-radius: 5px; border: 1px solid #444; background: #2d2d2d; color: white; font-size: 16px; margin-top: 10px; }
-        .metadata-header { font-size: 0.8em; color: #95a5a6; }
+<style>
+    body { font-family: -apple-system, sans-serif; background: #121212; color: #e0e0e0; padding: 0; margin: 0; }
+    
+    /* Header with Gold Title */
+    .header { 
+        position: sticky; top: 0; background: #1f1f1f; padding: 15px; 
+        border-bottom: 3px solid #f1c40f; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.5); 
+    }
+    #searchBar { width: 95%; padding: 12px; border-radius: 5px; border: 1px solid #444; background: #2d2d2d; color: white; font-size: 16px; margin-top: 10px; }
+    .metadata-header { font-size: 0.8em; color: #95a5a6; }
 
-        /* Level 1: Recipe Card */
-        .recipe-card { background: #1e1e1e; padding: 15px; margin: 15px; border-radius: 8px; border: 1px solid #333; }
-        .name { font-size: 1.4em; font-weight: bold; color: #f1c40f; }
-        .style { color: #bdc3c7; font-style: italic; margin-bottom: 8px; }
-        .vitals-row { display: flex; justify-content: space-between; font-weight: bold; background: #2d2d2d; padding: 10px; border-radius: 4px; font-size: 0.9em; }
-        .swatch-row { display: flex; align-items: center; gap: 10px; margin-top: 8px; font-size: 0.85em; }
-        .color-swatch { width: 24px; height: 24px; border-radius: 4px; border: 1px solid #555; }
+    .recipe-card { background: #1e1e1e; padding: 15px; margin: 15px; border-radius: 8px; border: 1px solid #333; }
+    .name { font-size: 1.4em; font-weight: bold; color: #f1c40f; }
+    .style { color: #bdc3c7; font-style: italic; margin-bottom: 8px; }
+    .vitals-row { display: flex; justify-content: space-between; font-weight: bold; background: #2d2d2d; padding: 10px; border-radius: 4px; font-size: 0.9em; }
+    
+    /* Buttons - Removed Bright Blue */
+    .details-btn { width: 100%; padding: 12px; margin-top: 10px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 1em; }
+    
+    /* Level 2 & 3 Buttons now use the same Slate color */
+    .btn-main, .btn-sub { background: #34495e; color: #fff; text-align: left; position: relative; }
+    .btn-main::after, .btn-sub::after { content: '▶'; position: absolute; right: 15px; font-size: 0.8em; }
 
-        /* Level 2: Collapsible Details Section */
-        .details-btn { width: 100%; padding: 12px; margin-top: 10px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 1em; }
-        .btn-main { background: #3498db; color: white; }
-        .btn-sub { background: #34495e; color: #fff; text-align: left; margin-bottom: 5px; position: relative; }
-        .btn-sub::after { content: '▶'; position: absolute; right: 15px; font-size: 0.8em; }
+    .nested-section { background: #262626; padding: 12px; border-radius: 4px; margin-bottom: 15px; border: 1px solid #444; }
+    
+    /* Section titles use gold for readability */
+    .section-title { color: #f1c40f; font-weight: bold; border-bottom: 1px solid #444; padding-bottom: 5px; margin-bottom: 10px; font-size: 0.9em; text-transform: uppercase; }
+    
+    ul { padding-left: 20px; margin: 5px 0; }
+    li { margin-bottom: 4px; }
+    
+    .notes-box { background: #000; padding: 10px; border: 1px solid #f1c40f; border-radius: 4px; color: #fff; white-space: pre-wrap; font-size: 0.9em; font-style: italic; margin-bottom: 10px; }
 
-        /* Level 3: Inner Collapsible Sections */
-        .nested-section { background: #262626; padding: 12px; border-radius: 4px; margin-bottom: 15px; border: 1px solid #444; }
-        .section-title { color: #3498db; font-weight: bold; border-bottom: 1px solid #3498db; padding-bottom: 5px; margin-bottom: 10px; font-size: 0.9em; text-transform: uppercase; }
-        
-        ul { padding-left: 20px; margin: 5px 0; }
-        li { margin-bottom: 4px; }
-        
-        .notes-box { background: #000; padding: 10px; border: 1px solid #f1c40f; border-radius: 4px; color: #fff; white-space: pre-wrap; font-size: 0.9em; font-style: italic; margin-bottom: 10px; }
-
-        /* Mash Table Styling */
-        .mash-table { width: 100%; border-collapse: collapse; font-size: 0.85em; margin-bottom: 10px; }
-        .mash-table th { text-align: left; color: #95a5a6; border-bottom: 1px solid #444; padding: 4px; }
-        .mash-table td { padding: 6px 4px; border-bottom: 1px solid #333; }
-    </style>
+    .mash-table { width: 100%; border-collapse: collapse; font-size: 0.85em; margin-bottom: 10px; }
+    .mash-table th { text-align: left; color: #95a5a6; border-bottom: 1px solid #444; padding: 4px; }
+    .mash-table td { padding: 6px 4px; border-bottom: 1px solid #333; }
+</style>
 </head>
 <body onload="render()">
     <div class="header">
@@ -55,7 +53,7 @@
 
     <div id="recipe-list"></div>
 
-    <script src="mobile_recipes.js?v=1774812262"></script>
+    <script src="mobile_recipes.js?v=1774814645"></script>
 
     <script>
         function toggleDetails(id) {
