@@ -4,96 +4,171 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Brew Lab Mobile</title>
-    
-    <link rel="apple-touch-icon" href="brewlab_icon.png?v=3">
-    <link rel="icon" type="image/png" href="brewlab_icon.png?v=3">
-
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="mobile-web-app-capable" content="yes">
-    
-    <link rel="manifest" href="manifest.json">
-
     <style>
-        body { font-family: sans-serif; background: #1a1a1a; color: white; padding: 15px; margin: 0; }
-        /* Fixed the 'sticky' header syntax here */
-        .header { position: sticky; top: 0; background: #1a1a1a; padding-bottom: 10px; border-bottom: 1px solid #333; z-index: 100; }
-        #searchBar { width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #444; background: #2d2d2d; color: white; box-sizing: border-box; font-size: 16px; margin-top: 10px; }
-        .recipe-card { background: #2d2d2d; padding: 15px; border-radius: 8px; margin-top: 15px; border-left: 5px solid #f39c12; }
-        .name { font-size: 1.2em; font-weight: bold; color: #f39c12; }
-        .style { color: #bdc3c7; font-size: 0.9em; margin-bottom: 8px; }
-        .details-btn { background: #444; color: #eee; border: none; padding: 8px; width: 100%; text-align: left; border-radius: 4px; cursor: pointer; margin-top: 10px; font-size: 0.9em; }
-        .ingredients { display: none; padding: 10px; background: #1e1e1e; margin-top: 5px; border-radius: 4px; font-size: 0.9em; color: #ccc; }
-        .ingredients ul { margin: 5px 0; padding-left: 20px; }
+        body { font-family: -apple-system, sans-serif; background: #121212; color: #e0e0e0; padding: 0; margin: 0; }
+        
+        /* Fixed Header from Design Doc */
+        .header { 
+            position: sticky; top: 0; background: #1f1f1f; padding: 15px; 
+            border-bottom: 3px solid #3498db; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.5); 
+        }
+        #searchBar { width: 95%; padding: 12px; border-radius: 5px; border: 1px solid #444; background: #2d2d2d; color: white; font-size: 16px; margin-top: 10px; }
+        .metadata-header { font-size: 0.8em; color: #95a5a6; }
+
+        /* Level 1: Recipe Card */
+        .recipe-card { background: #1e1e1e; padding: 15px; margin: 15px; border-radius: 8px; border: 1px solid #333; }
+        .name { font-size: 1.4em; font-weight: bold; color: #f1c40f; }
+        .style { color: #bdc3c7; font-style: italic; margin-bottom: 8px; }
+        .vitals-row { display: flex; justify-content: space-between; font-weight: bold; background: #2d2d2d; padding: 10px; border-radius: 4px; font-size: 0.9em; }
+        .swatch-row { display: flex; align-items: center; gap: 10px; margin-top: 8px; font-size: 0.85em; }
+        .color-swatch { width: 24px; height: 24px; border-radius: 4px; border: 1px solid #555; }
+
+        /* Level 2: Collapsible Details Section */
+        .details-btn { width: 100%; padding: 12px; margin-top: 10px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 1em; }
+        .btn-main { background: #3498db; color: white; }
+        .btn-sub { background: #34495e; color: #fff; text-align: left; margin-bottom: 5px; position: relative; }
+        .btn-sub::after { content: '▶'; position: absolute; right: 15px; font-size: 0.8em; }
+
+        /* Level 3: Inner Collapsible Sections */
+        .nested-section { background: #262626; padding: 12px; border-radius: 4px; margin-bottom: 15px; border: 1px solid #444; }
+        .section-title { color: #3498db; font-weight: bold; border-bottom: 1px solid #3498db; padding-bottom: 5px; margin-bottom: 10px; font-size: 0.9em; text-transform: uppercase; }
+        
+        ul { padding-left: 20px; margin: 5px 0; }
+        li { margin-bottom: 4px; }
+        
+        .notes-box { background: #000; padding: 10px; border: 1px solid #f1c40f; border-radius: 4px; color: #fff; white-space: pre-wrap; font-size: 0.9em; font-style: italic; margin-bottom: 10px; }
+
+        /* Mash Table Styling */
+        .mash-table { width: 100%; border-collapse: collapse; font-size: 0.85em; margin-bottom: 10px; }
+        .mash-table th { text-align: left; color: #95a5a6; border-bottom: 1px solid #444; padding: 4px; }
+        .mash-table td { padding: 6px 4px; border-bottom: 1px solid #333; }
     </style>
 </head>
 <body onload="render()">
     <div class="header">
-        <h2 style="margin: 5px 0;">Brew Lab Mobile</h2>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h2 style="margin: 0; color: #3498db;">Brew Lab Mobile</h2>
+            <div id="meta-container"></div>
+        </div>
         <input type="text" id="searchBar" placeholder="Search recipes or styles..." onkeyup="render()">
     </div>
 
-    <div id="recipe-list">Loading recipes...</div>
+    <div id="recipe-list"></div>
 
-<script src="mobile_recipes.js?v=1774583721"></script>
+    <script src="mobile_recipes.js?v=1774812262"></script>
 
     <script>
         function toggleDetails(id) {
-            const el = document.getElementById('details-' + id);
-            el.style.display = el.style.display === 'block' ? 'none' : 'block';
+            const el = document.getElementById(id);
+            if (el) { el.style.display = el.style.display === 'none' || el.style.display === '' ? 'block' : 'none'; }
         }
 
         function render() {
             const list = document.getElementById('recipe-list');
-            const term = document.getElementById('searchBar').value.toLowerCase();
+            const metaContainer = document.getElementById('meta-container');
             
-            if (typeof recipeData === 'undefined') {
-                list.innerHTML = "No data found. Run export script.";
-                return;
-            }
+            try {
+                const term = document.getElementById('searchBar').value.toLowerCase();
+                
+                if (typeof exportMeta !== 'undefined') {
+                    metaContainer.innerHTML = `<div class="metadata-header">Exported: ${exportMeta.export_datetime}<br>App v${exportMeta.app_version}</div>`;
+                }
 
-            const filtered = recipeData.filter(r => 
-                r.display_name.toLowerCase().includes(term) || 
-                (r.style_name && r.style_name.toLowerCase().includes(term))
-            );
+                if (typeof recipeData === 'undefined') {
+                    list.innerHTML = "<div class='recipe-card'>No data found.</div>";
+                    return;
+                }
 
-            list.innerHTML = filtered.map(r => `
-                <div class="recipe-card">
-                    <div class="name">${r.display_name}</div>
-                    <div class="style">${r.style_name || 'No Style'}</div>
-                    <button class="details-btn" onclick="toggleDetails(${r.id})">▼ View Grains & Hops</button>
-                    <div id="details-${r.id}" class="ingredients">
-                        <strong>Grains:</strong>
-                        <ul>${(r.grains || []).map(g => `<li>${g}</li>`).join('')}</ul>
-                        <strong>Hops:</strong>
-                        <ul>${(r.hops || []).map(h => `<li>${h}</li>`).join('')}</ul>
+                const filtered = recipeData.filter(r => 
+                    (r.display_name || r.name || "").toLowerCase().includes(term) || 
+                    (r.style || "").toLowerCase().includes(term)
+                );
+
+                list.innerHTML = filtered.map(r => `
+                    <div class="recipe-card">
+                        <div class="name">${r.display_name || r.name}</div>
+                        <div class="style">${r.style || "Unknown Style"}</div>
+                        <div class="vitals-row">
+                            <span>OG: ${r.og}</span><span>FG: ${r.fg}</span><span>ABV: ${r.abv}%</span><span>IBU: ${r.ibu}</span><span>SRM: ${r.srm}</span>
+                        </div>
+                        <div class="swatch-row">
+                            <div class="color-swatch" style="background-color: ${r.srm_hex};"></div>
+                            <span>Balance: ${r.bitterness_label || 'N/A'} (${r.bitterness_balance} ${r.bitterness_balance_unit || ''})</span>
+                        </div>
+                        
+                        <button class="details-btn btn-main" onclick="toggleDetails('details-${r.recipe_id}')">▼ View Recipe Details</button>
+                        
+                        <div id="details-${r.recipe_id}" style="display:none; margin-top:15px;">
+                            
+                            <button class="details-btn btn-sub" onclick="toggleDetails('recipe-${r.recipe_id}')">Recipe (Ingredients)</button>
+                            <div id="recipe-${r.recipe_id}" style="display:none;" class="nested-section">
+                                <div class="section-title">Grains</div>
+                                <ul>${(r.grains || []).map(g => `<li><strong>${g.amount} ${g.unit}</strong> ${g.name} (${g.pct_of_grist}%)</li>`).join('')}</ul>
+                                <div class="section-title">Hops</div>
+                                <ul>${(r.hops || []).map(h => `<li><strong>${h.amount} ${h.unit}</strong> ${h.name} @ ${h.time} ${h.time_unit} (${h.usage})</li>`).join('')}</ul>
+                                <div class="section-title">Boil Additions</div>
+                                <ul>${(r.boil_additions || []).map(b => `<li><strong>${b.amount} ${b.unit}</strong> ${b.name} @ ${b.time} ${b.time_unit}</li>`).join('')}</ul>
+                                <div class="section-title">Yeast</div>
+                                <ul>${(r.yeast || []).map(y => `<li>${y.name} (Attenuation: ${y.attenuation}%)</li>`).join('')}</ul>
+                            </div>
+
+                            <button class="details-btn btn-sub" onclick="toggleDetails('mash-${r.recipe_id}')">Mash & Process</button>
+                            <div id="mash-${r.recipe_id}" style="display:none;" class="nested-section">
+                                <p><strong>Batch:</strong> ${r.batch_size} ${r.batch_size_unit} | <strong>Type:</strong> ${r.mash_type} | <strong>Eff:</strong> ${r.efficiency}%</p>
+                                <p><strong>Water Treatments:</strong> ${r.water_treatments || 'None'}</p>
+                                <p><strong>Camden Strike:</strong> ${r.camden_mash_tablets} tabs / ${r.camden_mash_grams}g</p>
+                                <p><strong>Camden Sparge:</strong> ${r.camden_sparge_tablets} tabs / ${r.camden_sparge_grams}g</p>
+                                
+                                <div class="section-title">Mash Table</div>
+                                <table class="mash-table">
+                                    <thead><tr><th>Step</th><th>Temp</th><th>Time</th><th>Adj</th></tr></thead>
+                                    <tbody>
+                                        ${(r.mash_steps || []).map(m => `
+                                            <tr><td>${m.step_label}</td><td>${m.temp_f}°F</td><td>${m.time_min} min</td><td>${m.adjustment_gal} gal</td></tr>
+                                        `).join('')}
+                                    </tbody>
+                                </table>
+
+                                <p><strong>Strike:</strong> ${r.strike_temp}°F / ${r.strike_volume} ${r.strike_volume_unit}</p>
+                                <p><strong>Sparge:</strong> ${r.sparge_temp}°F / ${r.sparge_amount} ${r.sparge_amount_unit}</p>
+                                <p><strong>Boil Time:</strong> ${r.boil_time} ${r.boil_time_unit}</p>
+                                <p><strong>Fermentation:</strong> ${r.fermentation_temp}°F | <strong>Carb:</strong> ${r.carbonation} vol</p>
+                            </div>
+
+                            <button class="details-btn btn-sub" onclick="toggleDetails('notes-${r.recipe_id}')">Recipe Notes</button>
+                            <div id="notes-${r.recipe_id}" style="display:none;" class="nested-section">
+                                <p><strong>Date:</strong> ${r.notes_date || 'N/A'}</p>
+                                <div class="section-title">${r.notes_label_1 || 'Note 1'}</div>
+                                <div class="notes-box">${r.notes_1 || 'No notes available.'}</div>
+                                <div class="section-title">${r.notes_label_2 || 'Note 2'}</div>
+                                <div class="notes-box">${r.notes_2 || ''}</div>
+                            </div>
+
+                            <button class="details-btn btn-sub" onclick="toggleDetails('log-${r.recipe_id}')">Brew Log (History)</button>
+                            <div id="log-${r.recipe_id}" style="display:none;" class="nested-section">
+                                ${(r.sessions || []).map(s => `
+                                    <button class="details-btn" style="background:#111; color:#3498db; border:1px solid #333; margin-bottom:5px; text-align:left;" onclick="toggleDetails('sess-${s.session_id}')">
+                                        Session: ${s.session_date}
+                                    </button>
+                                    <div id="sess-${s.session_id}" style="display:none; padding:10px; background:#000; border:1px solid #444; border-radius:4px; font-size:0.9em; margin-bottom:10px;">
+                                        <p><strong>Actual OG:</strong> ${s.actual_og} | <strong>FG:</strong> ${s.actual_fg} | <strong>ABV:</strong> ${s.actual_abv}%</p>
+                                        <p><strong>Efficiency:</strong> ${s.mash_efficiency}% | <strong>Atten:</strong> ${s.apparent_attenuation}${s.apparent_attenuation_unit || '%'}</p>
+                                        <p><strong>Observed Color:</strong> ${s.observed_color || 'N/A'}</p>
+                                        
+                                        <div class="section-title">Brew Day Notes</div>
+                                        <div style="margin-bottom:10px;">${s.brew_day_notes || 'N/A'}</div>
+                                        <div class="section-title">Tasting Notes</div>
+                                        <div>${s.tasting_notes || 'N/A'}</div>
+                                    </div>
+                                `).join(r.sessions.length === 0 ? 'No sessions recorded.' : '')}
+                            </div>
+                        </div>
                     </div>
-                </div>
-            `).join('');
+                `).join('');
+            } catch (err) {
+                list.innerHTML = "<div style='color:red; padding:15px;'>Render Error: " + err.message + "</div>";
+            }
         }
     </script>
-
- <script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js').then(reg => {
-      // Check if there is already a waiting update
-      if (reg.waiting) {
-        console.log("New version found, updating...");
-        reg.waiting.postMessage({ type: 'SKIP_WAITING' });
-      }
-
-      reg.onupdatefound = () => {
-        const newWorker = reg.installing;
-        newWorker.onstatechange = () => {
-          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-            // Instead of reloading automatically (which causes the flash), 
-            // we just tell the user or wait for the next manual refresh.
-            console.log("New content available. Please refresh.");
-          }
-        };
-      };
-    });
-  }
-</script>
 </body>
 </html>

@@ -1,123 +1,1348 @@
+// Brew Lab export — auto-generated, do not edit manually.
+// Exported: 03-29-2026 14:50:49
+
+const exportMeta = {
+  "export_datetime": "03-29-2026 14:50:49",
+  "app_version": "1.0.0",
+  "db_version": "1.0",
+  "schema_version": "1.0"
+};
+
 const recipeData = [
-    {
-        "id": 46,
-        "display_name": "East Coast Pilsner",
-        "style_name": "Pale Bitter European Beer",
-        "notes": "Used a very old package of Diamond Lager yeast from Walter",
-        "grains": [
-            "146.0 oz Pillsner Malt - SPM",
-            "0.5 lbs Flaked Oats",
-            "4.0 oz Cara-Pils Malt"
-        ],
-        "hops": [
-            "0.2oz Warrior (60 min)",
-            "1.1oz Citra (10 min)",
-            "0.4oz Mosaic (10 min)",
-            "1.5oz Mosaic (2 days)",
-            "0.75oz Citra (2 days)",
-            "0.75oz Citra (2 days)",
-            "1.85oz Idaho 7 (2 days)"
-        ]
-    },
-    {
-        "id": 59,
-        "display_name": "APA - Wizards & Seven Saws",
-        "style_name": "Pale American Ale",
-        "notes": "design rationale in file Modern American Pale Ale 2026.docx\n\nDon't forget to go look at brew day notes for the test batch and adjust accordingly!",
-        "grains": [
-            "9.25 lbs Pale Malt - Am. 2 row",
-            "3.0 oz Crystal Malt - 40 Lovibond",
-            "8.0 oz Munich Malt - Light",
-            "3.0 oz Cara-Pils Malt"
-        ],
-        "hops": [
-            "0.49oz Warrior (60 min)",
-            "0.5oz Citra (15 min)",
-            "0.6oz Citra (20 min)",
-            "1.0oz Citra (0 min)",
-            "1.5oz Citra (2 days)",
-            "0.6oz Azacca (0 min)",
-            "0.65oz Azacca (20 min)",
-            "1.0oz Azacca (2 days)",
-            "3.5g Strata (2 days)",
-            "3.5g Idaho 7 (2 days)"
-        ]
-    },
-    {
-        "id": 66,
-        "display_name": "Dark Belgian Ale",
-        "style_name": "Trappist Ale",
-        "notes": "This was a recipe design to a) make something quick, b) use the BE-134 yeast and c) use up anything I have and not get anything new\nRecipe designed on Gemini session - summary is in google docs\nTarget is really a sessionable dark Belgian ale not 100% suited to any particular style although it's marginally close a Dubbel\nSince we are using older dry yeast, we will want to rehydrate the yeast for 15 minutes before adding to the starter\n  prevents osmotic shock in old yeast; rehydration gives the yeast some time to revitalize themselves (or at least this is what AI says :-))\n",
-        "grains": [
-            "4.5 lbs Pillsner Malt - SPM",
-            "8.0 oz Victory Malt",
-            "4.0 oz Crystal Malt - English",
-            "3.0 oz Midnight Wheat",
-            "3.0 oz Cara Helles",
-            "1.0 oz Crystal Malt - 120 Lovibond"
-        ],
-        "hops": [
-            "0.4oz Perle (60 min)",
-            "0.5oz Saaz-Czech (10 min)"
-        ]
-    },
-    {
-        "id": 71,
-        "display_name": "APA - Wizards & Seven Saws (2.5 gallons)",
-        "style_name": "Pale American Ale",
-        "notes": "design rationale in file Modern American Pale Ale 2026.docx\nstandard 5 gallon batch ratioed by Brew Lab but manually lowered warrior amount to stay at 40 IBU total\n",
-        "grains": [
-            "4.8452 lbs Pale Malt - Am. 2 row",
-            "1.5714 oz Crystal Malt - 40 Lovibond",
-            "4.1905 oz Munich Malt - Light",
-            "1.5714 oz Cara-Pils Malt"
-        ],
-        "hops": [
-            "0.24oz Warrior (60 min)",
-            "0.26oz Citra (15 min)",
-            "0.3143oz Citra (20 min)",
-            "0.5238oz Citra (0 min)",
-            "0.7857oz Citra (2 days)",
-            "0.3143oz Azacca (0 min)",
-            "0.3405oz Azacca (20 min)",
-            "0.5238oz Azacca (2 days)",
-            "1.83g Strata (2 days)",
-            "1.83g Idaho 7 (2 days)"
-        ]
-    },
-    {
-        "id": 72,
-        "display_name": "Dark Mild #7",
-        "style_name": "Brown British Beer",
-        "notes": "New version based on DRC without chocolate - see google drive file Dark Mild Recipe w/DRC\nFor the initial version, no coloring grains till we see what the DRC does, then consider some midnight wheat for coloring per the above document.",
-        "grains": [
-            "38.0 oz Pale Malt - Marris Otter",
-            "3.0 oz Crystal Malt - 120 Lovibond",
-            "4.0 oz Crystal Malt - Double Roasted (DRC)",
-            "5.5 oz Biscuit Malt",
-            "3.0 oz Torrified Wheat"
-        ],
-        "hops": [
-            "0.33oz Kent Goldings (60 min)",
-            "0.2oz Kent Goldings (30 min)",
-            "0.25oz Kent Goldings (10 min)",
-            "0.25oz Kent Goldings (2 days)"
-        ]
-    },
-    {
-        "id": 97,
-        "display_name": "Munich Dunkel",
-        "style_name": "Dark European Lager",
-        "notes": "Used Wyeast 2308",
-        "grains": [
-            "8.5 lbs Munich Malt - Dark",
-            "0.5 lbs Melanoidan Malt",
-            "0.5 lbs Cara Munich II",
-            "0.5 lbs Vienna Malt",
-            "0.25 lbs Carafa Special II"
-        ],
-        "hops": [
-            "1.28oz Spalt (60 min)"
-        ]
-    }
+  {
+    "recipe_id": 59,
+    "name": "APA - Wizards & Seven Saws",
+    "search": "apa - wizards & seven saws 18b american pale ale",
+    "style_id": 56,
+    "style": "18B American Pale Ale",
+    "style_og_min": 1.045,
+    "style_og_max": 1.06,
+    "style_fg_min": 1.01,
+    "style_fg_max": 1.015,
+    "style_ibu_min": 30.0,
+    "style_ibu_max": 50.0,
+    "style_srm_min": 5.0,
+    "style_srm_max": 10.0,
+    "style_abv_min": 4.5,
+    "style_abv_max": 6.2,
+    "batch_size": 5.25,
+    "batch_size_unit": "gal",
+    "efficiency": 73.0,
+    "efficiency_unit": "%",
+    "mash_type": "Single Infusion",
+    "strike_vol_method": "full_volume",
+    "og": 1.0519,
+    "fg": 1.0104,
+    "abv": 5.45,
+    "abv_unit": "%",
+    "ibu": 40.0,
+    "srm": 4.6,
+    "srm_hex": "#FFBF42",
+    "bitterness_balance": 1.2,
+    "bitterness_balance_unit": "%",
+    "bitterness_label": "Balanced",
+    "grain_temp": 68.0,
+    "grain_temp_unit": "°F",
+    "water_treatments": "Brun'water - APA (new) - Wizards and Seven Saws",
+    "sparge_amount": 1.0,
+    "sparge_amount_unit": "gal",
+    "sparge_temp": 175.0,
+    "sparge_temp_unit": "°F",
+    "boil_time": 60.0,
+    "boil_time_unit": "min",
+    "fermentation_temp": 68.0,
+    "fermentation_temp_unit": "°F",
+    "carbonation": 2.5,
+    "carbonation_unit": "vol CO₂",
+    "strike_volume": 6.21,
+    "strike_volume_unit": "gal",
+    "strike_temp": 159.9,
+    "strike_temp_unit": "°F",
+    "camden_mash_tablets": 0.31,
+    "camden_mash_grams": 0.19,
+    "camden_sparge_tablets": 0.05,
+    "camden_sparge_grams": 0.03,
+    "notes_label_1": "Design Notes",
+    "notes_1": "design rationale in file Modern American Pale Ale 2026.docx\n\nDon't forget to go look at brew day notes for the test batch and adjust accordingly!",
+    "notes_label_2": "Process Notes",
+    "notes_2": "Adjust hop quantities for aged hops per recipe guideline\nFlameout hops - add and immediately flash chill to 170F then whirlpool hops for 20 minutes\nSprinkle on yeast (no rehydration necessary for ales at 1052)\nDry hop at 85% attenuation, immediately start ramp down to 58F over 24 hours\n  dry hop using weights in bag per my guideline\nIdeally keep hop contact time to 48 hours\nCold crash/lower temperature  after 48 hours of dry hopping\nCold crash for 3 days once crash temp is reached\nKeg after 3 days of cold crashing (purge keg with CO2 first)\nBurst carbonate at 30psi for 24 hours, then pull PRV, put on 12 psi for 12 hours\nFine tune carbonation to 2.5 volumes\n",
+    "notes_date": "2026-03-20",
+    "mash_steps": [
+      {
+        "step_order": 1,
+        "step_label": "Single Infusion",
+        "temp_f": 153.0,
+        "temp_unit": "°F",
+        "time_min": 60.0,
+        "time_unit": "min",
+        "adjustment_gal": 0.0,
+        "adjustment_unit": "gal"
+      }
+    ],
+    "grains": [
+      {
+        "name": "Pale Malt - Am. 2 row",
+        "amount": 9.25,
+        "unit": "lbs",
+        "max_extract": 37.0,
+        "lovibond": 1.8,
+        "pct_of_grist": 91.4
+      },
+      {
+        "name": "Munich Malt - Light",
+        "amount": 8.0,
+        "unit": "oz",
+        "max_extract": 37.0,
+        "lovibond": 5.7,
+        "pct_of_grist": 4.9
+      },
+      {
+        "name": "Crystal Malt - 40 Lovibond",
+        "amount": 3.0,
+        "unit": "oz",
+        "max_extract": 34.0,
+        "lovibond": 40.0,
+        "pct_of_grist": 1.9
+      },
+      {
+        "name": "Cara-Pils Malt",
+        "amount": 3.0,
+        "unit": "oz",
+        "max_extract": 33.0,
+        "lovibond": 1.8,
+        "pct_of_grist": 1.9
+      }
+    ],
+    "hops": [
+      {
+        "name": "Warrior",
+        "amount": 0.49,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 60,
+        "time_unit": "min",
+        "alpha_acid": 0.14300000000000002,
+        "hop_form": "Pellet",
+        "crop_year": 2025,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Citra",
+        "amount": 0.5,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 15,
+        "time_unit": "min",
+        "alpha_acid": 0.138,
+        "hop_form": "Pellet",
+        "crop_year": 2025,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Azacca",
+        "amount": 0.6,
+        "unit": "oz",
+        "usage": "Flameout",
+        "time": 0,
+        "time_unit": "min",
+        "alpha_acid": 0.134,
+        "hop_form": "Pellet",
+        "crop_year": 2021,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Citra",
+        "amount": 1.0,
+        "unit": "oz",
+        "usage": "Flameout",
+        "time": 0,
+        "time_unit": "min",
+        "alpha_acid": 0.138,
+        "hop_form": "Pellet",
+        "crop_year": 2025,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Azacca",
+        "amount": 0.65,
+        "unit": "oz",
+        "usage": "Whirlpool 170°",
+        "time": 20,
+        "time_unit": "min",
+        "alpha_acid": 0.134,
+        "hop_form": "Pellet",
+        "crop_year": 2021,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Citra",
+        "amount": 0.6,
+        "unit": "oz",
+        "usage": "Whirlpool 170°",
+        "time": 20,
+        "time_unit": "min",
+        "alpha_acid": 0.138,
+        "hop_form": "Pellet",
+        "crop_year": 2025,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Azacca",
+        "amount": 1.0,
+        "unit": "oz",
+        "usage": "Dry Hop",
+        "time": 2,
+        "time_unit": "days",
+        "alpha_acid": 0.134,
+        "hop_form": "Pellet",
+        "crop_year": 2021,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Citra",
+        "amount": 1.5,
+        "unit": "oz",
+        "usage": "Dry Hop",
+        "time": 2,
+        "time_unit": "days",
+        "alpha_acid": 0.138,
+        "hop_form": "Pellet",
+        "crop_year": 2025,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Idaho 7",
+        "amount": 3.5,
+        "unit": "g",
+        "usage": "Dry Hop",
+        "time": 2,
+        "time_unit": "days",
+        "alpha_acid": 0.125,
+        "hop_form": "Pellet",
+        "crop_year": 2021,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Strata",
+        "amount": 3.5,
+        "unit": "g",
+        "usage": "Dry Hop",
+        "time": 2,
+        "time_unit": "days",
+        "alpha_acid": 0.125,
+        "hop_form": "Pellet",
+        "crop_year": 2021,
+        "hemisphere": "Northern"
+      }
+    ],
+    "boil_additions": [
+      {
+        "name": "Whirlfloc Tablet",
+        "amount": 0.5,
+        "unit": "tablets",
+        "time": 15.0,
+        "time_unit": "min"
+      },
+      {
+        "name": "WYeast Nutrient",
+        "amount": 2.2,
+        "unit": "g",
+        "time": 10.0,
+        "time_unit": "min"
+      }
+    ],
+    "yeast": [
+      {
+        "name": "SafAle US-05",
+        "attenuation": 80.0,
+        "attenuation_unit": "%"
+      }
+    ],
+    "sessions": []
+  },
+  {
+    "recipe_id": 71,
+    "name": "APA - Wizards & Seven Saws (2.5 gallons)",
+    "search": "apa - wizards & seven saws (2.5 gallons) 18b american pale ale",
+    "style_id": 56,
+    "style": "18B American Pale Ale",
+    "style_og_min": 1.045,
+    "style_og_max": 1.06,
+    "style_fg_min": 1.01,
+    "style_fg_max": 1.015,
+    "style_ibu_min": 30.0,
+    "style_ibu_max": 50.0,
+    "style_srm_min": 5.0,
+    "style_srm_max": 10.0,
+    "style_abv_min": 4.5,
+    "style_abv_max": 6.2,
+    "batch_size": 2.75,
+    "batch_size_unit": "gal",
+    "efficiency": 73.0,
+    "efficiency_unit": "%",
+    "mash_type": "Single Infusion",
+    "strike_vol_method": "full_volume",
+    "og": 1.0519,
+    "fg": 1.0104,
+    "abv": 5.45,
+    "abv_unit": "%",
+    "ibu": 40.1,
+    "srm": 4.6,
+    "srm_hex": "#FFBF42",
+    "bitterness_balance": 1.4,
+    "bitterness_balance_unit": "%",
+    "bitterness_label": "Balanced",
+    "grain_temp": 68.0,
+    "grain_temp_unit": "°F",
+    "water_treatments": "Brun'water - APA (new) - Wizards and Seven Saws (2.75 gallons)",
+    "sparge_amount": 1.0,
+    "sparge_amount_unit": "gal",
+    "sparge_temp": 175.0,
+    "sparge_temp_unit": "°F",
+    "boil_time": 60.0,
+    "boil_time_unit": "min",
+    "fermentation_temp": 68.0,
+    "fermentation_temp_unit": "°F",
+    "carbonation": 2.5,
+    "carbonation_unit": "vol CO₂",
+    "strike_volume": 3.16,
+    "strike_volume_unit": "gal",
+    "strike_temp": 159.0,
+    "strike_temp_unit": "°F",
+    "camden_mash_tablets": 0.16,
+    "camden_mash_grams": 0.1,
+    "camden_sparge_tablets": 0.05,
+    "camden_sparge_grams": 0.03,
+    "notes_label_1": "Design Notes",
+    "notes_1": "design rationale in file Modern American Pale Ale 2026.docx\nstandard 5 gallon batch ratioed by Brew Lab but manually lowered warrior amount to stay at 40 IBU total\n",
+    "notes_label_2": "Process Notes",
+    "notes_2": "Adjust hop quantities for aged hops per recipe guideline\nFlameout hops - add and immediately flash chill to 170F\nSprinkle on yeast (no rehydration necessary for ales at 1052)\nDry hop at 85% attenuation, immediately start ramp down to 58F over 24 hours\n  dry hop using weights in bag per my guideline (3.7 ounce aged hops, 9.2 ounce weight, which is large shot glass & 2 bolts)\nIdeally keep hop contact time to 48 hours\nCold crash/lower temperature  after 48 hours of dry hopping\nCold crash for 3 days once crash temp is reached\nKeg after 3 days of cold crashing (purge keg with CO2 first)\nBurst carbonate at 30psi for 24 hours, then pull PRV, put on 12 psi for 12 hours\nFine tune carbonation to 2.5 volumes\n",
+    "notes_date": "2026-03-20",
+    "mash_steps": [
+      {
+        "step_order": 1,
+        "step_label": "Single Infusion",
+        "temp_f": 152.0,
+        "temp_unit": "°F",
+        "time_min": 60.0,
+        "time_unit": "min",
+        "adjustment_gal": -0.2,
+        "adjustment_unit": "gal"
+      }
+    ],
+    "grains": [
+      {
+        "name": "Pale Malt - Am. 2 row",
+        "amount": 4.85,
+        "unit": "lbs",
+        "max_extract": 37.0,
+        "lovibond": 1.8,
+        "pct_of_grist": 91.4
+      },
+      {
+        "name": "Munich Malt - Light",
+        "amount": 4.19,
+        "unit": "oz",
+        "max_extract": 37.0,
+        "lovibond": 5.7,
+        "pct_of_grist": 4.9
+      },
+      {
+        "name": "Crystal Malt - 40 Lovibond",
+        "amount": 1.57,
+        "unit": "oz",
+        "max_extract": 34.0,
+        "lovibond": 40.0,
+        "pct_of_grist": 1.9
+      },
+      {
+        "name": "Cara-Pils Malt",
+        "amount": 1.57,
+        "unit": "oz",
+        "max_extract": 33.0,
+        "lovibond": 1.8,
+        "pct_of_grist": 1.9
+      }
+    ],
+    "hops": [
+      {
+        "name": "Warrior",
+        "amount": 0.24,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 60,
+        "time_unit": "min",
+        "alpha_acid": 0.14300000000000002,
+        "hop_form": "Pellet",
+        "crop_year": 2025,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Citra",
+        "amount": 0.26,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 15,
+        "time_unit": "min",
+        "alpha_acid": 0.138,
+        "hop_form": "Pellet",
+        "crop_year": 2025,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Azacca",
+        "amount": 0.31,
+        "unit": "oz",
+        "usage": "Flameout",
+        "time": 0,
+        "time_unit": "min",
+        "alpha_acid": 0.134,
+        "hop_form": "Pellet",
+        "crop_year": 2021,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Citra",
+        "amount": 0.52,
+        "unit": "oz",
+        "usage": "Flameout",
+        "time": 0,
+        "time_unit": "min",
+        "alpha_acid": 0.138,
+        "hop_form": "Pellet",
+        "crop_year": 2025,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Azacca",
+        "amount": 0.34,
+        "unit": "oz",
+        "usage": "Whirlpool 170°",
+        "time": 20,
+        "time_unit": "min",
+        "alpha_acid": 0.134,
+        "hop_form": "Pellet",
+        "crop_year": 2021,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Citra",
+        "amount": 0.31,
+        "unit": "oz",
+        "usage": "Whirlpool 170°",
+        "time": 20,
+        "time_unit": "min",
+        "alpha_acid": 0.138,
+        "hop_form": "Pellet",
+        "crop_year": 2025,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Azacca",
+        "amount": 0.52,
+        "unit": "oz",
+        "usage": "Dry Hop",
+        "time": 2,
+        "time_unit": "days",
+        "alpha_acid": 0.134,
+        "hop_form": "Pellet",
+        "crop_year": 2021,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Citra",
+        "amount": 0.79,
+        "unit": "oz",
+        "usage": "Dry Hop",
+        "time": 2,
+        "time_unit": "days",
+        "alpha_acid": 0.138,
+        "hop_form": "Pellet",
+        "crop_year": 2025,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Idaho 7",
+        "amount": 1.83,
+        "unit": "g",
+        "usage": "Dry Hop",
+        "time": 2,
+        "time_unit": "days",
+        "alpha_acid": 0.125,
+        "hop_form": "Pellet",
+        "crop_year": 2021,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Strata",
+        "amount": 1.83,
+        "unit": "g",
+        "usage": "Dry Hop",
+        "time": 2,
+        "time_unit": "days",
+        "alpha_acid": 0.125,
+        "hop_form": "Pellet",
+        "crop_year": 2021,
+        "hemisphere": "Northern"
+      }
+    ],
+    "boil_additions": [
+      {
+        "name": "Whirlfloc Tablet",
+        "amount": 0.25,
+        "unit": "tablets",
+        "time": 15.0,
+        "time_unit": "min"
+      },
+      {
+        "name": "WYeast Nutrient",
+        "amount": 1.15,
+        "unit": "g",
+        "time": 10.0,
+        "time_unit": "min"
+      }
+    ],
+    "yeast": [
+      {
+        "name": "SafAle US-05",
+        "attenuation": 80.0,
+        "attenuation_unit": "%"
+      }
+    ],
+    "sessions": [
+      {
+        "session_id": 92,
+        "session_date": "03-24-2026",
+        "brew_date": "03-24-2026",
+        "actual_og": 1.051,
+        "actual_fg": null,
+        "actual_abv": null,
+        "actual_abv_unit": "%",
+        "apparent_attenuation": null,
+        "apparent_attenuation_unit": "%",
+        "mash_efficiency": 71.7,
+        "mash_efficiency_unit": "%",
+        "observed_color": "Bronze",
+        "brew_day_notes": "Adjust hop usage for aged hops per brewing sessions table\nHad a hard time getting to target 152F mash temp, strike mash temp 150F,  got to 151F by the end;  verified Brew Lab math for strike volume and temp matches Beerbook, think there was a math error on my part converting 0.16 gallons to quarts resulting in a lower strike volume resulting in not enough hot water to set mash temp correctly.\nph = 5.3 (measured by strip) 5.4 (including .1 correction) - close enough to 5.3 target\nOG 1052 by refractometer, tilt 1050, so we'll say 1051\npitched yeast by sprinkling at 8 PM\nVolume = 2.5 gallons, a little low; kettle trub not excessive, Brew Lab strike volume math verified correct; lbs grain is no more than any other small batch recipe I've done, confirmed larger dry hop volume for aged hops would only result in a 1.28 ounce difference in strike water, believe this is to the strike volume math error above.\nBut if we had a math error and had more strike water, OG would be lower than the expected 1052 so consider lowering efficiency to 72% and adjust accordingly?\n3/28 - dry hop at midnight @ 1017 (ideal target was 1016)",
+        "tasting_notes": "",
+        "inventory_applied": true
+      },
+      {
+        "session_id": 97,
+        "session_date": null,
+        "brew_date": null,
+        "actual_og": null,
+        "actual_fg": null,
+        "actual_abv": null,
+        "actual_abv_unit": "%",
+        "apparent_attenuation": null,
+        "apparent_attenuation_unit": "%",
+        "mash_efficiency": null,
+        "mash_efficiency_unit": "%",
+        "observed_color": "",
+        "brew_day_notes": "",
+        "tasting_notes": "",
+        "inventory_applied": false
+      }
+    ]
+  },
+  {
+    "recipe_id": 66,
+    "name": "Dark Belgian Ale",
+    "search": "dark belgian ale 26b belgian dubbel",
+    "style_id": 90,
+    "style": "26B Belgian Dubbel",
+    "style_og_min": 1.062,
+    "style_og_max": 1.075,
+    "style_fg_min": 1.008,
+    "style_fg_max": 1.018,
+    "style_ibu_min": 15.0,
+    "style_ibu_max": 25.0,
+    "style_srm_min": 10.0,
+    "style_srm_max": 17.0,
+    "style_abv_min": 6.0,
+    "style_abv_max": 7.6,
+    "batch_size": 2.75,
+    "batch_size_unit": "gal",
+    "efficiency": 73.0,
+    "efficiency_unit": "%",
+    "mash_type": "Single Infusion",
+    "strike_vol_method": "full_volume",
+    "og": 1.0572,
+    "fg": 1.0057,
+    "abv": 6.76,
+    "abv_unit": "%",
+    "ibu": 25.4,
+    "srm": 23.1,
+    "srm_hex": "#952D00",
+    "bitterness_balance": 52.1,
+    "bitterness_balance_unit": "%",
+    "bitterness_label": "Bitter Leaning",
+    "grain_temp": 68.0,
+    "grain_temp_unit": "°F",
+    "water_treatments": "Brun'water - Dark Belgian Ale",
+    "sparge_amount": 1.0,
+    "sparge_amount_unit": "gal",
+    "sparge_temp": 175.0,
+    "sparge_temp_unit": "°F",
+    "boil_time": 90.0,
+    "boil_time_unit": "min",
+    "fermentation_temp": 64.0,
+    "fermentation_temp_unit": "°F",
+    "carbonation": 3.0,
+    "carbonation_unit": "vol CO₂",
+    "strike_volume": 3.7,
+    "strike_volume_unit": "gal",
+    "strike_temp": 158.5,
+    "strike_temp_unit": "°F",
+    "camden_mash_tablets": 0.19,
+    "camden_mash_grams": 0.12,
+    "camden_sparge_tablets": 0.05,
+    "camden_sparge_grams": 0.03,
+    "notes_label_1": "Design Notes",
+    "notes_1": "This was a recipe design to a) make something quick, b) use the BE-134 yeast and c) use up anything I have and not get anything new\nRecipe designed on Gemini session - summary is in google docs\nTarget is really a sessionable dark Belgian ale not 100% suited to any particular style although it's marginally close a Dubbel\nSince we are using older dry yeast, we will want to rehydrate the yeast for 15 minutes before adding to the starter\n  prevents osmotic shock in old yeast; rehydration gives the yeast some time to revitalize themselves (or at least this is what AI says :-))\n",
+    "notes_label_2": "Process Notes",
+    "notes_2": "Fermentation Schedule\n  Pitch at 64°F and hold until fermentation is 1/3 complete (Restrains harsh phenolic (spicy) and fusel alcohol flavors, securing a clean base)\n  Raise temperature by 1° every 12 hours over the next 3 days to reach 70°F (Encourages desirable fruity esters).\n  Hold at 70° until FG is stable (Reach full attenuation)",
+    "notes_date": "unknown",
+    "mash_steps": [
+      {
+        "step_order": 1,
+        "step_label": "Single Infusion",
+        "temp_f": 152.0,
+        "temp_unit": "°F",
+        "time_min": 60.0,
+        "time_unit": "min",
+        "adjustment_gal": -0.2,
+        "adjustment_unit": "gal"
+      },
+      {
+        "step_order": 2,
+        "step_label": "Mash Out",
+        "temp_f": 170.0,
+        "temp_unit": "°F",
+        "time_min": 10.0,
+        "time_unit": "min",
+        "adjustment_gal": 0.0,
+        "adjustment_unit": "gal"
+      }
+    ],
+    "grains": [
+      {
+        "name": "Pillsner Malt - SPM",
+        "amount": 4.5,
+        "unit": "lbs",
+        "max_extract": 37.0,
+        "lovibond": 1.8,
+        "pct_of_grist": 79.1
+      },
+      {
+        "name": "Victory Malt",
+        "amount": 8.0,
+        "unit": "oz",
+        "max_extract": 34.0,
+        "lovibond": 28.0,
+        "pct_of_grist": 8.8
+      },
+      {
+        "name": "Crystal Malt - English",
+        "amount": 4.0,
+        "unit": "oz",
+        "max_extract": 34.0,
+        "lovibond": 60.0,
+        "pct_of_grist": 4.4
+      },
+      {
+        "name": "Midnight Wheat",
+        "amount": 3.0,
+        "unit": "oz",
+        "max_extract": 29.0,
+        "lovibond": 550.0,
+        "pct_of_grist": 3.3
+      },
+      {
+        "name": "Cara Helles",
+        "amount": 3.0,
+        "unit": "oz",
+        "max_extract": 31.0,
+        "lovibond": 9.9,
+        "pct_of_grist": 3.3
+      },
+      {
+        "name": "Crystal Malt - 120 Lovibond",
+        "amount": 1.0,
+        "unit": "oz",
+        "max_extract": 34.0,
+        "lovibond": 120.0,
+        "pct_of_grist": 1.1
+      }
+    ],
+    "hops": [
+      {
+        "name": "Perle",
+        "amount": 0.4,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 60,
+        "time_unit": "min",
+        "alpha_acid": 0.071,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Saaz-Czech",
+        "amount": 0.5,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 10,
+        "time_unit": "min",
+        "alpha_acid": 0.024,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      }
+    ],
+    "boil_additions": [
+      {
+        "name": "Sugar - Corn",
+        "amount": 3.0,
+        "unit": "oz",
+        "time": 10.0,
+        "time_unit": "min"
+      },
+      {
+        "name": "Yeast Nutrient",
+        "amount": 1.5,
+        "unit": "tsp",
+        "time": 10.0,
+        "time_unit": "min"
+      },
+      {
+        "name": "Whirlfloc Tablet",
+        "amount": 0.25,
+        "unit": "tablets",
+        "time": 10.0,
+        "time_unit": "min"
+      }
+    ],
+    "yeast": [
+      {
+        "name": "SafAle BE-134",
+        "attenuation": 90.0,
+        "attenuation_unit": "%"
+      }
+    ],
+    "sessions": [
+      {
+        "session_id": 96,
+        "session_date": "11-22-2025",
+        "brew_date": null,
+        "actual_og": 1.055,
+        "actual_fg": 1.009,
+        "actual_abv": 6.04,
+        "actual_abv_unit": "%",
+        "apparent_attenuation": 83.6,
+        "apparent_attenuation_unit": "%",
+        "mash_efficiency": 63.6,
+        "mash_efficiency_unit": "%",
+        "observed_color": "",
+        "brew_day_notes": "",
+        "tasting_notes": "",
+        "inventory_applied": false
+      }
+    ]
+  },
+  {
+    "recipe_id": 72,
+    "name": "Dark Mild #7",
+    "search": "dark mild #7 13a dark mild",
+    "style_id": 38,
+    "style": "13A Dark Mild",
+    "style_og_min": 1.03,
+    "style_og_max": 1.038,
+    "style_fg_min": 1.008,
+    "style_fg_max": 1.013,
+    "style_ibu_min": 10.0,
+    "style_ibu_max": 25.0,
+    "style_srm_min": 12.0,
+    "style_srm_max": 25.0,
+    "style_abv_min": 3.0,
+    "style_abv_max": 3.8,
+    "batch_size": 2.75,
+    "batch_size_unit": "gal",
+    "efficiency": 72.0,
+    "efficiency_unit": "%",
+    "mash_type": "Single Infusion",
+    "strike_vol_method": "full_volume",
+    "og": 1.0315,
+    "fg": 1.0085,
+    "abv": 3.02,
+    "abv_unit": "%",
+    "ibu": 21.7,
+    "srm": 13.0,
+    "srm_hex": "#CF6900",
+    "bitterness_balance": 33.8,
+    "bitterness_balance_unit": "%",
+    "bitterness_label": "Bitter Leaning",
+    "grain_temp": 68.0,
+    "grain_temp_unit": "°F",
+    "water_treatments": "per special Brun'water file",
+    "sparge_amount": 1.0,
+    "sparge_amount_unit": "gal",
+    "sparge_temp": 170.0,
+    "sparge_temp_unit": "°F",
+    "boil_time": 60.0,
+    "boil_time_unit": "min",
+    "fermentation_temp": 68.0,
+    "fermentation_temp_unit": "°F",
+    "carbonation": 2.1,
+    "carbonation_unit": "vol CO₂",
+    "strike_volume": 3.03,
+    "strike_volume_unit": "gal",
+    "strike_temp": 158.7,
+    "strike_temp_unit": "°F",
+    "camden_mash_tablets": 0.15,
+    "camden_mash_grams": 0.09,
+    "camden_sparge_tablets": 0.05,
+    "camden_sparge_grams": 0.03,
+    "notes_label_1": "Design Notes",
+    "notes_1": "New version based on DRC without chocolate - see google drive file Dark Mild Recipe w/DRC\nFor the initial version, no coloring grains till we see what the DRC does, then consider some midnight wheat for coloring per the above document.",
+    "notes_label_2": "Process Notes",
+    "notes_2": "only process change will be to dry hop at 85% attenuation for 2 days per my guidelines",
+    "notes_date": "2026-03-20",
+    "mash_steps": [
+      {
+        "step_order": 1,
+        "step_label": "Single Infusion",
+        "temp_f": 154.0,
+        "temp_unit": "°F",
+        "time_min": 60.0,
+        "time_unit": "min",
+        "adjustment_gal": -0.2,
+        "adjustment_unit": "gal"
+      }
+    ],
+    "grains": [
+      {
+        "name": "Pale Malt - Marris Otter",
+        "amount": 38.0,
+        "unit": "oz",
+        "max_extract": 37.0,
+        "lovibond": 2.5,
+        "pct_of_grist": 71.0
+      },
+      {
+        "name": "Biscuit Malt",
+        "amount": 5.5,
+        "unit": "oz",
+        "max_extract": 35.0,
+        "lovibond": 24.0,
+        "pct_of_grist": 10.3
+      },
+      {
+        "name": "Crystal Malt - Double Roasted (DRC)",
+        "amount": 4.0,
+        "unit": "oz",
+        "max_extract": 34.0,
+        "lovibond": 112.0,
+        "pct_of_grist": 7.5
+      },
+      {
+        "name": "Crystal Malt - 120 Lovibond",
+        "amount": 3.0,
+        "unit": "oz",
+        "max_extract": 34.0,
+        "lovibond": 120.0,
+        "pct_of_grist": 5.6
+      },
+      {
+        "name": "Torrified Wheat",
+        "amount": 3.0,
+        "unit": "oz",
+        "max_extract": 29.0,
+        "lovibond": 1.0,
+        "pct_of_grist": 5.6
+      }
+    ],
+    "hops": [
+      {
+        "name": "Kent Goldings",
+        "amount": 0.33,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 60,
+        "time_unit": "min",
+        "alpha_acid": 0.043,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Kent Goldings",
+        "amount": 0.2,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 30,
+        "time_unit": "min",
+        "alpha_acid": 0.043,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Kent Goldings",
+        "amount": 0.25,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 10,
+        "time_unit": "min",
+        "alpha_acid": 0.043,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Kent Goldings",
+        "amount": 0.25,
+        "unit": "oz",
+        "usage": "Dry Hop",
+        "time": 2,
+        "time_unit": "days",
+        "alpha_acid": 0.043,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      }
+    ],
+    "boil_additions": [
+      {
+        "name": "WYeast Nutrient",
+        "amount": 1.1,
+        "unit": "g",
+        "time": 15.0,
+        "time_unit": "min"
+      },
+      {
+        "name": "Whirlfloc Tablet",
+        "amount": 0.25,
+        "unit": "tablets",
+        "time": 10.0,
+        "time_unit": "min"
+      }
+    ],
+    "yeast": [
+      {
+        "name": "Wyeast 1318",
+        "attenuation": 73.0,
+        "attenuation_unit": "%"
+      }
+    ],
+    "sessions": []
+  },
+  {
+    "recipe_id": 46,
+    "name": "East Coast Pilsner",
+    "search": "east coast pilsner 5d german pils",
+    "style_id": 18,
+    "style": "5D German Pils",
+    "style_og_min": 1.044,
+    "style_og_max": 1.05,
+    "style_fg_min": 1.008,
+    "style_fg_max": 1.013,
+    "style_ibu_min": 22.0,
+    "style_ibu_max": 40.0,
+    "style_srm_min": 2.0,
+    "style_srm_max": 5.0,
+    "style_abv_min": 4.4,
+    "style_abv_max": 5.2,
+    "batch_size": 5.25,
+    "batch_size_unit": "gal",
+    "efficiency": 73.0,
+    "efficiency_unit": "%",
+    "mash_type": "Single Infusion",
+    "strike_vol_method": "full_volume",
+    "og": 1.0504,
+    "fg": 1.0106,
+    "abv": 5.22,
+    "abv_unit": "%",
+    "ibu": 39.6,
+    "srm": 3.5,
+    "srm_hex": "#FFCA5A",
+    "bitterness_balance": 19.1,
+    "bitterness_balance_unit": "%",
+    "bitterness_label": "Bitter Leaning",
+    "grain_temp": 68.0,
+    "grain_temp_unit": "°F",
+    "water_treatments": "per Brun'water - East Coast Pilsner",
+    "sparge_amount": 1.0,
+    "sparge_amount_unit": "gal",
+    "sparge_temp": 176.0,
+    "sparge_temp_unit": "°F",
+    "boil_time": 75.0,
+    "boil_time_unit": "min",
+    "fermentation_temp": 68.0,
+    "fermentation_temp_unit": "°F",
+    "carbonation": 2.4,
+    "carbonation_unit": "vol CO₂",
+    "strike_volume": 6.46,
+    "strike_volume_unit": "gal",
+    "strike_temp": 158.4,
+    "strike_temp_unit": "°F",
+    "camden_mash_tablets": 0.32,
+    "camden_mash_grams": 0.2,
+    "camden_sparge_tablets": 0.05,
+    "camden_sparge_grams": 0.03,
+    "notes_label_1": "Design Notes",
+    "notes_1": "Used a very old package of Diamond Lager yeast from Walter",
+    "notes_label_2": "Process Notes",
+    "notes_2": "",
+    "notes_date": "",
+    "mash_steps": [
+      {
+        "step_order": 1,
+        "step_label": "Single Infusion",
+        "temp_f": 152.0,
+        "temp_unit": "°F",
+        "time_min": 60.0,
+        "time_unit": "min",
+        "adjustment_gal": 0.0,
+        "adjustment_unit": "gal"
+      },
+      {
+        "step_order": 2,
+        "step_label": "Mash Out",
+        "temp_f": 170.0,
+        "temp_unit": "°F",
+        "time_min": 10.0,
+        "time_unit": "min",
+        "adjustment_gal": 0.0,
+        "adjustment_unit": "gal"
+      }
+    ],
+    "grains": [
+      {
+        "name": "Pillsner Malt - SPM",
+        "amount": 146.0,
+        "unit": "oz",
+        "max_extract": 37.0,
+        "lovibond": 1.8,
+        "pct_of_grist": 92.4
+      },
+      {
+        "name": "Flaked Oats",
+        "amount": 0.5,
+        "unit": "lbs",
+        "max_extract": 33.0,
+        "lovibond": 2.2,
+        "pct_of_grist": 5.1
+      },
+      {
+        "name": "Cara-Pils Malt",
+        "amount": 4.0,
+        "unit": "oz",
+        "max_extract": 33.0,
+        "lovibond": 1.8,
+        "pct_of_grist": 2.5
+      }
+    ],
+    "hops": [
+      {
+        "name": "Warrior",
+        "amount": 0.2,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 60,
+        "time_unit": "min",
+        "alpha_acid": 0.147,
+        "hop_form": "Pellet",
+        "crop_year": 2025,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Citra",
+        "amount": 1.1,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 10,
+        "time_unit": "min",
+        "alpha_acid": 0.138,
+        "hop_form": "Pellet",
+        "crop_year": 2025,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Mosaic",
+        "amount": 0.4,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 10,
+        "time_unit": "min",
+        "alpha_acid": 0.11199999999999999,
+        "hop_form": "Pellet",
+        "crop_year": 2021,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Citra",
+        "amount": 0.75,
+        "unit": "oz",
+        "usage": "Dry Hop",
+        "time": 2,
+        "time_unit": "days",
+        "alpha_acid": 0.138,
+        "hop_form": "Pellet",
+        "crop_year": 2025,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Citra",
+        "amount": 0.75,
+        "unit": "oz",
+        "usage": "Dry Hop",
+        "time": 2,
+        "time_unit": "days",
+        "alpha_acid": 0.138,
+        "hop_form": "Pellet",
+        "crop_year": 2025,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Idaho 7",
+        "amount": 1.85,
+        "unit": "oz",
+        "usage": "Dry Hop",
+        "time": 2,
+        "time_unit": "days",
+        "alpha_acid": 0.125,
+        "hop_form": "Pellet",
+        "crop_year": 2021,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Mosaic",
+        "amount": 1.5,
+        "unit": "oz",
+        "usage": "Dry Hop",
+        "time": 2,
+        "time_unit": "days",
+        "alpha_acid": 0.11199999999999999,
+        "hop_form": "Pellet",
+        "crop_year": 2021,
+        "hemisphere": "Northern"
+      }
+    ],
+    "boil_additions": [
+      {
+        "name": "Whirlfloc Tablet",
+        "amount": 0.5,
+        "unit": "tablets",
+        "time": 15.0,
+        "time_unit": "min"
+      },
+      {
+        "name": "WYeast Nutrient",
+        "amount": 2.2,
+        "unit": "g",
+        "time": 10.0,
+        "time_unit": "min"
+      }
+    ],
+    "yeast": [
+      {
+        "name": "Other",
+        "attenuation": 79.0,
+        "attenuation_unit": "%"
+      }
+    ],
+    "sessions": []
+  },
+  {
+    "recipe_id": 97,
+    "name": "Munich Dunkel",
+    "search": "munich dunkel 8a munich dunkel",
+    "style_id": 24,
+    "style": "8A Munich Dunkel",
+    "style_og_min": 1.048,
+    "style_og_max": 1.056,
+    "style_fg_min": 1.01,
+    "style_fg_max": 1.016,
+    "style_ibu_min": 18.0,
+    "style_ibu_max": 28.0,
+    "style_srm_min": 14.0,
+    "style_srm_max": 28.0,
+    "style_abv_min": 4.5,
+    "style_abv_max": 5.6,
+    "batch_size": 5.25,
+    "batch_size_unit": "gal",
+    "efficiency": 72.0,
+    "efficiency_unit": "%",
+    "mash_type": "Hochkurz",
+    "strike_vol_method": "full_volume",
+    "og": 1.0513,
+    "fg": 1.0128,
+    "abv": 5.05,
+    "abv_unit": "%",
+    "ibu": 21.8,
+    "srm": 19.2,
+    "srm_hex": "#A13800",
+    "bitterness_balance": -3.9,
+    "bitterness_balance_unit": "%",
+    "bitterness_label": "Balanced",
+    "grain_temp": 68.0,
+    "grain_temp_unit": "°F",
+    "water_treatments": "Brun'water Munich Dunkel 2023 water",
+    "sparge_amount": 1.0,
+    "sparge_amount_unit": "gal",
+    "sparge_temp": 170.0,
+    "sparge_temp_unit": "°F",
+    "boil_time": 90.0,
+    "boil_time_unit": "min",
+    "fermentation_temp": 50.0,
+    "fermentation_temp_unit": "°F",
+    "carbonation": 2.3,
+    "carbonation_unit": "vol CO₂",
+    "strike_volume": 5.48,
+    "strike_volume_unit": "gal",
+    "strike_temp": 154.4,
+    "strike_temp_unit": "°F",
+    "camden_mash_tablets": 0.27,
+    "camden_mash_grams": 0.16,
+    "camden_sparge_tablets": 0.05,
+    "camden_sparge_grams": 0.03,
+    "notes_label_1": "Design Notes",
+    "notes_1": "Used Wyeast 2308",
+    "notes_label_2": "Process Notes",
+    "notes_2": "Pitch at 44-46°F then raise temp to 50 over next 36 hours\n",
+    "notes_date": "2025-09-23",
+    "mash_steps": [
+      {
+        "step_order": 1,
+        "step_label": "Maltose Rest",
+        "temp_f": 147.0,
+        "temp_unit": "°F",
+        "time_min": 30.0,
+        "time_unit": "min",
+        "adjustment_gal": -1.25,
+        "adjustment_unit": "gal"
+      },
+      {
+        "step_order": 2,
+        "step_label": "Dextrin Rest",
+        "temp_f": 160.0,
+        "temp_unit": "°F",
+        "time_min": 30.0,
+        "time_unit": "min",
+        "adjustment_gal": 1.25,
+        "adjustment_unit": "gal"
+      },
+      {
+        "step_order": 3,
+        "step_label": "Mash Out",
+        "temp_f": 170.0,
+        "temp_unit": "°F",
+        "time_min": 10.0,
+        "time_unit": "min",
+        "adjustment_gal": 0.0,
+        "adjustment_unit": "gal"
+      }
+    ],
+    "grains": [
+      {
+        "name": "Munich Malt - Dark",
+        "amount": 8.5,
+        "unit": "lbs",
+        "max_extract": 37.0,
+        "lovibond": 8.5,
+        "pct_of_grist": 82.9
+      },
+      {
+        "name": "Melanoidan Malt",
+        "amount": 0.5,
+        "unit": "lbs",
+        "max_extract": 33.0,
+        "lovibond": 35.0,
+        "pct_of_grist": 4.9
+      },
+      {
+        "name": "Cara Munich II",
+        "amount": 0.5,
+        "unit": "lbs",
+        "max_extract": 33.3,
+        "lovibond": 45.7,
+        "pct_of_grist": 4.9
+      },
+      {
+        "name": "Vienna Malt",
+        "amount": 0.5,
+        "unit": "lbs",
+        "max_extract": 37.0,
+        "lovibond": 3.0,
+        "pct_of_grist": 4.9
+      },
+      {
+        "name": "Carafa Special II",
+        "amount": 0.25,
+        "unit": "lbs",
+        "max_extract": 32.0,
+        "lovibond": 413.0,
+        "pct_of_grist": 2.4
+      }
+    ],
+    "hops": [
+      {
+        "name": "Spalt",
+        "amount": 1.28,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 60,
+        "time_unit": "min",
+        "alpha_acid": 0.043,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      }
+    ],
+    "boil_additions": [
+      {
+        "name": "WYeast Nutrient",
+        "amount": 2.2,
+        "unit": "g",
+        "time": 15.0,
+        "time_unit": "min"
+      },
+      {
+        "name": "Whirlfloc Tablet",
+        "amount": 0.5,
+        "unit": "tablets",
+        "time": 10.0,
+        "time_unit": "min"
+      }
+    ],
+    "yeast": [
+      {
+        "name": "Other",
+        "attenuation": 75.0,
+        "attenuation_unit": "%"
+      }
+    ],
+    "sessions": [
+      {
+        "session_id": 95,
+        "session_date": "09-23-2025",
+        "brew_date": null,
+        "actual_og": 1.052,
+        "actual_fg": 1.018,
+        "actual_abv": 4.46,
+        "actual_abv_unit": "%",
+        "apparent_attenuation": 65.4,
+        "apparent_attenuation_unit": "%",
+        "mash_efficiency": 73.0,
+        "mash_efficiency_unit": "%",
+        "observed_color": "Dark Black",
+        "brew_day_notes": "Initial Impressions before carbonating - good body, a little slick and sharp, malty with a slight chocolate roast, might be good!\n\n",
+        "tasting_notes": "Compare to Hofbrau Dunkel and Ayinger Dunkel, mine has similar body, is much darker in color and roastier but smoother and a touch less bitter\nCompare to Treehouse, color is the same but a touch less bitter\nI like my less bitter version better but could cut back the roastiness a bit\nCompared to BJCP, this is black versus dark brown and shows some signs of roastiness which is verboten\nOverall, a very nice and enjoyable beer, just a touch past the style guideline in color and roast; chocolate roast overtakes malty, bready notes that are desired\nVery favorable reviews from club mini-comp, scores consistently around 38 from everyone, 1st place out of 3\n",
+        "inventory_applied": false
+      }
+    ]
+  }
 ];
