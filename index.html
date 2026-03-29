@@ -12,6 +12,11 @@
         position: sticky; top: 0; background: #1f1f1f; padding: 15px; 
         border-bottom: 3px solid #f1c40f; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.5); 
     }
+    /* Target the H2 specifically to make it gold */
+    .header h2 { 
+        color: #f1c40f; 
+        margin: 0;
+    }
     #searchBar { width: 95%; padding: 12px; border-radius: 5px; border: 1px solid #444; background: #2d2d2d; color: white; font-size: 16px; margin-top: 10px; }
     .metadata-header { font-size: 0.8em; color: #95a5a6; }
 
@@ -45,7 +50,7 @@
 <body onload="render()">
     <div class="header">
         <div style="display: flex; justify-content: space-between; align-items: center;">
-            <h2 style="margin: 0; color: #3498db;">Brew Lab Mobile</h2>
+            <h2 style="margin: 0;">Brew Lab Mobile</h2>
             <div id="meta-container"></div>
         </div>
         <input type="text" id="searchBar" placeholder="Search recipes or styles..." onkeyup="render()">
@@ -53,7 +58,7 @@
 
     <div id="recipe-list"></div>
 
-    <script src="mobile_recipes.js?v=1774814645"></script>
+    <script src="mobile_recipes.js?v=1774815209"></script>
 
     <script>
         function toggleDetails(id) {
