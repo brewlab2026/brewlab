@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 03-29-2026 14:50:49
+// Exported: 03-29-2026 23:30:41
 
 const exportMeta = {
-  "export_datetime": "03-29-2026 14:50:49",
+  "export_datetime": "03-29-2026 23:30:41",
   "app_version": "1.0.0",
   "db_version": "1.0",
   "schema_version": "1.0"
@@ -253,7 +253,9 @@ const recipeData = [
     ],
     "yeast": [
       {
-        "name": "SafAle US-05",
+        "name": "SafAle US-05 — American Ale",
+        "amount": 1.0,
+        "unit": "Packet",
         "attenuation": 80.0,
         "attenuation_unit": "%"
       }
@@ -504,7 +506,9 @@ const recipeData = [
     ],
     "yeast": [
       {
-        "name": "SafAle US-05",
+        "name": "SafAle US-05 — American Ale",
+        "amount": 1.0,
+        "unit": "Packet",
         "attenuation": 80.0,
         "attenuation_unit": "%"
       }
@@ -526,23 +530,6 @@ const recipeData = [
         "brew_day_notes": "Adjust hop usage for aged hops per brewing sessions table\nHad a hard time getting to target 152F mash temp, strike mash temp 150F,  got to 151F by the end;  verified Brew Lab math for strike volume and temp matches Beerbook, think there was a math error on my part converting 0.16 gallons to quarts resulting in a lower strike volume resulting in not enough hot water to set mash temp correctly.\nph = 5.3 (measured by strip) 5.4 (including .1 correction) - close enough to 5.3 target\nOG 1052 by refractometer, tilt 1050, so we'll say 1051\npitched yeast by sprinkling at 8 PM\nVolume = 2.5 gallons, a little low; kettle trub not excessive, Brew Lab strike volume math verified correct; lbs grain is no more than any other small batch recipe I've done, confirmed larger dry hop volume for aged hops would only result in a 1.28 ounce difference in strike water, believe this is to the strike volume math error above.\nBut if we had a math error and had more strike water, OG would be lower than the expected 1052 so consider lowering efficiency to 72% and adjust accordingly?\n3/28 - dry hop at midnight @ 1017 (ideal target was 1016)",
         "tasting_notes": "",
         "inventory_applied": true
-      },
-      {
-        "session_id": 97,
-        "session_date": null,
-        "brew_date": null,
-        "actual_og": null,
-        "actual_fg": null,
-        "actual_abv": null,
-        "actual_abv_unit": "%",
-        "apparent_attenuation": null,
-        "apparent_attenuation_unit": "%",
-        "mash_efficiency": null,
-        "mash_efficiency_unit": "%",
-        "observed_color": "",
-        "brew_day_notes": "",
-        "tasting_notes": "",
-        "inventory_applied": false
       }
     ]
   },
@@ -727,7 +714,9 @@ const recipeData = [
     ],
     "yeast": [
       {
-        "name": "SafAle BE-134",
+        "name": "SafAle BE-134 — Belgian Saison",
+        "amount": 1.0,
+        "unit": "Packet",
         "attenuation": 90.0,
         "attenuation_unit": "%"
       }
@@ -932,7 +921,9 @@ const recipeData = [
     ],
     "yeast": [
       {
-        "name": "Wyeast 1318",
+        "name": "Wyeast 1318 — London Ale III",
+        "amount": 1.0,
+        "unit": "Packet",
         "attenuation": 73.0,
         "attenuation_unit": "%"
       }
@@ -1150,6 +1141,8 @@ const recipeData = [
     "yeast": [
       {
         "name": "Other",
+        "amount": 1.0,
+        "unit": "Packet",
         "attenuation": 79.0,
         "attenuation_unit": "%"
       }
@@ -1321,6 +1314,8 @@ const recipeData = [
     "yeast": [
       {
         "name": "Other",
+        "amount": 1.0,
+        "unit": "Packet",
         "attenuation": 75.0,
         "attenuation_unit": "%"
       }
@@ -1342,6 +1337,152 @@ const recipeData = [
         "brew_day_notes": "Initial Impressions before carbonating - good body, a little slick and sharp, malty with a slight chocolate roast, might be good!\n\n",
         "tasting_notes": "Compare to Hofbrau Dunkel and Ayinger Dunkel, mine has similar body, is much darker in color and roastier but smoother and a touch less bitter\nCompare to Treehouse, color is the same but a touch less bitter\nI like my less bitter version better but could cut back the roastiness a bit\nCompared to BJCP, this is black versus dark brown and shows some signs of roastiness which is verboten\nOverall, a very nice and enjoyable beer, just a touch past the style guideline in color and roast; chocolate roast overtakes malty, bready notes that are desired\nVery favorable reviews from club mini-comp, scores consistently around 38 from everyone, 1st place out of 3\n",
         "inventory_applied": false
+      }
+    ]
+  },
+  {
+    "recipe_id": 115,
+    "name": "tets yeast",
+    "search": "tets yeast 1a american light lager",
+    "style_id": 1,
+    "style": "1A American Light Lager",
+    "style_og_min": 1.028,
+    "style_og_max": 1.04,
+    "style_fg_min": 0.998,
+    "style_fg_max": 1.008,
+    "style_ibu_min": 8.0,
+    "style_ibu_max": 12.0,
+    "style_srm_min": 2.0,
+    "style_srm_max": 3.0,
+    "style_abv_min": 2.8,
+    "style_abv_max": 4.2,
+    "batch_size": 5.25,
+    "batch_size_unit": "gal",
+    "efficiency": 73.0,
+    "efficiency_unit": "%",
+    "mash_type": "Single Infusion",
+    "strike_vol_method": "full_volume",
+    "og": 1.0051,
+    "fg": 1.0013,
+    "abv": 0.5,
+    "abv_unit": "%",
+    "ibu": 0.0,
+    "srm": 0.7,
+    "srm_hex": "#FFE699",
+    "bitterness_balance": 0.0,
+    "bitterness_balance_unit": "%",
+    "bitterness_label": "Balanced",
+    "grain_temp": 68.0,
+    "grain_temp_unit": "°F",
+    "water_treatments": "",
+    "sparge_amount": 1.0,
+    "sparge_amount_unit": "gal",
+    "sparge_temp": 170.0,
+    "sparge_temp_unit": "°F",
+    "boil_time": 60.0,
+    "boil_time_unit": "min",
+    "fermentation_temp": 68.0,
+    "fermentation_temp_unit": "°F",
+    "carbonation": 2.4,
+    "carbonation_unit": "vol CO₂",
+    "strike_volume": 5.55,
+    "strike_volume_unit": "gal",
+    "strike_temp": 152.8,
+    "strike_temp_unit": "°F",
+    "camden_mash_tablets": 0.28,
+    "camden_mash_grams": 0.17,
+    "camden_sparge_tablets": 0.05,
+    "camden_sparge_grams": 0.03,
+    "notes_label_1": "Design Notes",
+    "notes_1": null,
+    "notes_label_2": "Process Notes",
+    "notes_2": null,
+    "notes_date": null,
+    "mash_steps": [
+      {
+        "step_order": 1,
+        "step_label": "Single Infusion",
+        "temp_f": 152.0,
+        "temp_unit": "°F",
+        "time_min": 60.0,
+        "time_unit": "min",
+        "adjustment_gal": 0.0,
+        "adjustment_unit": "gal"
+      },
+      {
+        "step_order": 2,
+        "step_label": "Mash Out",
+        "temp_f": 170.0,
+        "temp_unit": "°F",
+        "time_min": 10.0,
+        "time_unit": "min",
+        "adjustment_gal": 0.0,
+        "adjustment_unit": "gal"
+      }
+    ],
+    "grains": [
+      {
+        "name": "Acidulated Malt",
+        "amount": 1.0,
+        "unit": "lbs",
+        "max_extract": 37.0,
+        "lovibond": 1.8,
+        "pct_of_grist": 100.0
+      }
+    ],
+    "hops": [],
+    "boil_additions": [
+      {
+        "name": "Whirlfloc Tablet",
+        "amount": 1.0,
+        "unit": "oz",
+        "time": 15.0,
+        "time_unit": "min"
+      }
+    ],
+    "yeast": [
+      {
+        "name": "WLP518 — Opshaug Kveik Ale",
+        "amount": 1.0,
+        "unit": "Packet",
+        "attenuation": 75.0,
+        "attenuation_unit": "%"
+      }
+    ],
+    "sessions": [
+      {
+        "session_id": 99,
+        "session_date": "03-18-2026",
+        "brew_date": null,
+        "actual_og": 1.052,
+        "actual_fg": 1.012,
+        "actual_abv": 5.25,
+        "actual_abv_unit": "%",
+        "apparent_attenuation": 76.9,
+        "apparent_attenuation_unit": "%",
+        "mash_efficiency": 737.8,
+        "mash_efficiency_unit": "%",
+        "observed_color": "",
+        "brew_day_notes": "",
+        "tasting_notes": "",
+        "inventory_applied": true
+      },
+      {
+        "session_id": 98,
+        "session_date": null,
+        "brew_date": null,
+        "actual_og": null,
+        "actual_fg": null,
+        "actual_abv": null,
+        "actual_abv_unit": "%",
+        "apparent_attenuation": null,
+        "apparent_attenuation_unit": "%",
+        "mash_efficiency": null,
+        "mash_efficiency_unit": "%",
+        "observed_color": "",
+        "brew_day_notes": "",
+        "tasting_notes": "",
+        "inventory_applied": true
       }
     ]
   }

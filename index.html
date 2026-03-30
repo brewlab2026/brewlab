@@ -58,7 +58,7 @@
 
     <div id="recipe-list"></div>
 
-    <script src="mobile_recipes.js?v=1774815209"></script>
+    <script src="mobile_recipes.js?v=1774843361"></script>
 
     <script>
         function toggleDetails(id) {
@@ -106,15 +106,25 @@
                             <button class="details-btn btn-sub" onclick="toggleDetails('recipe-${r.recipe_id}')">Recipe (Ingredients)</button>
                             <div id="recipe-${r.recipe_id}" style="display:none;" class="nested-section">
                                 <div class="section-title">Grains</div>
-                                <ul>${(r.grains || []).map(g => `<li><strong>${g.amount} ${g.unit}</strong> ${g.name} (${g.pct_of_grist}%)</li>`).join('')}</ul>
+                                <ul>${(r.grains || []).map(g => `
+                                    <li><strong>${g.amount} ${g.unit}</strong> ${g.name} (${g.pct_of_grist}%) <br>
+                                    <span style="font-size:0.85em; color:#95a5a6;">Color: ${g.lovibond} L</span></li>
+                                `).join('')}</ul>
+
                                 <div class="section-title">Hops</div>
-                                <ul>${(r.hops || []).map(h => `<li><strong>${h.amount} ${h.unit}</strong> ${h.name} @ ${h.time} ${h.time_unit} (${h.usage})</li>`).join('')}</ul>
+                                <ul>${(r.hops || []).map(h => `
+                                    <li><strong>${h.amount} ${h.unit}</strong> ${h.name} @ ${h.time} ${h.time_unit} (${h.usage})<br>
+                                    <span style="font-size:0.85em; color:#95a5a6;">AA: ${(h.alpha_acid * 100).toFixed(1)}% | ${h.hop_form}</span></li>
+                                `).join('')}</ul>
+
                                 <div class="section-title">Boil Additions</div>
                                 <ul>${(r.boil_additions || []).map(b => `<li><strong>${b.amount} ${b.unit}</strong> ${b.name} @ ${b.time} ${b.time_unit}</li>`).join('')}</ul>
-                                <div class="section-title">Yeast</div>
-                                <ul>${(r.yeast || []).map(y => `<li>${y.name} (Attenuation: ${y.attenuation}%)</li>`).join('')}</ul>
-                            </div>
 
+                                <div class="section-title">Yeast</div>
+                                <ul>${(r.yeast || []).map(y => `
+                                    <li><strong>${y.amount || ''} ${y.unit || ''}</strong> ${y.name} (Atten: ${y.attenuation}%)</li>
+                                `).join('')}</ul>
+                            </div>
                             <button class="details-btn btn-sub" onclick="toggleDetails('mash-${r.recipe_id}')">Mash & Process</button>
                             <div id="mash-${r.recipe_id}" style="display:none;" class="nested-section">
                                 <p><strong>Batch:</strong> ${r.batch_size} ${r.batch_size_unit} | <strong>Type:</strong> ${r.mash_type} | <strong>Eff:</strong> ${r.efficiency}%</p>
