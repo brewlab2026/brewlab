@@ -402,6 +402,35 @@
         });
         return tl;
     }
+
+    let wakeLock = null;
+
+    async function toggleWakeLock() {
+        const btn = document.getElementById('wakeLockBtn');
+        
+        if (wakeLock === null) {
+            try {
+                // Request the wake lock
+                wakeLock = await navigator.wakeLock.request('screen');
+                btn.style.filter = "grayscale(0) drop-shadow(0 0 5px #f1c40f)";
+                console.log("Wake Lock is active");
+
+                // If the user minimizes the tab and comes back, re-acquire lock
+                wakeLock.addEventListener('release', () => {
+                    console.log('Wake Lock was released');
+                });
+            } catch (err) {
+                console.error(`${err.name}, ${err.message}`);
+            }
+        } else {
+            // Release the wake lock
+            wakeLock.release();
+            wakeLock = null;
+            btn.style.filter = "grayscale(1)";
+            console.log("Wake Lock released manually");
+        }
+    }    
+
     </script>
 </body>
 </html>
