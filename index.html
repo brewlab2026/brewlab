@@ -17,6 +17,7 @@
         color: #f1c40f; 
         margin: 0;
     }
+
     #searchBar { width: 95%; padding: 12px; border-radius: 5px; border: 1px solid #444; background: #2d2d2d; color: white; font-size: 16px; margin-top: 10px; }
     .metadata-header { font-size: 0.8em; color: #95a5a6; }
 
@@ -48,17 +49,28 @@
 </style>
 </head>
 <body onload="render()">
-    <div class="header">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-            <h2 style="margin: 0;">Brew Lab Mobile</h2>
-            <div id="meta-container"></div>
-        </div>
-        <input type="text" id="searchBar" placeholder="Search recipes or styles..." onkeyup="render()">
+<div class="header">
+    <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+        <h2 style="margin: 0; white-space: nowrap;">Brew Lab Mobile</h2>
+        
+        <div id="meta-container" style="flex-grow: 1; text-align: center; font-size: 0.7em; line-height: 1.2;"></div>
+        
+        <a href="brewlab_timer.html" 
+           title="Launch Orchestrator"
+           style="color: #f1c40f; text-decoration: none; font-size: 1.5em; padding-left: 10px;">⏱️</a>
+
+        <a href="https://sites.google.com/view/homebrew-by-bill/brew-lab" 
+           target="_blank" 
+           title="View Documentation"
+           style="color: #f1c40f; text-decoration: none; font-size: 1.5em; padding-left: 10px;">📖</a>
     </div>
+
+    <input type="text" id="searchBar" placeholder="Search recipes or styles..." onkeyup="render()">
+</div>
 
     <div id="recipe-list"></div>
 
-    <script src="mobile_recipes.js?v=1774843361"></script>
+    <script src="mobile_recipes.js?v=1774967217"></script>
 
     <script>
         function toggleDetails(id) {

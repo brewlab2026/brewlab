@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 03-29-2026 23:30:41
+// Exported: 03-31-2026 10:26:21
 
 const exportMeta = {
-  "export_datetime": "03-29-2026 23:30:41",
+  "export_datetime": "03-31-2026 10:26:21",
   "app_version": "1.0.0",
   "db_version": "1.0",
   "schema_version": "1.0"
@@ -527,7 +527,7 @@ const recipeData = [
         "mash_efficiency": 71.7,
         "mash_efficiency_unit": "%",
         "observed_color": "Bronze",
-        "brew_day_notes": "Adjust hop usage for aged hops per brewing sessions table\nHad a hard time getting to target 152F mash temp, strike mash temp 150F,  got to 151F by the end;  verified Brew Lab math for strike volume and temp matches Beerbook, think there was a math error on my part converting 0.16 gallons to quarts resulting in a lower strike volume resulting in not enough hot water to set mash temp correctly.\nph = 5.3 (measured by strip) 5.4 (including .1 correction) - close enough to 5.3 target\nOG 1052 by refractometer, tilt 1050, so we'll say 1051\npitched yeast by sprinkling at 8 PM\nVolume = 2.5 gallons, a little low; kettle trub not excessive, Brew Lab strike volume math verified correct; lbs grain is no more than any other small batch recipe I've done, confirmed larger dry hop volume for aged hops would only result in a 1.28 ounce difference in strike water, believe this is to the strike volume math error above.\nBut if we had a math error and had more strike water, OG would be lower than the expected 1052 so consider lowering efficiency to 72% and adjust accordingly?\n3/28 - dry hop at midnight @ 1017 (ideal target was 1016)",
+        "brew_day_notes": "Adjust hop usage for aged hops per brewing sessions table\nHad a hard time getting to target 152F mash temp, strike mash temp 150F,  got to 151F by the end;  verified Brew Lab math for strike volume and temp matches Beerbook, think there was a math error on my part converting 0.16 gallons to quarts resulting in a lower strike volume resulting in not enough hot water to set mash temp correctly.\nph = 5.3 (measured by strip) 5.4 (including .1 correction) - close enough to 5.3 target\nOG 1052 by refractometer, tilt 1050, so we'll say 1051\npitched yeast by sprinkling at 8 PM\nVolume = 2.5 gallons, a little low; kettle trub not excessive, Brew Lab strike volume math verified correct; lbs grain is no more than any other small batch recipe I've done, confirmed larger dry hop volume for aged hops would only result in a 1.28 ounce difference in strike water, believe this is to the strike volume math error above.\nBut if we had a math error and had more strike water, OG would be lower than the expected 1052 so consider lowering efficiency to 72% and adjust accordingly?\n3/28 - dry hop at midnight @ 1017 (ideal target was 1016)\n3/30 - reached cold crash temps ~8PM",
         "tasting_notes": "",
         "inventory_applied": true
       }
@@ -1342,8 +1342,8 @@ const recipeData = [
   },
   {
     "recipe_id": 115,
-    "name": "tets yeast",
-    "search": "tets yeast 1a american light lager",
+    "name": "Testing 1,2,3",
+    "search": "testing 1,2,3 1a american light lager",
     "style_id": 1,
     "style": "1A American Light Lager",
     "style_og_min": 1.028,
@@ -1360,18 +1360,18 @@ const recipeData = [
     "batch_size_unit": "gal",
     "efficiency": 73.0,
     "efficiency_unit": "%",
-    "mash_type": "Single Infusion",
+    "mash_type": "Step Mash (Full)",
     "strike_vol_method": "full_volume",
-    "og": 1.0051,
-    "fg": 1.0013,
-    "abv": 0.5,
+    "og": 1.0436,
+    "fg": 1.0109,
+    "abv": 4.29,
     "abv_unit": "%",
-    "ibu": 0.0,
-    "srm": 0.7,
-    "srm_hex": "#FFE699",
-    "bitterness_balance": 0.0,
+    "ibu": 132.2,
+    "srm": 11.4,
+    "srm_hex": "#D77200",
+    "bitterness_balance": 930.9,
     "bitterness_balance_unit": "%",
-    "bitterness_label": "Balanced",
+    "bitterness_label": "Bitter Leaning",
     "grain_temp": 68.0,
     "grain_temp_unit": "°F",
     "water_treatments": "",
@@ -1385,12 +1385,12 @@ const recipeData = [
     "fermentation_temp_unit": "°F",
     "carbonation": 2.4,
     "carbonation_unit": "vol CO₂",
-    "strike_volume": 5.55,
+    "strike_volume": 6.14,
     "strike_volume_unit": "gal",
-    "strike_temp": 152.8,
+    "strike_temp": 96.9,
     "strike_temp_unit": "°F",
-    "camden_mash_tablets": 0.28,
-    "camden_mash_grams": 0.17,
+    "camden_mash_tablets": 0.31,
+    "camden_mash_grams": 0.19,
     "camden_sparge_tablets": 0.05,
     "camden_sparge_grams": 0.03,
     "notes_label_1": "Design Notes",
@@ -1401,37 +1401,193 @@ const recipeData = [
     "mash_steps": [
       {
         "step_order": 1,
-        "step_label": "Single Infusion",
-        "temp_f": 152.0,
+        "step_label": "Acid Rest",
+        "temp_f": 95.0,
         "temp_unit": "°F",
-        "time_min": 60.0,
+        "time_min": 20.0,
         "time_unit": "min",
         "adjustment_gal": 0.0,
         "adjustment_unit": "gal"
       },
       {
         "step_order": 2,
+        "step_label": "Beta Glucan Rest",
+        "temp_f": 113.0,
+        "temp_unit": "°F",
+        "time_min": 15.0,
+        "time_unit": "min",
+        "adjustment_gal": 0.0,
+        "adjustment_unit": "gal"
+      },
+      {
+        "step_order": 3,
+        "step_label": "Protein Rest",
+        "temp_f": 122.0,
+        "temp_unit": "°F",
+        "time_min": 15.0,
+        "time_unit": "min",
+        "adjustment_gal": 0.0,
+        "adjustment_unit": "gal"
+      },
+      {
+        "step_order": 4,
+        "step_label": "Maltose Rest",
+        "temp_f": 144.0,
+        "temp_unit": "°F",
+        "time_min": 30.0,
+        "time_unit": "min",
+        "adjustment_gal": 0.0,
+        "adjustment_unit": "gal"
+      },
+      {
+        "step_order": 5,
+        "step_label": "Dextrin Rest",
+        "temp_f": 162.0,
+        "temp_unit": "°F",
+        "time_min": 30.0,
+        "time_unit": "min",
+        "adjustment_gal": 0.0,
+        "adjustment_unit": "gal"
+      },
+      {
+        "step_order": 6,
         "step_label": "Mash Out",
         "temp_f": 170.0,
         "temp_unit": "°F",
         "time_min": 10.0,
         "time_unit": "min",
-        "adjustment_gal": 0.0,
+        "adjustment_gal": 0.5,
         "adjustment_unit": "gal"
       }
     ],
     "grains": [
+      {
+        "name": "Golden Promise",
+        "amount": 6.0,
+        "unit": "lbs",
+        "max_extract": 37.0,
+        "lovibond": 1.9,
+        "pct_of_grist": 70.6
+      },
       {
         "name": "Acidulated Malt",
         "amount": 1.0,
         "unit": "lbs",
         "max_extract": 37.0,
         "lovibond": 1.8,
-        "pct_of_grist": 100.0
+        "pct_of_grist": 11.8
+      },
+      {
+        "name": "Biscuit Malt",
+        "amount": 1.0,
+        "unit": "lbs",
+        "max_extract": 35.0,
+        "lovibond": 24.0,
+        "pct_of_grist": 11.8
+      },
+      {
+        "name": "Cara Aroma",
+        "amount": 8.0,
+        "unit": "oz",
+        "max_extract": 33.0,
+        "lovibond": 130.0,
+        "pct_of_grist": 5.9
       }
     ],
-    "hops": [],
+    "hops": [
+      {
+        "name": "Amarillo",
+        "amount": 1.0,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 60,
+        "time_unit": "min",
+        "alpha_acid": 0.084,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "CTZ",
+        "amount": 2.0,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 30,
+        "time_unit": "min",
+        "alpha_acid": 0.156,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Calypso",
+        "amount": 2.25,
+        "unit": "oz",
+        "usage": "Flameout",
+        "time": 0,
+        "time_unit": "min",
+        "alpha_acid": 0.133,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Centennial",
+        "amount": 2.5,
+        "unit": "oz",
+        "usage": "Flameout",
+        "time": 0,
+        "time_unit": "min",
+        "alpha_acid": 0.10099999999999999,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Chinook",
+        "amount": 2.75,
+        "unit": "oz",
+        "usage": "Whirlpool 180°",
+        "time": 20,
+        "time_unit": "min",
+        "alpha_acid": 0.11900000000000001,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Cluster",
+        "amount": 3.0,
+        "unit": "oz",
+        "usage": "Whirlpool 180°",
+        "time": 20,
+        "time_unit": "min",
+        "alpha_acid": 0.079,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Comet",
+        "amount": 3.0,
+        "unit": "oz",
+        "usage": "Dry Hop",
+        "time": 2,
+        "time_unit": "days",
+        "alpha_acid": 0.11,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      }
+    ],
     "boil_additions": [
+      {
+        "name": "Honey",
+        "amount": 1.0,
+        "unit": "oz",
+        "time": 30.0,
+        "time_unit": "min"
+      },
       {
         "name": "Whirlfloc Tablet",
         "amount": 1.0,
@@ -1460,12 +1616,29 @@ const recipeData = [
         "actual_abv_unit": "%",
         "apparent_attenuation": 76.9,
         "apparent_attenuation_unit": "%",
-        "mash_efficiency": 737.8,
+        "mash_efficiency": 84.2,
         "mash_efficiency_unit": "%",
         "observed_color": "",
         "brew_day_notes": "",
         "tasting_notes": "",
         "inventory_applied": true
+      },
+      {
+        "session_id": 101,
+        "session_date": "03-10-2026",
+        "brew_date": null,
+        "actual_og": null,
+        "actual_fg": null,
+        "actual_abv": null,
+        "actual_abv_unit": "%",
+        "apparent_attenuation": null,
+        "apparent_attenuation_unit": "%",
+        "mash_efficiency": null,
+        "mash_efficiency_unit": "%",
+        "observed_color": "",
+        "brew_day_notes": "",
+        "tasting_notes": "",
+        "inventory_applied": false
       },
       {
         "session_id": 98,
