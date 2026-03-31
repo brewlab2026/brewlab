@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 03-31-2026 10:26:21
+// Exported: 03-31-2026 12:26:37
 
 const exportMeta = {
-  "export_datetime": "03-31-2026 10:26:21",
+  "export_datetime": "03-31-2026 12:26:37",
   "app_version": "1.0.0",
   "db_version": "1.0",
   "schema_version": "1.0"
@@ -121,7 +121,7 @@ const recipeData = [
         "usage": "Boil",
         "time": 60,
         "time_unit": "min",
-        "alpha_acid": 0.14300000000000002,
+        "alpha_acid": 0.143,
         "hop_form": "Pellet",
         "crop_year": 2025,
         "hemisphere": "Northern"
@@ -374,7 +374,7 @@ const recipeData = [
         "usage": "Boil",
         "time": 60,
         "time_unit": "min",
-        "alpha_acid": 0.14300000000000002,
+        "alpha_acid": 0.143,
         "hop_form": "Pellet",
         "crop_year": 2025,
         "hemisphere": "Northern"
@@ -1068,7 +1068,7 @@ const recipeData = [
         "usage": "Boil",
         "time": 10,
         "time_unit": "min",
-        "alpha_acid": 0.11199999999999999,
+        "alpha_acid": 0.112,
         "hop_form": "Pellet",
         "crop_year": 2021,
         "hemisphere": "Northern"
@@ -1116,7 +1116,7 @@ const recipeData = [
         "usage": "Dry Hop",
         "time": 2,
         "time_unit": "days",
-        "alpha_acid": 0.11199999999999999,
+        "alpha_acid": 0.112,
         "hop_form": "Pellet",
         "crop_year": 2021,
         "hemisphere": "Northern"
@@ -1538,7 +1538,7 @@ const recipeData = [
         "usage": "Flameout",
         "time": 0,
         "time_unit": "min",
-        "alpha_acid": 0.10099999999999999,
+        "alpha_acid": 0.101,
         "hop_form": "Pellet",
         "crop_year": null,
         "hemisphere": "Northern"
@@ -1550,7 +1550,7 @@ const recipeData = [
         "usage": "Whirlpool 180°",
         "time": 20,
         "time_unit": "min",
-        "alpha_acid": 0.11900000000000001,
+        "alpha_acid": 0.119,
         "hop_form": "Pellet",
         "crop_year": null,
         "hemisphere": "Northern"

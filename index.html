@@ -49,28 +49,31 @@
 </style>
 </head>
 <body onload="render()">
-<div class="header">
-    <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
-        <h2 style="margin: 0; white-space: nowrap;">Brew Lab Mobile</h2>
-        
-        <div id="meta-container" style="flex-grow: 1; text-align: center; font-size: 0.7em; line-height: 1.2;"></div>
-        
-        <a href="brewlab_timer.html" 
-           title="Launch Orchestrator"
-           style="color: #f1c40f; text-decoration: none; font-size: 1.5em; padding-left: 10px;">⏱️</a>
 
-        <a href="https://sites.google.com/view/homebrew-by-bill/brew-lab" 
-           target="_blank" 
-           title="View Documentation"
-           style="color: #f1c40f; text-decoration: none; font-size: 1.5em; padding-left: 10px;">📖</a>
+    <div class="header" style="padding: 15px; background: #1e1e1e; border-bottom: 1px solid #333;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+            
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="brewlab_icon.png" alt="Logo" style="height: 32px; border-radius: 6px;">
+                <h2 style="margin: 0; white-space: nowrap; font-size: 1.5em;">Brew Lab</h2>
+            </div>
+
+            <div style="display: flex; gap: 15px; align-items: center;">
+                <a href="brewlab_timer.html" title="Launch Orchestrator" style="color: #f1c40f; text-decoration: none; font-size: 1.5em;">⏱️</a>
+                <a href="https://sites.google.com/view/homebrew-by-bill/brew-lab" target="_blank" title="View Documentation" style="color: #f1c40f; text-decoration: none; font-size: 1.5em;">📖</a>
+            </div>
+        </div>
+
+        <div id="meta-container" style="width: 100%; text-align: left; font-size: 0.8em; color: #95a5a6; margin-bottom: 15px; border-top: 1px solid #333; padding-top: 5px;">
+            </div>
+
+        <input type="text" id="searchBar" placeholder="Search recipes or styles..." onkeyup="render()" 
+            style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #444; background: #2d2d2d; color: #fff; box-sizing: border-box;">
     </div>
 
-    <input type="text" id="searchBar" placeholder="Search recipes or styles..." onkeyup="render()">
-</div>
-
     <div id="recipe-list"></div>
-
-    <script src="mobile_recipes.js?v=1774967217"></script>
+    
+    <script src="mobile_recipes.js?v=1774992233"></script>
 
     <script>
         function toggleDetails(id) {
