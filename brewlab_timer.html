@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brew Lab: Orchestrator Sandbox</title>
+    <link rel="icon" type="image/png" href="brewlab_flavicon.png">
+    <style>
+        body { font-family: sans-serif; background: #121212; color: #e0e0e0; padding: 20px; }
+        .recipe-picker { background: #1e1e1e; padding: 15px; border-radius: 8px; border: 1px solid #444; margin-bottom: 20px; }
+        select { width: 100%; padding: 12px; background: #2d2d2d; color: #fff; border-radius: 5px; font-size: 16px; }
+        .timer-box { text-align: center; background: #000; padding: 30px; border: 2px solid #f1c40f; border-radius: 15px; display: none; }
+        #clock { font-size: 5em; font-family: monospace; color: #f1c40f; margin: 10px 0; }
+        #current-step { font-size: 1.5em; color: #fff; margin-bottom: 10px; }
+        #next-step { color: #95a5a6; font-style: italic; }
+        .controls { display: flex; gap: 10px; margin-top: 20px; }
+        button { flex: 1; padding: 15px; font-weight: bold; border-radius: 8px; border: none; cursor: pointer; }
+        .btn-start { background: #27ae60; color: white; }
+        .btn-pause { background: #f39c12; color: white; }
+        .btn-reset { background: #c0392b; color: white; }
+         @keyframes blinker { 50% { opacity: 0; } }
+    </style>
+</head>
+<body>
+
+    <h2>
+        <img src="brewlab_icon.png" alt="Brew Lab" 
+            style="height: 40px; 
+                    vertical-align: middle; 
+                    margin-right: 10px; 
+                    border-radius: 10px;  /* This rounds the actual image edges */
+                    object-fit: cover;">
+                Brew Lab Timer
+        </h2>
+    <div class="recipe-picker" style="margin-bottom: 20px;">
+        <label>Select Recipe to Test:</label>
+        <select id="recipeSelect" onchange="loadRecipe()">
+            <option value="">-- Choose a Recipe --</option>
+        </select>
+    </div>
+
+    <div id="timerContainer" class="timer-box" style="display:none; text-align:center; border: 2px solid #f1c40f; padding: 20px; border-radius: 10px; background: #1a1a1a;">
+        <div id="currentStepLabel" style="font-size: 1.2em; color: #95a5a6; margin-bottom: 5px;">Ready</div>
+        
+        <div id="timerDisplay" style="font-size: 5em; font-weight: bold; color: #f1c40f; margin-bottom: 5px;">00:00</div>
+
+        <div id="nextStepLabel" style="font-size: 1.1em; color: #7f8c8d; margin-bottom: 20px; font-style: italic;">Next: --</div>
+       
+        <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 10px;">
+            <button onclick="adjustTime(-60)" style="background: #34495e; width: 60px; height: 45px; border: none; border-radius: 4px; color: white; cursor: pointer;">-1m</button>
+            <button onclick="adjustTime(-10)" style="background: #34495e; width: 60px; height: 45px; border: none; border-radius: 4px; color: white; cursor: pointer;">-10s</button>
+            
+            <div style="background: #1e1e1e; padding: 5px 10px; border-radius: 5px; border: 1px solid #444; display: flex; align-items: center;">
+                <input type="number" id="manualInput" placeholder="Min" style="width: 50px; background: transparent; color: #f1c40f; border: none; font-size: 1.2em; text-align: center;">
+                <button onclick="setManualTime()" style="background: #2980b9; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Set</button>
+            </div>
+
+            <button onclick="adjustTime(10)" style="background: #34495e; width: 60px; height: 45px; border: none; border-radius: 4px; color: white; cursor: pointer;">+10s</button>
+            <button onclick="adjustTime(60)" style="background: #34495e; width: 60px; height: 45px; border: none; border-radius: 4px; color: white; cursor: pointer;">+1m</button>
+        </div>
+
+        <div id="alarm-overlay" style="display:none; margin-top: 15px;">
+            <div style="color: #c0392b; font-weight: bold; margin-bottom: 10px; animation: blinker 1s linear infinite;">⚠️ STEP COMPLETE!</div>
+            <button onclick="stopAlarm()" style="background: #c0392b; color: white; padding: 15px; width: 100%; border: none; border-radius: 5px; cursor: pointer;">SILENCE ALARM</button>
+        </div>
+    </div>
+
+    <div style="margin-top: 20px; display: flex; flex-direction: column; align-items: center; gap: 15px;">
+        
+        <div style="display: flex; gap: 15px; justify-content: center; width: 100%;">
+            <button id="runBtn" onclick="toggleTimer()" style="padding: 15px 40px; font-size: 1.2em; cursor: pointer; background: #27ae60; color: white; border: none; border-radius: 5px; font-weight: bold; min-width: 200px;">START MASH</button>
+            <button onclick="resetTimer()" style="padding: 15px 30px; font-size: 1.2em; cursor: pointer; background: #c0392b; color: white; border: none; border-radius: 5px;">RESET</button>
+        </div>
+
+        <button onclick="skipStep()" style="background: #8e44ad; color: white; border: none; padding: 10px 20px; border-radius: 5px; width: 100%; max-width: 415px; cursor: pointer;">⏭ Skip to Next Step</button>
+    </div>
+
+    <div id="timeline-audit" style="margin-top: 30px; background: #1e1e1e; border-radius: 8px; padding: 15px; border: 1px solid #333;">
+        <h3 style="margin-top:0; color: #f1c40f;">Brew Day Flight Plan</h3>
+        <table id="audit-table" style="width:100%; border-collapse: collapse; font-size: 0.9em;">
+            <thead>
+                <tr style="border-bottom: 2px solid #444; text-align: left; color: #95a5a6;">
+                    <th style="padding: 8px;">Step</th>
+                    <th style="padding: 8px;">Time</th>
+                    <th style="padding: 8px;">Additions</th>
+                </tr>
+            </thead>
+            <tbody id="audit-body">
+                </tbody>
+        </table>
+    </div>
+
+    <script src="mobile_recipes.js"></script>
+
+    <script>
+    let timeline = [];
+    let currentIdx = 0;
+    let timeLeft = 0;
+    let interval = null; 
+    let timerActive = false;
+    let alarmInterval; 
+    let audioCtx;
+
+    // Sound Engine
+    window.playTone = function(type) {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const o = ctx.createOscillator();
+        const g = ctx.createGain();
+        o.type = "sine";
+        o.frequency.setValueAtTime(type === 'warning' ? 440 : 880, ctx.currentTime);
+        g.gain.setValueAtTime(0, ctx.currentTime);
+        g.gain.linearRampToValueAtTime(0.2, ctx.currentTime + 0.02);
+        const holdTime = (type === 'warning') ? 0.2 : 0.8;
+        g.gain.setValueAtTime(0.2, ctx.currentTime + holdTime);
+        g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + holdTime + 0.2);
+        o.connect(g);
+        g.connect(ctx.destination);
+        o.start();
+        o.stop(ctx.currentTime + holdTime + 0.3);
+    };
+
+    window.onload = () => {
+        const select = document.getElementById('recipeSelect');
+        if(typeof recipeData !== 'undefined') {
+            recipeData.forEach((r, index) => {
+                let opt = document.createElement('option');
+                opt.value = index;
+                opt.innerHTML = r.display_name || r.name;
+                select.appendChild(opt);
+            });
+        }
+        document.getElementById('manualInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') setManualTime();
+        });
+    };
+
+    function loadRecipe() {
+        const idx = document.getElementById('recipeSelect').value;
+        if (idx === "") return;
+        const r = recipeData[idx];
+        timeline = buildMasterTimeline(r); 
+        currentIdx = 0; 
+        if (timeline.length > 0) timeLeft = timeline[0].duration; 
+
+        document.getElementById('timerContainer').style.display = 'block';
+        const runBtn = document.getElementById('runBtn');
+        runBtn.innerText = "START MASH";
+        runBtn.style.background = "#27ae60";
+        
+        timerActive = false;
+        if (interval) clearInterval(interval);
+        
+        updateUI(); 
+        renderAuditTable(timeline);
+    }
+
+    function renderAuditTable(timelineData) {
+        const body = document.getElementById('audit-body');
+        body.innerHTML = ''; 
+        timelineData.forEach((step, index) => {
+            let additionsText = step.details || "";
+            if (step.type === 'BOIL' && step.alerts) {
+                additionsText = step.alerts
+                    .map(a => `<div style="margin-bottom:4px;"><b>[${Math.floor(a.triggerAt/60)}m]</b> ${a.label}</div>`)
+                    .join('');
+            }
+            const timeDisplay = step.isManual ? '<span style="color: #f1c40f;">Manual</span>' : (step.duration / 60) + ' min';
+            let labelDisplay = step.label;
+            if (step.temp_f) {
+                labelDisplay += ` <span style="color: #f1c40f; font-weight: normal; font-size: 0.9em;">(${step.temp_f}°F)</span>`;
+            }
+
+            // Highlighting the current step in the table
+            const isActive = (index === currentIdx);
+            const row = `
+                <tr style="border-bottom: 1px solid #333; ${isActive ? 'background: #2c3e50; border-left: 4px solid #f1c40f;' : ''}">
+                    <td style="padding: 12px; font-weight: bold; color: #fff;">${labelDisplay}</td>
+                    <td style="padding: 12px; white-space: nowrap;">${timeDisplay}</td>
+                    <td style="padding: 12px; color: #bdc3c7; font-size: 0.85em; line-height: 1.4;">${additionsText}</td>
+                </tr>
+            `;
+            body.innerHTML += row;
+        });
+    }
+
+    function toggleTimer() {
+        const btn = document.getElementById('runBtn');
+        if (timerActive) {
+            clearInterval(interval);
+            btn.innerText = "RESUME";
+            btn.style.background = "#2980b9";
+        } else {
+            if (timeLeft <= 0 && currentIdx < timeline.length - 1) {
+                currentIdx++;
+                timeLeft = timeline[currentIdx].duration || 0;
+                renderAuditTable(timeline); // Refresh highlight
+            }
+            tick(); 
+            interval = setInterval(tick, 1000);
+            btn.innerText = "PAUSE";
+            btn.style.background = "#e67e22";
+        }
+        timerActive = !timerActive;
+        updateUI();
+    }
+
+    function tick() {
+        if (timeLeft <= 0) {
+            startContinuousAlarm();
+            clearInterval(interval);
+            timerActive = false;
+            document.getElementById('runBtn').innerText = "START NEXT STEP";
+            document.getElementById('runBtn').style.background = "#27ae60";
+            return;
+        }
+
+        // Boil Alerts
+        if (timeline[currentIdx].type === 'BOIL' && timeline[currentIdx].alerts) {
+            timeline[currentIdx].alerts.forEach(alert => {
+                if (timeLeft === alert.triggerAt) playTripleBeep();
+            });
+        }
+        if (timeLeft === 120) playTripleBeep();
+
+        timeLeft--;
+        updateUI();
+    }
+
+    function updateUI() {
+        let totalSeconds = Math.max(0, timeLeft);
+        const mins = Math.floor(totalSeconds / 60);
+        const secs = totalSeconds % 60;
+        const display = `${mins}:${secs.toString().padStart(2, '0')}`;
+        
+        if (document.getElementById('timerDisplay')) document.getElementById('timerDisplay').innerText = display;
+        if (document.getElementById('currentStepLabel') && timeline[currentIdx]) {
+            document.getElementById('currentStepLabel').innerText = timeline[currentIdx].label;
+        }
+        const elNext = document.getElementById('nextStepLabel');
+        if (elNext) {
+            elNext.innerText = (currentIdx < timeline.length - 1) ? "Next: " + timeline[currentIdx + 1].label : "Next: End of Brew Day";
+        }
+    }
+
+    function playTripleBeep() {
+        [0, 700, 1400].forEach(t => setTimeout(() => playTone('warning'), t));
+    }
+
+    function startContinuousAlarm() {
+        document.getElementById('alarm-overlay').style.display = 'block';
+        playTone('action');
+        let count = 0;
+        alarmInterval = setInterval(() => {
+            playTone('action');
+            if (++count >= 30) stopAlarm();
+        }, 2000);
+    }
+
+    function stopAlarm() {
+        clearInterval(alarmInterval);
+        document.getElementById('alarm-overlay').style.display = 'none';
+    }
+
+    function adjustTime(seconds) {
+        timeLeft = Math.max(0, timeLeft + seconds);
+        updateUI();
+    }
+
+    // Fixed function name to match your HTML button
+    function resetTimer() {
+        if(confirm("Reset the entire Brew Day?")) {
+            clearInterval(interval);
+            loadRecipe();
+        }
+    }
+
+    function setManualTime() {
+        const input = document.getElementById('manualInput');
+        const minutes = parseInt(input.value);
+        if (!isNaN(minutes) && minutes >= 0) {
+            timeLeft = minutes * 60;
+            updateUI();
+            input.value = '';
+        }
+    }
+
+    function skipStep() {
+        const currentLabel = timeline[currentIdx] ? timeline[currentIdx].label : "this step";
+        if (!confirm(`Are you sure you want to skip ${currentLabel}?`)) return;
+        clearInterval(interval);
+        timerActive = false;
+        timeLeft = 0;
+        
+        // Advance the pointer immediately
+        if (currentIdx < timeline.length - 1) {
+            currentIdx++;
+            timeLeft = timeline[currentIdx].duration || 0;
+            document.getElementById('runBtn').innerText = "START NEXT STEP";
+            document.getElementById('runBtn').style.background = "#27ae60";
+        }
+        updateUI();
+        renderAuditTable(timeline);
+    }
+
+    function buildMasterTimeline(r) {
+        let tl = [];
+        if (r.mash_steps) {
+            r.mash_steps.forEach(s => {
+                const temp = s.temp_f || s.step_temp || s.temp || "--";
+                tl.push({
+                    type: 'MASH',
+                    label: `MASH: ${s.step_label || 'Rest'}`,
+                    duration: (parseInt(s.time_min) || 0) * 60,
+                    temp_f: temp,
+                    details: `${temp}${s.temp_unit || "°F"}`
+                });
+            });
+        }
+        tl.push({ type: 'TRANSITION', label: "HEATING TO BOIL", duration: 0, isManual: true });
+        
+        const boilItems = [...(r.hops || []).filter(h => (h.use || h.usage || "").toLowerCase() === 'boil'), ...(r.boil_additions || [])];
+        tl.push({
+            type: 'BOIL',
+            label: "MAIN BOIL",
+            duration: (parseInt(r.boil_time) || 60) * 60,
+            alerts: boilItems.map(i => ({
+                triggerAt: (parseInt(i.time || i.minutes) || 0) * 60,
+                label: `ADD: ${i.amount || i.qty || ""}${i.unit || "oz"} ${i.name}`
+            })).sort((a, b) => b.triggerAt - a.triggerAt)
+        });
+
+        tl.push({ type: 'TRANSITION', label: "RESUME WHEN BOIL COMPLETE", duration: 0, isManual: true });
+
+        const postHops = (r.hops || []).filter(h => {
+            const u = (h.use || h.usage || "").toLowerCase();
+            return u.startsWith("flameout") || u.startsWith("whirlpool");
+        });
+
+        ["flameout", "whirlpool"].forEach(cat => {
+            const items = postHops.filter(h => (h.use || h.usage || "").toLowerCase().startsWith(cat));
+            if (items.length > 0) {
+                const maxTime = Math.max(...items.map(h => parseInt(h.time) || 0));
+                tl.push({
+                    type: 'POST_BOIL',
+                    label: (items[0].use || items[0].usage || cat).toUpperCase(),
+                    duration: maxTime * 60,
+                    isManual: maxTime === 0,
+                    details: items.map(h => `Add ${h.amount}${h.unit || 'oz'} ${h.name}`).join('<br>')
+                });
+            }
+        });
+        return tl;
+    }
+    </script>
+</body>
+</html>
