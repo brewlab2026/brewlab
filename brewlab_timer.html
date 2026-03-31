@@ -46,19 +46,27 @@
 
         <div id="nextStepLabel" style="font-size: 1.1em; color: #7f8c8d; margin-bottom: 20px; font-style: italic;">Next: --</div>
        
-        <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 10px;">
-            <button onclick="adjustTime(-60)" style="background: #34495e; width: 60px; height: 45px; border: none; border-radius: 4px; color: white; cursor: pointer;">-1m</button>
-            <button onclick="adjustTime(-10)" style="background: #34495e; width: 60px; height: 45px; border: none; border-radius: 4px; color: white; cursor: pointer;">-10s</button>
+        <div style="border: 2px solid #f1c40f; border-radius: 10px; padding: 15px; margin: 10px 0; background: rgba(241, 196, 15, 0.05);">
             
-            <div style="background: #1e1e1e; padding: 5px 10px; border-radius: 5px; border: 1px solid #444; display: flex; align-items: center;">
-                <input type="number" id="manualInput" placeholder="Min" style="width: 50px; background: transparent; color: #f1c40f; border: none; font-size: 1.2em; text-align: center;">
-                <button onclick="setManualTime()" style="background: #2980b9; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Set</button>
+            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                <button onclick="adjustTime(-60)" style="flex: 1; padding: 15px; background: #34495e; color: white; border: none; border-radius: 5px;">-1m</button>
+                <button onclick="adjustTime(60)" style="flex: 1; padding: 15px; background: #34495e; color: white; border: none; border-radius: 5px;">+1m</button>
             </div>
 
-            <button onclick="adjustTime(10)" style="background: #34495e; width: 60px; height: 45px; border: none; border-radius: 4px; color: white; cursor: pointer;">+10s</button>
-            <button onclick="adjustTime(60)" style="background: #34495e; width: 60px; height: 45px; border: none; border-radius: 4px; color: white; cursor: pointer;">+1m</button>
-        </div>
+            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                <button onclick="adjustTime(-10)" style="flex: 1; padding: 15px; background: #34495e; color: white; border: none; border-radius: 5px;">-10s</button>
+                <button onclick="adjustTime(10)" style="flex: 1; padding: 15px; background: #34495e; color: white; border: none; border-radius: 5px;">+10s</button>
+            </div>
 
+            <div style="display: flex; gap: 10px;">
+                <input type="number" id="manualInput" placeholder="Min" 
+                    style="flex: 1; background: #1e1e1e; color: #f1c40f; border: 1px solid #444; border-radius: 5px; font-size: 1.2em; text-align: center; padding: 10px;">
+                <button onclick="setManualTime()" 
+                        style="flex: 1; background: #2980b9; color: white; border: none; border-radius: 5px; font-weight: bold; padding: 10px;">
+                        SET TIME
+                </button>
+            </div>
+        </div>
         <div id="alarm-overlay" style="display:none; margin-top: 15px;">
             <div style="color: #c0392b; font-weight: bold; margin-bottom: 10px; animation: blinker 1s linear infinite;">⚠️ STEP COMPLETE!</div>
             <button onclick="stopAlarm()" style="background: #c0392b; color: white; padding: 15px; width: 100%; border: none; border-radius: 5px; cursor: pointer;">SILENCE ALARM</button>
