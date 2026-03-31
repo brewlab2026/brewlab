@@ -58,14 +58,34 @@
                 <button onclick="adjustTime(10)" style="flex: 1; padding: 15px; background: #34495e; color: white; border: none; border-radius: 5px;">+10s</button>
             </div>
 
-            <div style="display: flex; gap: 10px;">
+            <div style="display: flex; gap: 10px; width: 100%; box-sizing: border-box;">
+                
                 <input type="number" id="manualInput" placeholder="Min" 
-                    style="flex: 1; background: #1e1e1e; color: #f1c40f; border: 1px solid #444; border-radius: 5px; font-size: 1.2em; text-align: center; padding: 10px;">
+                    style="flex: 1; 
+                            width: 1%; /* Forces flex to take over */
+                            min-width: 0; /* Prevents the input from pushing the border */
+                            background: #1e1e1e; 
+                            color: #f1c40f; 
+                            border: 1px solid #444; 
+                            border-radius: 5px; 
+                            font-size: 1.2em; 
+                            text-align: center; 
+                            padding: 10px;
+                            box-sizing: border-box;">
+
                 <button onclick="setManualTime()" 
-                        style="flex: 1; background: #2980b9; color: white; border: none; border-radius: 5px; font-weight: bold; padding: 10px;">
+                        style="flex: 1; 
+                            background: #2980b9; 
+                            color: white; 
+                            border: none; 
+                            border-radius: 5px; 
+                            font-weight: bold; 
+                            padding: 10px;
+                            box-sizing: border-box;">
                         SET TIME
                 </button>
             </div>
+
         </div>
         <div id="alarm-overlay" style="display:none; margin-top: 15px;">
             <div style="color: #c0392b; font-weight: bold; margin-bottom: 10px; animation: blinker 1s linear infinite;">⚠️ STEP COMPLETE!</div>
