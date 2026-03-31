@@ -95,10 +95,36 @@
 
     <div style="margin-top: 20px; display: flex; flex-direction: column; align-items: center; gap: 15px;">
         
-        <div style="display: flex; gap: 15px; justify-content: center; width: 100%;">
-            <button id="runBtn" onclick="toggleTimer()" style="padding: 15px 40px; font-size: 1.2em; cursor: pointer; background: #27ae60; color: white; border: none; border-radius: 5px; font-weight: bold; min-width: 200px;">START MASH</button>
-            <button onclick="resetTimer()" style="padding: 15px 30px; font-size: 1.2em; cursor: pointer; background: #c0392b; color: white; border: none; border-radius: 5px;">RESET</button>
-        </div>
+    <div style="display: flex; gap: 10px; width: 100%; margin-top: 15px; box-sizing: border-box;">
+        
+        <button id="startBtn" onclick="toggleTimer()" 
+                style="flex: 1; 
+                    padding: 12px; /* Reduced from 20px */
+                    font-size: 1.1em; 
+                    font-weight: bold; 
+                    background: #27ae60; 
+                    color: white; 
+                    border: none; 
+                    border-radius: 6px; 
+                    cursor: pointer;
+                    box-sizing: border-box;">
+            START MASH
+        </button>
+
+        <button onclick="resetTimer()" 
+                style="flex: 1; 
+                    padding: 12px; /* Reduced from 20px */
+                    font-size: 1.1em; 
+                    font-weight: bold; 
+                    background: #7f8c8d; 
+                    color: white; 
+                    border: none; 
+                    border-radius: 6px; 
+                    cursor: pointer;
+                    box-sizing: border-box;">
+            RESET
+        </button>
+    </div>
 
         <button onclick="skipStep()" style="background: #8e44ad; color: white; border: none; padding: 10px 20px; border-radius: 5px; width: 100%; max-width: 415px; cursor: pointer;">⏭ Skip to Next Step</button>
     </div>
