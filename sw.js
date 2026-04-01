@@ -1,4 +1,4 @@
-const CACHE_NAME = 'brew-lab-v1775011138';
+const CACHE_NAME = 'brew-lab-v1775012164';
 const ASSETS = ['index.html', 'mobile_recipes.js', 'brewlab_icon.png'];
 
 self.addEventListener('install', (e) => {
