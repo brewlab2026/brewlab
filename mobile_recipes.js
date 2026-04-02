@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 03-31-2026 12:26:37
+// Exported: 04-01-2026 22:59:56
 
 const exportMeta = {
-  "export_datetime": "03-31-2026 12:26:37",
+  "export_datetime": "04-01-2026 22:59:56",
   "app_version": "1.0.0",
   "db_version": "1.0",
   "schema_version": "1.0"
@@ -50,6 +50,7 @@ const recipeData = [
     "sparge_temp_unit": "°F",
     "boil_time": 60.0,
     "boil_time_unit": "min",
+    "boil_time_in_minutes": 60.0,
     "fermentation_temp": 68.0,
     "fermentation_temp_unit": "°F",
     "carbonation": 2.5,
@@ -75,6 +76,7 @@ const recipeData = [
         "temp_unit": "°F",
         "time_min": 60.0,
         "time_unit": "min",
+        "time_in_minutes": 60.0,
         "adjustment_gal": 0.0,
         "adjustment_unit": "gal"
       }
@@ -121,6 +123,7 @@ const recipeData = [
         "usage": "Boil",
         "time": 60,
         "time_unit": "min",
+        "time_in_minutes": 60.0,
         "alpha_acid": 0.143,
         "hop_form": "Pellet",
         "crop_year": 2025,
@@ -133,6 +136,7 @@ const recipeData = [
         "usage": "Boil",
         "time": 15,
         "time_unit": "min",
+        "time_in_minutes": 15.0,
         "alpha_acid": 0.138,
         "hop_form": "Pellet",
         "crop_year": 2025,
@@ -145,6 +149,7 @@ const recipeData = [
         "usage": "Flameout",
         "time": 0,
         "time_unit": "min",
+        "time_in_minutes": 0.0,
         "alpha_acid": 0.134,
         "hop_form": "Pellet",
         "crop_year": 2021,
@@ -157,6 +162,7 @@ const recipeData = [
         "usage": "Flameout",
         "time": 0,
         "time_unit": "min",
+        "time_in_minutes": 0.0,
         "alpha_acid": 0.138,
         "hop_form": "Pellet",
         "crop_year": 2025,
@@ -169,6 +175,7 @@ const recipeData = [
         "usage": "Whirlpool 170°",
         "time": 20,
         "time_unit": "min",
+        "time_in_minutes": 20.0,
         "alpha_acid": 0.134,
         "hop_form": "Pellet",
         "crop_year": 2021,
@@ -181,6 +188,7 @@ const recipeData = [
         "usage": "Whirlpool 170°",
         "time": 20,
         "time_unit": "min",
+        "time_in_minutes": 20.0,
         "alpha_acid": 0.138,
         "hop_form": "Pellet",
         "crop_year": 2025,
@@ -193,6 +201,7 @@ const recipeData = [
         "usage": "Dry Hop",
         "time": 2,
         "time_unit": "days",
+        "time_in_minutes": null,
         "alpha_acid": 0.134,
         "hop_form": "Pellet",
         "crop_year": 2021,
@@ -205,6 +214,7 @@ const recipeData = [
         "usage": "Dry Hop",
         "time": 2,
         "time_unit": "days",
+        "time_in_minutes": null,
         "alpha_acid": 0.138,
         "hop_form": "Pellet",
         "crop_year": 2025,
@@ -217,6 +227,7 @@ const recipeData = [
         "usage": "Dry Hop",
         "time": 2,
         "time_unit": "days",
+        "time_in_minutes": null,
         "alpha_acid": 0.125,
         "hop_form": "Pellet",
         "crop_year": 2021,
@@ -229,6 +240,7 @@ const recipeData = [
         "usage": "Dry Hop",
         "time": 2,
         "time_unit": "days",
+        "time_in_minutes": null,
         "alpha_acid": 0.125,
         "hop_form": "Pellet",
         "crop_year": 2021,
@@ -241,14 +253,16 @@ const recipeData = [
         "amount": 0.5,
         "unit": "tablets",
         "time": 15.0,
-        "time_unit": "min"
+        "time_unit": "min",
+        "time_in_minutes": 15.0
       },
       {
         "name": "WYeast Nutrient",
         "amount": 2.2,
         "unit": "g",
         "time": 10.0,
-        "time_unit": "min"
+        "time_unit": "min",
+        "time_in_minutes": 10.0
       }
     ],
     "yeast": [
@@ -303,6 +317,7 @@ const recipeData = [
     "sparge_temp_unit": "°F",
     "boil_time": 60.0,
     "boil_time_unit": "min",
+    "boil_time_in_minutes": 60.0,
     "fermentation_temp": 68.0,
     "fermentation_temp_unit": "°F",
     "carbonation": 2.5,
@@ -328,6 +343,7 @@ const recipeData = [
         "temp_unit": "°F",
         "time_min": 60.0,
         "time_unit": "min",
+        "time_in_minutes": 60.0,
         "adjustment_gal": -0.2,
         "adjustment_unit": "gal"
       }
@@ -374,6 +390,7 @@ const recipeData = [
         "usage": "Boil",
         "time": 60,
         "time_unit": "min",
+        "time_in_minutes": 60.0,
         "alpha_acid": 0.143,
         "hop_form": "Pellet",
         "crop_year": 2025,
@@ -386,6 +403,7 @@ const recipeData = [
         "usage": "Boil",
         "time": 15,
         "time_unit": "min",
+        "time_in_minutes": 15.0,
         "alpha_acid": 0.138,
         "hop_form": "Pellet",
         "crop_year": 2025,
@@ -398,6 +416,7 @@ const recipeData = [
         "usage": "Flameout",
         "time": 0,
         "time_unit": "min",
+        "time_in_minutes": 0.0,
         "alpha_acid": 0.134,
         "hop_form": "Pellet",
         "crop_year": 2021,
@@ -410,6 +429,7 @@ const recipeData = [
         "usage": "Flameout",
         "time": 0,
         "time_unit": "min",
+        "time_in_minutes": 0.0,
         "alpha_acid": 0.138,
         "hop_form": "Pellet",
         "crop_year": 2025,
@@ -422,6 +442,7 @@ const recipeData = [
         "usage": "Whirlpool 170°",
         "time": 20,
         "time_unit": "min",
+        "time_in_minutes": 20.0,
         "alpha_acid": 0.134,
         "hop_form": "Pellet",
         "crop_year": 2021,
@@ -434,6 +455,7 @@ const recipeData = [
         "usage": "Whirlpool 170°",
         "time": 20,
         "time_unit": "min",
+        "time_in_minutes": 20.0,
         "alpha_acid": 0.138,
         "hop_form": "Pellet",
         "crop_year": 2025,
@@ -446,6 +468,7 @@ const recipeData = [
         "usage": "Dry Hop",
         "time": 2,
         "time_unit": "days",
+        "time_in_minutes": null,
         "alpha_acid": 0.134,
         "hop_form": "Pellet",
         "crop_year": 2021,
@@ -458,6 +481,7 @@ const recipeData = [
         "usage": "Dry Hop",
         "time": 2,
         "time_unit": "days",
+        "time_in_minutes": null,
         "alpha_acid": 0.138,
         "hop_form": "Pellet",
         "crop_year": 2025,
@@ -470,6 +494,7 @@ const recipeData = [
         "usage": "Dry Hop",
         "time": 2,
         "time_unit": "days",
+        "time_in_minutes": null,
         "alpha_acid": 0.125,
         "hop_form": "Pellet",
         "crop_year": 2021,
@@ -482,6 +507,7 @@ const recipeData = [
         "usage": "Dry Hop",
         "time": 2,
         "time_unit": "days",
+        "time_in_minutes": null,
         "alpha_acid": 0.125,
         "hop_form": "Pellet",
         "crop_year": 2021,
@@ -494,14 +520,16 @@ const recipeData = [
         "amount": 0.25,
         "unit": "tablets",
         "time": 15.0,
-        "time_unit": "min"
+        "time_unit": "min",
+        "time_in_minutes": 15.0
       },
       {
         "name": "WYeast Nutrient",
         "amount": 1.15,
         "unit": "g",
         "time": 10.0,
-        "time_unit": "min"
+        "time_unit": "min",
+        "time_in_minutes": 10.0
       }
     ],
     "yeast": [
@@ -574,6 +602,7 @@ const recipeData = [
     "sparge_temp_unit": "°F",
     "boil_time": 90.0,
     "boil_time_unit": "min",
+    "boil_time_in_minutes": 90.0,
     "fermentation_temp": 64.0,
     "fermentation_temp_unit": "°F",
     "carbonation": 3.0,
@@ -599,6 +628,7 @@ const recipeData = [
         "temp_unit": "°F",
         "time_min": 60.0,
         "time_unit": "min",
+        "time_in_minutes": 60.0,
         "adjustment_gal": -0.2,
         "adjustment_unit": "gal"
       },
@@ -609,6 +639,7 @@ const recipeData = [
         "temp_unit": "°F",
         "time_min": 10.0,
         "time_unit": "min",
+        "time_in_minutes": 10.0,
         "adjustment_gal": 0.0,
         "adjustment_unit": "gal"
       }
@@ -671,6 +702,7 @@ const recipeData = [
         "usage": "Boil",
         "time": 60,
         "time_unit": "min",
+        "time_in_minutes": 60.0,
         "alpha_acid": 0.071,
         "hop_form": "Pellet",
         "crop_year": null,
@@ -683,6 +715,7 @@ const recipeData = [
         "usage": "Boil",
         "time": 10,
         "time_unit": "min",
+        "time_in_minutes": 10.0,
         "alpha_acid": 0.024,
         "hop_form": "Pellet",
         "crop_year": null,
@@ -695,21 +728,24 @@ const recipeData = [
         "amount": 3.0,
         "unit": "oz",
         "time": 10.0,
-        "time_unit": "min"
+        "time_unit": "min",
+        "time_in_minutes": 10.0
       },
       {
         "name": "Yeast Nutrient",
         "amount": 1.5,
         "unit": "tsp",
         "time": 10.0,
-        "time_unit": "min"
+        "time_unit": "min",
+        "time_in_minutes": 10.0
       },
       {
         "name": "Whirlfloc Tablet",
         "amount": 0.25,
         "unit": "tablets",
         "time": 10.0,
-        "time_unit": "min"
+        "time_unit": "min",
+        "time_in_minutes": 10.0
       }
     ],
     "yeast": [
@@ -782,6 +818,7 @@ const recipeData = [
     "sparge_temp_unit": "°F",
     "boil_time": 60.0,
     "boil_time_unit": "min",
+    "boil_time_in_minutes": 60.0,
     "fermentation_temp": 68.0,
     "fermentation_temp_unit": "°F",
     "carbonation": 2.1,
@@ -807,6 +844,7 @@ const recipeData = [
         "temp_unit": "°F",
         "time_min": 60.0,
         "time_unit": "min",
+        "time_in_minutes": 60.0,
         "adjustment_gal": -0.2,
         "adjustment_unit": "gal"
       }
@@ -861,6 +899,7 @@ const recipeData = [
         "usage": "Boil",
         "time": 60,
         "time_unit": "min",
+        "time_in_minutes": 60.0,
         "alpha_acid": 0.043,
         "hop_form": "Pellet",
         "crop_year": null,
@@ -873,6 +912,7 @@ const recipeData = [
         "usage": "Boil",
         "time": 30,
         "time_unit": "min",
+        "time_in_minutes": 30.0,
         "alpha_acid": 0.043,
         "hop_form": "Pellet",
         "crop_year": null,
@@ -885,6 +925,7 @@ const recipeData = [
         "usage": "Boil",
         "time": 10,
         "time_unit": "min",
+        "time_in_minutes": 10.0,
         "alpha_acid": 0.043,
         "hop_form": "Pellet",
         "crop_year": null,
@@ -897,6 +938,7 @@ const recipeData = [
         "usage": "Dry Hop",
         "time": 2,
         "time_unit": "days",
+        "time_in_minutes": null,
         "alpha_acid": 0.043,
         "hop_form": "Pellet",
         "crop_year": null,
@@ -909,14 +951,16 @@ const recipeData = [
         "amount": 1.1,
         "unit": "g",
         "time": 15.0,
-        "time_unit": "min"
+        "time_unit": "min",
+        "time_in_minutes": 15.0
       },
       {
         "name": "Whirlfloc Tablet",
         "amount": 0.25,
         "unit": "tablets",
         "time": 10.0,
-        "time_unit": "min"
+        "time_unit": "min",
+        "time_in_minutes": 10.0
       }
     ],
     "yeast": [
@@ -971,6 +1015,7 @@ const recipeData = [
     "sparge_temp_unit": "°F",
     "boil_time": 75.0,
     "boil_time_unit": "min",
+    "boil_time_in_minutes": 75.0,
     "fermentation_temp": 68.0,
     "fermentation_temp_unit": "°F",
     "carbonation": 2.4,
@@ -996,6 +1041,7 @@ const recipeData = [
         "temp_unit": "°F",
         "time_min": 60.0,
         "time_unit": "min",
+        "time_in_minutes": 60.0,
         "adjustment_gal": 0.0,
         "adjustment_unit": "gal"
       },
@@ -1006,6 +1052,7 @@ const recipeData = [
         "temp_unit": "°F",
         "time_min": 10.0,
         "time_unit": "min",
+        "time_in_minutes": 10.0,
         "adjustment_gal": 0.0,
         "adjustment_unit": "gal"
       }
@@ -1044,6 +1091,7 @@ const recipeData = [
         "usage": "Boil",
         "time": 60,
         "time_unit": "min",
+        "time_in_minutes": 60.0,
         "alpha_acid": 0.147,
         "hop_form": "Pellet",
         "crop_year": 2025,
@@ -1056,6 +1104,7 @@ const recipeData = [
         "usage": "Boil",
         "time": 10,
         "time_unit": "min",
+        "time_in_minutes": 10.0,
         "alpha_acid": 0.138,
         "hop_form": "Pellet",
         "crop_year": 2025,
@@ -1068,6 +1117,7 @@ const recipeData = [
         "usage": "Boil",
         "time": 10,
         "time_unit": "min",
+        "time_in_minutes": 10.0,
         "alpha_acid": 0.112,
         "hop_form": "Pellet",
         "crop_year": 2021,
@@ -1080,6 +1130,7 @@ const recipeData = [
         "usage": "Dry Hop",
         "time": 2,
         "time_unit": "days",
+        "time_in_minutes": null,
         "alpha_acid": 0.138,
         "hop_form": "Pellet",
         "crop_year": 2025,
@@ -1092,6 +1143,7 @@ const recipeData = [
         "usage": "Dry Hop",
         "time": 2,
         "time_unit": "days",
+        "time_in_minutes": null,
         "alpha_acid": 0.138,
         "hop_form": "Pellet",
         "crop_year": 2025,
@@ -1104,6 +1156,7 @@ const recipeData = [
         "usage": "Dry Hop",
         "time": 2,
         "time_unit": "days",
+        "time_in_minutes": null,
         "alpha_acid": 0.125,
         "hop_form": "Pellet",
         "crop_year": 2021,
@@ -1116,6 +1169,7 @@ const recipeData = [
         "usage": "Dry Hop",
         "time": 2,
         "time_unit": "days",
+        "time_in_minutes": null,
         "alpha_acid": 0.112,
         "hop_form": "Pellet",
         "crop_year": 2021,
@@ -1128,14 +1182,16 @@ const recipeData = [
         "amount": 0.5,
         "unit": "tablets",
         "time": 15.0,
-        "time_unit": "min"
+        "time_unit": "min",
+        "time_in_minutes": 15.0
       },
       {
         "name": "WYeast Nutrient",
         "amount": 2.2,
         "unit": "g",
         "time": 10.0,
-        "time_unit": "min"
+        "time_unit": "min",
+        "time_in_minutes": 10.0
       }
     ],
     "yeast": [
@@ -1190,6 +1246,7 @@ const recipeData = [
     "sparge_temp_unit": "°F",
     "boil_time": 90.0,
     "boil_time_unit": "min",
+    "boil_time_in_minutes": 90.0,
     "fermentation_temp": 50.0,
     "fermentation_temp_unit": "°F",
     "carbonation": 2.3,
@@ -1215,6 +1272,7 @@ const recipeData = [
         "temp_unit": "°F",
         "time_min": 30.0,
         "time_unit": "min",
+        "time_in_minutes": 30.0,
         "adjustment_gal": -1.25,
         "adjustment_unit": "gal"
       },
@@ -1225,6 +1283,7 @@ const recipeData = [
         "temp_unit": "°F",
         "time_min": 30.0,
         "time_unit": "min",
+        "time_in_minutes": 30.0,
         "adjustment_gal": 1.25,
         "adjustment_unit": "gal"
       },
@@ -1235,6 +1294,7 @@ const recipeData = [
         "temp_unit": "°F",
         "time_min": 10.0,
         "time_unit": "min",
+        "time_in_minutes": 10.0,
         "adjustment_gal": 0.0,
         "adjustment_unit": "gal"
       }
@@ -1289,6 +1349,7 @@ const recipeData = [
         "usage": "Boil",
         "time": 60,
         "time_unit": "min",
+        "time_in_minutes": 60.0,
         "alpha_acid": 0.043,
         "hop_form": "Pellet",
         "crop_year": null,
@@ -1301,14 +1362,16 @@ const recipeData = [
         "amount": 2.2,
         "unit": "g",
         "time": 15.0,
-        "time_unit": "min"
+        "time_unit": "min",
+        "time_in_minutes": 15.0
       },
       {
         "name": "Whirlfloc Tablet",
         "amount": 0.5,
         "unit": "tablets",
         "time": 10.0,
-        "time_unit": "min"
+        "time_unit": "min",
+        "time_in_minutes": 10.0
       }
     ],
     "yeast": [
@@ -1381,6 +1444,7 @@ const recipeData = [
     "sparge_temp_unit": "°F",
     "boil_time": 60.0,
     "boil_time_unit": "min",
+    "boil_time_in_minutes": 60.0,
     "fermentation_temp": 68.0,
     "fermentation_temp_unit": "°F",
     "carbonation": 2.4,
@@ -1406,6 +1470,7 @@ const recipeData = [
         "temp_unit": "°F",
         "time_min": 20.0,
         "time_unit": "min",
+        "time_in_minutes": 20.0,
         "adjustment_gal": 0.0,
         "adjustment_unit": "gal"
       },
@@ -1416,6 +1481,7 @@ const recipeData = [
         "temp_unit": "°F",
         "time_min": 15.0,
         "time_unit": "min",
+        "time_in_minutes": 15.0,
         "adjustment_gal": 0.0,
         "adjustment_unit": "gal"
       },
@@ -1426,6 +1492,7 @@ const recipeData = [
         "temp_unit": "°F",
         "time_min": 15.0,
         "time_unit": "min",
+        "time_in_minutes": 15.0,
         "adjustment_gal": 0.0,
         "adjustment_unit": "gal"
       },
@@ -1436,6 +1503,7 @@ const recipeData = [
         "temp_unit": "°F",
         "time_min": 30.0,
         "time_unit": "min",
+        "time_in_minutes": 30.0,
         "adjustment_gal": 0.0,
         "adjustment_unit": "gal"
       },
@@ -1446,6 +1514,7 @@ const recipeData = [
         "temp_unit": "°F",
         "time_min": 30.0,
         "time_unit": "min",
+        "time_in_minutes": 30.0,
         "adjustment_gal": 0.0,
         "adjustment_unit": "gal"
       },
@@ -1456,6 +1525,7 @@ const recipeData = [
         "temp_unit": "°F",
         "time_min": 10.0,
         "time_unit": "min",
+        "time_in_minutes": 10.0,
         "adjustment_gal": 0.5,
         "adjustment_unit": "gal"
       }
@@ -1502,6 +1572,7 @@ const recipeData = [
         "usage": "Boil",
         "time": 60,
         "time_unit": "min",
+        "time_in_minutes": 60.0,
         "alpha_acid": 0.084,
         "hop_form": "Pellet",
         "crop_year": null,
@@ -1514,6 +1585,7 @@ const recipeData = [
         "usage": "Boil",
         "time": 30,
         "time_unit": "min",
+        "time_in_minutes": 30.0,
         "alpha_acid": 0.156,
         "hop_form": "Pellet",
         "crop_year": null,
@@ -1526,6 +1598,7 @@ const recipeData = [
         "usage": "Flameout",
         "time": 0,
         "time_unit": "min",
+        "time_in_minutes": 0.0,
         "alpha_acid": 0.133,
         "hop_form": "Pellet",
         "crop_year": null,
@@ -1538,6 +1611,7 @@ const recipeData = [
         "usage": "Flameout",
         "time": 0,
         "time_unit": "min",
+        "time_in_minutes": 0.0,
         "alpha_acid": 0.101,
         "hop_form": "Pellet",
         "crop_year": null,
@@ -1550,6 +1624,7 @@ const recipeData = [
         "usage": "Whirlpool 180°",
         "time": 20,
         "time_unit": "min",
+        "time_in_minutes": 20.0,
         "alpha_acid": 0.119,
         "hop_form": "Pellet",
         "crop_year": null,
@@ -1562,6 +1637,7 @@ const recipeData = [
         "usage": "Whirlpool 180°",
         "time": 20,
         "time_unit": "min",
+        "time_in_minutes": 20.0,
         "alpha_acid": 0.079,
         "hop_form": "Pellet",
         "crop_year": null,
@@ -1574,6 +1650,7 @@ const recipeData = [
         "usage": "Dry Hop",
         "time": 2,
         "time_unit": "days",
+        "time_in_minutes": null,
         "alpha_acid": 0.11,
         "hop_form": "Pellet",
         "crop_year": null,
@@ -1586,14 +1663,16 @@ const recipeData = [
         "amount": 1.0,
         "unit": "oz",
         "time": 30.0,
-        "time_unit": "min"
+        "time_unit": "min",
+        "time_in_minutes": 30.0
       },
       {
         "name": "Whirlfloc Tablet",
         "amount": 1.0,
         "unit": "oz",
         "time": 15.0,
-        "time_unit": "min"
+        "time_unit": "min",
+        "time_in_minutes": 15.0
       }
     ],
     "yeast": [
@@ -1658,5 +1737,415 @@ const recipeData = [
         "inventory_applied": true
       }
     ]
+  },
+  {
+    "recipe_id": 116,
+    "name": "recipe with boil, whirl and flameout at 0 mins",
+    "search": "recipe with boil, whirl and flameout at 0 mins 1a american light lager",
+    "style_id": 1,
+    "style": "1A American Light Lager",
+    "style_og_min": 1.028,
+    "style_og_max": 1.04,
+    "style_fg_min": 0.998,
+    "style_fg_max": 1.008,
+    "style_ibu_min": 8.0,
+    "style_ibu_max": 12.0,
+    "style_srm_min": 2.0,
+    "style_srm_max": 3.0,
+    "style_abv_min": 2.8,
+    "style_abv_max": 4.2,
+    "batch_size": 5.25,
+    "batch_size_unit": "gal",
+    "efficiency": 73.0,
+    "efficiency_unit": "%",
+    "mash_type": "Step Mash (Simple)",
+    "strike_vol_method": "full_volume",
+    "og": 1.0427,
+    "fg": 1.0107,
+    "abv": 4.2,
+    "abv_unit": "%",
+    "ibu": 38.8,
+    "srm": 41.3,
+    "srm_hex": "#600000",
+    "bitterness_balance": 208.9,
+    "bitterness_balance_unit": "%",
+    "bitterness_label": "Bitter Leaning",
+    "grain_temp": 68.0,
+    "grain_temp_unit": "°F",
+    "water_treatments": "",
+    "sparge_amount": 1.0,
+    "sparge_amount_unit": "gal",
+    "sparge_temp": 170.0,
+    "sparge_temp_unit": "°F",
+    "boil_time": 20.0,
+    "boil_time_unit": "min",
+    "boil_time_in_minutes": 20.0,
+    "fermentation_temp": 68.0,
+    "fermentation_temp_unit": "°F",
+    "carbonation": 2.4,
+    "carbonation_unit": "vol CO₂",
+    "strike_volume": 5.54,
+    "strike_volume_unit": "gal",
+    "strike_temp": 126.6,
+    "strike_temp_unit": "°F",
+    "camden_mash_tablets": 0.28,
+    "camden_mash_grams": 0.17,
+    "camden_sparge_tablets": 0.05,
+    "camden_sparge_grams": 0.03,
+    "notes_label_1": "Design Notes",
+    "notes_1": null,
+    "notes_label_2": "Process Notes",
+    "notes_2": null,
+    "notes_date": null,
+    "mash_steps": [
+      {
+        "step_order": 1,
+        "step_label": "Protein Rest",
+        "temp_f": 122.0,
+        "temp_unit": "°F",
+        "time_min": 3.0,
+        "time_unit": "min",
+        "time_in_minutes": 3.0,
+        "adjustment_gal": 0.0,
+        "adjustment_unit": "gal"
+      },
+      {
+        "step_order": 2,
+        "step_label": "Single Infusion",
+        "temp_f": 152.0,
+        "temp_unit": "°F",
+        "time_min": 3.0,
+        "time_unit": "min",
+        "time_in_minutes": 3.0,
+        "adjustment_gal": 0.0,
+        "adjustment_unit": "gal"
+      },
+      {
+        "step_order": 3,
+        "step_label": "Mash Out",
+        "temp_f": 170.0,
+        "temp_unit": "°F",
+        "time_min": 3.0,
+        "time_unit": "min",
+        "time_in_minutes": 3.0,
+        "adjustment_gal": 0.0,
+        "adjustment_unit": "gal"
+      }
+    ],
+    "grains": [
+      {
+        "name": "Brown Malt",
+        "amount": 9.5,
+        "unit": "lbs",
+        "max_extract": 32.0,
+        "lovibond": 70.0,
+        "pct_of_grist": 100.0
+      }
+    ],
+    "hops": [
+      {
+        "name": "Amarillo",
+        "amount": 1.0,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 20,
+        "time_unit": "min",
+        "time_in_minutes": 20.0,
+        "alpha_acid": 0.084,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Amarillo",
+        "amount": 1.0,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 10,
+        "time_unit": "min",
+        "time_in_minutes": 10.0,
+        "alpha_acid": 0.084,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Amarillo",
+        "amount": 1.0,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 5,
+        "time_unit": "min",
+        "time_in_minutes": 5.0,
+        "alpha_acid": 0.084,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Amarillo",
+        "amount": 1.0,
+        "unit": "oz",
+        "usage": "Flameout",
+        "time": 0,
+        "time_unit": "min",
+        "time_in_minutes": 0.0,
+        "alpha_acid": 0.084,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Challenger",
+        "amount": 1.0,
+        "unit": "oz",
+        "usage": "Whirlpool 180°",
+        "time": 20,
+        "time_unit": "min",
+        "time_in_minutes": 20.0,
+        "alpha_acid": 0.084,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Amarillo",
+        "amount": 1.0,
+        "unit": "oz",
+        "usage": "Whirlpool 170°",
+        "time": 20,
+        "time_unit": "min",
+        "time_in_minutes": 20.0,
+        "alpha_acid": 0.084,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      }
+    ],
+    "boil_additions": [
+      {
+        "name": "Honey",
+        "amount": 1.0,
+        "unit": "oz",
+        "time": 20.0,
+        "time_unit": "min",
+        "time_in_minutes": 20.0
+      },
+      {
+        "name": "Irish Moss",
+        "amount": 1.0,
+        "unit": "tsp",
+        "time": 8.0,
+        "time_unit": "min",
+        "time_in_minutes": 8.0
+      }
+    ],
+    "yeast": [],
+    "sessions": []
+  },
+  {
+    "recipe_id": 118,
+    "name": "recipe with boil, whirl and flameout at 10 mins",
+    "search": "recipe with boil, whirl and flameout at 10 mins 1a american light lager",
+    "style_id": 1,
+    "style": "1A American Light Lager",
+    "style_og_min": 1.028,
+    "style_og_max": 1.04,
+    "style_fg_min": 0.998,
+    "style_fg_max": 1.008,
+    "style_ibu_min": 8.0,
+    "style_ibu_max": 12.0,
+    "style_srm_min": 2.0,
+    "style_srm_max": 3.0,
+    "style_abv_min": 2.8,
+    "style_abv_max": 4.2,
+    "batch_size": 5.25,
+    "batch_size_unit": "gal",
+    "efficiency": 73.0,
+    "efficiency_unit": "%",
+    "mash_type": "Step Mash (Simple)",
+    "strike_vol_method": "full_volume",
+    "og": 1.0427,
+    "fg": 1.0107,
+    "abv": 4.2,
+    "abv_unit": "%",
+    "ibu": 38.8,
+    "srm": 41.3,
+    "srm_hex": "#600000",
+    "bitterness_balance": 208.9,
+    "bitterness_balance_unit": "%",
+    "bitterness_label": "Bitter Leaning",
+    "grain_temp": 68.0,
+    "grain_temp_unit": "°F",
+    "water_treatments": "",
+    "sparge_amount": 1.0,
+    "sparge_amount_unit": "gal",
+    "sparge_temp": 170.0,
+    "sparge_temp_unit": "°F",
+    "boil_time": 20.0,
+    "boil_time_unit": "min",
+    "boil_time_in_minutes": 20.0,
+    "fermentation_temp": 68.0,
+    "fermentation_temp_unit": "°F",
+    "carbonation": 2.4,
+    "carbonation_unit": "vol CO₂",
+    "strike_volume": 5.54,
+    "strike_volume_unit": "gal",
+    "strike_temp": 126.6,
+    "strike_temp_unit": "°F",
+    "camden_mash_tablets": 0.28,
+    "camden_mash_grams": 0.17,
+    "camden_sparge_tablets": 0.05,
+    "camden_sparge_grams": 0.03,
+    "notes_label_1": "Design Notes",
+    "notes_1": null,
+    "notes_label_2": "Process Notes",
+    "notes_2": null,
+    "notes_date": null,
+    "mash_steps": [
+      {
+        "step_order": 1,
+        "step_label": "Protein Rest",
+        "temp_f": 122.0,
+        "temp_unit": "°F",
+        "time_min": 3.0,
+        "time_unit": "min",
+        "time_in_minutes": 3.0,
+        "adjustment_gal": 0.0,
+        "adjustment_unit": "gal"
+      },
+      {
+        "step_order": 2,
+        "step_label": "Single Infusion",
+        "temp_f": 152.0,
+        "temp_unit": "°F",
+        "time_min": 3.0,
+        "time_unit": "min",
+        "time_in_minutes": 3.0,
+        "adjustment_gal": 0.0,
+        "adjustment_unit": "gal"
+      },
+      {
+        "step_order": 3,
+        "step_label": "Mash Out",
+        "temp_f": 170.0,
+        "temp_unit": "°F",
+        "time_min": 3.0,
+        "time_unit": "min",
+        "time_in_minutes": 3.0,
+        "adjustment_gal": 0.0,
+        "adjustment_unit": "gal"
+      }
+    ],
+    "grains": [
+      {
+        "name": "Brown Malt",
+        "amount": 9.5,
+        "unit": "lbs",
+        "max_extract": 32.0,
+        "lovibond": 70.0,
+        "pct_of_grist": 100.0
+      }
+    ],
+    "hops": [
+      {
+        "name": "Amarillo",
+        "amount": 1.0,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 20,
+        "time_unit": "min",
+        "time_in_minutes": 20.0,
+        "alpha_acid": 0.084,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Amarillo",
+        "amount": 1.0,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 10,
+        "time_unit": "min",
+        "time_in_minutes": 10.0,
+        "alpha_acid": 0.084,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Amarillo",
+        "amount": 1.0,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 5,
+        "time_unit": "min",
+        "time_in_minutes": 5.0,
+        "alpha_acid": 0.084,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Amarillo",
+        "amount": 1.0,
+        "unit": "oz",
+        "usage": "Flameout",
+        "time": 10,
+        "time_unit": "min",
+        "time_in_minutes": 10.0,
+        "alpha_acid": 0.084,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Challenger",
+        "amount": 1.0,
+        "unit": "oz",
+        "usage": "Whirlpool 180°",
+        "time": 20,
+        "time_unit": "min",
+        "time_in_minutes": 20.0,
+        "alpha_acid": 0.084,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Amarillo",
+        "amount": 1.0,
+        "unit": "oz",
+        "usage": "Whirlpool 170°",
+        "time": 20,
+        "time_unit": "min",
+        "time_in_minutes": 20.0,
+        "alpha_acid": 0.084,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      }
+    ],
+    "boil_additions": [
+      {
+        "name": "Honey",
+        "amount": 1.0,
+        "unit": "oz",
+        "time": 20.0,
+        "time_unit": "min",
+        "time_in_minutes": 20.0
+      },
+      {
+        "name": "Irish Moss",
+        "amount": 1.0,
+        "unit": "tsp",
+        "time": 8.0,
+        "time_unit": "min",
+        "time_in_minutes": 8.0
+      }
+    ],
+    "yeast": [],
+    "sessions": []
   }
 ];
