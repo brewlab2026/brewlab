@@ -102,47 +102,61 @@
     let timerActive = false;
     let alarmInterval = null; 
 
-    // 1. Create a single Global Audio Context
-    window.AudioContext = window.AudioContext || window.webkitAudioContext;
-    let audioCtx = null;
+ // Remove global audioCtx = null;
+
+    function toggleTimer() {
+        stopAlarm();
+        
+        // --- THE IPAD LOCK-PICK ---
+        // We create/resume the context HERE, inside the click event.
+        if (!window.myAppAudioCtx) {
+            window.myAppAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        
+        if (window.myAppAudioCtx.state === 'suspended') {
+            window.myAppAudioCtx.resume();
+        }
+
+        if (timerActive) {
+            clearInterval(interval);
+            timerActive = false;
+        } else {
+            if (currentIdx < timeline.length) {
+                timerActive = true;
+                interval = setInterval(tick, 1000);
+            }
+        }
+        updateUI();
+    }
 
     window.playTone = function(type) {
-        // 1. Initialize with the webkit prefix for iPad compatibility
-        if (!audioCtx) {
-            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        }
-        
-        // 2. The "Kick": If it's not running, force it to resume
-        // This often fixes the "flashing icon but silence" bug
-        if (audioCtx.state === 'suspended' || audioCtx.state === 'interrupted') {
-            audioCtx.resume();
+        // Access the context created during the Start click
+        const ctx = window.myAppAudioCtx;
+        if (!ctx) return; // Safety check
+
+        if (ctx.state === 'suspended') {
+            ctx.resume();
         }
 
-        // 3. Create the beep
-        const o = audioCtx.createOscillator();
-        const g = audioCtx.createGain();
+        const o = ctx.createOscillator();
+        const g = ctx.createGain();
 
-        // 'square' is the loudest/buzziest for alarms
         o.type = (type === 'warning') ? "triangle" : "square";
-        o.frequency.setValueAtTime(type === 'warning' ? 440 : 980, audioCtx.currentTime);
+        o.frequency.setValueAtTime(type === 'warning' ? 440 : 980, ctx.currentTime);
         
-        // 4. Set the Volume (0.8 is very loud)
         const peakVolume = (type === 'warning') ? 0.4 : 0.8;
-        g.gain.setValueAtTime(0, audioCtx.currentTime);
-        g.gain.linearRampToValueAtTime(peakVolume, audioCtx.currentTime + 0.02);
+        g.gain.setValueAtTime(0, ctx.currentTime);
+        g.gain.linearRampToValueAtTime(peakVolume, ctx.currentTime + 0.02);
         
         const holdTime = (type === 'warning') ? 0.2 : 0.8;
-        g.gain.setValueAtTime(peakVolume, audioCtx.currentTime + holdTime);
-        g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + holdTime + 0.2);
+        g.gain.setValueAtTime(peakVolume, ctx.currentTime + holdTime);
+        g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + holdTime + 0.2);
         
         o.connect(g);
-        g.connect(audioCtx.destination);
-        
-        // 5. Start and Stop
+        g.connect(ctx.destination);
         o.start();
-        o.stop(audioCtx.currentTime + holdTime + 0.3);
+        o.stop(ctx.currentTime + holdTime + 0.3);
     };
-
     function playTripleBeep() {
         [0, 700, 1400].forEach(t => setTimeout(() => playTone('warning'), t));
     }
@@ -296,27 +310,7 @@
                 </tr>`;
         });
     }
-
-    function toggleTimer() {
-        stopAlarm();
-        
-        // Initialize or Resume audio on every click to keep iPad happy
-        if (!audioCtx) { audioCtx = new AudioContext(); }
-        if (audioCtx.state === 'suspended') { audioCtx.resume(); }
-
-        const btn = document.getElementById('runBtn');
-        if (timerActive) {
-            clearInterval(interval);
-            timerActive = false;
-        } else {
-            if (currentIdx < timeline.length) {
-                timerActive = true;
-                interval = setInterval(tick, 1000);
-            }
-        }
-        updateUI();
-    }
-   
+ 
     function tick() {
         if (timeLeft <= 0) {
             clearInterval(interval);
