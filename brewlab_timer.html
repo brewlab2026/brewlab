@@ -95,8 +95,6 @@
 
     <script src="mobile_recipes.js"></script>
     <script>
-    window.AudioContext = window.AudioContext || window.webkitAudioContext;
-    let audioCtx = null;
     let timeline = [];
     let currentIdx = 0;
     let timeLeft = 0;
@@ -105,30 +103,22 @@
     let alarmInterval = null; 
 
     window.playTone = function(type) {
-        if (!audioCtx) { audioCtx = new AudioContext(); }
-        
-        // This 'resume' is the magic key for iPad
-        if (audioCtx.state === 'suspended') {
-            audioCtx.resume();
-        }
-
-        const o = audioCtx.createOscillator();
-        const g = audioCtx.createGain();
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const o = ctx.createOscillator();
+        const g = ctx.createGain();
         o.type = "sine";
-        o.frequency.setValueAtTime(type === 'warning' ? 440 : 880, audioCtx.currentTime);
-        
-        g.gain.setValueAtTime(0, audioCtx.currentTime);
-        g.gain.linearRampToValueAtTime(0.2, audioCtx.currentTime + 0.02);
-        
+        o.frequency.setValueAtTime(type === 'warning' ? 440 : 880, ctx.currentTime);
+        g.gain.setValueAtTime(0, ctx.currentTime);
+        g.gain.linearRampToValueAtTime(0.2, ctx.currentTime + 0.02);
         const holdTime = (type === 'warning') ? 0.2 : 0.8;
-        g.gain.setValueAtTime(0.2, audioCtx.currentTime + holdTime);
-        g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + holdTime + 0.2);
-        
+        g.gain.setValueAtTime(0.2, ctx.currentTime + holdTime);
+        g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + holdTime + 0.2);
         o.connect(g);
-        g.connect(audioCtx.destination);
+        g.connect(ctx.destination);
         o.start();
-        o.stop(audioCtx.currentTime + holdTime + 0.3);
+        o.stop(ctx.currentTime + holdTime + 0.3);
     };
+
     function playTripleBeep() {
         [0, 700, 1400].forEach(t => setTimeout(() => playTone('warning'), t));
     }
@@ -284,22 +274,26 @@
 
     function toggleTimer() {
         stopAlarm();
+        const btn = document.getElementById('runBtn');
         
-        // Kickstart the audio engine when you tap START
-        if (!audioCtx) { audioCtx = new AudioContext(); }
-        if (audioCtx.state === 'suspended') { audioCtx.resume(); }
-
         if (timerActive) {
+            // PAUSE LOGIC
             clearInterval(interval);
             timerActive = false;
         } else {
+            // START/RESUME LOGIC
+            // If the timer is at 0:00 and we have steps left, 
+            // the 'tick' function and 'skipStep' have already prepared the next duration.
+            // We just need to start the interval.
             if (currentIdx < timeline.length) {
                 timerActive = true;
                 interval = setInterval(tick, 1000);
             }
         }
+        
         updateUI();
-    }   
+    }
+   
     function tick() {
         if (timeLeft <= 0) {
             clearInterval(interval);
