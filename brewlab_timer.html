@@ -107,24 +107,28 @@
     let audioCtx = null;
 
     window.playTone = function(type) {
-        if (!audioCtx) { audioCtx = new AudioContext(); }
-        if (audioCtx.state === 'suspended') { audioCtx.resume(); }
+        // 1. Initialize with the webkit prefix for iPad compatibility
+        if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        
+        // 2. The "Kick": If it's not running, force it to resume
+        // This often fixes the "flashing icon but silence" bug
+        if (audioCtx.state === 'suspended' || audioCtx.state === 'interrupted') {
+            audioCtx.resume();
+        }
 
+        // 3. Create the beep
         const o = audioCtx.createOscillator();
         const g = audioCtx.createGain();
 
-        // Change 'sine' to 'square' for a much sharper, louder "alarm" sound
-        // Or use 'triangle' for a middle-ground volume
+        // 'square' is the loudest/buzziest for alarms
         o.type = (type === 'warning') ? "triangle" : "square";
-        
-        // Higher frequency for the main alarm to make it "piercing"
         o.frequency.setValueAtTime(type === 'warning' ? 440 : 980, audioCtx.currentTime);
         
+        // 4. Set the Volume (0.8 is very loud)
+        const peakVolume = (type === 'warning') ? 0.4 : 0.8;
         g.gain.setValueAtTime(0, audioCtx.currentTime);
-        
-        // INCREASED GAIN: Moving from 0.2 to 0.8 (be careful, this is loud!)
-        const peakVolume = (type === 'warning') ? 0.4 : 0.9;
-        
         g.gain.linearRampToValueAtTime(peakVolume, audioCtx.currentTime + 0.02);
         
         const holdTime = (type === 'warning') ? 0.2 : 0.8;
@@ -133,6 +137,8 @@
         
         o.connect(g);
         g.connect(audioCtx.destination);
+        
+        // 5. Start and Stop
         o.start();
         o.stop(audioCtx.currentTime + holdTime + 0.3);
     };
