@@ -102,34 +102,38 @@
     let timerActive = false;
     let alarmInterval = null; 
 
+    // 1. Create a single Global Audio Context
+    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
+
     window.playTone = function(type) {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        // 2. Initialize the context if it doesn't exist
+        if (!audioCtx) {
+            audioCtx = new AudioContext();
+        }
         
-        // If the context is suspended (common on iOS), resume it
-        if (ctx.state === 'suspended') {
-            ctx.resume();
+        // 3. CRITICAL: Always try to resume (required for iOS/iPadOS)
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
         }
 
-        const o = ctx.createOscillator();
-        const g = ctx.createGain();
+        const o = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
         o.type = "sine";
+        o.frequency.setValueAtTime(type === 'warning' ? 440 : 880, audioCtx.currentTime);
         
-        // Warning is a lower beep, Alarm (action) is higher
-        o.frequency.setValueAtTime(type === 'warning' ? 440 : 880, ctx.currentTime);
-        
-        g.gain.setValueAtTime(0, ctx.currentTime);
-        g.gain.linearRampToValueAtTime(0.2, ctx.currentTime + 0.02);
+        g.gain.setValueAtTime(0, audioCtx.currentTime);
+        g.gain.linearRampToValueAtTime(0.2, audioCtx.currentTime + 0.02);
         
         const holdTime = (type === 'warning') ? 0.2 : 0.8;
-        g.gain.setValueAtTime(0.2, ctx.currentTime + holdTime);
-        g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + holdTime + 0.2);
+        g.gain.setValueAtTime(0.2, audioCtx.currentTime + holdTime);
+        g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + holdTime + 0.2);
         
         o.connect(g);
-        g.connect(ctx.destination);
+        g.connect(audioCtx.destination);
         o.start();
-        o.stop(ctx.currentTime + holdTime + 0.3);
+        o.stop(audioCtx.currentTime + holdTime + 0.3);
     };
-
     function playTripleBeep() {
         [0, 700, 1400].forEach(t => setTimeout(() => playTone('warning'), t));
     }
@@ -287,17 +291,9 @@
     function toggleTimer() {
         stopAlarm();
         
-        // --- iOS AUDIO UNLOCK ---
-        // Play a tiny silent tone to "unlock" the speaker for later
-        const silentCtx = new (window.AudioContext || window.webkitAudioContext)();
-        const osc = silentCtx.createOscillator();
-        const gain = silentCtx.createGain();
-        gain.gain.value = 0; // Silent
-        osc.connect(gain);
-        gain.connect(silentCtx.destination);
-        osc.start(0);
-        osc.stop(0.1);
-        // ------------------------
+        // Initialize or Resume audio on every click to keep iPad happy
+        if (!audioCtx) { audioCtx = new AudioContext(); }
+        if (audioCtx.state === 'suspended') { audioCtx.resume(); }
 
         const btn = document.getElementById('runBtn');
         if (timerActive) {
