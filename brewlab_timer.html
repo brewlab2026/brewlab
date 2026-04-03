@@ -95,6 +95,8 @@
 
     <script src="mobile_recipes.js"></script>
     <script>
+    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    let audioCtx = null;
     let timeline = [];
     let currentIdx = 0;
     let timeLeft = 0;
@@ -102,65 +104,34 @@
     let timerActive = false;
     let alarmInterval = null; 
 
- // Remove global audioCtx = null;
-
-    function toggleTimer() {
-        stopAlarm();
-        
-        // --- THE IPAD LOCK-PICK ---
-        // We create/resume the context HERE, inside the click event.
-        if (!window.myAppAudioCtx) {
-            window.myAppAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        }
-        
-        if (window.myAppAudioCtx.state === 'suspended') {
-            window.myAppAudioCtx.resume();
-        }
-
-        if (timerActive) {
-            clearInterval(interval);
-            timerActive = false;
-        } else {
-            if (currentIdx < timeline.length) {
-                timerActive = true;
-                interval = setInterval(tick, 1000);
-            }
-        }
-        updateUI();
-    }
-
     window.playTone = function(type) {
-        // Access the context created during the Start click
-        const ctx = window.myAppAudioCtx;
-        if (!ctx) return; // Safety check
-
-        if (ctx.state === 'suspended') {
-            ctx.resume();
+        if (!audioCtx) { audioCtx = new AudioContext(); }
+        
+        // This 'resume' is the magic key for iPad
+        if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
         }
 
-        const o = ctx.createOscillator();
-        const g = ctx.createGain();
-
-        o.type = (type === 'warning') ? "triangle" : "square";
-        o.frequency.setValueAtTime(type === 'warning' ? 440 : 980, ctx.currentTime);
+        const o = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        o.type = "sine";
+        o.frequency.setValueAtTime(type === 'warning' ? 440 : 880, audioCtx.currentTime);
         
-        const peakVolume = (type === 'warning') ? 0.4 : 0.8;
-        g.gain.setValueAtTime(0, ctx.currentTime);
-        g.gain.linearRampToValueAtTime(peakVolume, ctx.currentTime + 0.02);
+        g.gain.setValueAtTime(0, audioCtx.currentTime);
+        g.gain.linearRampToValueAtTime(0.2, audioCtx.currentTime + 0.02);
         
         const holdTime = (type === 'warning') ? 0.2 : 0.8;
-        g.gain.setValueAtTime(peakVolume, ctx.currentTime + holdTime);
-        g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + holdTime + 0.2);
+        g.gain.setValueAtTime(0.2, audioCtx.currentTime + holdTime);
+        g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + holdTime + 0.2);
         
         o.connect(g);
-        g.connect(ctx.destination);
+        g.connect(audioCtx.destination);
         o.start();
-        o.stop(ctx.currentTime + holdTime + 0.3);
+        o.stop(audioCtx.currentTime + holdTime + 0.3);
     };
     function playTripleBeep() {
         [0, 700, 1400].forEach(t => setTimeout(() => playTone('warning'), t));
     }
-
 
     window.onload = () => {
         const select = document.getElementById('recipeSelect');
@@ -310,7 +281,25 @@
                 </tr>`;
         });
     }
- 
+
+    function toggleTimer() {
+        stopAlarm();
+        
+        // Kickstart the audio engine when you tap START
+        if (!audioCtx) { audioCtx = new AudioContext(); }
+        if (audioCtx.state === 'suspended') { audioCtx.resume(); }
+
+        if (timerActive) {
+            clearInterval(interval);
+            timerActive = false;
+        } else {
+            if (currentIdx < timeline.length) {
+                timerActive = true;
+                interval = setInterval(tick, 1000);
+            }
+        }
+        updateUI();
+    }   
     function tick() {
         if (timeLeft <= 0) {
             clearInterval(interval);
