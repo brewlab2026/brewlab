@@ -104,15 +104,26 @@
 
     window.playTone = function(type) {
         const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        
+        // If the context is suspended (common on iOS), resume it
+        if (ctx.state === 'suspended') {
+            ctx.resume();
+        }
+
         const o = ctx.createOscillator();
         const g = ctx.createGain();
         o.type = "sine";
+        
+        // Warning is a lower beep, Alarm (action) is higher
         o.frequency.setValueAtTime(type === 'warning' ? 440 : 880, ctx.currentTime);
+        
         g.gain.setValueAtTime(0, ctx.currentTime);
         g.gain.linearRampToValueAtTime(0.2, ctx.currentTime + 0.02);
+        
         const holdTime = (type === 'warning') ? 0.2 : 0.8;
         g.gain.setValueAtTime(0.2, ctx.currentTime + holdTime);
         g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + holdTime + 0.2);
+        
         o.connect(g);
         g.connect(ctx.destination);
         o.start();
@@ -122,6 +133,7 @@
     function playTripleBeep() {
         [0, 700, 1400].forEach(t => setTimeout(() => playTone('warning'), t));
     }
+
 
     window.onload = () => {
         const select = document.getElementById('recipeSelect');
@@ -274,23 +286,29 @@
 
     function toggleTimer() {
         stopAlarm();
-        const btn = document.getElementById('runBtn');
         
+        // --- iOS AUDIO UNLOCK ---
+        // Play a tiny silent tone to "unlock" the speaker for later
+        const silentCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = silentCtx.createOscillator();
+        const gain = silentCtx.createGain();
+        gain.gain.value = 0; // Silent
+        osc.connect(gain);
+        gain.connect(silentCtx.destination);
+        osc.start(0);
+        osc.stop(0.1);
+        // ------------------------
+
+        const btn = document.getElementById('runBtn');
         if (timerActive) {
-            // PAUSE LOGIC
             clearInterval(interval);
             timerActive = false;
         } else {
-            // START/RESUME LOGIC
-            // If the timer is at 0:00 and we have steps left, 
-            // the 'tick' function and 'skipStep' have already prepared the next duration.
-            // We just need to start the interval.
             if (currentIdx < timeline.length) {
                 timerActive = true;
                 interval = setInterval(tick, 1000);
             }
         }
-        
         updateUI();
     }
    
