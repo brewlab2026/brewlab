@@ -16,6 +16,8 @@
         button { cursor: pointer; border: none; font-weight: bold; transition: 0.2s; }
         button:active { opacity: 0.7; }
         @keyframes blinker { 50% { opacity: 0; } }
+        .active-row { background: #1a2533 !important; border-left: 5px solid #f1c40f !important; }
+        .active-text { color: #f1c40f !important; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -44,25 +46,21 @@
             <div id="currentStepLabel" style="font-size: 1.4em; color: #fff; font-weight: bold; margin-bottom: 5px;">Ready</div>
             <div id="timerDisplay">00:00</div>
             <div id="nextStepLabel" style="font-size: 1.1em; color: #f1c40f; margin-bottom: 20px; font-style: italic; min-height: 1.2em;">Next: --</div>
-           
+            
             <div style="border: 2px solid #f1c40f; border-radius: 10px; padding: 15px; margin: 10px 0; background: rgba(241, 196, 15, 0.05);">
                 <div style="display: flex; gap: 10px; margin-bottom: 10px;">
                     <button onclick="adjustTime(-600)" style="flex: 1; padding: 15px; background: #34495e; color: white; border-radius: 5px;">-10m</button>
                     <button onclick="adjustTime(600)" style="flex: 1; padding: 15px; background: #34495e; color: white; border-radius: 5px;">+10m</button>
                 </div>
                 <div style="display: flex; gap: 10px; margin-bottom: 10px;">
-                    <button onclick="adjustTime(-1)" style="flex: 1; padding: 15px; background: #34495e; color: white; border-radius: 5px;">-1s</button>
-                    <button onclick="adjustTime(1)" style="flex: 1; padding: 15px; background: #34495e; color: white; border-radius: 5px;">+1s</button>
+                    <button onclick="adjustTime(-10)" style="flex: 1; padding: 15px; background: #34495e; color: white; border-radius: 5px;">-10s</button>
+                    <button onclick="adjustTime(10)" style="flex: 1; padding: 15px; background: #34495e; color: white; border-radius: 5px;">+10s</button>
                 </div>
                 <div style="display: flex; gap: 10px; width: 100%; align-items: center;">
-                    <input type="number" id="manualInput" placeholder="Min" 
+                    <input type="number" id="manualInput" step="0.1" placeholder="Min (xx.x)" 
                         onkeydown="if(event.key==='Enter') setManualTime()"
                         style="flex: 1; min-width: 0; width: 50%; background: #1e1e1e; color: #f1c40f; border: 1px solid #444; border-radius: 5px; font-size: 1.2em; text-align: center; padding: 10px;">
-                    
-                    <button onclick="setManualTime()" 
-                        style="flex: 1; white-space: nowrap; background: #2980b9; color: white; border-radius: 5px; padding: 10px; font-size: 1em;">
-                        SET TIME
-                    </button>
+                    <button onclick="setManualTime()" style="flex: 1; white-space: nowrap; background: #2980b9; color: white; border-radius: 5px; padding: 10px; font-size: 1em;">SET TIME</button>
                 </div>
             </div>
             <div id="alarm-overlay" style="display:none; margin-top: 15px;">
@@ -76,7 +74,10 @@
                 <button id="runBtn" onclick="toggleTimer()" style="flex: 1; padding: 15px; font-size: 1.1em; background: #27ae60; color: white; border-radius: 6px;">START BREW</button>
                 <button onclick="resetTimer()" style="flex: 1; padding: 15px; font-size: 1.1em; background: #c0392b; color: white; border-radius: 6px;">RESET</button>
             </div>
-            <button onclick="skipStep()" style="width: 100%; padding: 15px; background: #8e44ad; color: white; border-radius: 6px;">⏭ Skip to Next Step</button>
+            <div style="display: flex; gap: 10px; width: 100%;">
+                <button onclick="previousStep()" style="flex: 1; padding: 15px; background: #34495e; color: white; border-radius: 6px;">&laquo; Back</button>
+                <button onclick="skipStep()" style="flex: 1; padding: 15px; background: #8e44ad; color: white; border-radius: 6px;">Skip &raquo;</button>
+            </div>
         </div>
 
         <div id="timeline-audit" style="margin-top: 30px; background: #1e1e1e; border-radius: 8px; padding: 15px; border: 1px solid #333;">
@@ -98,29 +99,41 @@
     let timeline = [];
     let currentIdx = 0;
     let timeLeft = 0;
+    let initialStepTime = 0;
     let interval = null; 
-    let timerActive = false;
     let alarmInterval = null; 
+    let audioUnlocked = false;
 
-    window.playTone = function(type) {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        const o = ctx.createOscillator();
-        const g = ctx.createGain();
-        o.type = "sine";
-        o.frequency.setValueAtTime(type === 'warning' ? 440 : 880, ctx.currentTime);
-        g.gain.setValueAtTime(0, ctx.currentTime);
-        g.gain.linearRampToValueAtTime(0.2, ctx.currentTime + 0.02);
-        const holdTime = (type === 'warning') ? 0.2 : 0.8;
-        g.gain.setValueAtTime(0.2, ctx.currentTime + holdTime);
-        g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + holdTime + 0.2);
-        o.connect(g);
-        g.connect(ctx.destination);
-        o.start();
-        o.stop(ctx.currentTime + holdTime + 0.3);
-    };
+    function playTone(type) {
+        try {
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            const o = ctx.createOscillator();
+            const g = ctx.createGain();
+            o.type = "sine";
+            o.frequency.setValueAtTime(type === 'warning' ? 440 : 880, ctx.currentTime);
+            g.gain.setValueAtTime(0, ctx.currentTime);
+            g.gain.linearRampToValueAtTime(0.2, ctx.currentTime + 0.02);
+            const holdTime = (type === 'warning') ? 0.2 : 0.8;
+            g.gain.setValueAtTime(0.2, ctx.currentTime + holdTime);
+            g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + holdTime + 0.2);
+            o.connect(g);
+            g.connect(ctx.destination);
+            o.start();
+            o.stop(ctx.currentTime + holdTime + 0.3);
+        } catch(e) {}
+    }
 
-    function playTripleBeep() {
-        [0, 700, 1400].forEach(t => setTimeout(() => playTone('warning'), t));
+    function playTripleBeep() { [0, 700, 1400].forEach(t => setTimeout(() => playTone('warning'), t)); }
+
+    function unlockAudio() {
+        if (!audioUnlocked) {
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            const source = ctx.createBufferSource();
+            source.buffer = ctx.createBuffer(1, 1, 22050);
+            source.connect(ctx.destination);
+            source.start(0);
+            audioUnlocked = true;
+        }
     }
 
     window.onload = () => {
@@ -135,16 +148,39 @@
         }
     };
 
+    function loadRecipe() {
+        stopAlarm();
+        if (interval) { clearInterval(interval); interval = null; }
+        const idx = document.getElementById('recipeSelect').value;
+        if (idx === "") return;
+        let baseTimeline = buildFlattenedTimeline(recipeData[idx]);
+        timeline = [
+            { label: "START: Initialize System & Equipment", duration: 0, isManual: true },
+            ...baseTimeline,
+            { label: "COMPLETE: Brew Day Finished", duration: 0, isManual: true }
+        ];
+        currentIdx = 0;
+        resetStepContext();
+        document.getElementById('timerContainer').style.display = 'block';
+        updateUI();
+        renderAuditTable();
+    }
+
+    function resetStepContext() {
+        const step = timeline[currentIdx];
+        timeLeft = step.duration || 0;
+        initialStepTime = timeLeft;
+    }
+
     function buildFlattenedTimeline(r) {
         let fl = [];
-
         const getVal = (obj, keys) => {
             for (let k of keys) { if (obj[k] !== undefined) return obj[k]; }
             return 0;
         };
 
         // 1. MASH
-        if (r.mash_steps && r.mash_steps.length > 0) {
+        if (r.mash_steps) {
             r.mash_steps.forEach(s => {
                 fl.push({
                     label: `MASH: ${s.step_label || 'Rest'} (${s.temp_f || s.step_temp || '--'}°F)`,
@@ -156,212 +192,135 @@
         // 2. HEATING
         fl.push({ label: "HEATING: Wait for Rolling Boil", duration: 0, isManual: true });
 
-        // 3. BOIL PHASE (Unified Hops & Additions)
-            const allHops = r.hops || [];
-            const boilAdds = r.boil_additions || [];
+        // 3. BOIL
+        const allHops = r.hops || [];
+        const boilAdds = r.boil_additions || [];
+        const activeHops = allHops.filter(h => !(h.usage || "").toLowerCase().includes("dry hop"));
 
-            const kettleAdditions = [
-                ...allHops.filter(h => (h.usage || "").toLowerCase() === "boil"),
-                ...boilAdds
-            ].map(item => ({
-                name: item.name,
-                amount: `${item.amount} ${item.unit || 'oz'}`,
-                time: parseFloat(item.time_in_minutes) || 0 
-            })).sort((a, b) => b.time - a.time);
+        const kettleAdditions = [
+            ...activeHops.filter(h => (h.usage || "").toLowerCase() === "boil"),
+            ...boilAdds
+        ].map(item => ({
+            name: item.name,
+            amount: `${item.amount} ${item.unit || 'oz'}`,
+            time: parseFloat(item.time_in_minutes) || 0 
+        })).sort((a, b) => b.time - a.time);
 
-            let currentBoilTime = parseFloat(r.boil_time_in_minutes) || 60;
-
-            kettleAdditions.forEach(add => {
-                if (currentBoilTime > add.time) {
-                    fl.push({ 
-                        label: `BOILING: Maintain Boil (${add.time}m Remaining)`, 
-                        duration: (currentBoilTime - add.time) * 60 
-                    });
-                }
-                fl.push({ label: `BOILING: Add ${add.amount} ${add.name}`, duration: 0, isManual: true });
-                currentBoilTime = add.time;
-            });
-            if (currentBoilTime > 0) fl.push({ label: "BOILING: Final Stretch to Flameout", duration: currentBoilTime * 60 });
-
-            // 4. FLAMEOUT PHASE
-            const flameoutHops = allHops.filter(h => {
-                const u = (h.usage || "").toLowerCase();
-                return u.startsWith("flameout") || u.includes("knockout");
-            }).map(h => ({
-                name: h.name,
-                amount: `${h.amount} ${h.unit || 'oz'}`,
-                time: parseFloat(h.time_in_minutes) || 0
-            })).sort((a, b) => b.time - a.time);
-
-            fl.push({ label: "FLAMEOUT: Turn off Heat / Knockout", duration: 0, isManual: true });
-
-            if (flameoutHops.length > 0) {
-                let currentFOTime = Math.max(...flameoutHops.map(h => h.time));
-                flameoutHops.forEach(hop => {
-                    if (currentFOTime > hop.time) {
-                        fl.push({ label: `FLAMEOUT: Hop Stand Rest (${hop.time}m Remaining)`, duration: (currentFOTime - hop.time) * 60 });
-                    }
-                    fl.push({ label: `FLAMEOUT: Add ${hop.amount} ${hop.name}`, duration: 0, isManual: true });
-                    currentFOTime = hop.time;
-                });
-                if (currentFOTime > 0) fl.push({ label: `FLAMEOUT: Final Rest`, duration: currentFOTime * 60 });
+        let currentBoilTime = parseFloat(r.boil_time_in_minutes) || 60;
+        kettleAdditions.forEach(add => {
+            if (currentBoilTime > add.time) {
+                fl.push({ label: `BOILING: Maintain Boil (${add.time}m Remaining)`, duration: (currentBoilTime - add.time) * 60 });
             }
-
-            // 5. WHIRLPOOL PHASE
-            // Step A: Define the hops FIRST
-            const whirlpoolHops = allHops.filter(h => (h.usage || "").toLowerCase().startsWith("whirl"))
-            .map(h => ({
-                name: h.name,
-                usage: h.usage.toUpperCase(),
-                amount: `${h.amount} ${h.unit || 'oz'}`,
-                time: parseFloat(h.time_in_minutes) || 0
-            })).sort((a, b) => b.time - a.time);
-
-            // Step B: Now we can safely check if they exist to add the transition
-            if (whirlpoolHops.length > 0) {
-                const firstWpTemp = whirlpoolHops[0].usage.match(/\d+/) || "Whirlpool";
-                fl.push({ 
-                    label: `CHILLING: Cool to ${firstWpTemp}°F for Whirlpool`, 
-                    duration: 0, 
-                    isManual: true 
-                });
-
-                // Step C: Build the Whirlpool rests
-                let currentWPTime = Math.max(...whirlpoolHops.map(h => h.time));
-                whirlpoolHops.forEach(hop => {
-                    if (currentWPTime > hop.time) {
-                        fl.push({ label: `${hop.usage}: Steeping Rest (${hop.time}m Remaining)`, duration: (currentWPTime - hop.time) * 60 });
-                    }
-                    fl.push({ label: `${hop.usage}: Add ${hop.amount} ${hop.name}`, duration: 0, isManual: true });
-                    currentWPTime = hop.time;
-                });
-                if (currentWPTime > 0) fl.push({ label: `WHIRLPOOL: Final Rest`, duration: currentWPTime * 60 });
-            }
-
-            // 6. FINISH
-            fl.push({ label: "CHILLING: Cool to Pitch Temp & Transfer", duration: 0, isManual: true });
-
-            return fl;
-    }
-
-    function loadRecipe() {
-        stopAlarm();
-        const idx = document.getElementById('recipeSelect').value;
-        if (idx === "") return;
-        timeline = buildFlattenedTimeline(recipeData[idx]);
-        currentIdx = 0;
-        timeLeft = timeline[0].duration;
-        document.getElementById('timerContainer').style.display = 'block';
-        timerActive = false;
-        if (interval) clearInterval(interval);
-        updateUI();
-        renderAuditTable(timeline);
-    }
-
-    function renderAuditTable(timelineData) {
-        const body = document.getElementById('audit-body');
-        body.innerHTML = ''; 
-        timelineData.forEach((step, index) => {
-            const timeDisplay = step.isManual ? '<span style="color: #f1c40f;">CHECK</span>' : (step.duration / 60) + 'm';
-            const isActive = (index === currentIdx);
-            body.innerHTML += `
-                <tr style="border-bottom: 1px solid #333; ${isActive ? 'background: #2c3e50; border-left: 4px solid #f1c40f;' : ''}">
-                    <td style="padding: 12px; font-weight: bold; color: ${isActive ? '#f1c40f' : '#fff'};">${step.label}</td>
-                    <td style="padding: 12px; text-align: right;">${timeDisplay}</td>
-                </tr>`;
+            fl.push({ label: `BOILING: Add ${add.amount} ${add.name}`, duration: 0, isManual: true });
+            currentBoilTime = add.time;
         });
+        if (currentBoilTime > 0) fl.push({ label: "BOILING: Final Stretch to Flameout", duration: currentBoilTime * 60 });
+
+        // 4. LATE ADDITIONS (Flameout / Whirlpool 180 / Whirlpool 170)
+        const lateHops = activeHops.filter(h => {
+            const u = (h.usage || "").toLowerCase();
+            return u.includes("flameout") || u.includes("whirlpool") || u.includes("knockout");
+        }).map(h => {
+            const u = h.usage.toLowerCase();
+            let priority = 4;
+            if (u.includes("flameout") || u.includes("knockout")) priority = 1;
+            else if (u.includes("180")) priority = 2;
+            else if (u.includes("170")) priority = 3;
+
+            return {
+                label: `${h.usage.toUpperCase()}: Add ${h.amount}${h.unit || 'oz'} ${h.name}`,
+                time: parseFloat(h.time_in_minutes) || 0,
+                priority: priority
+            };
+        }).sort((a, b) => {
+            if (a.priority !== b.priority) return a.priority - b.priority;
+            return b.time - a.time; 
+        });
+
+        // Apply the "Timer only on the last one" rule for Whirlpool groups
+        lateHops.forEach((hop, index) => {
+            const nextHop = lateHops[index + 1];
+            
+            // If there's another hop at the EXACT same priority and time, this one is just a CHECK.
+            // Otherwise, it gets the duration.
+            const isFollowedBySame = nextHop && 
+                                    nextHop.priority === hop.priority && 
+                                    nextHop.time === hop.time;
+
+            fl.push({ 
+                label: hop.label, 
+                duration: isFollowedBySame ? 0 : (hop.time * 60), 
+                isManual: isFollowedBySame || hop.time === 0
+            });
+        });
+
+        // 5. FINAL CHILL
+        fl.push({ label: "CHILLING: Cool to Pitch Temp & Transfer", duration: 0, isManual: true });
+
+        return fl;
     }
 
     function toggleTimer() {
+        unlockAudio(); 
         stopAlarm();
-        const btn = document.getElementById('runBtn');
-        
-        if (timerActive) {
-            // PAUSE LOGIC
-            clearInterval(interval);
-            timerActive = false;
-        } else {
-            // START/RESUME LOGIC
-            // If the timer is at 0:00 and we have steps left, 
-            // the 'tick' function and 'skipStep' have already prepared the next duration.
-            // We just need to start the interval.
-            if (currentIdx < timeline.length) {
-                timerActive = true;
+        if (timeLeft <= 0 && currentIdx < timeline.length - 1) {
+            currentIdx++;
+            resetStepContext();
+            if (timeLeft > 0) {
+                if (interval) clearInterval(interval);
                 interval = setInterval(tick, 1000);
             }
+            updateUI();
+            renderAuditTable();
+            return; 
         }
-        
-        updateUI();
-    }
-   
-    function tick() {
-        if (timeLeft <= 0) {
+        if (interval) {
             clearInterval(interval);
-            timerActive = false;
-            startContinuousAlarm();
-
-            // Advance to the next step
-            currentIdx++;
-
-            // DEEP LOOK-AHEAD: Hunt for the next duration
-            if (currentIdx < timeline.length) {
-                // If the current step is a 0-min check, look at the one AFTER it
-                if (timeline[currentIdx].duration === 0 && (currentIdx + 1) < timeline.length) {
-                    timeLeft = timeline[currentIdx + 1].duration;
-                } else {
-                    timeLeft = timeline[currentIdx].duration;
-                }
-            } else {
-                timeLeft = 0;
-            }
-
-            renderAuditTable(timeline); 
-            updateUI(); 
-            return;
+            interval = null;
+        } else if (timeLeft > 0) {
+            interval = setInterval(tick, 1000);
         }
-
-        if (timeLeft === 120) playTripleBeep();
-        timeLeft--;
         updateUI();
-    }    
-    function updateUI() {
-        const mins = Math.floor(timeLeft / 60);
-        const secs = timeLeft % 60;
-        document.getElementById('timerDisplay').innerText = `${mins}:${secs.toString().padStart(2, '0')}`;
-        
-        const current = timeline[currentIdx];
-        document.getElementById('currentStepLabel').innerText = current ? current.label : "Ready";
-        
-        const elNext = document.getElementById('nextStepLabel');
-        elNext.innerText = (currentIdx < timeline.length - 1) 
-            ? "Next: " + timeline[currentIdx + 1].label 
-            : "Next: Brew Complete";
+    }
 
-        const runBtn = document.getElementById('runBtn');
-
-        if (timerActive) {
-            // If the timer is running, the button must allow pausing
-            runBtn.innerText = "PAUSE";
-            runBtn.style.background = "#e67e22"; // Orange for pause
-        } else {
-            // If the timer is stopped, determine the correct label
-            if (currentIdx >= timeline.length) {
-                runBtn.innerText = "BREW DONE";
-                runBtn.style.background = "#7f8c8d"; // Gray for finished
-            } else if (timeLeft > 0) {
-                // If time is left, check if it's a fresh start or a resume
-                const isFreshStart = (timeLeft === timeline[currentIdx].duration);
-                runBtn.innerText = isFreshStart ? "START NEXT STEP" : "RESUME";
-                runBtn.style.background = "#27ae60"; // Green for start/resume
-            } else {
-                // This covers edge cases where timeLeft is 0 but steps remain
-                runBtn.innerText = "START NEXT STEP";
-                runBtn.style.background = "#27ae60";
+    function tick() {
+        if (timeLeft > 0) {
+            timeLeft--;
+            if (timeLeft === 120 && initialStepTime > 120) playTripleBeep();
+            if (timeLeft === 0) {
+                clearInterval(interval); interval = null;
+                if (initialStepTime > 0) startContinuousAlarm();
             }
+        } else {
+            clearInterval(interval); interval = null;
+        }
+        updateUI();
+    }
+
+    function previousStep() {
+        stopAlarm();
+        if (interval) { clearInterval(interval); interval = null; }
+        if (currentIdx > 0) {
+            currentIdx--;
+            resetStepContext();
+            updateUI();
+            renderAuditTable();
         }
     }
-    function startContinuousAlarm() {
+
+    function skipStep() {
+        // Confirmation prompt removed for smoother UI flow
         stopAlarm();
+        if (interval) { clearInterval(interval); interval = null; }
+        if (currentIdx < timeline.length - 1) {
+            currentIdx++;
+            resetStepContext();
+            updateUI();
+            renderAuditTable();
+        }
+    }
+
+    function startContinuousAlarm() {
         document.getElementById('alarm-overlay').style.display = 'block';
         playTone('action');
         alarmInterval = setInterval(() => playTone('action'), 2000);
@@ -372,52 +331,57 @@
         document.getElementById('alarm-overlay').style.display = 'none';
     }
 
-    function adjustTime(seconds) { timeLeft = Math.max(0, timeLeft + seconds); updateUI(); }
-
-    function resetTimer() {
-        if(confirm("Reset Brew Day?")) { stopAlarm(); clearInterval(interval); loadRecipe(); }
-    }
-
-    function setManualTime() {
-    const input = document.getElementById('manualInput');
-    const mins = parseFloat(input.value);
-    
-        if (!isNaN(mins)) {
-            // Convert minutes to seconds
-            timeLeft = Math.floor(mins * 60);
-            updateUI();
-            
-            // Clear the box so it's ready for your next test immediately
-            input.value = ''; 
-            // Remove focus so the keyboard doesn't stay popped up on mobile
-            input.blur(); 
-        }
-    }
-
-    function skipStep() {
-        if (!confirm("Skip step?")) return;
-        
-        stopAlarm(); 
-        clearInterval(interval); 
-        timerActive = false; 
-
-        currentIdx++;
-
-        // DEEP LOOK-AHEAD: Hunt for the next duration
-        if (currentIdx < timeline.length) {
-            // If we skipped into a 0-min check, peek at the next timed step
-            if (timeline[currentIdx].duration === 0 && (currentIdx + 1) < timeline.length) {
-                timeLeft = timeline[currentIdx + 1].duration;
-            } else {
-                timeLeft = timeline[currentIdx].duration;
-            }
+    function updateUI() {
+        const mins = Math.floor(timeLeft / 60);
+        const secs = timeLeft % 60;
+        document.getElementById('timerDisplay').innerText = `${mins}:${secs.toString().padStart(2, '0')}`;
+        const current = timeline[currentIdx];
+        document.getElementById('currentStepLabel').innerText = current ? current.label : "Ready";
+        document.getElementById('nextStepLabel').innerText = (currentIdx < timeline.length - 1) ? "Next: " + timeline[currentIdx + 1].label : "Next: Brew Complete";
+        const runBtn = document.getElementById('runBtn');
+        if (interval) {
+            runBtn.innerText = "PAUSE";
+            runBtn.style.background = "#e67e22";
         } else {
-            timeLeft = 0;
+            if (currentIdx >= timeline.length - 1) {
+                runBtn.innerText = "BREW DONE";
+                runBtn.style.background = "#7f8c8d";
+            } else if (timeLeft === 0) {
+                runBtn.innerText = "START NEXT STEP";
+                runBtn.style.background = "#27ae60";
+            } else {
+                runBtn.innerText = (timeLeft === initialStepTime) ? "START STEP" : "RESUME";
+                runBtn.style.background = "#27ae60";
+            }
         }
-
-        updateUI(); 
-        renderAuditTable(timeline);
     }
+
+    function renderAuditTable() {
+        const body = document.getElementById('audit-body');
+        body.innerHTML = ''; 
+        timeline.forEach((step, index) => {
+            const timeDisplay = (step.duration === 0 || step.isManual) ? '<span style="color: #f1c40f;">CHECK</span>' : (step.duration / 60) + 'm';
+            body.innerHTML += `
+                <tr class="${index === currentIdx ? 'active-row' : ''}" style="border-bottom: 1px solid #333;">
+                    <td style="padding: 12px; font-weight: bold;" class="${index === currentIdx ? 'active-text' : ''}">${step.label}</td>
+                    <td style="padding: 12px; text-align: right;">${timeDisplay}</td>
+                </tr>`;
+        });
+    }
+
+    function adjustTime(s) { timeLeft = Math.max(0, timeLeft + s); updateUI(); }
+    function setManualTime() {
+        const i = document.getElementById('manualInput');
+        const m = parseFloat(i.value);
+        if (!isNaN(m)) {
+            timeLeft = Math.floor(m * 60);
+            initialStepTime = timeLeft;
+            updateUI(); i.value = ''; i.blur(); 
+        }
+    }
+
+    function resetTimer() { if(confirm("Reset Brew Day?")) loadRecipe(); }
+
     let wakeLock = null;
     async function toggleWakeLock() {
         const btn = document.getElementById('wakeLockBtn');
@@ -425,7 +389,7 @@
             try {
                 wakeLock = await navigator.wakeLock.request('screen');
                 btn.style.filter = "grayscale(0) drop-shadow(0 0 5px #f1c40f)";
-            } catch (err) { console.error(`${err.name}, ${err.message}`); }
+            } catch (err) {}
         } else {
             wakeLock.release(); wakeLock = null; btn.style.filter = "grayscale(1)";
         }
