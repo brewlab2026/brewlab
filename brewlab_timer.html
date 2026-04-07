@@ -360,6 +360,7 @@
             return 0;
         };
 
+        // 1. MASH STEPS
         if (r.mash_steps) {
             r.mash_steps.forEach(s => {
                 fl.push({
@@ -370,6 +371,7 @@
         }
         fl.push({ label: "HEATING: Wait for Rolling Boil", duration: 0, isManual: true });
 
+        // 2. BOIL PREP
         const allHops = r.hops || [];
         const boilAdds = r.boil_additions || [];
         const activeHops = allHops.filter(h => !(h.usage || "").toLowerCase().includes("dry hop"));
@@ -380,19 +382,39 @@
         ].map(item => ({
             name: item.name,
             amount: `${item.amount} ${item.unit || 'oz'}`,
-            time: parseFloat(item.time_in_minutes) || 0 
+            time: parseFloat(getVal(item, ['time_in_minutes', 'time'])) || 0 
         })).sort((a, b) => b.time - a.time);
 
-        let currentBoilTime = parseFloat(r.boil_time_in_minutes) || 60;
+        // 3. BOIL LOGIC (REFINED)
+        const actualBoilTime = parseFloat(r.boil_time_in_minutes || r.boil_time || 0);
+        let currentBoilTime = actualBoilTime > 0 ? actualBoilTime : 60;
+
         kettleAdditions.forEach(add => {
+            // If there is a gap between boil start (or last hop) and this addition
             if (currentBoilTime > add.time) {
-                fl.push({ label: `BOILING: Maintain Boil (${add.time}m Remaining)`, duration: (currentBoilTime - add.time) * 60 });
+                const gapMinutes = currentBoilTime - add.time;
+                fl.push({ 
+                    label: `BOILING: Maintain Boil (${Math.round(gapMinutes)}m Remaining)`, 
+                    duration: Math.max(0, gapMinutes * 60) 
+                });
             }
+            
+            // Add the hop addition step
             fl.push({ label: `BOILING: Add ${add.amount} ${add.name}`, duration: 0, isManual: true });
+            
+            // Update the internal clock to this addition's time
             currentBoilTime = add.time;
         });
-        if (currentBoilTime > 0) fl.push({ label: "BOILING: Final Stretch to Flameout", duration: currentBoilTime * 60 });
 
+        // Final stretch if last hop was not at 0 (e.g. last hop at 15m)
+        if (currentBoilTime > 0) {
+            fl.push({ 
+                label: "BOILING: Final Stretch to Flameout", 
+                duration: currentBoilTime * 60 
+            });
+        }
+
+        // 4. LATE HOPS (FLAMEOUT / WHIRLPOOL)
         const lateHops = activeHops.filter(h => {
             const u = (h.usage || "").toLowerCase();
             return u.includes("flameout") || u.includes("whirlpool") || u.includes("knockout");
@@ -427,13 +449,16 @@
             }
             const nextHop = lateHops[index + 1];
             const isFollowedBySame = nextHop && nextHop.priority === hop.priority && nextHop.time === hop.time;
-            fl.push({ label: hop.label, duration: isFollowedBySame ? 0 : (hop.time * 60), isManual: isFollowedBySame || hop.time === 0 });
+            fl.push({ 
+                label: hop.label, 
+                duration: isFollowedBySame ? 0 : (hop.time * 60), 
+                isManual: isFollowedBySame || hop.time === 0 
+            });
         });
 
         fl.push({ label: "CHILLING: Cool to Pitch Temp & Transfer", duration: 0, isManual: true });
         return fl;
     }
-
     function renderAuditTable() {
         const body = document.getElementById('audit-body');
         body.innerHTML = ''; 
