@@ -133,18 +133,23 @@
 
     // --- 3. PERSISTENCE LOGIC ---
     function saveState() {
-        const state = {
-            recipeIdx: document.getElementById('recipeSelect').value,
-            currentIdx: currentIdx,
-            timeLeft: timeLeft,
-            initialStepTime: initialStepTime,
-            lastTimestamp: Date.now(),
-            isPaused: !interval,
-            timeline: timeline 
-        };
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        const recipeSelect = document.getElementById('recipeSelect');
+        
+        // INTENT CHECK: Only save if a recipe is selected AND 
+        // (the timer is currently running OR we have moved past the first step index)
+        if (recipeSelect && recipeSelect.value !== "" && (interval || currentIdx > 0)) {
+            const state = {
+                recipeIdx: recipeSelect.value,
+                currentIdx: currentIdx,
+                timeLeft: timeLeft,
+                initialStepTime: initialStepTime,
+                lastTimestamp: Date.now(),
+                isPaused: !interval,
+                timeline: timeline 
+            };
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        }
     }
-
     function loadState() {
         const saved = localStorage.getItem(STORAGE_KEY);
         if (!saved) return;
@@ -344,7 +349,6 @@
         document.getElementById('timerContainer').style.display = 'block';
         updateUI();
         renderAuditTable();
-        saveState();
     }
 
     function resetStepContext() {
