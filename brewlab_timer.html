@@ -334,6 +334,20 @@
     };
 
     function loadRecipe() {
+        // SAFETY GATE: Check if a brew is already in progress
+            if (interval || currentIdx > 0) {
+                if (!confirm("A brew session is currently active. Are you sure you want to switch recipes and lose your progress?")) {
+                    // User hit 'Cancel' - put the dropdown back to the previous recipe
+                    const saved = localStorage.getItem(STORAGE_KEY);
+                    if (saved) {
+                        const state = JSON.parse(saved);
+                        document.getElementById('recipeSelect').value = state.recipeIdx;
+                    } else {
+                        document.getElementById('recipeSelect').value = "";
+                    }
+                    return; // Stop the function here
+                }
+            }
         stopAlarm();
         if (interval) { clearInterval(interval); interval = null; }
         const idx = document.getElementById('recipeSelect').value;
@@ -504,17 +518,26 @@
     async function toggleWakeLock() {
         const btn = document.getElementById('wakeLockBtn');
         if (!('wakeLock' in navigator)) return; 
+        
         if (wakeLock === null) {
             try {
                 wakeLock = await navigator.wakeLock.request('screen');
-                btn.style.filter = "grayscale(0) drop-shadow(0 0 5px #f1c40f)";
-            } catch (err) {}
+                // iPad-friendly high-visibility styling
+                btn.style.filter = "grayscale(0)";
+                btn.style.color = "#f1c40f"; // Forces the bulb to bright yellow
+                btn.style.textShadow = "0 0 15px #f1c40f, 0 0 5px #fff"; // Adds a double glow
+            } catch (err) {
+                console.error(err);
+            }
         } else {
             await wakeLock.release(); 
             wakeLock = null; 
+            // Reset to dull/gray
             btn.style.filter = "grayscale(1)";
+            btn.style.color = ""; 
+            btn.style.textShadow = "none";
         }
-    }   
+    }    
     </script>
 </body>
 </html>
