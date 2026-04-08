@@ -523,13 +523,14 @@
             try {
                 wakeLock = await navigator.wakeLock.request('screen');
                 // iPad-friendly high-visibility styling
-                btn.style.filter = "grayscale(0)";
-                btn.style.color = "#f1c40f"; // Forces the bulb to bright yellow
-                btn.style.textShadow = "0 0 15px #f1c40f, 0 0 5px #fff"; // Adds a double glow
-            } catch (err) {
+                btn.style.filter = "grayscale(0) brightness(1.2)";
+                btn.style.color = "#f1c40f"; 
+                btn.style.textShadow = "0 0 20px #f1c40f, 0 0 10px #f1c40f, 0 0 5px #fff";
+                            } catch (err) {
                 console.error(err);
             }
-        } else {
+        } 
+        else {
             await wakeLock.release(); 
             wakeLock = null; 
             // Reset to dull/gray
