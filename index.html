@@ -74,7 +74,7 @@
 
     <div id="recipe-list"></div>
     
-    <script src="mobile_recipes.js?v=1775673209"></script>
+    <script src="mobile_recipes.js?v=1775680305"></script>
 
     <script>
         function toggleDetails(id) {
@@ -184,6 +184,23 @@
                                         <p><strong>Efficiency:</strong> ${s.mash_efficiency}% | <strong>Atten:</strong> ${s.apparent_attenuation}${s.apparent_attenuation_unit || '%'}</p>
                                         <p><strong>Observed Color:</strong> ${s.observed_color || 'N/A'}</p>
                                         
+                                        ${s.aged_hops && s.aged_hops.length > 0 ? `
+                                            <div class="section-title" style="color: #f1c40f; margin-top: 10px;">Aged Hops Adjustments</div>
+                                            <div style="background: #111; padding: 8px; border-radius: 4px; border: 1px solid #333; margin-bottom: 10px;">
+                                                ${s.aged_hops.map(h => `
+                                                    <div style="margin-bottom: 8px; border-bottom: 1px solid #222; padding-bottom: 4px;">
+                                                        <div style="font-size: 0.95em; color: #e0e0e0;">
+                                                            <strong>${h.amount} ${h.unit}</strong> ${h.name} @ ${h.time} ${h.time_unit} (${h.usage})
+                                                        </div>
+                                                        <div style="font-size: 0.8em; color: #95a5a6; margin-top: 2px;">
+                                                            Adjusted: <span style="color: #f1c40f;">${h.adjusted_amount} ${h.unit}</span> | 
+                                                            Age: ${h.age_years} yrs | 
+                                                            Status: <span style="text-transform: capitalize;">${h.status.replace(/_/g, ' ')}</span>
+                                                        </div>
+                                                    </div>
+                                                `).join('')}
+                                            </div>
+                                        ` : ''}
                                         <div class="section-title">Brew Day Notes</div>
                                         <div style="margin-bottom:10px;">${s.brew_day_notes || 'N/A'}</div>
                                         <div class="section-title">Tasting Notes</div>

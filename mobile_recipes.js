@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 04-08-2026 10:00:06
+// Exported: 04-08-2026 15:12:29
 
 const exportMeta = {
-  "export_datetime": "04-08-2026 10:00:06",
+  "export_datetime": "04-08-2026 15:12:29",
   "app_version": "1.0.0",
   "db_version": "1.0",
   "schema_version": "1.0"
@@ -557,7 +557,140 @@ const recipeData = [
         "observed_color": "Bronze",
         "brew_day_notes": "Adjust hop usage for aged hops per brewing sessions table\nHad a hard time getting to target 152F mash temp, strike mash temp 150F,  got to 151F by the end;  verified Brew Lab math for strike volume and temp matches Beerbook, think there was a math error on my part converting 0.16 gallons to quarts resulting in a lower strike volume resulting in not enough hot water to set mash temp correctly.\nph = 5.3 (measured by strip) 5.4 (including .1 correction) - close enough to 5.3 target\nOG 1052 by refractometer, tilt 1050, so we'll say 1051\npitched yeast by sprinkling at 8 PM\nVolume = 2.5 gallons, a little low; kettle trub not excessive, Brew Lab strike volume math verified correct; lbs grain is no more than any other small batch recipe I've done, confirmed larger dry hop volume for aged hops would only result in a 1.28 ounce difference in strike water, believe this is to the strike volume math error above.\nBut if we had a math error and had more strike water, OG would be lower than the expected 1052 so consider lowering efficiency to 72% and adjust accordingly?\n3/28 - dry hop at midnight @ 1017 (ideal target was 1016) - dry hop weight was perfect amount for test batch\n3/30 - reached cold crash temps ~8PM\n4/3 - transfer to keg (after 3.5 days) which makes total hop contact time about 4.5 days, 6 Brix which would be 1.007 (it was 1.011 prior to cold crash) so we'll need another check on the refractometer\n4/4 - 6PM - start burst carb at 28psi",
         "tasting_notes": "at kegging - nice aroma & taste but bitter",
-        "inventory_applied": true
+        "inventory_applied": true,
+        "brew_date_dt": "2026-03-24",
+        "aged_hops": [
+          {
+            "name": "Warrior",
+            "amount": 0.24,
+            "unit": "oz",
+            "usage": "Boil",
+            "time": 60.0,
+            "time_unit": "min",
+            "crop_year": 2025,
+            "hemisphere": "Northern",
+            "age_years": 0.6,
+            "adjusted_amount": 0.24,
+            "status": "fresh"
+          },
+          {
+            "name": "Citra",
+            "amount": 0.26,
+            "unit": "oz",
+            "usage": "Boil",
+            "time": 15.0,
+            "time_unit": "min",
+            "crop_year": 2025,
+            "hemisphere": "Northern",
+            "age_years": 0.6,
+            "adjusted_amount": 0.26,
+            "status": "fresh"
+          },
+          {
+            "name": "Citra",
+            "amount": 0.31,
+            "unit": "oz",
+            "usage": "Whirlpool 170°",
+            "time": 20.0,
+            "time_unit": "min",
+            "crop_year": 2025,
+            "hemisphere": "Northern",
+            "age_years": 0.6,
+            "adjusted_amount": 0.31,
+            "status": "fresh"
+          },
+          {
+            "name": "Citra",
+            "amount": 0.52,
+            "unit": "oz",
+            "usage": "Flameout",
+            "time": 0.0,
+            "time_unit": "min",
+            "crop_year": 2025,
+            "hemisphere": "Northern",
+            "age_years": 0.6,
+            "adjusted_amount": 0.52,
+            "status": "fresh"
+          },
+          {
+            "name": "Citra",
+            "amount": 0.79,
+            "unit": "oz",
+            "usage": "Dry Hop",
+            "time": 2.0,
+            "time_unit": "days",
+            "crop_year": 2025,
+            "hemisphere": "Northern",
+            "age_years": 0.6,
+            "adjusted_amount": 0.79,
+            "status": "fresh"
+          },
+          {
+            "name": "Azacca",
+            "amount": 0.31,
+            "unit": "oz",
+            "usage": "Flameout",
+            "time": 0.0,
+            "time_unit": "min",
+            "crop_year": 2021,
+            "hemisphere": "Northern",
+            "age_years": 4.6,
+            "adjusted_amount": 0.49,
+            "status": "adjusted"
+          },
+          {
+            "name": "Azacca",
+            "amount": 0.34,
+            "unit": "oz",
+            "usage": "Whirlpool 170°",
+            "time": 20.0,
+            "time_unit": "min",
+            "crop_year": 2021,
+            "hemisphere": "Northern",
+            "age_years": 4.6,
+            "adjusted_amount": 0.53,
+            "status": "adjusted"
+          },
+          {
+            "name": "Azacca",
+            "amount": 0.52,
+            "unit": "oz",
+            "usage": "Dry Hop",
+            "time": 2.0,
+            "time_unit": "days",
+            "crop_year": 2021,
+            "hemisphere": "Northern",
+            "age_years": 4.6,
+            "adjusted_amount": 0.82,
+            "status": "adjusted"
+          },
+          {
+            "name": "Strata",
+            "amount": 1.83,
+            "unit": "g",
+            "usage": "Dry Hop",
+            "time": 2.0,
+            "time_unit": "days",
+            "crop_year": 2020,
+            "hemisphere": "Northern",
+            "age_years": 5.6,
+            "adjusted_amount": 3.1,
+            "status": "adjusted_very_old"
+          },
+          {
+            "name": "Idaho 7",
+            "amount": 1.83,
+            "unit": "g",
+            "usage": "Dry Hop",
+            "time": 2.0,
+            "time_unit": "days",
+            "crop_year": 2021,
+            "hemisphere": "Northern",
+            "age_years": 4.6,
+            "adjusted_amount": 2.87,
+            "status": "adjusted"
+          }
+        ]
       }
     ]
   },
@@ -773,7 +906,9 @@ const recipeData = [
         "observed_color": "",
         "brew_day_notes": "",
         "tasting_notes": "",
-        "inventory_applied": false
+        "inventory_applied": false,
+        "brew_date_dt": null,
+        "aged_hops": null
       }
     ]
   },
@@ -1399,7 +1534,9 @@ const recipeData = [
         "observed_color": "Dark Black",
         "brew_day_notes": "Initial Impressions before carbonating - good body, a little slick and sharp, malty with a slight chocolate roast, might be good!\n\n",
         "tasting_notes": "Compare to Hofbrau Dunkel and Ayinger Dunkel, mine has similar body, is much darker in color and roastier but smoother and a touch less bitter\nCompare to Treehouse, color is the same but a touch less bitter\nI like my less bitter version better but could cut back the roastiness a bit\nCompared to BJCP, this is black versus dark brown and shows some signs of roastiness which is verboten\nOverall, a very nice and enjoyable beer, just a touch past the style guideline in color and roast; chocolate roast overtakes malty, bready notes that are desired\nVery favorable reviews from club mini-comp, scores consistently around 38 from everyone, 1st place out of 3\n",
-        "inventory_applied": false
+        "inventory_applied": false,
+        "brew_date_dt": null,
+        "aged_hops": null
       }
     ]
   },
@@ -1827,7 +1964,9 @@ const recipeData = [
         "observed_color": "",
         "brew_day_notes": "",
         "tasting_notes": "",
-        "inventory_applied": false
+        "inventory_applied": false,
+        "brew_date_dt": null,
+        "aged_hops": null
       }
     ]
   },
@@ -1970,7 +2109,36 @@ const recipeData = [
         "observed_color": "",
         "brew_day_notes": "",
         "tasting_notes": "",
-        "inventory_applied": false
+        "inventory_applied": false,
+        "brew_date_dt": "2029-03-07",
+        "aged_hops": [
+          {
+            "name": "Azacca",
+            "amount": 1.0,
+            "unit": "oz",
+            "usage": "Boil",
+            "time": 60.0,
+            "time_unit": "min",
+            "crop_year": 2021,
+            "hemisphere": "Northern",
+            "age_years": 7.5,
+            "adjusted_amount": 1.64,
+            "status": "adjusted_very_old"
+          },
+          {
+            "name": "CTZ",
+            "amount": 1.0,
+            "unit": "oz",
+            "usage": "Boil",
+            "time": 60.0,
+            "time_unit": "min",
+            "crop_year": 2025,
+            "hemisphere": "Northern",
+            "age_years": 3.5,
+            "adjusted_amount": 1.3,
+            "status": "adjusted"
+          }
+        ]
       },
       {
         "session_id": 104,
@@ -1987,7 +2155,9 @@ const recipeData = [
         "observed_color": "",
         "brew_day_notes": "",
         "tasting_notes": "",
-        "inventory_applied": false
+        "inventory_applied": false,
+        "brew_date_dt": null,
+        "aged_hops": null
       },
       {
         "session_id": 106,
@@ -2004,7 +2174,9 @@ const recipeData = [
         "observed_color": "",
         "brew_day_notes": "",
         "tasting_notes": "",
-        "inventory_applied": false
+        "inventory_applied": false,
+        "brew_date_dt": null,
+        "aged_hops": null
       },
       {
         "session_id": 107,
@@ -2021,7 +2193,9 @@ const recipeData = [
         "observed_color": "",
         "brew_day_notes": "",
         "tasting_notes": "",
-        "inventory_applied": false
+        "inventory_applied": false,
+        "brew_date_dt": null,
+        "aged_hops": null
       },
       {
         "session_id": 108,
@@ -2038,7 +2212,9 @@ const recipeData = [
         "observed_color": "",
         "brew_day_notes": "",
         "tasting_notes": "",
-        "inventory_applied": false
+        "inventory_applied": false,
+        "brew_date_dt": null,
+        "aged_hops": null
       }
     ]
   }
