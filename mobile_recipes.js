@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 04-09-2026 14:16:10
+// Exported: 04-09-2026 16:17:03
 
 const exportMeta = {
-  "export_datetime": "04-09-2026 14:16:10",
+  "export_datetime": "04-09-2026 16:17:03",
   "app_version": "1.0.0",
   "db_version": "1.0",
   "schema_version": "1.0"
@@ -1992,14 +1992,14 @@ const recipeData = [
     "efficiency_unit": "%",
     "mash_type": "Single Infusion",
     "strike_vol_method": "full_volume",
-    "og": 1.0051,
-    "fg": 1.0013,
-    "abv": 0.5,
+    "og": 1.0355,
+    "fg": 1.0089,
+    "abv": 3.49,
     "abv_unit": "%",
-    "ibu": 167.0,
-    "srm": 0.7,
-    "srm_hex": "#FFE699",
-    "bitterness_balance": 11033.3,
+    "ibu": 132.8,
+    "srm": 14.3,
+    "srm_hex": "#C35900",
+    "bitterness_balance": 1171.9,
     "bitterness_balance_unit": "%",
     "bitterness_label": "Bitter Leaning",
     "grain_temp": 68.0,
@@ -2016,12 +2016,12 @@ const recipeData = [
     "fermentation_temp_unit": "°F",
     "carbonation": 2.4,
     "carbonation_unit": "vol CO₂",
-    "strike_volume": 5.59,
+    "strike_volume": 6.01,
     "strike_volume_unit": "gal",
-    "strike_temp": 152.8,
+    "strike_temp": 156.9,
     "strike_temp_unit": "°F",
-    "camden_mash_tablets": 0.28,
-    "camden_mash_grams": 0.17,
+    "camden_mash_tablets": 0.3,
+    "camden_mash_grams": 0.18,
     "camden_sparge_tablets": 0.05,
     "camden_sparge_grams": 0.03,
     "notes_label_1": "Design Notes",
@@ -2055,12 +2055,28 @@ const recipeData = [
     ],
     "grains": [
       {
+        "name": "Golden Promise",
+        "amount": 5.0,
+        "unit": "lbs",
+        "max_extract": 37.0,
+        "lovibond": 1.9,
+        "pct_of_grist": 71.4
+      },
+      {
         "name": "Acidulated Malt",
         "amount": 1.0,
         "unit": "lbs",
         "max_extract": 37.0,
         "lovibond": 1.8,
-        "pct_of_grist": 100.0
+        "pct_of_grist": 14.3
+      },
+      {
+        "name": "Cara Aroma",
+        "amount": 1.0,
+        "unit": "lbs",
+        "max_extract": 33.0,
+        "lovibond": 130.0,
+        "pct_of_grist": 14.3
       }
     ],
     "hops": [
