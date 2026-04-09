@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Brew Lab Mobile</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="./brewlab_flavicon.png?v=1.1">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="32x32" href="./brewlab_flavicon.png">
 <style>
     body { font-family: -apple-system, sans-serif; background: #121212; color: #e0e0e0; padding: 0; margin: 0; }
     
@@ -74,9 +75,18 @@
 
     <div id="recipe-list"></div>
     
-    <script src="mobile_recipes.js?v=1775697198"></script>
+    <!-- No ?v= version string needed — sw.js handles mobile_recipes.js with
+         a network-first strategy so it is always fetched fresh when online. -->
+    <script src="mobile_recipes.js"></script>
 
     <script>
+        // ── Service Worker Registration ────────────────────────────────────────
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js').catch(function(err) {
+                console.warn('Service worker registration failed:', err);
+            });
+        }
+
         function toggleDetails(id) {
             const el = document.getElementById(id);
             if (el) { el.style.display = el.style.display === 'none' || el.style.display === '' ? 'block' : 'none'; }
