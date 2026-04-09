@@ -1,0 +1,18 @@
+# Brew Lab — GitHub deployment repo
+# Only the 8 mobile viewer files are tracked. Everything else is ignored.
+
+# Ignore everything by default
+*
+
+# Then explicitly allow the files we DO want tracked
+!index.html
+!brewlab_timer.html
+!manifest.json
+!sw.js
+!mobile_recipes.js
+!brewlab_icon.png
+!brewlab_flavicon.png
+!README.md
+
+# Allow this file itself
+!.gitignore
