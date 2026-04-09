@@ -74,7 +74,7 @@
 
     <div id="recipe-list"></div>
     
-    <script src="mobile_recipes.js?v=1775680305"></script>
+    <script src="mobile_recipes.js?v=1775697198"></script>
 
     <script>
         function toggleDetails(id) {
@@ -141,6 +141,7 @@
                                     <li><strong>${y.amount || ''} ${y.unit || ''}</strong> ${y.name} (Atten: ${y.attenuation}%)</li>
                                 `).join('')}</ul>
                             </div>
+
                             <button class="details-btn btn-sub" onclick="toggleDetails('mash-${r.recipe_id}')">Mash & Process</button>
                             <div id="mash-${r.recipe_id}" style="display:none;" class="nested-section">
                                 <p><strong>Batch:</strong> ${r.batch_size} ${r.batch_size_unit} | <strong>Type:</strong> ${r.mash_type} | <strong>Eff:</strong> ${r.efficiency}%</p>
@@ -185,22 +186,32 @@
                                         <p><strong>Observed Color:</strong> ${s.observed_color || 'N/A'}</p>
                                         
                                         ${s.aged_hops && s.aged_hops.length > 0 ? `
-                                            <div class="section-title" style="color: #f1c40f; margin-top: 10px;">Aged Hops Adjustments</div>
-                                            <div style="background: #111; padding: 8px; border-radius: 4px; border: 1px solid #333; margin-bottom: 10px;">
-                                                ${s.aged_hops.map(h => `
-                                                    <div style="margin-bottom: 8px; border-bottom: 1px solid #222; padding-bottom: 4px;">
-                                                        <div style="font-size: 0.95em; color: #e0e0e0;">
-                                                            <strong>${h.amount} ${h.unit}</strong> ${h.name} @ ${h.time} ${h.time_unit} (${h.usage})
-                                                        </div>
-                                                        <div style="font-size: 0.8em; color: #95a5a6; margin-top: 2px;">
-                                                            Adjusted: <span style="color: #f1c40f;">${h.adjusted_amount} ${h.unit}</span> | 
-                                                            Age: ${h.age_years} yrs | 
-                                                            Status: <span style="text-transform: capitalize;">${h.status.replace(/_/g, ' ')}</span>
-                                                        </div>
+                                            <div style="margin: 10px 0;">
+                                                <button class="details-btn" 
+                                                        style="background:#222; color:#f1c40f; border:1px solid #444; padding: 5px 10px; font-size: 0.85em; width: auto;" 
+                                                        onclick="toggleDetails('aged-hops-${s.session_id}')">
+                                                    View Aged Hop Adjustments ▾
+                                                </button>
+                                                <div id="aged-hops-${s.session_id}" style="display:none; margin-top: 5px; background: #111; padding: 10px; border-radius: 4px; border: 1px solid #333;">
+                                                    <div style="font-size: 0.8em; color: #95a5a6; margin-bottom: 8px; font-style: italic;">
+                                                        Adjustments based on ${s.brew_date_dt || 'recorded'} brew date
                                                     </div>
-                                                `).join('')}
+                                                    ${s.aged_hops.map(h => `
+                                                        <div style="margin-bottom: 8px; border-bottom: 1px solid #222; padding-bottom: 4px;">
+                                                            <div style="font-size: 0.95em; color: #e0e0e0;">
+                                                                <strong>${h.amount} ${h.unit}</strong> ${h.name} @ ${h.time} ${h.time_unit} (${h.usage})
+                                                            </div>
+                                                            <div style="font-size: 0.8em; color: #95a5a6; margin-top: 2px;">
+                                                                Adjusted: <span style="color: #f1c40f;">${h.adjusted_amount} ${h.unit}</span> | 
+                                                                Age: ${h.age_years} yrs | 
+                                                                Status: <span style="text-transform: capitalize;">${h.status.replace(/_/g, ' ')}</span>
+                                                            </div>
+                                                        </div>
+                                                    `).join('')}
+                                                </div>
                                             </div>
                                         ` : ''}
+
                                         <div class="section-title">Brew Day Notes</div>
                                         <div style="margin-bottom:10px;">${s.brew_day_notes || 'N/A'}</div>
                                         <div class="section-title">Tasting Notes</div>
@@ -214,8 +225,7 @@
             } catch (err) {
                 list.innerHTML = "<div style='color:red; padding:15px;'>Render Error: " + err.message + "</div>";
             }
-        }
-    
+        }    
     </script>
     
 </body>
