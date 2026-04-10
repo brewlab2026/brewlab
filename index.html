@@ -101,8 +101,15 @@
                 const term = document.getElementById('searchBar').value.toLowerCase();
                 
                 if (typeof exportMeta !== 'undefined') {
-                    metaContainer.innerHTML = `<div class="metadata-header">Exported: ${exportMeta.export_datetime}<br>App v${exportMeta.app_version}</div>`;
+                    const onlineStatus = navigator.onLine
+                        ? '<span style="color:#2ecc71;">● Online</span>'
+                        : '<span style="color:#e67e22;">● Offline — showing cached data</span>';
+                    metaContainer.innerHTML = `<div class="metadata-header">Exported: ${exportMeta.export_datetime} · App v${exportMeta.app_version} · ${onlineStatus}</div>`;
                 }
+
+                // Update online/offline indicator live if connection changes
+                window.addEventListener('online',  () => render());
+                window.addEventListener('offline', () => render());
 
                 if (typeof recipeData === 'undefined') {
                     list.innerHTML = "<div class='recipe-card'>No data found.</div>";
