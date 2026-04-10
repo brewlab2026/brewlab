@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 04-09-2026 16:17:03
+// Exported: 04-10-2026 00:03:12
 
 const exportMeta = {
-  "export_datetime": "04-09-2026 16:17:03",
+  "export_datetime": "04-10-2026 00:03:12",
   "app_version": "1.0.0",
   "db_version": "1.0",
   "schema_version": "1.0"
@@ -2105,6 +2105,19 @@ const recipeData = [
         "hop_form": "Pellet",
         "crop_year": null,
         "hemisphere": "Northern"
+      },
+      {
+        "name": "Amarillo",
+        "amount": 1.0,
+        "unit": "oz",
+        "usage": "Dry Hop",
+        "time": 3,
+        "time_unit": "days",
+        "time_in_minutes": null,
+        "alpha_acid": 0.084,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
       }
     ],
     "boil_additions": [],
@@ -2153,6 +2166,19 @@ const recipeData = [
             "age_years": 3.5,
             "adjusted_amount": 1.3,
             "status": "adjusted"
+          },
+          {
+            "name": "Amarillo",
+            "amount": 1.0,
+            "unit": "oz",
+            "usage": "Dry Hop",
+            "time": 3.0,
+            "time_unit": "days",
+            "crop_year": null,
+            "hemisphere": "Northern",
+            "age_years": null,
+            "adjusted_amount": null,
+            "status": "no_crop_year"
           }
         ]
       },
