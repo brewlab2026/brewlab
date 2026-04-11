@@ -1,11 +1,11 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 04-10-2026 00:03:12
+// Exported: 04-11-2026 17:26:09
 
 const exportMeta = {
-  "export_datetime": "04-10-2026 00:03:12",
+  "export_datetime": "04-11-2026 17:26:09",
   "app_version": "1.0.0",
   "db_version": "1.0",
-  "schema_version": "1.0"
+  "schema_version": "1.1"
 };
 
 const recipeData = [
@@ -1992,14 +1992,14 @@ const recipeData = [
     "efficiency_unit": "%",
     "mash_type": "Single Infusion",
     "strike_vol_method": "full_volume",
-    "og": 1.0355,
-    "fg": 1.0089,
-    "abv": 3.49,
+    "og": 1.0364,
+    "fg": 1.0091,
+    "abv": 3.58,
     "abv_unit": "%",
-    "ibu": 132.8,
-    "srm": 14.3,
+    "ibu": 131.9,
+    "srm": 14.5,
     "srm_hex": "#C35900",
-    "bitterness_balance": 1171.9,
+    "bitterness_balance": 1132.0,
     "bitterness_balance_unit": "%",
     "bitterness_label": "Bitter Leaning",
     "grain_temp": 68.0,
@@ -2120,7 +2120,24 @@ const recipeData = [
         "hemisphere": "Northern"
       }
     ],
-    "boil_additions": [],
+    "boil_additions": [
+      {
+        "name": "Honey",
+        "amount": 1.0,
+        "unit": "oz",
+        "time": 15.0,
+        "time_unit": "min",
+        "time_in_minutes": 15.0
+      },
+      {
+        "name": "Sugar - Brown",
+        "amount": 1.0,
+        "unit": "oz",
+        "time": 15.0,
+        "time_unit": "min",
+        "time_in_minutes": 15.0
+      }
+    ],
     "yeast": [],
     "sessions": [
       {
