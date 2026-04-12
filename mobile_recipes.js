@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 04-12-2026 15:20:35
+// Exported: 04-12-2026 15:36:10
 
 const exportMeta = {
-  "export_datetime": "04-12-2026 15:20:35",
+  "export_datetime": "04-12-2026 15:36:10",
   "app_version": "1.0.0",
   "db_version": "1.0",
   "schema_version": "1.1"
@@ -1951,14 +1951,14 @@ const recipeData = [
     "efficiency_unit": "%",
     "mash_type": "Step Mash (Simple)",
     "strike_vol_method": "full_volume",
-    "og": 1.0427,
-    "fg": 1.0107,
-    "abv": 4.2,
+    "og": 1.0478,
+    "fg": 1.012,
+    "abv": 4.7,
     "abv_unit": "%",
-    "ibu": 38.8,
-    "srm": 41.3,
+    "ibu": 37.1,
+    "srm": 41.4,
     "srm_hex": "#600000",
-    "bitterness_balance": 208.9,
+    "bitterness_balance": 163.9,
     "bitterness_balance_unit": "%",
     "bitterness_label": "Bitter Leaning",
     "grain_temp": 68.0,
@@ -1975,9 +1975,9 @@ const recipeData = [
     "fermentation_temp_unit": "°F",
     "carbonation": 2.4,
     "carbonation_unit": "vol CO₂",
-    "strike_volume": 5.54,
+    "strike_volume": 5.61,
     "strike_volume_unit": "gal",
-    "strike_temp": 126.6,
+    "strike_temp": 127.1,
     "strike_temp_unit": "°F",
     "camden_mash_tablets": 0.28,
     "camden_mash_grams": 0.17,
@@ -2030,7 +2030,15 @@ const recipeData = [
         "unit": "lbs",
         "max_extract": 32.0,
         "lovibond": 70.0,
-        "pct_of_grist": 100.0
+        "pct_of_grist": 90.5
+      },
+      {
+        "name": "Acidulated Malt",
+        "amount": 1.0,
+        "unit": "lbs",
+        "max_extract": 37.0,
+        "lovibond": 1.8,
+        "pct_of_grist": 9.5
       }
     ],
     "hops": [
