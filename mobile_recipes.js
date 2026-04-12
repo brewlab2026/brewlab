@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 04-12-2026 15:50:39
+// Exported: 04-12-2026 16:09:14
 
 const exportMeta = {
-  "export_datetime": "04-12-2026 15:50:39",
+  "export_datetime": "04-12-2026 16:09:14",
   "app_version": "1.0.0",
   "db_version": "1.0",
   "schema_version": "1.1"
@@ -2140,7 +2140,27 @@ const recipeData = [
       }
     ],
     "yeast": [],
-    "sessions": []
+    "sessions": [
+      {
+        "session_id": 116,
+        "session_date": "04-15-2026",
+        "brew_date": null,
+        "actual_og": 1.05,
+        "actual_fg": null,
+        "actual_abv": null,
+        "actual_abv_unit": "%",
+        "apparent_attenuation": null,
+        "apparent_attenuation_unit": "%",
+        "mash_efficiency": 73.6,
+        "mash_efficiency_unit": "%",
+        "observed_color": "",
+        "brew_day_notes": "",
+        "tasting_notes": "",
+        "inventory_applied": false,
+        "brew_date_dt": null,
+        "aged_hops": null
+      }
+    ]
   },
   {
     "recipe_id": 118,
