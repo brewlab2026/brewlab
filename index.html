@@ -126,7 +126,7 @@
                         <div class="name">${r.display_name || r.name}</div>
                         <div class="style">${r.style || "Unknown Style"}</div>
                         <div class="vitals-row">
-                            <span>OG: ${r.og}</span><span>FG: ${r.fg}</span><span>ABV: ${r.abv}%</span><span>IBU: ${r.ibu}</span><span>SRM: ${r.srm}</span>
+                            <span>OG: ${parseFloat(r.og).toFixed(3)}</span><span>FG: ${parseFloat(r.fg).toFixed(3)}</span><span>ABV: ${r.abv}%</span><span>IBU: ${r.ibu}</span><span>SRM: ${r.srm}</span>
                         </div>
                         <div class="swatch-row">
                             <div class="color-swatch" style="background-color: ${r.srm_hex};"></div>
@@ -199,7 +199,7 @@
                                         Session: ${s.session_date}
                                     </button>
                                     <div id="sess-${s.session_id}" style="display:none; padding:10px; background:#000; border:1px solid #444; border-radius:4px; font-size:0.9em; margin-bottom:10px;">
-                                        <p><strong>Actual OG:</strong> ${s.actual_og} | <strong>FG:</strong> ${s.actual_fg} | <strong>ABV:</strong> ${s.actual_abv}%</p>
+                                        <p><strong>Actual OG:</strong> ${parseFloat(s.actual_og).toFixed(3)} | <strong>FG:</strong> ${parseFloat(s.actual_fg).toFixed(3)} | <strong>ABV:</strong> ${s.actual_abv}%</p>
                                         <p><strong>Efficiency:</strong> ${s.mash_efficiency}% | <strong>Atten:</strong> ${s.apparent_attenuation}${s.apparent_attenuation_unit || '%'}</p>
                                         <p><strong>Observed Color:</strong> ${s.observed_color || 'N/A'}</p>
                                         
