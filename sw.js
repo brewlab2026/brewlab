@@ -9,7 +9,7 @@
 // manifest). It does NOT need to change on every recipe export — mobile_recipes.js
 // is handled separately by the network-first strategy above.
 
-const CACHE_NAME = 'brew-lab-v4';
+const CACHE_NAME = 'brew-lab-v5';
 
 const STATIC_ASSETS = [
     'index.html',
