@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Brew Lab: Timer</title>
     <link rel="icon" type="image/png" sizes="32x32" href="./brewlab_flavicon.png?v=1.1">
     <style>
@@ -14,11 +14,13 @@
         select { width: 100%; padding: 12px; background: #1e1e1e; color: #fff; border-radius: 5px; font-size: 16px; border: 1px solid #444; }
         .timer-box { text-align: center; background: #000; padding: 30px; border: 2px solid #f1c40f; border-radius: 15px; display: none; }
         #timerDisplay { font-size: 5em; font-family: monospace; color: #f1c40f; margin: 10px 0; font-weight: bold; }
-        button { cursor: pointer; border: none; font-weight: bold; transition: 0.2s; }
+        button { cursor: pointer; border: none; font-weight: bold; transition: 0.2s; touch-action: manipulation; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
         button:active { opacity: 0.7; }
         @keyframes blinker { 50% { opacity: 0; } }
         .active-row { background: #1a2533 !important; border-left: 5px solid #f1c40f !important; }
         .active-text { color: #f1c40f !important; font-weight: bold; }
+        /* Automatically handle the cursor for all disabled buttons and inputs */
+        button:disabled, input:disabled {cursor: not-allowed !important; }
     </style>
 </head>
 <body>
@@ -37,7 +39,7 @@
 
     <div style="padding: 15px;">
         <div class="recipe-picker">
-            <label style="color: #95a5a6; font-size: 0.9em; display: block; margin-bottom: 5px;">Select Recipe:</label>
+            <label for="recipeSelect" style="color: #95a5a6; font-size: 0.9em; display: block; margin-bottom: 5px;">Select Recipe:</label>
             <select id="recipeSelect" onchange="loadRecipe()">
                 <option value="">-- Choose a Recipe --</option>
             </select>
@@ -48,7 +50,7 @@
             <div id="timerDisplay">00:00</div>
             <div id="nextStepLabel" style="font-size: 1.1em; color: #f1c40f; margin-bottom: 20px; font-style: italic; min-height: 1.2em;">Next: --</div>
             
-            <div style="border: 2px solid #f1c40f; border-radius: 10px; padding: 15px; margin: 10px 0; background: rgba(241, 196, 15, 0.05);">
+            <div id="timer-controls" style="border: 2px solid #f1c40f; border-radius: 10px; padding: 15px; margin: 10px 0; background: rgba(241, 196, 15, 0.05);">
                 <div style="display: flex; gap: 10px; margin-bottom: 10px;">
                     <button onclick="adjustTime(-600)" style="flex: 1; padding: 15px; background: #34495e; color: white; border-radius: 5px;">-10m</button>
                     <button onclick="adjustTime(600)" style="flex: 1; padding: 15px; background: #34495e; color: white; border-radius: 5px;">+10m</button>
@@ -57,31 +59,37 @@
                     <button onclick="adjustTime(-10)" style="flex: 1; padding: 15px; background: #34495e; color: white; border-radius: 5px;">-10s</button>
                     <button onclick="adjustTime(10)" style="flex: 1; padding: 15px; background: #34495e; color: white; border-radius: 5px;">+10s</button>
                 </div>
-                <div style="display: flex; gap: 10px; width: 100%; align-items: center;">
-                    <input type="number" id="manualInput" step="0.1" placeholder="Min (xx.x)" 
+                <div style="display: flex; gap: 10px; width: 100%; align-items: stretch;">
+                    <label for="manualInput" style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;">
+                        Manual Minute Input
+                    </label>
+                    
+                    <input type="number" id="manualInput" min="0" step="0.1" placeholder="Min (xx.x)" 
                         onkeydown="if(event.key==='Enter') setManualTime()"
-                        style="flex: 1; min-width: 0; width: 50%; background: #1e1e1e; color: #f1c40f; border: 1px solid #444; border-radius: 5px; font-size: 1.2em; text-align: center; padding: 10px;">
+                        style="flex: 1; min-width: 0; background: #1e1e1e; color: #f1c40f; border: 1px solid #444; border-radius: 5px; font-size: 1.2em; text-align: center; padding: 10px;">
+                    
                     <button onclick="setManualTime()" style="flex: 1; white-space: nowrap; background: #2980b9; color: white; border-radius: 5px; padding: 10px; font-size: 1em;">SET TIME</button>
                 </div>
             </div>
+
             <div id="alarm-overlay" style="display:none; margin-top: 15px;">
                 <div style="color: #c0392b; font-weight: bold; margin-bottom: 10px; animation: blinker 1s linear infinite;">⚠️ ACTION REQUIRED</div>
                 <button onclick="stopAlarm()" style="background: #c0392b; color: white; padding: 15px; width: 100%; border-radius: 5px;">SILENCE ALARM</button>
             </div>
         </div>
 
-        <div style="margin-top: 20px; display: flex; flex-direction: column; gap: 10px; width: 100%;">
+        <div id="mainControls" style="display: none; margin-top: 20px; flex-direction: column; gap: 10px; width: 100%;">
             <div style="display: flex; gap: 10px; width: 100%;">
                 <button id="runBtn" onclick="toggleTimer()" style="flex: 1; padding: 15px; font-size: 1.1em; background: #27ae60; color: white; border-radius: 6px;">START BREW</button>
-                <button onclick="resetTimer()" style="flex: 1; padding: 15px; font-size: 1.1em; background: #c0392b; color: white; border-radius: 6px;">RESET</button>
+                <button onclick="resetTimer('current')" style="flex: 1; padding: 15px; font-size: 1.1em; background: #c0392b; color: white; border-radius: 6px;">RESET</button>
             </div>
             <div style="display: flex; gap: 10px; width: 100%;">
-                <button onclick="previousStep()" style="flex: 1; padding: 15px; background: #34495e; color: white; border-radius: 6px;">&laquo; Back</button>
-                <button onclick="skipStep()" style="flex: 1; padding: 15px; background: #8e44ad; color: white; border-radius: 6px;">Skip &raquo;</button>
+                <button id="backBtn" onclick="previousStep()" style="flex: 1; padding: 15px; background: #34495e; color: white; border-radius: 6px;">&laquo; Back</button>
+                <button id="skipBtn" onclick="skipStep()" style="flex: 1; padding: 15px; background: #8e44ad; color: white; border-radius: 6px;">Skip &raquo;</button>
             </div>
         </div>
 
-        <div id="timeline-audit" style="margin-top: 30px; background: #1e1e1e; border-radius: 8px; padding: 15px; border: 1px solid #333;">
+        <div id="timeline-audit" style="display:none; margin-top: 30px; background: #1e1e1e; border-radius: 8px; padding: 15px; border: 1px solid #333;">
             <h3 style="margin-top:0; color: #f1c40f;">Brew Day Flight Plan</h3>
             <table style="width:100%; border-collapse: collapse; font-size: 0.9em;">
                 <thead>
@@ -95,18 +103,42 @@
         </div>
     </div>
 
+    <div id="decision-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:10000; justify-content:center; align-items:center;">
+        <div style="background:#2c3e50; padding:40px; border-radius:15px; text-align:center; border:3px solid #3498db; max-width:400px; width:90%;">
+            <h2 id="modal-title" style="color:white; margin-top:0; font-family:sans-serif;">Resume Session?</h2>
+            <p id="modal-body" style="color:#bdc3c7; font-size:1.1em; line-height:1.4;"></p>
+            
+            <button id="modal-confirm" style="width:100%; padding:20px; background:#27ae60; color:white; border:none; border-radius:8px; font-size:1.3em; font-weight:bold; cursor:pointer; margin-bottom:20px;">
+                YES, RESUME
+            </button>
+            
+            <button id="modal-cancel" style="background:none; color:#e74c3c; border:none; text-decoration:underline; cursor:pointer; font-size:1em;">
+                Discard and Start New
+            </button>
+        </div>
+    </div>
+
     <!-- No ?v= version string needed — sw.js handles mobile_recipes.js with a network-first strategy so it is always fetched fresh when online. -->
+    <!-- to use the test recipe, change the following lines to use the test file instead of the source file -->
     <script src="mobile_recipes.js"></script>
+    <!--    <script src="test_recipes.js"></script> -->
     <script>
     // --- 1. GLOBALS & PERSISTENCE ---
     let timeline = [];
     let currentIdx = 0;
+    let currentRecipeName = "";
     let timeLeft = 0;
     let initialStepTime = 0;
     let interval = null; 
     let alarmInterval = null; 
     let audioCtx = null; 
     let audioUnlocked = false; 
+    let wakeLock = null;
+    let isSessionComplete = false;
+    let isLookingAhead = false; // Our "Special Flag"
+    let isManualOverride = false; // manual time override flag
+    let targetEndTime = 0; // Timer anchor - stores the "Wall Clock" time when (ie, actual time of day from system) the step ends
+    const useTestRecipes = false; // using the test recipe file also requires resetting the file in the <script ....> statement above 
     const STORAGE_KEY = "brew_lab_session";
     
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
@@ -123,7 +155,7 @@
             new Audio(silentPingSrc).play();
             setTimeout(() => {
                 if (audioCtx.state === 'running') {
-                    playTone('action'); 
+                    playTone('unlock'); 
                     audioUnlocked = true; 
                 }
             }, 150);
@@ -134,73 +166,161 @@
 
     // --- 3. PERSISTENCE LOGIC ---
     function saveState() {
-        const recipeSelect = document.getElementById('recipeSelect');
+        // If the brew is flagged as complete, NEVER save.
+        if (isSessionComplete) return;
         
-        // INTENT CHECK: Only save if a recipe is selected AND 
-        // (the timer is currently running OR we have moved past the first step index)
-        if (recipeSelect && recipeSelect.value !== "" && (interval || currentIdx > 0)) {
-            const state = {
-                recipeIdx: recipeSelect.value,
-                currentIdx: currentIdx,
-                timeLeft: timeLeft,
-                initialStepTime: initialStepTime,
-                lastTimestamp: Date.now(),
-                isPaused: !interval,
-                timeline: timeline 
-            };
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-        }
+        const recipeSelect = document.getElementById('recipeSelect');
+
+        // safety check - don't save if no recipe available 
+        if (!recipeSelect || recipeSelect.value === "") return;
+        
+        const state = {
+            recipeIdx: recipeSelect.value,
+            recipeName: currentRecipeName,
+            currentIdx: currentIdx,
+            timeLeft: timeLeft,
+            initialStepTime: initialStepTime,
+            isLookingAhead: isLookingAhead,
+            lastTimestamp: Date.now(),
+            isPaused: !interval,
+            timeline: timeline 
+        };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
     }
+
     function loadState() {
         const saved = localStorage.getItem(STORAGE_KEY);
         if (!saved) return;
         const state = JSON.parse(saved);
         if (!state.recipeIdx || state.recipeIdx === "") return;
 
-        if (!confirm("Restoring an active brew session. Continue?")) {
-            localStorage.removeItem(STORAGE_KEY);
-            return;
-        }
+        // 1. Prepare the Unified Modal for Restore
+        const overlay = document.getElementById('decision-overlay');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBody = document.getElementById('modal-body');
+        const confirmBtn = document.getElementById('modal-confirm');
+        const cancelBtn = document.getElementById('modal-cancel');
 
+        modalTitle.innerText = "Resume Brew Session?";
+        // Use the name if available, otherwise fall back to the index number
+        const displayName = state.recipeName || state.recipeIdx;
+        modalBody.innerText = "Found a saved session for " + displayName + ". Would you like to pick up where you left off?";
+        
+        confirmBtn.innerText = "RESUME BREW";
+        confirmBtn.style.background = "#27ae60"; // Back to Green
+
+        // 2. The "YES" Action (The Handshake)
+        confirmBtn.onclick = () => {
+            unlockAudio();       // THIS is the user gesture the iPad wants!
+            executeRestore(state); 
+            overlay.style.display = 'none';
+            currentRecipeName = state.recipeName;
+        };
+
+        // 3. The "NO" Action
+        cancelBtn.innerText = "Discard and Start New";
+        cancelBtn.onclick = () => {
+            localStorage.removeItem(STORAGE_KEY);
+            overlay.style.display = 'none';
+
+            // 2. Reset the global logic variables to their default state
+            currentIdx = 0;            // Move back to "No Recipe Loaded" state
+            isSessionComplete = false;  // Reset completion flag
+            isLookingAhead = false;
+            isManualOverride = false;
+
+        };
+
+        // 4. Show the overlay
+        overlay.style.display = 'flex';
+    }
+
+    function executeRestore(state) {
+        // Standard assignments
         document.getElementById('recipeSelect').value = state.recipeIdx;
         timeline = state.timeline;
         currentIdx = state.currentIdx;
         initialStepTime = state.initialStepTime;
+        isLookingAhead = state.isLookingAhead || false;
         
         if (!state.isPaused) {
             const secondsPassed = Math.floor((Date.now() - state.lastTimestamp) / 1000);
-            timeLeft = Math.max(0, state.timeLeft - secondsPassed);
+            
+            if (isLookingAhead) {
+                timeLeft = state.timeLeft; 
+            } else {
+                timeLeft = Math.max(0, state.timeLeft - secondsPassed);
+            }
+
+            if (timeLeft === 0 && !isLookingAhead) {
+                if (interval) {
+                    clearInterval(interval);
+                    interval = null;
+                }
+                
+                // 1. DO NOT call resetStepContext() here yet!
+                // Instead, just set timeLeft to 0 so the UI shows 00:00
+                timeLeft = 0;
+
+                // 2. Fire the alarm
+                startContinuousAlarm(); 
+                
+                // 3. Keep it paused
+                state.isPaused = true; 
+            }            // --- THE CLEAN ADVANCE (Time expired while computer was asleep) ---
+ 
         } else {
             timeLeft = state.timeLeft;
         }
-
-        document.getElementById('timerContainer').style.display = 'block';
+    
         updateUI();
-        renderAuditTable();
 
-        if (!state.isPaused && timeLeft > 0) {
+        // Only auto-resume if it was running, has time left, and isn't a manual step
+        // Reset "wall clock" timer anchor
+        if (!state.isPaused && timeLeft > 0 && !isLookingAhead) {
+            targetEndTime = Date.now() + (timeLeft * 1000);
             toggleTimer(); 
         }
     }
-
     // --- 4. AUDIO ENGINE ---
+    
     function playTone(type) {
         if (!audioCtx || audioCtx.state !== 'running') return;
         try {
             const o = audioCtx.createOscillator();
             const g = audioCtx.createGain();
             o.type = "sine";
-            o.frequency.setValueAtTime(type === 'warning' ? 440 : 880, audioCtx.currentTime);
+
+            // THE FREQUENCY SWITCH
+            // If unlock: 20Hz (Silent)
+            // If warning: 1050Hz (Piercing)
+            // Else (alarm): 880Hz (Standard)
+            let freq = 880;
+            if (type === 'unlock') freq = 20; 
+            else if (type === 'warning') freq = 1050;
+            
+            o.frequency.setValueAtTime(freq, audioCtx.currentTime);
+
+            // THE VOLUME SWITCH
+            // We still need a tiny bit of gain for the 'unlock' to register
+            let volume = 0.8;
+            if (type === 'unlock') volume = 0.01; // Effectively silent
+            else if (type === 'warning') volume = 0.5;
+
             g.gain.setValueAtTime(0, audioCtx.currentTime);
-            g.gain.linearRampToValueAtTime(0.2, audioCtx.currentTime + 0.02);
-            const holdTime = (type === 'warning') ? 0.2 : 0.8;
-            g.gain.setValueAtTime(0.2, audioCtx.currentTime + holdTime);
+            g.gain.linearRampToValueAtTime(volume, audioCtx.currentTime + 0.02);
+
+            // Keep the unlock tone short so it gets out of the way
+            const holdTime = (type === 'unlock') ? 0.1 : (type === 'warning' ? 0.2 : 0.8);
+
+            g.gain.setValueAtTime(volume, audioCtx.currentTime + holdTime);
             g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + holdTime + 0.2);
+
             o.connect(g);
             g.connect(audioCtx.destination);
             o.start();
             o.stop(audioCtx.currentTime + holdTime + 0.3);
-        } catch(e) { console.error("Audio Playback Error:", e); }
+        } catch(e) { console.error("Audio Error:", e); }
     }
 
     function playTripleBeep() { 
@@ -210,72 +330,150 @@
 
     // --- 5. CORE TIMER LOGIC ---
     function toggleTimer() {
-        unlockAudio(); 
-        stopAlarm();
-        
-        if (timeLeft <= 0 && currentIdx < timeline.length - 1) {
-            currentIdx++;
-            resetStepContext();
-            if (timeLeft > 0) {
-                if (interval) clearInterval(interval);
-                interval = setInterval(tick, 1000);
+        unlockAudio();
+        stopAlarmSoundOnly();
+//        console.log("Toggle Clicked - Index:", currentIdx, "Time:", timeLeft, "isLookingAhead State:", isLookingAhead);
+        // 1. The Decision Gate
+        if (isLookingAhead && timeLeft > 0) {
+            if (!isManualOverride) {
+                currentIdx++; // Only advance if the user DIDN'T touch the time
+                console.log("Look-Ahead: Jumping to next step.");
+            } else {
+                console.log("Manual Override: Staying on current step.");
             }
-            updateUI();
-            renderAuditTable();
-            saveState();
-            return; 
+            // Always clear this so we don't evaluate the jump again
+            isLookingAhead = false; 
         }
 
-        if (interval) {
-            clearInterval(interval);
-            interval = null;
-        } else if (timeLeft > 0) {
-            interval = setInterval(tick, 1000);
+        // 2. The Reset
+        // We must clear the override flag immediately so it doesn't 
+        // interfere with the NEXT click (like pausing the timer)
+        isManualOverride = false;
+        if (timeLeft > 0) {
+            if (interval) {
+                clearInterval(interval);
+                interval = null;
+            } else {
+                // Set the "wall clock" target anchor before starting the interval
+                targetEndTime = Date.now() + (timeLeft * 1000);
+                interval = setInterval(tick, 1000);
+
+            }
+        } else {
+            // This handles standard 0:00 to 0:00 transitions
+            // Only advance if we aren't already on the very last step
+            if (currentIdx < timeline.length - 1) {
+                resetStepContext();
+            } else {
+                // We are on the last step and it's a 0-time step. 
+                // Don't reset context (which increments), just trigger the Done state.
+                isSessionComplete = true;
+                localStorage.removeItem(STORAGE_KEY);
+            }
         }
         updateUI();
         saveState();
     }
 
     function tick() {
-        if (timeLeft > 0) {
-            timeLeft--;
-            if (timeLeft === 120 && initialStepTime > 120) playTripleBeep();
-            if (timeLeft === 0) {
-                clearInterval(interval); 
-                interval = null;
-                if (initialStepTime > 0) startContinuousAlarm();
-            }
-        } else {
+        // If the timer is already at 0 when tick runs, it means we just started a manual step
+        if (timeLeft === 0) {
+            resetStepContext(); 
+            console.log("In Tick (1) - Index:", currentIdx, "Time:", timeLeft);
+            // Housekeeping
+            updateUI(); 
+            saveState();
+            return; // Exit so we don't decrement below 0
+        }
+
+        // Calculate how much time is actually left based on the "wall clock" time anchor
+        const now = Date.now();
+        const msRemaining = targetEndTime - now;
+        
+        // Convert to seconds (Math.max ensures we don't go negative)
+        timeLeft = Math.max(0, Math.ceil(msRemaining / 1000));
+
+        // ... Triple Beep Logic ...
+        if (timeLeft === 120 && initialStepTime > 120) {
+            playTripleBeep(); 
+        }
+
+        // When the timer hits zero naturally
+        if (timeLeft === 0) {
             clearInterval(interval); 
             interval = null;
+
+            if (initialStepTime > 0) {
+                startContinuousAlarm();
+                const overlay = document.getElementById('alarm-overlay');
+                if (overlay) overlay.style.display = 'flex';
+            }
         }
         updateUI();
         saveState();
     }
 
-    // --- 6. HELPER FUNCTIONS ---
     function previousStep() {
-        stopAlarm();
-        if (interval) { clearInterval(interval); interval = null; }
+        // Ensure we have at least one step to go back to
         if (currentIdx > 0) {
-            currentIdx--;
+            // 1. Silence alarm and remove acknowledgement button/overlay
+            // We use stopAlarmSoundOnly to avoid the "double increment" bug
+            stopAlarmSoundOnly(); 
+
+            // 2. Kill the ticking heartbeat
+            if (interval) {
+                clearInterval(interval);
+                interval = null;
+            }
+            // 3. The "Rewind" Math (-1 is our floor so reset adds 1 to hit index 0)
+            currentIdx = Math.max(-1, currentIdx - 2);
+            // 3.5 UNLOCK the save logic because we are no longer finished
+            isSessionComplete = false;
+            // 4. The Refresh
             resetStepContext();
             updateUI();
-            renderAuditTable();
+            // 5. Commit to memory
             saveState();
         }
     }
 
     function skipStep() {
-        stopAlarm();
-        if (interval) { clearInterval(interval); interval = null; }
+ 
+        // 1. Guard against skipping off the end
         if (currentIdx < timeline.length - 1) {
-            currentIdx++;
+
+            // 1. Silence alarm and remove acknowledgement button/overlay
+            // This handles the "remove button" part of your design note
+            stopAlarmSoundOnly(); 
+            
+            // 2. If the clock is currently ticking, kill it
+            if (interval) { 
+                clearInterval(interval); 
+                interval = null; 
+            }
+
+            // 2.5 Unlock saving (in case we were on the final step)
+            isSessionComplete = false; 
+
+            // 3. Process next step
+            // Since resetStepContext already handles currentIdx++, 
+            // we just call it to move the flight plan forward.
             resetStepContext();
+
+            // 4. Housekeeping
             updateUI();
-            renderAuditTable();
             saveState();
         }
+    }
+
+    function stopAlarmSoundOnly() {
+        // HELPER: Silences audio without moving the index, useful for skipStep and backStep 
+        if (alarmInterval) { 
+            clearInterval(alarmInterval); 
+            alarmInterval = null; 
+        }
+        const overlay = document.getElementById('alarm-overlay');
+        if (overlay) overlay.style.display = 'none';
     }
 
     function startContinuousAlarm() {
@@ -291,89 +489,206 @@
     }
 
     function stopAlarm() {
-        if (alarmInterval) { clearInterval(alarmInterval); alarmInterval = null; }
-        document.getElementById('alarm-overlay').style.display = 'none';
-    }
+        // 1. Silence the alarm
+        if (alarmInterval) { 
+            clearInterval(alarmInterval); 
+            alarmInterval = null; 
+        }
 
+        // 2. Remove the button/overlay from display
+        // Using your 'alarm-overlay' ID from the existing code
+        document.getElementById('alarm-overlay').style.display = 'none';
+
+        // 3. Process next step
+        // This handles currentIdx++, timer setting, and label updates
+        resetStepContext();
+
+        // 4. Housekeeping
+        updateUI();
+        saveState();
+    }
     function updateUI() {
+
+        const timeDisplay = document.getElementById('timerDisplay');
+        const currentLabel = document.getElementById('currentStepLabel');
+        const nextLabel = document.getElementById('nextStepLabel');
+        const runBtn = document.getElementById('runBtn');
+        const skipBtn = document.getElementById('skipBtn');
+        const controlContainer = document.getElementById('timer-controls');
+        const timerElements = controlContainer.querySelectorAll('button, input');
+        const timerContainer = document.getElementById('timerContainer');
+        const mainControls = document.getElementById('mainControls');
+        const timelineAudit = document.getElementById('timeline-audit');
+        const current = timeline[currentIdx];
+
+        // 1. Format and Display the Timer
         const mins = Math.floor(timeLeft / 60);
         const secs = timeLeft % 60;
-        document.getElementById('timerDisplay').innerText = `${mins}:${secs.toString().padStart(2, '0')}`;
-        const current = timeline[currentIdx];
-        document.getElementById('currentStepLabel').innerText = current ? current.label : "Ready";
-        document.getElementById('nextStepLabel').innerText = (currentIdx < timeline.length - 1) ? "Next: " + timeline[currentIdx + 1].label : "Next: Brew Complete";
-        const runBtn = document.getElementById('runBtn');
-        if (interval) {
-            runBtn.innerText = "PAUSE";
-            runBtn.style.background = "#e67e22";
+        timeDisplay.innerText = `${mins}:${secs.toString().padStart(2, '0')}`;
+
+        // 2. Update Step Labels (Text Above and Below)
+        currentLabel.innerText = current.label;
+        
+        // Logic for "Text Below": Show next step label or no lab if flight plan is complete"
+        if (currentIdx < timeline.length - 1) {
+            nextLabel.innerText = "Next: " + timeline[currentIdx + 1].label;
         } else {
+            //  flight plan is complete, start button is disabled so dont show a next step
+            nextLabel.innerHTML = "&nbsp;";
+        }
+
+        // 3. Control Button Logic (runBtn)
+//        console.log("[updateUI]" , "interval", interval, "Time:", timeLeft, "initialStepTime", initialStepTime);
+
+        if (interval) {
+            // TIMER IS RUNNING
+            runBtn.innerText = "PAUSE";
+            runBtn.style.background = "#e67e22"; // Orange
+            runBtn.disabled = false;
+        } else {
+            // TIMER IS STOPPED (Paused, Finished, or 0:00 step)
             if (currentIdx >= timeline.length - 1) {
+                // THE FINAL STEP: Complete
                 runBtn.innerText = "BREW DONE";
-                runBtn.style.background = "#7f8c8d";
+                runBtn.style.background = "#7f8c8d"; // Grey
+                runBtn.disabled = true;              // Disable button
+                isSessionComplete = true;
+                localStorage.removeItem(STORAGE_KEY);
             } else if (timeLeft === 0) {
-                runBtn.innerText = "START NEXT STEP";
-                runBtn.style.background = "#27ae60";
+                // MANUAL STEP or ALARM FINISHED
+                runBtn.innerText = "START";
+                runBtn.style.background = "#27ae60"; // Green
+                runBtn.disabled = false;
             } else {
-                runBtn.innerText = (timeLeft === initialStepTime) ? "START STEP" : "RESUME";
-                runBtn.style.background = "#27ae60";
+                // READY TO START or RESUMING
+                // If timeLeft matches the starting duration, it's a new step
+                runBtn.innerText = (timeLeft === initialStepTime) ? "START" : "RESUME";
+                runBtn.style.background = "#27ae60"; // Green
+                runBtn.disabled = false;
             }
+        }
+        renderAuditTable(); // Ensures the yellow highlight moves if we advanced the index
+
+        // --- Update Timer Controls State ---
+        if (isSessionComplete) {
+            // LOCKDOWN: Dim the UI to show the session is over
+            timeDisplay.style.opacity = '0.5';
+            controlContainer.style.opacity = '0.5';
+            skipBtn.disabled = true;
+            timerElements.forEach(el => el.disabled = true);
+        } else {
+            // ACTIVE: ensure the timer and controls are visible
+            timerContainer.style.display = 'block';
+            mainControls.style.display = 'flex';
+            timelineAudit.style.display = 'block';
+            // ACTIVE: Ensure everything is bright and clickable
+            timeDisplay.style.opacity = '1';
+            controlContainer.style.opacity = '1';
+            skipBtn.disabled = false;
+            timerElements.forEach(el => el.disabled = false);
         }
     }
 
     window.onload = () => {
+        
         const select = document.getElementById('recipeSelect');
         if(typeof recipeData !== 'undefined') {
             recipeData.forEach((r, index) => {
                 let opt = document.createElement('option');
                 opt.value = index;
-                opt.innerHTML = r.display_name || r.name;
+                opt.innerHTML = r.name;
                 select.appendChild(opt);
             });
         }
-        // Load persistence after recipes are ready
+ 
         loadState();
+
     };
 
     function loadRecipe() {
-        // SAFETY GATE: Check if a brew is already in progress
-            if (interval || currentIdx > 0) {
-                if (!confirm("A brew session is currently active. Are you sure you want to switch recipes and lose your progress?")) {
-                    // User hit 'Cancel' - put the dropdown back to the previous recipe
-                    const saved = localStorage.getItem(STORAGE_KEY);
-                    if (saved) {
-                        const state = JSON.parse(saved);
-                        document.getElementById('recipeSelect').value = state.recipeIdx;
-                    } else {
-                        document.getElementById('recipeSelect').value = "";
-                    }
-                    return; // Stop the function here
-                }
-            }
-        stopAlarm();
-        if (interval) { clearInterval(interval); interval = null; }
         const idx = document.getElementById('recipeSelect').value;
-        if (idx === "") return;
-        let baseTimeline = buildFlattenedTimeline(recipeData[idx]);
-        timeline = [
-            { label: "START: Initialize System & Equipment", duration: 0, isManual: true },
-            ...baseTimeline,
-            { label: "COMPLETE: Brew Day Finished", duration: 0, isManual: true }
-        ];
-        currentIdx = 0;
+        if (idx === "") return; //safety check
+        const selectedRecipe = recipeData[idx];
+
+        // If a recipe is already active and we've moved past the start, 
+        // call resetTimer to warn the user before overwriting the current session.
+        if (currentRecipeName && currentIdx >= 0 && !isSessionComplete) {
+            resetTimer('new');
+            // We must stop here! If they click "Yes" in resetTimer, 
+            // it will call loadRecipe() again and bypass this check 
+            // because localStorage.removeItem(STORAGE_KEY) will have fired.
+            return;
+        }
+
+        // Save the name to for use in restore session
+        currentRecipeName = selectedRecipe.name;
+
+        if (!useTestRecipes) {
+            // priimary path - build timeline from mobile_recipes.js
+            timeline = buildFlattenedTimeline(selectedRecipe);
+        } else {
+            // Direct mapping from test_recipes.js - No need for "buildFlattenedTimeline" logic
+            // We just take the 'steps' array directly from our test file
+            timeline = selectedRecipe.steps.map(step => ({
+                label: step.label,
+                duration: step.duration,
+                isManual: step.duration === 0
+            }));
+        }
+        currentIdx = -1;
         resetStepContext();
-        document.getElementById('timerContainer').style.display = 'block';
+        isSessionComplete = false; // Reset to show new recipe has been loaded is not complete
+
         updateUI();
-        renderAuditTable();
+        saveState();
+
     }
 
     function resetStepContext() {
-        const step = timeline[currentIdx];
-        timeLeft = step.duration || 0;
-        initialStepTime = timeLeft;
+//        console.trace("resetStepContext was called from here!");
+        // 1. Move to the next index
+        currentIdx++;
+        isLookingAhead = false; // Reset flag by default
+
+        // 2. Bound Check
+        if (currentIdx < timeline.length) {
+            const currentStep = timeline[currentIdx];
+
+            if (currentStep.duration > 0) {
+                // Standard Timed Step
+                timeLeft = currentStep.duration;
+                initialStepTime = timeLeft;
+            } else {
+                // MANUAL STEP: Peek at the next one
+                const nextStep = timeline[currentIdx + 1];
+                if (nextStep) {
+                    timeLeft = nextStep.duration || 0;
+                    initialStepTime = timeLeft;
+                    isLookingAhead = true; // SET SPECIAL FLAG
+                } else {
+                    timeLeft = 0;
+                    initialStepTime = 0;
+                }
+            }
+        } else {
+            // Brew Complete logic
+            timeLeft = 0;
+            initialStepTime = 0;
+        }
+        // If the timer is ticking, set "Wall Clock" time anchor to match the new time we just set.
+        if (interval) {
+        targetEndTime = Date.now() + (timeLeft * 1000);
+        }
     }
 
     function buildFlattenedTimeline(r) {
         let fl = [];
+
+        // --- START flight plan with default initalization step
+        fl.push({ label: `START: ${currentRecipeName}`, duration: 0, isManual: true });
+
+    
+        // --- build flight plan from recipe data
         const getVal = (obj, keys) => {
             for (let k of keys) { if (obj[k] !== undefined) return obj[k]; }
             return 0;
@@ -475,7 +790,9 @@
             });
         });
 
+        // End flight plan with default final steps
         fl.push({ label: "CHILLING: Cool to Pitch Temp & Transfer", duration: 0, isManual: true });
+        fl.push({ label: "COMPLETE: Brew Day Finished", duration: 0, isManual: true });
         return fl;
     }
     function renderAuditTable() {
@@ -491,31 +808,133 @@
         });
     }
 
-    function adjustTime(s) { 
-        timeLeft = Math.max(0, timeLeft + s); 
-        updateUI(); 
-        saveState();
+    function adjustTime(s) {
+        const wasAtStandstill = (timeLeft === 0);
+        
+        // Calculate relative change
+        applyTimeChange(timeLeft + s, wasAtStandstill);
     }
 
     function setManualTime() {
         const i = document.getElementById('manualInput');
         const m = parseFloat(i.value);
+        
         if (!isNaN(m)) {
-            timeLeft = Math.floor(m * 60);
-            initialStepTime = timeLeft;
-            updateUI(); i.value = ''; i.blur(); 
-            saveState();
+            const wasAtStandstill = (timeLeft === 0);
+            
+            // Calculate absolute change (minutes to seconds)
+            applyTimeChange(m * 60, wasAtStandstill);
+
+            // clear the input and take focus away from the input box (which closes the keypad on mobile browsers)
+            i.value = ''; 
+            i.blur();
         }
     }
 
-    function resetTimer() { 
-        if(confirm("Reset Brew Day?")) {
+    function applyTimeChange(newSeconds, wasAtStandstill) {
+        // 1. Set the values
+        timeLeft = Math.max(0, Math.floor(newSeconds));
+        initialStepTime = timeLeft;
+
+        // If the timer is ticking, set "Wall Clock" time anchor to match the new time we just set.
+        if (interval) {
+            targetEndTime = Date.now() + (timeLeft * 1000);
+        }
+
+
+        // 2. Alarm/Stop Logic - if adjusting timeleft to 0:00 and the timer is still running, stop timer
+        if (timeLeft === 0 && interval) {
+            clearInterval(interval);
+            interval = null;
+            startContinuousAlarm();
+        }
+
+        // 3. Only set the override flag if we are currently at a standstill (0:00)
+        // for IsManualOverride hack to prevent us from advance from advancing on a zero timed step when time is added
+        if (wasAtStandstill) {
+            isManualOverride = true;
+        }
+
+        // 4. Wrap up
+        updateUI();
+        saveState();
+    }
+
+    function resetTimer(mode) {
+        const overlay = document.getElementById('decision-overlay');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBody = document.getElementById('modal-body');
+        const confirmBtn = document.getElementById('modal-confirm');
+        const cancelBtn = document.getElementById('modal-cancel');
+
+        // setup overlay pop-up message
+        modalTitle.innerText = "Reset Timer?";
+        // if this is reset new recipe (ie, from the picklist) set text accordingly
+        if (mode === 'new') {
+                modalBody.innerText = "You are selecting a new recipe. This will wipe your current progress and start the new selection. Are you sure?";
+        } else {
+        // this is a reset of the current message (ie, from the reset button) set text accordingly
+            modalBody.innerText = currentRecipeName + " in Progress. This will wipe all progress and restart this recipe. Are you sure?";
+        }
+
+        // Set overlay buttons up for a recipe reset
+        confirmBtn.style.display = 'inline-block'; 
+        confirmBtn.innerText = "YES, RESET RECIPE";
+        confirmBtn.style.background = "#e74c3c"; 
+
+        cancelBtn.textContent = "Resume Brew";
+        cancelBtn.style.color = "#2ecc71"; // Green text
+        cancelBtn.style.fontWeight = "bold";
+
+        // 3. Define the "YES" action
+        confirmBtn.onclick = () => {
+            // Clear timer and storage
+            if (interval) {
+                clearInterval(interval);
+                interval = null;
+            }
+            stopAlarmSoundOnly();
             localStorage.removeItem(STORAGE_KEY);
+            
+            // Reset tracking variables
+            currentIdx = -1;
+            isSessionComplete = false;
+        
+            // Close the overlay
+            overlay.style.display = 'none';
+            
+            // Reload and snap to the absolute top (Header)
             loadRecipe(); 
-        }
+
+            const header = document.querySelector('.header');
+            if (header) {
+                header.scrollIntoView({ behavior: 'auto', block: 'start' });
+            } else {
+                window.scrollTo(0, 0);
+            }
+            
+            confirmBtn.blur();
+        };
+        // 4. Define the "Cancel" action
+        cancelBtn.onclick = () => {
+            // if the user selects a different recipe from the picklist, then cancels, we need to reset the picklist to the original recipe
+            const recipeSelect = document.getElementById('recipeSelect');
+            
+            // Loop through the options to find the one with the matching TEXT
+            for (let i = 0; i < recipeSelect.options.length; i++) {
+                if (recipeSelect.options[i].text === currentRecipeName) {
+                    recipeSelect.selectedIndex = i; // This selects by the position (the index)
+                    break; 
+                }
+            }
+            
+            overlay.style.display = 'none';
+        };
+
+        // 5. THE KEY: Now that the buttons are ready, show the overlay!
+        overlay.style.display = 'flex';
     }
 
-    let wakeLock = null;
     async function toggleWakeLock() {
         const btn = document.getElementById('wakeLockBtn');
         if (!('wakeLock' in navigator)) return; 
@@ -540,6 +959,7 @@
             btn.style.textShadow = "none";
         }
     }    
-    </script>
+
+</script>
 </body>
 </html>
