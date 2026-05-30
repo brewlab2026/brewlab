@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 05-30-2026 00:12:34
+// Exported: 05-30-2026 12:06:11
 
 const exportMeta = {
-  "export_datetime": "05-30-2026 00:12:34",
+  "export_datetime": "05-30-2026 12:06:11",
   "app_version": "1.0.0",
   "db_version": "1.0",
   "schema_version": "1.1"
@@ -2501,14 +2501,14 @@ const recipeData = [
     "efficiency_unit": "%",
     "mash_type": "Hochkurz",
     "strike_vol_method": "full_volume",
-    "og": 1.0605,
-    "fg": 1.0121,
-    "abv": 6.3,
+    "og": 1.0559,
+    "fg": 1.0112,
+    "abv": 5.9,
     "abv_unit": "%",
-    "ibu": 83.2,
-    "srm": 32.0,
+    "ibu": 86.0,
+    "srm": 31.9,
     "srm_hex": "#7B1A00",
-    "bitterness_balance": 194.2,
+    "bitterness_balance": 229.2,
     "bitterness_balance_unit": "%",
     "bitterness_label": "Bitter Leaning",
     "grain_temp": 68.0,
@@ -2525,9 +2525,9 @@ const recipeData = [
     "fermentation_temp_unit": "°F",
     "carbonation": 2.4,
     "carbonation_unit": "vol CO₂",
-    "strike_volume": 5.47,
+    "strike_volume": 5.4,
     "strike_volume_unit": "gal",
-    "strike_temp": 148.2,
+    "strike_temp": 147.6,
     "strike_temp_unit": "°F",
     "camden_mash_tablets": 0.27,
     "camden_mash_grams": 0.16,
@@ -2580,15 +2580,7 @@ const recipeData = [
         "unit": "lbs",
         "max_extract": 32.0,
         "lovibond": 70.0,
-        "pct_of_grist": 82.5
-      },
-      {
-        "name": "Acidulated Malt",
-        "amount": 1.0,
-        "unit": "lbs",
-        "max_extract": 37.0,
-        "lovibond": 1.8,
-        "pct_of_grist": 16.5
+        "pct_of_grist": 98.8
       },
       {
         "name": "Black Patent Malt",
@@ -2596,7 +2588,7 @@ const recipeData = [
         "unit": "oz",
         "max_extract": 27.0,
         "lovibond": 525.0,
-        "pct_of_grist": 1.0
+        "pct_of_grist": 1.2
       }
     ],
     "hops": [
@@ -2741,7 +2733,7 @@ const recipeData = [
         "actual_abv_unit": "%",
         "apparent_attenuation": 88.0,
         "apparent_attenuation_unit": "%",
-        "mash_efficiency": -366.0,
+        "mash_efficiency": -449.7,
         "mash_efficiency_unit": "%",
         "observed_color": "",
         "brew_day_notes": "some notes, more notes with no bad spelling and some unsaved data thaat I'm gnna press save for",
@@ -3003,7 +2995,7 @@ const recipeData = [
     "camden_sparge_tablets": 0.05,
     "camden_sparge_grams": 0.03,
     "notes_label_1": "Design Notes",
-    "notes_1": "note 1, addendum cline 2and 3 and the quick brown fox once agan proves I cant ype\r\nbut I can make bold print and more",
+    "notes_1": "post - not connected message test",
     "notes_label_2": "Process Notes",
     "notes_2": "note 2A",
     "notes_date": "2026-05-13",
