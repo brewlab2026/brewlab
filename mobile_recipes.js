@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 05-19-2026 17:53:19
+// Exported: 05-30-2026 00:12:34
 
 const exportMeta = {
-  "export_datetime": "05-19-2026 17:53:19",
+  "export_datetime": "05-30-2026 00:12:34",
   "app_version": "1.0.0",
   "db_version": "1.0",
   "schema_version": "1.1"
@@ -294,7 +294,7 @@ const recipeData = [
     "style_abv_max": 6.2,
     "batch_size": 2.75,
     "batch_size_unit": "gal",
-    "efficiency": 0.73,
+    "efficiency": 73.0,
     "efficiency_unit": "%",
     "mash_type": "Single Infusion",
     "strike_vol_method": "full_volume",
@@ -554,9 +554,9 @@ const recipeData = [
         "apparent_attenuation_unit": "%",
         "mash_efficiency": 71.7,
         "mash_efficiency_unit": "%",
-        "observed_color": "Bronze",
+        "observed_color": "Bronze with some haze",
         "brew_day_notes": "Adjust hop usage for aged hops per brewing sessions table\nHad a hard time getting to target 152F mash temp, strike mash temp 150F,  got to 151F by the end;  verified Brew Lab math for strike volume and temp matches Beerbook, think there was a math error on my part converting 0.16 gallons to quarts resulting in a lower strike volume resulting in not enough hot water to set mash temp correctly.\nph = 5.3 (measured by strip) 5.4 (including .1 correction) - close enough to 5.3 target\nOG 1052 by refractometer, tilt 1050, so we'll say 1051\npitched yeast by sprinkling at 8 PM\nVolume = 2.5 gallons, a little low; kettle trub not excessive, Brew Lab strike volume math verified correct; lbs grain is no more than any other small batch recipe I've done, confirmed larger dry hop volume for aged hops would only result in a 1.28 ounce difference in strike water, believe this is to the strike volume math error above.\nBut if we had a math error and had more strike water, OG would be lower than the expected 1052 so consider lowering efficiency to 72% and adjust accordingly?\n3/28 - dry hop at midnight @ 1017 (ideal target was 1016) - dry hop weight was perfect amount for test batch\n3/30 - reached cold crash temps ~8PM\n4/3 - transfer to keg (after 3.5 days) which makes total hop contact time about 4.5 days, 6 Brix which would be 1.007 (it was 1.011 prior to cold crash) so we'll need another check on the refractometer\n4/4 - 6PM - start burst carb at 28psi",
-        "tasting_notes": "at kegging - nice aroma & taste but bitter\neasy drinking, starts out bitter but fades quickly as you drink it, orange and pineapple aromatics\nvery good, not sure if anything needs changing",
+        "tasting_notes": "Very good beer (1/9 in Wizards mini-comp, 3/9 Seven Saws comp), tropical, orange and pineapple; starts out bitter in the glass but fades quickly as you drink it, overall not too bitter which is what I wanted, proper body and carbonation, easy drinking. Aroma was nice early on but it faded quite a bit after 2 months in the keg, probably due to time and my aged hops!\n\nConceptually, I think the process was sound, but there's something about it that doesn't 100% work for me. Seven Saws judge said the winner was more drinkable, I am tending to agree - it's a drinkability problem. I get get orange and pineapple but there's also a taste that's not thrilling me. Maybe its the muddling of all the tropical notes from Azzaca (ripe mango, pineapple, and citrus) and Citra (grapefruit, lime, and tropical fruits like mango, passionfruit, and lychee) and idaho-7 (tropical fruits and citrus, balanced by sticky pine and earthy black tea). I would definitely make it this way again but try a different hop combo.\n\n",
         "inventory_applied": true,
         "brew_date_dt": "2026-03-24",
         "aged_hops": [
@@ -752,7 +752,7 @@ const recipeData = [
     "notes_1": "This was a recipe design to a) make something quick, b) use the BE-134 yeast and c) use up anything I have and not get anything new\r\nRecipe designed on Gemini session - summary is in google docs\r\nTarget is really a sessionable dark Belgian ale not 100% suited to any particular style although it's marginally close a Dubbel\r\nSince we are using older dry yeast, we will want to rehydrate the yeast for 15 minutes before adding to the starter\r\n  prevents osmotic shock in old yeast; rehydration gives the yeast some time to revitalize themselves (or at least this is what AI says :-))",
     "notes_label_2": "Process Notes",
     "notes_2": "Fermentation Schedule\r\n  Pitch at 64°F and hold until fermentation is 1/3 complete (Restrains harsh phenolic (spicy) and fusel alcohol flavors, securing a clean base)\r\n  Raise temperature by 1° every 12 hours over the next 3 days to reach 70°F (Encourages desirable fruity esters).\r\n  Hold at 70° until FG is stable (Reach full attenuation)",
-    "notes_date": null,
+    "notes_date": "2025-11-22",
     "mash_steps": [
       {
         "step_order": 1,
@@ -865,17 +865,17 @@ const recipeData = [
         "time_in_minutes": 10.0
       },
       {
-        "name": "Yeast Nutrient",
-        "amount": 1.5,
-        "unit": "tsp",
+        "name": "Whirlfloc Tablet",
+        "amount": 0.25,
+        "unit": "tablets",
         "time": 10.0,
         "time_unit": "min",
         "time_in_minutes": 10.0
       },
       {
-        "name": "Whirlfloc Tablet",
-        "amount": 0.25,
-        "unit": "tablets",
+        "name": "Yeast Nutrient",
+        "amount": 1.5,
+        "unit": "tsp",
         "time": 10.0,
         "time_unit": "min",
         "time_in_minutes": 10.0
@@ -903,9 +903,9 @@ const recipeData = [
         "apparent_attenuation_unit": "%",
         "mash_efficiency": 63.6,
         "mash_efficiency_unit": "%",
-        "observed_color": "",
-        "brew_day_notes": "",
-        "tasting_notes": "",
+        "observed_color": "Brown",
+        "brew_day_notes": "overall, process went well \nOverall mash process seems to be working well enough, this time is was a degree low at 15 & 30 mins, speeding pump up seemed to fix it for the final check\npH was low at 5+.1=5.1 but then gain the strips only measure 5.0 or 5.3 so it could have been in the middle here and then much closer to the 5.35 target\nTurns out I only had 6.8 ounces victory so I made up the remaining 1.2 ounces with biscuit\nUsed LD Carlson DAP yeast nutrient instead of the usual Wyeast since its running very low (rate is 1/2 gram/gallon per morebeer's website)\nNot sure why OG is 3 points lower than expected - a little more volume in fermenter (3.9 gallons) versus expected (3.75 gallons) but why??\n  kettle trub is about the same as usual so that's not it\n  verified small batch correct applied in recipe so that's not it either\n  thinking back, I might have added an extra quart of strike water due to a bad measurement - don't know for sure but this is the most likely culprit\nTo correct and get back to 1057, added 5 oz DME boiled for 10 mins in 1 cup water (per Gemini)\n  Tilt is now measuring 1055; afterwards I realized Gemini's calculation didn’t take into account the added cup of water so the expected OG should have been 1055.something which it was\nFermentation Comments\nstarted temperature ramp-up at midnight on the 23rd (one day after brewing), gravity at 1042\n  me and Gemini figured it would be better to start the ramp up a little earlier rather than miss the 1040 target completely (and miss the fruity ester production phase)\n  turned out to be a good idea, by morning gravity is at 1033!\n",
+        "tasting_notes": "easy drinking, right hop level, not too spicy/Belgiany (as I like), well received by wizards and others who have tried it",
         "inventory_applied": false,
         "brew_date_dt": null,
         "aged_hops": null
@@ -960,7 +960,7 @@ const recipeData = [
     "carbonation_unit": "vol CO₂",
     "strike_volume": 3.03,
     "strike_volume_unit": "gal",
-    "strike_temp": 158.7,
+    "strike_temp": 157.7,
     "strike_temp_unit": "°F",
     "camden_mash_tablets": 0.15,
     "camden_mash_grams": 0.09,
@@ -975,7 +975,7 @@ const recipeData = [
       {
         "step_order": 1,
         "step_label": "Single Infusion",
-        "temp_f": 154.0,
+        "temp_f": 153.0,
         "temp_unit": "°F",
         "time_min": 60.0,
         "time_unit": "min",
@@ -1102,7 +1102,7 @@ const recipeData = [
       {
         "name": "Wyeast 1318 — London Ale III",
         "amount": 1.0,
-        "unit": "Packet",
+        "unit": "Slurry (oz)",
         "attenuation": 73.0,
         "attenuation_unit": "%"
       }
@@ -1332,6 +1332,14 @@ const recipeData = [
     ],
     "boil_additions": [
       {
+        "name": "Honey",
+        "amount": 8.0,
+        "unit": "oz",
+        "time": 15.0,
+        "time_unit": "min",
+        "time_in_minutes": 15.0
+      },
+      {
         "name": "Whirlfloc Tablet",
         "amount": 0.5,
         "unit": "tablets",
@@ -1343,14 +1351,6 @@ const recipeData = [
         "name": "Yeast Nutrient",
         "amount": 2.0,
         "unit": "tsp",
-        "time": 15.0,
-        "time_unit": "min",
-        "time_in_minutes": 15.0
-      },
-      {
-        "name": "Honey",
-        "amount": 8.0,
-        "unit": "oz",
         "time": 15.0,
         "time_unit": "min",
         "time_in_minutes": 15.0
@@ -2062,9 +2062,9 @@ const recipeData = [
     "camden_sparge_tablets": 0.05,
     "camden_sparge_grams": 0.03,
     "notes_label_1": "Design Notes",
-    "notes_1": "Sierra Nevada Pale Ale - Caramel, 2-row, Cascade, ABV 5.6%, IBU 38Very similar to the old Hillside Pale Ale recipe, same grist ratio, kettle hops, with the addition of flameout hops (which I did the last time and have no idea what I though of it) and dry hopping at 85% attenuationLower flameout hop time from 30 minutes to 10 to avoid overly grassy flavors and adding excessive IBUsSlightly over Sierra Nevada target due to bittering contribution of flameout hops but I dont want to go much lower since the flameout IBU contributions are new!Recipe scaled down to 2.75 gallons per BrewLab copy/scaling, plan was to leave flavor/aroma hops as calculated and adjusted bittering hop to to reach the target IBU but as it turns out this wasnt necessary since the Cascade AA% bought is lower than the 5 gallon recipe.",
+    "notes_1": "- Sierra Nevada Pale Ale - Caramel, 2-row, Cascade, ABV 5.6%, IBU 38\r\n- Very similar to the old Hillside Pale Ale recipe, same grist ratio, kettle hops, with the addition of flameout hops (which I did the last time and have no idea what I though of it) and dry hopping at 85% attenuation\r\nLower flameout hop time from 30 minutes to 10 to avoid overly grassy flavors and adding excessive IBUs\r\nSlightly over Sierra Nevada target due to bittering contribution of flameout hops but I dont want to go much lower since the flameout IBU contributions are new!\r\nRecipe scaled down to 2.75 gallons per BrewLab copy/scaling, plan was to leave flavor/aroma hops as calculated and adjusted bittering hop to to reach the target IBU but as it turns out this wasnt necessary since the Cascade AA% bought is lower than the 5 gallon recipe.",
     "notes_label_2": "Process Notes",
-    "notes_2": "Adjust hop quantities for aged hops per recipe guidelineAI says keep the anvil lid on during the flameout to trap volatile oils that would otherwise escape with steam! Sprinkle on yeast (no rehydration necessary for ales at 1052)Dry hop at 85% attenuation, immediately start ramp down to 58F over 24 hours  dry hop using weights in bag per my guideline (1 oz hops, 2.5-3 oz weight, which is either small shot glass (3.2 oz) or 2 bolts (2.8 oz)Ideally keep hop contact time to 48 hoursCold crash/lower temperature  after 48 hours of dry hoppingCold crash for 3 days once crash temp is reachedKeg after 3 days of cold crashing (purge keg with CO2 first)Burst carbonate at 30psi for 24 hours, then pull PRV, put on 12 psi for 12 hoursFine tune carbonation to 2.5 volumes",
+    "notes_2": "Adjust hop quantities for aged hops per recipe guideline\r\nAI says keep the anvil lid on during the flameout to trap volatile oils that would otherwise escape with steam! \r\nSprinkle on yeast (no rehydration necessary for ales at 1052)\r\nDry hop at 85% attenuation, immediately start ramp down to 58F over 24 hours  dry hop using weights in bag per my guideline (1 oz hops, 2.5-3 oz weight, which is either small shot glass (3.2 oz) or 2 bolts (2.8 oz)Ideally keep hop contact time to 48 hours\r\nCold crash/lower temperature  after 48 hours of dry hopping\r\nCold crash for 3 days once crash temp is reached\r\nKeg after 3 days of cold crashing (purge keg with CO2 first)Burst carbonate at 30psi for 24 hours, then pull PRV, put on 12 psi for 12 hours\r\nFine tune carbonation to 2.5 volumes",
     "notes_date": "2026-04-29",
     "mash_steps": [
       {
@@ -2204,9 +2204,9 @@ const recipeData = [
         "apparent_attenuation_unit": "%",
         "mash_efficiency": 68.3,
         "mash_efficiency_unit": "%",
-        "observed_color": "",
+        "observed_color": "Golden, very clear",
         "brew_day_notes": "Perle bittering hop adjusted for age; ageing calculation says we need .64 oz but I used .6 oz since it was an unopened package stored under very, very ideal conditions. .05 oz extra Cascade thrown in dry hop (no sense saving it)\n2 bolts weight for dry hop should be plenty (and it was)\n- mash went well enough, more like 150-151 temp\n- ph measured at 5.3, corrected to 5.4 - spot on\n- due to an error in turning off the power, flameout hops were more like 6-7 minutes of late boil hops then 3-4 mins of flameout hops; will try to compensate in dry hop by adding .2 oz old 2020 cascade hops i had\n- OG as high as 1051 on tilt, mesaured at 12B which has to be wrong as I also measured 12B before the boil; assume 1050 but still lower OG than predicted???\n5/10 - Dry hopped, Target 1017, Tilt 2020, Sample 1015, 16 g fresh cascade, 6 g 2020 cascade\n5/13 - start cold crash, crash temp reached around midnight, should be done by Sat night\n5/17 - 9AM - xfer to keg, FG = 1.010 (google adjusted tilt value of 1.009), 5.9B gives us 1.007 so let's say 1.009 and quit; 4:30 PM - start burst carb at 30 psi",
-        "tasting_notes": "first taste, 1 day old - nice hop aroma, citrus taste (sometimes I think lemon), appropriately bitter",
+        "tasting_notes": "first taste, 1 day old - nice hop aroma, citrus taste (sometimes I think lemon), appropriately bitter\nsecond taste, 3 days old, from 1/2 a growler so a little flat - lacks the heavy aroma of any kind that I would expect, taste is orange, sweet (makes no sense) and a much softer bitterness than SNPA, which is good\n\n5/28 - nice subtle hop aroma, taste is way off - cloyingly sweet, rough bitterness but at least its at a nice level and not too bitter. \n",
         "inventory_applied": true,
         "brew_date_dt": "2026-05-07",
         "aged_hops": [
@@ -2497,40 +2497,40 @@ const recipeData = [
     "style_abv_max": 6.0,
     "batch_size": 5.25,
     "batch_size_unit": "gal",
-    "efficiency": 0.73,
+    "efficiency": 0.65,
     "efficiency_unit": "%",
     "mash_type": "Hochkurz",
     "strike_vol_method": "full_volume",
-    "og": 1.0395,
-    "fg": 1.0079,
-    "abv": 4.2,
+    "og": 1.0605,
+    "fg": 1.0121,
+    "abv": 6.3,
     "abv_unit": "%",
-    "ibu": 81.8,
-    "srm": 9.7,
-    "srm_hex": "#E58500",
-    "bitterness_balance": 343.1,
+    "ibu": 83.2,
+    "srm": 32.0,
+    "srm_hex": "#7B1A00",
+    "bitterness_balance": 194.2,
     "bitterness_balance_unit": "%",
     "bitterness_label": "Bitter Leaning",
     "grain_temp": 68.0,
     "grain_temp_unit": "°F",
-    "water_treatments": "of course we need water",
+    "water_treatments": "We could add a config option to automatically generate the export file and push – maybe based on dirty flag and/or on app exit (however it does that). It would have t be smart enough to handle the case when the computer is offline and not connected to the internet.",
     "sparge_amount": 1.0,
     "sparge_amount_unit": "gal",
     "sparge_temp": 171.0,
     "sparge_temp_unit": "°F",
-    "boil_time": 20.0,
+    "boil_time": 90.0,
     "boil_time_unit": "min",
-    "boil_time_in_minutes": 20.0,
+    "boil_time_in_minutes": 90.0,
     "fermentation_temp": 75.0,
     "fermentation_temp_unit": "°F",
     "carbonation": 2.4,
     "carbonation_unit": "vol CO₂",
-    "strike_volume": 5.04,
+    "strike_volume": 5.47,
     "strike_volume_unit": "gal",
-    "strike_temp": 145.7,
+    "strike_temp": 148.2,
     "strike_temp_unit": "°F",
-    "camden_mash_tablets": 0.25,
-    "camden_mash_grams": 0.15,
+    "camden_mash_tablets": 0.27,
+    "camden_mash_grams": 0.16,
     "camden_sparge_tablets": 0.05,
     "camden_sparge_grams": 0.03,
     "notes_label_1": "Design Notes",
@@ -2547,7 +2547,7 @@ const recipeData = [
         "time_min": 30.0,
         "time_unit": "min",
         "time_in_minutes": 30.0,
-        "adjustment_gal": 0.0,
+        "adjustment_gal": -1.0,
         "adjustment_unit": "gal"
       },
       {
@@ -2566,29 +2566,37 @@ const recipeData = [
         "step_label": "Mash Out",
         "temp_f": 170.0,
         "temp_unit": "°F",
-        "time_min": 45.0,
+        "time_min": 10.0,
         "time_unit": "min",
-        "time_in_minutes": 45.0,
+        "time_in_minutes": 10.0,
         "adjustment_gal": 0.0,
         "adjustment_unit": "gal"
       }
     ],
     "grains": [
       {
-        "name": "Acidulated Malt",
-        "amount": 1.25,
-        "unit": "lbs",
-        "max_extract": 37.0,
-        "lovibond": 3.0,
-        "pct_of_grist": 55.6
-      },
-      {
         "name": "Brown Malt",
-        "amount": 1.0,
+        "amount": 5.0,
         "unit": "lbs",
         "max_extract": 32.0,
         "lovibond": 70.0,
-        "pct_of_grist": 44.4
+        "pct_of_grist": 82.5
+      },
+      {
+        "name": "Acidulated Malt",
+        "amount": 1.0,
+        "unit": "lbs",
+        "max_extract": 37.0,
+        "lovibond": 1.8,
+        "pct_of_grist": 16.5
+      },
+      {
+        "name": "Black Patent Malt",
+        "amount": 1.0,
+        "unit": "oz",
+        "max_extract": 27.0,
+        "lovibond": 525.0,
+        "pct_of_grist": 1.0
       }
     ],
     "hops": [
@@ -2646,6 +2654,19 @@ const recipeData = [
       },
       {
         "name": "Amarillo",
+        "amount": 1.5,
+        "unit": "oz",
+        "usage": "Whirlpool 180°",
+        "time": 5,
+        "time_unit": "min",
+        "time_in_minutes": 5,
+        "alpha_acid": 0.084,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Amarillo",
         "amount": 1.0,
         "unit": "oz",
         "usage": "Whirlpool 170°",
@@ -2656,22 +2677,33 @@ const recipeData = [
         "hop_form": "Pellet",
         "crop_year": null,
         "hemisphere": "Northern"
-      },
-      {
-        "name": "Amarillo",
-        "amount": 1.5,
-        "unit": "oz",
-        "usage": "Whirlpool 170°",
-        "time": 5,
-        "time_unit": "min",
-        "time_in_minutes": 5,
-        "alpha_acid": 0.084,
-        "hop_form": "Pellet",
-        "crop_year": null,
-        "hemisphere": "Northern"
       }
     ],
     "boil_additions": [
+      {
+        "name": "Sugar - Invert #4",
+        "amount": 1.0,
+        "unit": "oz",
+        "time": 60.0,
+        "time_unit": "min",
+        "time_in_minutes": 60.0
+      },
+      {
+        "name": "Treacle",
+        "amount": 1.0,
+        "unit": "Other",
+        "time": 60.0,
+        "time_unit": "min",
+        "time_in_minutes": 60.0
+      },
+      {
+        "name": "WYeast Nutrient",
+        "amount": 1.0,
+        "unit": "tsp",
+        "time": 60.0,
+        "time_unit": "min",
+        "time_in_minutes": 60.0
+      },
       {
         "name": "Honey",
         "amount": 5.0,
@@ -2683,7 +2715,7 @@ const recipeData = [
       {
         "name": "Irish Moss",
         "amount": 1.5,
-        "unit": "tsp",
+        "unit": "tablets",
         "time": 8.0,
         "time_unit": "min",
         "time_in_minutes": 8.0
@@ -2709,7 +2741,7 @@ const recipeData = [
         "actual_abv_unit": "%",
         "apparent_attenuation": 88.0,
         "apparent_attenuation_unit": "%",
-        "mash_efficiency": -670.9,
+        "mash_efficiency": -366.0,
         "mash_efficiency_unit": "%",
         "observed_color": "",
         "brew_day_notes": "some notes, more notes with no bad spelling and some unsaved data thaat I'm gnna press save for",
@@ -2734,7 +2766,7 @@ const recipeData = [
             "name": "Amarillo",
             "amount": 1.5,
             "unit": "oz",
-            "usage": "Whirlpool 170°",
+            "usage": "Whirlpool 180°",
             "time": 5.0,
             "time_unit": "min",
             "crop_year": 2025,
@@ -2832,7 +2864,7 @@ const recipeData = [
             "name": "Amarillo",
             "amount": 1.5,
             "unit": "oz",
-            "usage": "Whirlpool 170°",
+            "usage": "Whirlpool 180°",
             "time": 5.0,
             "time_unit": "min",
             "crop_year": 2025,
@@ -2917,259 +2949,38 @@ const recipeData = [
     ]
   },
   {
-    "recipe_id": 166,
-    "name": "Test#1-update (Copy)",
-    "search": "test#1-update (copy) 2a international pale lager",
-    "style_id": 5,
-    "style": "2A International Pale Lager",
-    "style_og_min": 1.042,
-    "style_og_max": 1.05,
-    "style_fg_min": 1.008,
-    "style_fg_max": 1.012,
-    "style_ibu_min": 18.0,
-    "style_ibu_max": 25.0,
-    "style_srm_min": 2.0,
-    "style_srm_max": 6.0,
-    "style_abv_min": 4.6,
-    "style_abv_max": 6.0,
-    "batch_size": 3.0,
-    "batch_size_unit": "gal",
-    "efficiency": 0.73,
-    "efficiency_unit": "%",
-    "mash_type": "Hochkurz",
-    "strike_vol_method": "full_volume",
-    "og": 1.0395,
-    "fg": 1.0079,
-    "abv": 4.2,
-    "abv_unit": "%",
-    "ibu": 83.1,
-    "srm": 9.8,
-    "srm_hex": "#E58500",
-    "bitterness_balance": 350.1,
-    "bitterness_balance_unit": "%",
-    "bitterness_label": "Bitter Leaning",
-    "grain_temp": 68.0,
-    "grain_temp_unit": "°F",
-    "water_treatments": "of course we need water",
-    "sparge_amount": 1.0,
-    "sparge_amount_unit": "gal",
-    "sparge_temp": 171.0,
-    "sparge_temp_unit": "°F",
-    "boil_time": 20.0,
-    "boil_time_unit": "min",
-    "boil_time_in_minutes": 20.0,
-    "fermentation_temp": 75.0,
-    "fermentation_temp_unit": "°F",
-    "carbonation": 2.4,
-    "carbonation_unit": "vol CO₂",
-    "strike_volume": 2.69,
-    "strike_volume_unit": "gal",
-    "strike_temp": 145.8,
-    "strike_temp_unit": "°F",
-    "camden_mash_tablets": 0.13,
-    "camden_mash_grams": 0.08,
-    "camden_sparge_tablets": 0.05,
-    "camden_sparge_grams": 0.03,
-    "notes_label_1": "Design Notes",
-    "notes_1": "more new notes Line 2 added ii under lines. making sme updates and save now making some updates and no save",
-    "notes_label_2": "Process Notes",
-    "notes_2": "new note, and more notes, mmmm, now some unsaved not to test save all",
-    "notes_date": "2026-05-18",
-    "mash_steps": [
-      {
-        "step_order": 1,
-        "step_label": "Maltose Rest",
-        "temp_f": 144.0,
-        "temp_unit": "°F",
-        "time_min": 30.0,
-        "time_unit": "min",
-        "time_in_minutes": 30.0,
-        "adjustment_gal": 0.0,
-        "adjustment_unit": "gal"
-      },
-      {
-        "step_order": 2,
-        "step_label": "Dextrin Rest",
-        "temp_f": 162.0,
-        "temp_unit": "°F",
-        "time_min": 30.0,
-        "time_unit": "min",
-        "time_in_minutes": 30.0,
-        "adjustment_gal": 0.0,
-        "adjustment_unit": "gal"
-      },
-      {
-        "step_order": 3,
-        "step_label": "Mash Out",
-        "temp_f": 170.0,
-        "temp_unit": "°F",
-        "time_min": 45.0,
-        "time_unit": "min",
-        "time_in_minutes": 45.0,
-        "adjustment_gal": 0.0,
-        "adjustment_unit": "gal"
-      }
-    ],
-    "grains": [
-      {
-        "name": "Acidulated Malt",
-        "amount": 0.71,
-        "unit": "lbs",
-        "max_extract": 37.0,
-        "lovibond": 3.0,
-        "pct_of_grist": 55.6
-      },
-      {
-        "name": "Brown Malt",
-        "amount": 0.57,
-        "unit": "lbs",
-        "max_extract": 32.0,
-        "lovibond": 70.0,
-        "pct_of_grist": 44.4
-      }
-    ],
-    "hops": [
-      {
-        "name": "Amarillo",
-        "amount": 0.57,
-        "unit": "oz",
-        "usage": "Boil",
-        "time": 20,
-        "time_unit": "min",
-        "time_in_minutes": 20,
-        "alpha_acid": 0.084,
-        "hop_form": "Pellet",
-        "crop_year": null,
-        "hemisphere": "Northern"
-      },
-      {
-        "name": "Amarillo",
-        "amount": 1.14,
-        "unit": "oz",
-        "usage": "Boil",
-        "time": 10,
-        "time_unit": "min",
-        "time_in_minutes": 10,
-        "alpha_acid": 0.084,
-        "hop_form": "Pellet",
-        "crop_year": null,
-        "hemisphere": "Northern"
-      },
-      {
-        "name": "Challenger",
-        "amount": 1.14,
-        "unit": "oz",
-        "usage": "Flameout",
-        "time": 20,
-        "time_unit": "min",
-        "time_in_minutes": 20,
-        "alpha_acid": 0.084,
-        "hop_form": "Pellet",
-        "crop_year": null,
-        "hemisphere": "Northern"
-      },
-      {
-        "name": "Amarillo",
-        "amount": 0.57,
-        "unit": "oz",
-        "usage": "Flameout",
-        "time": 0,
-        "time_unit": "min",
-        "time_in_minutes": 0,
-        "alpha_acid": 0.09,
-        "hop_form": "Pellet",
-        "crop_year": null,
-        "hemisphere": "Northern"
-      },
-      {
-        "name": "Amarillo",
-        "amount": 0.57,
-        "unit": "oz",
-        "usage": "Whirlpool 170°",
-        "time": 20,
-        "time_unit": "min",
-        "time_in_minutes": 20,
-        "alpha_acid": 0.084,
-        "hop_form": "Pellet",
-        "crop_year": null,
-        "hemisphere": "Northern"
-      },
-      {
-        "name": "Amarillo",
-        "amount": 0.86,
-        "unit": "oz",
-        "usage": "Whirlpool 170°",
-        "time": 5,
-        "time_unit": "min",
-        "time_in_minutes": 5,
-        "alpha_acid": 0.084,
-        "hop_form": "Pellet",
-        "crop_year": null,
-        "hemisphere": "Northern"
-      }
-    ],
-    "boil_additions": [
-      {
-        "name": "Honey",
-        "amount": 2.86,
-        "unit": "lbs",
-        "time": 20.0,
-        "time_unit": "min",
-        "time_in_minutes": 20.0
-      },
-      {
-        "name": "Irish Moss",
-        "amount": 1.5,
-        "unit": "tsp",
-        "time": 8.0,
-        "time_unit": "min",
-        "time_in_minutes": 8.0
-      }
-    ],
-    "yeast": [
-      {
-        "name": "Other",
-        "amount": 2.0,
-        "unit": "Packet",
-        "attenuation": 80.0,
-        "attenuation_unit": "%"
-      }
-    ],
-    "sessions": []
-  },
-  {
     "recipe_id": 139,
     "name": "Test13 (original)",
-    "search": "test13 (original) 18b american pale ale",
-    "style_id": 56,
-    "style": "18B American Pale Ale",
-    "style_og_min": 1.045,
-    "style_og_max": 1.06,
-    "style_fg_min": 1.01,
-    "style_fg_max": 1.015,
-    "style_ibu_min": 30.0,
-    "style_ibu_max": 50.0,
-    "style_srm_min": 5.0,
-    "style_srm_max": 10.0,
-    "style_abv_min": 4.5,
-    "style_abv_max": 6.2,
+    "search": "test13 (original) 32a classic style smoked beer",
+    "style_id": 114,
+    "style": "32A Classic Style Smoked Beer",
+    "style_og_min": null,
+    "style_og_max": null,
+    "style_fg_min": null,
+    "style_fg_max": null,
+    "style_ibu_min": null,
+    "style_ibu_max": null,
+    "style_srm_min": null,
+    "style_srm_max": null,
+    "style_abv_min": null,
+    "style_abv_max": null,
     "batch_size": 5.25,
     "batch_size_unit": "gal",
-    "efficiency": 0.73,
+    "efficiency": 73.0,
     "efficiency_unit": "%",
-    "mash_type": "Single Infusion",
+    "mash_type": "Extract + Specialty Grain",
     "strike_vol_method": "full_volume",
-    "og": 1.0669,
-    "fg": 1.0174,
-    "abv": 6.5,
+    "og": 1.0635,
+    "fg": 1.0165,
+    "abv": 6.2,
     "abv_unit": "%",
-    "ibu": 99.0,
-    "srm": 22.2,
-    "srm_hex": "#952D00",
-    "bitterness_balance": 94.2,
+    "ibu": 181.3,
+    "srm": 20.8,
+    "srm_hex": "#9B3200",
+    "bitterness_balance": null,
     "bitterness_balance_unit": "%",
-    "bitterness_label": "Bitter Leaning",
-    "grain_temp": 98.0,
+    "bitterness_label": null,
+    "grain_temp": 68.0,
     "grain_temp_unit": "°F",
     "water_treatments": "",
     "sparge_amount": 1.0,
@@ -3183,9 +2994,9 @@ const recipeData = [
     "fermentation_temp_unit": "°F",
     "carbonation": 2.4,
     "carbonation_unit": "vol CO₂",
-    "strike_volume": 6.25,
+    "strike_volume": 6.19,
     "strike_volume_unit": "gal",
-    "strike_temp": 156.5,
+    "strike_temp": 161.7,
     "strike_temp_unit": "°F",
     "camden_mash_tablets": 0.31,
     "camden_mash_grams": 0.19,
@@ -3199,23 +3010,12 @@ const recipeData = [
     "mash_steps": [
       {
         "step_order": 1,
-        "step_label": "Single Infusion",
-        "temp_f": 152.0,
+        "step_label": "Steep",
+        "temp_f": 155.0,
         "temp_unit": "°F",
-        "time_min": 60.0,
+        "time_min": 20.0,
         "time_unit": "min",
-        "time_in_minutes": 60.0,
-        "adjustment_gal": 0.0,
-        "adjustment_unit": "gal"
-      },
-      {
-        "step_order": 2,
-        "step_label": "Mash Out",
-        "temp_f": 170.0,
-        "temp_unit": "°F",
-        "time_min": 10.0,
-        "time_unit": "min",
-        "time_in_minutes": 10.0,
+        "time_in_minutes": 20.0,
         "adjustment_gal": 0.0,
         "adjustment_unit": "gal"
       }
@@ -3227,15 +3027,15 @@ const recipeData = [
         "unit": "lbs",
         "max_extract": 37.0,
         "lovibond": 1.8,
-        "pct_of_grist": 76.2
+        "pct_of_grist": 84.2
       },
       {
         "name": "Biscuit Malt",
-        "amount": 2.0,
+        "amount": 1.0,
         "unit": "lbs",
         "max_extract": 35.0,
         "lovibond": 24.0,
-        "pct_of_grist": 19.0
+        "pct_of_grist": 10.5
       },
       {
         "name": "Carafa Special II",
@@ -3243,7 +3043,7 @@ const recipeData = [
         "unit": "oz",
         "max_extract": 20.0,
         "lovibond": 413.0,
-        "pct_of_grist": 3.6
+        "pct_of_grist": 3.9
       },
       {
         "name": "Chocolate Malt",
@@ -3251,7 +3051,7 @@ const recipeData = [
         "unit": "oz",
         "max_extract": 30.0,
         "lovibond": 350.0,
-        "pct_of_grist": 1.2
+        "pct_of_grist": 1.3
       }
     ],
     "hops": [
@@ -3269,14 +3069,14 @@ const recipeData = [
         "hemisphere": "Northern"
       },
       {
-        "name": "CTZ",
-        "amount": 0.75,
+        "name": "Galaxy",
+        "amount": 1.0,
         "unit": "oz",
         "usage": "Boil",
         "time": 60,
         "time_unit": "min",
         "time_in_minutes": 60,
-        "alpha_acid": 0.1,
+        "alpha_acid": 0.161,
         "hop_form": "Pellet",
         "crop_year": null,
         "hemisphere": "Northern"
@@ -3289,7 +3089,7 @@ const recipeData = [
         "time": 20,
         "time_unit": "min",
         "time_in_minutes": 20,
-        "alpha_acid": 0.07,
+        "alpha_acid": 0.08,
         "hop_form": "Pellet",
         "crop_year": null,
         "hemisphere": "Northern"
@@ -3298,11 +3098,37 @@ const recipeData = [
         "name": "Amarillo",
         "amount": 1.0,
         "unit": "oz",
-        "usage": "Dry Hop",
+        "usage": "Flameout",
         "time": 3,
         "time_unit": "days",
-        "time_in_minutes": null,
+        "time_in_minutes": 3,
         "alpha_acid": 0.084,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "CTZ",
+        "amount": 0.75,
+        "unit": "oz",
+        "usage": "Whirlpool 180°",
+        "time": 60,
+        "time_unit": "min",
+        "time_in_minutes": 60,
+        "alpha_acid": 0.1,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Galaxy",
+        "amount": 1.0,
+        "unit": "oz",
+        "usage": "Dry Hop",
+        "time": 60,
+        "time_unit": "min",
+        "time_in_minutes": null,
+        "alpha_acid": 0.161,
         "hop_form": "Pellet",
         "crop_year": null,
         "hemisphere": "Northern"
@@ -3310,9 +3136,9 @@ const recipeData = [
     ],
     "boil_additions": [
       {
-        "name": "Whirlfloc Tablet",
-        "amount": 1.0,
-        "unit": "tablets",
+        "name": "Sugar - Corn",
+        "amount": 2.0,
+        "unit": "oz",
         "time": 60.0,
         "time_unit": "min",
         "time_in_minutes": 60.0
@@ -3321,17 +3147,33 @@ const recipeData = [
         "name": "Honey",
         "amount": 2.1,
         "unit": "lbs",
-        "time": 15.0,
+        "time": 45.0,
         "time_unit": "min",
-        "time_in_minutes": 15.0
+        "time_in_minutes": 45.0
+      },
+      {
+        "name": "Lyle's Golden Syrup",
+        "amount": 1.0,
+        "unit": "oz",
+        "time": 45.0,
+        "time_unit": "min",
+        "time_in_minutes": 45.0
       },
       {
         "name": "Sugar - Brown",
         "amount": 1.0,
         "unit": "oz",
-        "time": 15.0,
+        "time": 45.0,
         "time_unit": "min",
-        "time_in_minutes": 15.0
+        "time_in_minutes": 45.0
+      },
+      {
+        "name": "Whirlfloc Tablet",
+        "amount": 1.0,
+        "unit": "tablets",
+        "time": 10.0,
+        "time_unit": "min",
+        "time_in_minutes": 10.0
       }
     ],
     "yeast": [
@@ -3344,6 +3186,25 @@ const recipeData = [
       }
     ],
     "sessions": [
+      {
+        "session_id": 156,
+        "session_date": "05-26-2026",
+        "brew_date": null,
+        "actual_og": null,
+        "actual_fg": null,
+        "actual_abv": null,
+        "actual_abv_unit": "%",
+        "apparent_attenuation": null,
+        "apparent_attenuation_unit": "%",
+        "mash_efficiency": null,
+        "mash_efficiency_unit": "%",
+        "observed_color": "",
+        "brew_day_notes": "",
+        "tasting_notes": "",
+        "inventory_applied": false,
+        "brew_date_dt": null,
+        "aged_hops": null
+      },
       {
         "session_id": 122,
         "session_date": "05-13-2026",
@@ -3373,7 +3234,7 @@ const recipeData = [
         "actual_abv_unit": "%",
         "apparent_attenuation": null,
         "apparent_attenuation_unit": "%",
-        "mash_efficiency": -30.6,
+        "mash_efficiency": -45.3,
         "mash_efficiency_unit": "%",
         "observed_color": "cherry red",
         "brew_day_notes": "yep, some here and some more",
@@ -3382,23 +3243,10 @@ const recipeData = [
         "brew_date_dt": "2026-05-12",
         "aged_hops": [
           {
-            "name": "Azacca",
-            "amount": 1.0,
-            "unit": "oz",
-            "usage": "Boil",
-            "time": 60.0,
-            "time_unit": "min",
-            "crop_year": 2021,
-            "hemisphere": "Northern",
-            "age_years": 4.7,
-            "adjusted_amount": 1.4,
-            "status": "adjusted"
-          },
-          {
             "name": "CTZ",
             "amount": 0.75,
             "unit": "oz",
-            "usage": "Boil",
+            "usage": "Whirlpool 180°",
             "time": 60.0,
             "time_unit": "min",
             "crop_year": 2025,
@@ -3411,7 +3259,7 @@ const recipeData = [
             "name": "Amarillo",
             "amount": 1.0,
             "unit": "oz",
-            "usage": "Dry Hop",
+            "usage": "Flameout",
             "time": 3.0,
             "time_unit": "days",
             "crop_year": 2025,
@@ -3432,6 +3280,45 @@ const recipeData = [
             "age_years": 0.7,
             "adjusted_amount": 2.0,
             "status": "fresh"
+          },
+          {
+            "name": "Azacca",
+            "amount": 1.0,
+            "unit": "oz",
+            "usage": "Boil",
+            "time": 60.0,
+            "time_unit": "min",
+            "crop_year": 2021,
+            "hemisphere": "Northern",
+            "age_years": 4.7,
+            "adjusted_amount": 1.4,
+            "status": "adjusted"
+          },
+          {
+            "name": "Galaxy",
+            "amount": 1.0,
+            "unit": "oz",
+            "usage": "Boil",
+            "time": 60.0,
+            "time_unit": "min",
+            "crop_year": null,
+            "hemisphere": "Northern",
+            "age_years": null,
+            "adjusted_amount": null,
+            "status": "no_crop_year"
+          },
+          {
+            "name": "Galaxy",
+            "amount": 1.0,
+            "unit": "oz",
+            "usage": "Dry Hop",
+            "time": 60.0,
+            "time_unit": "min",
+            "crop_year": null,
+            "hemisphere": "Northern",
+            "age_years": null,
+            "adjusted_amount": null,
+            "status": "no_crop_year"
           }
         ]
       },
@@ -3445,7 +3332,7 @@ const recipeData = [
         "actual_abv_unit": "%",
         "apparent_attenuation": 73.1,
         "apparent_attenuation_unit": "%",
-        "mash_efficiency": -33.4,
+        "mash_efficiency": -48.3,
         "mash_efficiency_unit": "%",
         "observed_color": "",
         "brew_day_notes": "",
