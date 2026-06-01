@@ -174,12 +174,12 @@
 
                             <button class="details-btn btn-sub" onclick="toggleDetails('mash-${r.recipe_id}')">Mash & Process</button>
                             <div id="mash-${r.recipe_id}" style="display:none;" class="nested-section">
-                                <p><strong>Batch:</strong> ${r.batch_size} ${r.batch_size_unit} | <strong>Type:</strong> ${r.mash_type} | <strong>Eff:</strong> ${r.efficiency}%</p>
+                                <p><strong>Batch:</strong> ${r.batch_size} ${r.batch_size_unit} | <strong>Type:</strong> ${r.mash_type} | <strong>Method:</strong> ${r.strike_vol_method} | <strong>Eff:</strong> ${r.is_extract ? '0%' : r.efficiency + '%'}</p>
                                 <p><strong>Water Treatments:</strong> ${r.water_treatments || 'None'}</p>
-                                <p><strong>Camden Strike:</strong> ${r.camden_mash_tablets} tabs / ${r.camden_mash_grams}g</p>
-                                <p><strong>Camden Sparge:</strong> ${r.camden_sparge_tablets} tabs / ${r.camden_sparge_grams}g</p>
-                                
-                                <div class="section-title">Mash Table</div>
+                                <p><strong>Camden ${r.is_extract ? 'Steep' : 'Strike'}:</strong> ${r.camden_mash_tablets} tabs / ${r.camden_mash_grams}g</p>
+                                <p><strong>Camden ${r.is_extract ? 'Kettle Water' : 'Sparge'}:</strong> ${r.camden_sparge_tablets} tabs / ${r.camden_sparge_grams}g</p>
+
+                                <div class="section-title">${r.is_extract ? 'Steep' : 'Mash'} Table</div>
                                 <table class="mash-table">
                                     <thead><tr><th>Step</th><th>Temp</th><th>Time</th><th>Adj</th></tr></thead>
                                     <tbody>
@@ -189,8 +189,8 @@
                                     </tbody>
                                 </table>
 
-                                <p><strong>Strike:</strong> ${r.strike_temp}°F / ${r.strike_volume} ${r.strike_volume_unit}</p>
-                                <p><strong>Sparge:</strong> ${r.sparge_temp}°F / ${r.sparge_amount} ${r.sparge_amount_unit}</p>
+                                <p><strong>${r.is_extract ? 'Steep' : 'Strike'}:</strong> ${r.strike_temp}°F / ${r.strike_volume} ${r.strike_volume_unit}</p>
+                                ${r.is_extract ? `<p><strong>Kettle Target Vol:</strong> ${r.kettle_target_vol} gal</p><p><strong>Kettle Water:</strong> ${r.kettle_water} gal</p>` : `<p><strong>Sparge:</strong> ${r.sparge_temp}°F / ${r.sparge_amount} ${r.sparge_amount_unit}</p>`}
                                 <p><strong>Boil Time:</strong> ${r.boil_time} ${r.boil_time_unit}</p>
                                 <p><strong>Fermentation:</strong> ${r.fermentation_temp}°F | <strong>Carb:</strong> ${r.carbonation} vol</p>
                             </div>
