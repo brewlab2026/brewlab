@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 06-01-2026 17:00:45
+// Exported: 06-01-2026 17:07:35
 
 const exportMeta = {
-  "export_datetime": "06-01-2026 17:00:45",
+  "export_datetime": "06-01-2026 17:07:35",
   "app_version": "1.0.0",
   "db_version": "1.0",
   "schema_version": "1.1"
@@ -3282,6 +3282,110 @@ const recipeData = [
         "pct_of_grist": 100.0
       }
     ],
+    "hops": [
+      {
+        "name": "Amarillo",
+        "amount": 1.0,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 60,
+        "time_unit": "min",
+        "time_in_minutes": 60,
+        "alpha_acid": 0.084,
+        "hop_form": "Pellet",
+        "crop_year": null,
+        "hemisphere": "Northern"
+      }
+    ],
+    "boil_additions": [
+      {
+        "name": "Malt Extract - Liquid (LME)",
+        "amount": 6.0,
+        "unit": "lbs",
+        "time": 60.0,
+        "time_unit": "min",
+        "time_in_minutes": 60.0
+      }
+    ],
+    "yeast": [],
+    "sessions": []
+  },
+  {
+    "recipe_id": 209,
+    "name": "test45-extract - no grains",
+    "search": "test45-extract - no grains 1b american lager",
+    "style_id": 2,
+    "style": "1B American Lager",
+    "style_og_min": 1.04,
+    "style_og_max": 1.05,
+    "style_fg_min": 1.004,
+    "style_fg_max": 1.01,
+    "style_ibu_min": 8.0,
+    "style_ibu_max": 18.0,
+    "style_srm_min": 2.0,
+    "style_srm_max": 4.0,
+    "style_abv_min": 4.2,
+    "style_abv_max": 5.3,
+    "batch_size": 5.25,
+    "batch_size_unit": "gal",
+    "efficiency": 0.0,
+    "efficiency_unit": "%",
+    "mash_type": "Extract",
+    "strike_vol_method": "full_volume",
+    "og": 1.0423,
+    "fg": 1.0106,
+    "abv": 4.2,
+    "abv_unit": "%",
+    "ibu": 34.6,
+    "srm": 3.2,
+    "srm_hex": "#FFCA5A",
+    "bitterness_balance": 183.1,
+    "bitterness_balance_unit": "%",
+    "bitterness_label": "Bitter Leaning",
+    "grain_temp": 68.0,
+    "grain_temp_unit": "°F",
+    "water_treatments": "",
+    "sparge_amount": 5.25,
+    "sparge_amount_unit": "gal",
+    "sparge_temp": 170.0,
+    "sparge_temp_unit": "°F",
+    "kettle_target_vol": 5.25,
+    "kettle_water": 4.83,
+    "is_extract": true,
+    "boil_time": 60.0,
+    "boil_time_unit": "min",
+    "boil_time_in_minutes": 60.0,
+    "fermentation_temp": 68.0,
+    "fermentation_temp_unit": "°F",
+    "carbonation": 2.4,
+    "carbonation_unit": "vol CO₂",
+    "strike_volume": null,
+    "strike_volume_unit": "gal",
+    "strike_temp": null,
+    "strike_temp_unit": "°F",
+    "camden_mash_tablets": 0.0,
+    "camden_mash_grams": 0.0,
+    "camden_sparge_tablets": 0.24,
+    "camden_sparge_grams": 0.15,
+    "notes_label_1": "Design Notes",
+    "notes_1": "",
+    "notes_label_2": "Process Notes",
+    "notes_2": "",
+    "notes_date": null,
+    "mash_steps": [
+      {
+        "step_order": 1,
+        "step_label": "Steep",
+        "temp_f": 155.0,
+        "temp_unit": "°F",
+        "time_min": 20.0,
+        "time_unit": "min",
+        "time_in_minutes": 20.0,
+        "adjustment_gal": 0.0,
+        "adjustment_unit": "gal"
+      }
+    ],
+    "grains": [],
     "hops": [
       {
         "name": "Amarillo",
