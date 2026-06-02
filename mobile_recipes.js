@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 06-02-2026 10:37:54
+// Exported: 06-02-2026 10:42:39
 
 const exportMeta = {
-  "export_datetime": "06-02-2026 10:37:54",
+  "export_datetime": "06-02-2026 10:42:39",
   "app_version": "1.0.0",
   "db_version": "1.0",
   "schema_version": "1.1"
@@ -718,7 +718,7 @@ const recipeData = [
     "style_abv_max": 6.2,
     "batch_size": 5.25,
     "batch_size_unit": "gal",
-    "efficiency": 72.9,
+    "efficiency": 73.0,
     "efficiency_unit": "%",
     "mash_type": "Single Infusion",
     "strike_vol_method": "Full Volume",
@@ -933,7 +933,7 @@ const recipeData = [
     "style_abv_max": 6.2,
     "batch_size": 5.25,
     "batch_size_unit": "gal",
-    "efficiency": 72.9,
+    "efficiency": 73.0,
     "efficiency_unit": "%",
     "mash_type": "Single Infusion",
     "strike_vol_method": "Full Volume",
