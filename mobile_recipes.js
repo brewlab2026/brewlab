@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 06-02-2026 10:21:19
+// Exported: 06-02-2026 10:37:54
 
 const exportMeta = {
-  "export_datetime": "06-02-2026 10:21:19",
+  "export_datetime": "06-02-2026 10:37:54",
   "app_version": "1.0.0",
   "db_version": "1.0",
   "schema_version": "1.1"
@@ -718,7 +718,7 @@ const recipeData = [
     "style_abv_max": 6.2,
     "batch_size": 5.25,
     "batch_size_unit": "gal",
-    "efficiency": 0.7290000000000001,
+    "efficiency": 72.9,
     "efficiency_unit": "%",
     "mash_type": "Single Infusion",
     "strike_vol_method": "Full Volume",
@@ -933,7 +933,7 @@ const recipeData = [
     "style_abv_max": 6.2,
     "batch_size": 5.25,
     "batch_size_unit": "gal",
-    "efficiency": 0.7290000000000001,
+    "efficiency": 72.9,
     "efficiency_unit": "%",
     "mash_type": "Single Infusion",
     "strike_vol_method": "Full Volume",
@@ -2928,7 +2928,7 @@ const recipeData = [
     "style_abv_max": 6.0,
     "batch_size": 5.25,
     "batch_size_unit": "gal",
-    "efficiency": 0.65,
+    "efficiency": 65.0,
     "efficiency_unit": "%",
     "mash_type": "Step Mash (Full)",
     "strike_vol_method": "Full Volume",
@@ -3275,7 +3275,7 @@ const recipeData = [
     "style_abv_max": 12.0,
     "batch_size": 5.25,
     "batch_size_unit": "gal",
-    "efficiency": 0.73,
+    "efficiency": 73.0,
     "efficiency_unit": "%",
     "mash_type": "Extract",
     "strike_vol_method": "N/A",
@@ -3504,7 +3504,7 @@ const recipeData = [
     "style_abv_max": null,
     "batch_size": 5.25,
     "batch_size_unit": "gal",
-    "efficiency": 0.73,
+    "efficiency": 73.0,
     "efficiency_unit": "%",
     "mash_type": "Single Infusion",
     "strike_vol_method": "Full Volume",
