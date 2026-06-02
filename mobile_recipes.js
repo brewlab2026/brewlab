@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 06-01-2026 18:46:26
+// Exported: 06-02-2026 10:21:19
 
 const exportMeta = {
-  "export_datetime": "06-01-2026 18:46:26",
+  "export_datetime": "06-02-2026 10:21:19",
   "app_version": "1.0.0",
   "db_version": "1.0",
   "schema_version": "1.1"
@@ -699,6 +699,410 @@ const recipeData = [
         ]
       }
     ]
+  },
+  {
+    "recipe_id": 211,
+    "name": "Cit-in-Idaho APA",
+    "search": "cit-in-idaho apa 18b american pale ale",
+    "style_id": 56,
+    "style": "18B American Pale Ale",
+    "style_og_min": 1.045,
+    "style_og_max": 1.06,
+    "style_fg_min": 1.01,
+    "style_fg_max": 1.015,
+    "style_ibu_min": 30.0,
+    "style_ibu_max": 50.0,
+    "style_srm_min": 5.0,
+    "style_srm_max": 10.0,
+    "style_abv_min": 4.5,
+    "style_abv_max": 6.2,
+    "batch_size": 5.25,
+    "batch_size_unit": "gal",
+    "efficiency": 0.7290000000000001,
+    "efficiency_unit": "%",
+    "mash_type": "Single Infusion",
+    "strike_vol_method": "Full Volume",
+    "og": 1.0512,
+    "fg": 1.0128,
+    "abv": 5.0,
+    "abv_unit": "%",
+    "ibu": 71.0,
+    "srm": 5.8,
+    "srm_hex": "#FBB123",
+    "bitterness_balance": 82.0,
+    "bitterness_balance_unit": "%",
+    "bitterness_label": "Bitter Leaning",
+    "grain_temp": 68.0,
+    "grain_temp_unit": "°F",
+    "water_treatments": "Brun-water - Idaho7-Citra",
+    "sparge_amount": 1.0,
+    "sparge_amount_unit": "gal",
+    "sparge_temp": 176.0,
+    "sparge_temp_unit": "°F",
+    "kettle_target_vol": "—",
+    "kettle_water": "—",
+    "is_extract": false,
+    "boil_time": 60.0,
+    "boil_time_unit": "min",
+    "boil_time_in_minutes": 60.0,
+    "fermentation_temp": 88.0,
+    "fermentation_temp_unit": "°F",
+    "carbonation": 2.5,
+    "carbonation_unit": "vol CO₂",
+    "strike_volume": 6.21,
+    "strike_volume_unit": "gal",
+    "strike_temp": 158.8,
+    "strike_temp_unit": "°F",
+    "camden_mash_tablets": 0.31,
+    "camden_mash_grams": 0.19,
+    "camden_sparge_tablets": 0.05,
+    "camden_sparge_grams": 0.03,
+    "notes_label_1": "Design Notes",
+    "notes_1": "Last version of cit-n-idaho recipe from beerbook; if making again, probably to revisit original recipe to make sure we go back to original for a discount double check and the correct fermentation schedule. I would also check the yeast nutrient amount - the beerbook version had 1 1 with no units and since then I figured out the correct amounts. And my instinct says drop from 180 whirlpool to 170.",
+    "notes_label_2": "Process Notes",
+    "notes_2": "",
+    "notes_date": null,
+    "mash_steps": [
+      {
+        "step_order": 1,
+        "step_label": "Single Infusion",
+        "temp_f": 152.0,
+        "temp_unit": "°F",
+        "time_min": 60.0,
+        "time_unit": "min",
+        "time_in_minutes": 60.0,
+        "adjustment_gal": 0.0,
+        "adjustment_unit": "gal"
+      }
+    ],
+    "grains": [
+      {
+        "name": "Pale Malt - Gold NE Select (SPM)",
+        "amount": 9.5,
+        "unit": "lbs",
+        "max_extract": 37.0,
+        "lovibond": 1.9,
+        "pct_of_grist": 95.0
+      },
+      {
+        "name": "Crystal Malt - 40 Lovibond",
+        "amount": 8.0,
+        "unit": "oz",
+        "max_extract": 34.0,
+        "lovibond": 40.0,
+        "pct_of_grist": 5.0
+      }
+    ],
+    "hops": [
+      {
+        "name": "Warrior",
+        "amount": 0.34,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 60,
+        "time_unit": "min",
+        "time_in_minutes": 60,
+        "alpha_acid": 0.147,
+        "hop_form": "Pellet",
+        "crop_year": 2025,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Citra",
+        "amount": 0.5,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 15,
+        "time_unit": "min",
+        "time_in_minutes": 15,
+        "alpha_acid": 0.118,
+        "hop_form": "Pellet",
+        "crop_year": 2025,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Idaho 7",
+        "amount": 0.5,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 15,
+        "time_unit": "min",
+        "time_in_minutes": 15,
+        "alpha_acid": 0.125,
+        "hop_form": "Pellet",
+        "crop_year": 2020,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Citra",
+        "amount": 1.0,
+        "unit": "oz",
+        "usage": "Whirlpool 180°",
+        "time": 30,
+        "time_unit": "min",
+        "time_in_minutes": 30,
+        "alpha_acid": 0.118,
+        "hop_form": "Pellet",
+        "crop_year": 2025,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Idaho 7",
+        "amount": 1.0,
+        "unit": "oz",
+        "usage": "Whirlpool 180°",
+        "time": 30,
+        "time_unit": "min",
+        "time_in_minutes": 30,
+        "alpha_acid": 0.125,
+        "hop_form": "Pellet",
+        "crop_year": 2020,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Citra",
+        "amount": 1.0,
+        "unit": "oz",
+        "usage": "Dry Hop",
+        "time": 4,
+        "time_unit": "days",
+        "time_in_minutes": null,
+        "alpha_acid": 0.118,
+        "hop_form": "Pellet",
+        "crop_year": 2025,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Idaho 7",
+        "amount": 1.0,
+        "unit": "oz",
+        "usage": "Dry Hop",
+        "time": 4,
+        "time_unit": "days",
+        "time_in_minutes": null,
+        "alpha_acid": 0.125,
+        "hop_form": "Pellet",
+        "crop_year": 2020,
+        "hemisphere": "Northern"
+      }
+    ],
+    "boil_additions": [
+      {
+        "name": "Whirlfloc Tablet",
+        "amount": 0.5,
+        "unit": "tablets",
+        "time": 15.0,
+        "time_unit": "min",
+        "time_in_minutes": 15.0
+      },
+      {
+        "name": "Yeast Nutrient",
+        "amount": 1.0,
+        "unit": "tsp",
+        "time": 10.0,
+        "time_unit": "min",
+        "time_in_minutes": 10.0
+      }
+    ],
+    "yeast": [
+      {
+        "name": "WLP518 — Opshaug Kveik Ale",
+        "amount": 1.0,
+        "unit": "Packet",
+        "attenuation": 75.0,
+        "attenuation_unit": "%"
+      }
+    ],
+    "sessions": []
+  },
+  {
+    "recipe_id": 212,
+    "name": "Cit-in-Idaho APA (no whirlpool hops - IBU test)",
+    "search": "cit-in-idaho apa (no whirlpool hops - ibu test) 18b american pale ale",
+    "style_id": 56,
+    "style": "18B American Pale Ale",
+    "style_og_min": 1.045,
+    "style_og_max": 1.06,
+    "style_fg_min": 1.01,
+    "style_fg_max": 1.015,
+    "style_ibu_min": 30.0,
+    "style_ibu_max": 50.0,
+    "style_srm_min": 5.0,
+    "style_srm_max": 10.0,
+    "style_abv_min": 4.5,
+    "style_abv_max": 6.2,
+    "batch_size": 5.25,
+    "batch_size_unit": "gal",
+    "efficiency": 0.7290000000000001,
+    "efficiency_unit": "%",
+    "mash_type": "Single Infusion",
+    "strike_vol_method": "Full Volume",
+    "og": 1.0512,
+    "fg": 1.0128,
+    "abv": 5.0,
+    "abv_unit": "%",
+    "ibu": 42.5,
+    "srm": 5.8,
+    "srm_hex": "#FBB123",
+    "bitterness_balance": 8.9,
+    "bitterness_balance_unit": "%",
+    "bitterness_label": "Bitter Leaning",
+    "grain_temp": 68.0,
+    "grain_temp_unit": "°F",
+    "water_treatments": "Brun-water - Idaho7-Citra",
+    "sparge_amount": 1.0,
+    "sparge_amount_unit": "gal",
+    "sparge_temp": 176.0,
+    "sparge_temp_unit": "°F",
+    "kettle_target_vol": "—",
+    "kettle_water": "—",
+    "is_extract": false,
+    "boil_time": 60.0,
+    "boil_time_unit": "min",
+    "boil_time_in_minutes": 60.0,
+    "fermentation_temp": 88.0,
+    "fermentation_temp_unit": "°F",
+    "carbonation": 2.5,
+    "carbonation_unit": "vol CO₂",
+    "strike_volume": 6.21,
+    "strike_volume_unit": "gal",
+    "strike_temp": 158.8,
+    "strike_temp_unit": "°F",
+    "camden_mash_tablets": 0.31,
+    "camden_mash_grams": 0.19,
+    "camden_sparge_tablets": 0.05,
+    "camden_sparge_grams": 0.03,
+    "notes_label_1": "Design Notes",
+    "notes_1": "",
+    "notes_label_2": "Process Notes",
+    "notes_2": "",
+    "notes_date": null,
+    "mash_steps": [
+      {
+        "step_order": 1,
+        "step_label": "Single Infusion",
+        "temp_f": 152.0,
+        "temp_unit": "°F",
+        "time_min": 60.0,
+        "time_unit": "min",
+        "time_in_minutes": 60.0,
+        "adjustment_gal": 0.0,
+        "adjustment_unit": "gal"
+      }
+    ],
+    "grains": [
+      {
+        "name": "Pale Malt - Gold NE Select (SPM)",
+        "amount": 9.5,
+        "unit": "lbs",
+        "max_extract": 37.0,
+        "lovibond": 1.9,
+        "pct_of_grist": 95.0
+      },
+      {
+        "name": "Crystal Malt - 40 Lovibond",
+        "amount": 8.0,
+        "unit": "oz",
+        "max_extract": 34.0,
+        "lovibond": 40.0,
+        "pct_of_grist": 5.0
+      }
+    ],
+    "hops": [
+      {
+        "name": "Warrior",
+        "amount": 0.34,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 60,
+        "time_unit": "min",
+        "time_in_minutes": 60,
+        "alpha_acid": 0.147,
+        "hop_form": "Pellet",
+        "crop_year": 2025,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Citra",
+        "amount": 0.5,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 15,
+        "time_unit": "min",
+        "time_in_minutes": 15,
+        "alpha_acid": 0.118,
+        "hop_form": "Pellet",
+        "crop_year": 2025,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Idaho 7",
+        "amount": 0.5,
+        "unit": "oz",
+        "usage": "Boil",
+        "time": 15,
+        "time_unit": "min",
+        "time_in_minutes": 15,
+        "alpha_acid": 0.125,
+        "hop_form": "Pellet",
+        "crop_year": 2020,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Citra",
+        "amount": 1.0,
+        "unit": "oz",
+        "usage": "Dry Hop",
+        "time": 4,
+        "time_unit": "days",
+        "time_in_minutes": null,
+        "alpha_acid": 0.118,
+        "hop_form": "Pellet",
+        "crop_year": 2025,
+        "hemisphere": "Northern"
+      },
+      {
+        "name": "Idaho 7",
+        "amount": 1.0,
+        "unit": "oz",
+        "usage": "Dry Hop",
+        "time": 4,
+        "time_unit": "days",
+        "time_in_minutes": null,
+        "alpha_acid": 0.125,
+        "hop_form": "Pellet",
+        "crop_year": 2020,
+        "hemisphere": "Northern"
+      }
+    ],
+    "boil_additions": [
+      {
+        "name": "Whirlfloc Tablet",
+        "amount": 0.5,
+        "unit": "tablets",
+        "time": 15.0,
+        "time_unit": "min",
+        "time_in_minutes": 15.0
+      },
+      {
+        "name": "Yeast Nutrient",
+        "amount": 1.0,
+        "unit": "tsp",
+        "time": 10.0,
+        "time_unit": "min",
+        "time_in_minutes": 10.0
+      }
+    ],
+    "yeast": [
+      {
+        "name": "WLP518 — Opshaug Kveik Ale",
+        "amount": 1.0,
+        "unit": "Packet",
+        "attenuation": 75.0,
+        "attenuation_unit": "%"
+      }
+    ],
+    "sessions": []
   },
   {
     "recipe_id": 66,
