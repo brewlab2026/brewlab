@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 06-02-2026 14:08:10
+// Exported: 06-07-2026 21:18:35
 
 const exportMeta = {
-  "export_datetime": "06-02-2026 14:08:10",
+  "export_datetime": "06-07-2026 21:18:35",
   "app_version": "1.0.0",
   "db_version": "1.0",
   "schema_version": "1.1"
@@ -565,6 +565,9 @@ const recipeData = [
         "tasting_notes": "Very good beer (1/9 in Wizards mini-comp, 3/9 Seven Saws comp), tropical, orange and pineapple; starts out bitter in the glass but fades quickly as you drink it, overall not too bitter which is what I wanted, proper body and carbonation, easy drinking. Aroma was nice early on but it faded quite a bit after 2 months in the keg, probably due to time and my aged hops!\n\nConceptually, I think the process was sound, but there's something about it that doesn't 100% work for me. Seven Saws judge said the winner was more drinkable, I am tending to agree - it's a drinkability problem. I get get orange and pineapple but there's also a taste that's not thrilling me. Maybe its the muddling of all the tropical notes from Azzaca (ripe mango, pineapple, and citrus) and Citra (grapefruit, lime, and tropical fruits like mango, passionfruit, and lychee) and idaho-7 (tropical fruits and citrus, balanced by sticky pine and earthy black tea). I would definitely make it this way again but try a different hop combo.\n\n",
         "inventory_applied": true,
         "brew_date_dt": "2026-03-24",
+        "hop_crop_years": "{\"63\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"64\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"68\": {\"crop_year\": 2021, \"hemisphere\": \"Northern\"}, \"66\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"69\": {\"crop_year\": 2021, \"hemisphere\": \"Northern\"}, \"65\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"70\": {\"crop_year\": 2021, \"hemisphere\": \"Northern\"}, \"67\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"72\": {\"crop_year\": 2021, \"hemisphere\": \"Northern\"}, \"71\": {\"crop_year\": 2020, \"hemisphere\": \"Northern\"}}",
+        "hop_aroma_loss_rate": null,
+        "hop_bittering_loss_rate": null,
         "aged_hops": [
           {
             "name": "Warrior",
@@ -1128,10 +1131,13 @@ const recipeData = [
         "mash_efficiency": 63.6,
         "mash_efficiency_unit": "%",
         "observed_color": "Brown",
-        "brew_day_notes": "overall, process went well \nOverall mash process seems to be working well enough, this time is was a degree low at 15 & 30 mins, speeding pump up seemed to fix it for the final check\npH was low at 5+.1=5.1 but then gain the strips only measure 5.0 or 5.3 so it could have been in the middle here and then much closer to the 5.35 target\nTurns out I only had 6.8 ounces victory so I made up the remaining 1.2 ounces with biscuit\nUsed LD Carlson DAP yeast nutrient instead of the usual Wyeast since its running very low (rate is 1/2 gram/gallon per morebeer's website)\nNot sure why OG is 3 points lower than expected - a little more volume in fermenter (3.9 gallons) versus expected (3.75 gallons) but why??\n  kettle trub is about the same as usual so that's not it\n  verified small batch correct applied in recipe so that's not it either\n  thinking back, I might have added an extra quart of strike water due to a bad measurement - don't know for sure but this is the most likely culprit\nTo correct and get back to 1057, added 5 oz DME boiled for 10 mins in 1 cup water (per Gemini)\n  Tilt is now measuring 1055; afterwards I realized Gemini's calculation didn’t take into account the added cup of water so the expected OG should have been 1055.something which it was\nFermentation Comments\nstarted temperature ramp-up at midnight on the 23rd (one day after brewing), gravity at 1042\n  me and Gemini figured it would be better to start the ramp up a little earlier rather than miss the 1040 target completely (and miss the fruity ester production phase)\n  turned out to be a good idea, by morning gravity is at 1033!\n",
+        "brew_day_notes": "overall, process went well \nOverall mash process seems to be working well enough, this time is was a degree low at 15 & 30 mins, speeding pump up seemed to fix it for the final check\npH was low at 5+.1=5.1 but then again the strips only measure 5.0 or 5.3 so it could have been in the middle here and then much closer to the 5.35 target\nTurns out I only had 6.8 ounces victory so I made up the remaining 1.2 ounces with biscuit\nUsed LD Carlson DAP yeast nutrient instead of the usual Wyeast since its running very low (rate is 1/2 gram/gallon per morebeer's website)\nNot sure why OG is 3 points lower than expected - a little more volume in fermenter (3.9 gallons) versus expected (3.75 gallons) but why??\n  kettle trub is about the same as usual so that's not it\n  verified small batch correct applied in recipe so that's not it either\n  thinking back, I might have added an extra quart of strike water due to a bad measurement - don't know for sure but this is the most likely culprit\nTo correct and get back to 1057, added 5 oz DME boiled for 10 mins in 1 cup water (per Gemini)\n  Tilt is now measuring 1055; afterwards I realized Gemini's calculation didn’t take into account the added cup of water so the expected OG should have been 1055.something which it was\nFermentation Comments\nstarted temperature ramp-up at midnight on the 23rd (one day after brewing), gravity at 1042\n  me and Gemini figured it would be better to start the ramp up a little earlier rather than miss the 1040 target completely (and miss the fruity ester production phase)\n  turned out to be a good idea, by morning gravity is at 1033!\n",
         "tasting_notes": "easy drinking, right hop level, not too spicy/Belgiany (as I like), well received by wizards and others who have tried it",
         "inventory_applied": false,
         "brew_date_dt": null,
+        "hop_crop_years": null,
+        "hop_aroma_loss_rate": null,
+        "hop_bittering_loss_rate": null,
         "aged_hops": null
       }
     ]
@@ -1158,14 +1164,14 @@ const recipeData = [
     "efficiency_unit": "%",
     "mash_type": "Single Infusion",
     "strike_vol_method": "Full Volume",
-    "og": 1.0315,
-    "fg": 1.0085,
-    "abv": 3.0,
+    "og": 1.0327,
+    "fg": 1.0088,
+    "abv": 3.1,
     "abv_unit": "%",
-    "ibu": 21.7,
-    "srm": 13.0,
-    "srm_hex": "#CF6900",
-    "bitterness_balance": 33.8,
+    "ibu": 21.6,
+    "srm": 13.1,
+    "srm_hex": "#CB6200",
+    "bitterness_balance": 28.3,
     "bitterness_balance_unit": "%",
     "bitterness_label": "Bitter Leaning",
     "grain_temp": 68.0,
@@ -1185,9 +1191,9 @@ const recipeData = [
     "fermentation_temp_unit": "°F",
     "carbonation": 2.1,
     "carbonation_unit": "vol CO₂",
-    "strike_volume": 3.03,
+    "strike_volume": 3.04,
     "strike_volume_unit": "gal",
-    "strike_temp": 157.7,
+    "strike_temp": 157.8,
     "strike_temp_unit": "°F",
     "camden_mash_tablets": 0.15,
     "camden_mash_grams": 0.09,
@@ -1214,11 +1220,11 @@ const recipeData = [
     "grains": [
       {
         "name": "Pale Malt - Marris Otter",
-        "amount": 38.0,
+        "amount": 40.0,
         "unit": "oz",
         "max_extract": 37.0,
         "lovibond": 2.5,
-        "pct_of_grist": 71.0
+        "pct_of_grist": 72.1
       },
       {
         "name": "Biscuit Malt",
@@ -1226,7 +1232,7 @@ const recipeData = [
         "unit": "oz",
         "max_extract": 35.0,
         "lovibond": 24.0,
-        "pct_of_grist": 10.3
+        "pct_of_grist": 9.9
       },
       {
         "name": "Crystal Malt - Double Roasted (DRC)",
@@ -1234,7 +1240,7 @@ const recipeData = [
         "unit": "oz",
         "max_extract": 34.0,
         "lovibond": 112.0,
-        "pct_of_grist": 7.5
+        "pct_of_grist": 7.2
       },
       {
         "name": "Crystal Malt - 120 Lovibond",
@@ -1242,7 +1248,7 @@ const recipeData = [
         "unit": "oz",
         "max_extract": 34.0,
         "lovibond": 120.0,
-        "pct_of_grist": 5.6
+        "pct_of_grist": 5.4
       },
       {
         "name": "Torrified Wheat",
@@ -1250,7 +1256,7 @@ const recipeData = [
         "unit": "oz",
         "max_extract": 29.0,
         "lovibond": 1.0,
-        "pct_of_grist": 5.6
+        "pct_of_grist": 5.4
       }
     ],
     "hops": [
@@ -1334,7 +1340,30 @@ const recipeData = [
         "attenuation_unit": "%"
       }
     ],
-    "sessions": []
+    "sessions": [
+      {
+        "session_id": 192,
+        "session_date": "06-08-2026",
+        "brew_date": null,
+        "actual_og": null,
+        "actual_fg": null,
+        "actual_abv": null,
+        "actual_abv_unit": "%",
+        "apparent_attenuation": null,
+        "apparent_attenuation_unit": "%",
+        "mash_efficiency": null,
+        "mash_efficiency_unit": "%",
+        "observed_color": "",
+        "brew_day_notes": "",
+        "tasting_notes": "",
+        "inventory_applied": true,
+        "brew_date_dt": null,
+        "hop_crop_years": "{\"73\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"74\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"75\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"76\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}}",
+        "hop_aroma_loss_rate": null,
+        "hop_bittering_loss_rate": null,
+        "aged_hops": null
+      }
+    ]
   },
   {
     "recipe_id": 123,
@@ -1613,6 +1642,9 @@ const recipeData = [
         "tasting_notes": "We'll have to see if the hop amount change kicks up that citrus/tropical punch I was looking for in the finish",
         "inventory_applied": false,
         "brew_date_dt": "2026-04-10",
+        "hop_crop_years": "{\"142\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"140\": {\"crop_year\": 2023, \"hemisphere\": \"Northern\"}, \"141\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"146\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"143\": {\"crop_year\": 2021, \"hemisphere\": \"Northern\"}, \"145\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"144\": {\"crop_year\": 2021, \"hemisphere\": \"Northern\"}}",
+        "hop_aroma_loss_rate": null,
+        "hop_bittering_loss_rate": null,
         "aged_hops": [
           {
             "name": "Saaz-Czech",
@@ -1724,6 +1756,9 @@ const recipeData = [
         "tasting_notes": "As interesting as this beer would be, I'm not sure I want to taste it.",
         "inventory_applied": false,
         "brew_date_dt": "2026-05-20",
+        "hop_crop_years": "{\"142\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"140\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"141\": {\"crop_year\": 2024, \"hemisphere\": \"Northern\"}, \"145\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"144\": {\"crop_year\": 2019, \"hemisphere\": \"Northern\"}, \"146\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"143\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}}",
+        "hop_aroma_loss_rate": null,
+        "hop_bittering_loss_rate": null,
         "aged_hops": [
           {
             "name": "Saaz-Czech",
@@ -2448,6 +2483,9 @@ const recipeData = [
         "tasting_notes": "first taste, 1 day old - nice hop aroma, citrus taste (sometimes I think lemon), appropriately bitter\nsecond taste, 3 days old, from 1/2 a growler so a little flat - lacks the heavy aroma of any kind that I would expect, taste is orange, sweet (makes no sense) and a much softer bitterness than SNPA, which is good\n\n5/28 - nice subtle hop aroma, taste is way off - cloyingly sweet, rough bitterness but at least its at a nice level and not too bitter. \n",
         "inventory_applied": true,
         "brew_date_dt": "2026-05-07",
+        "hop_crop_years": "{\"168\": {\"crop_year\": 2020, \"hemisphere\": \"Northern\"}, \"169\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"170\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"171\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"172\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}}",
+        "hop_aroma_loss_rate": null,
+        "hop_bittering_loss_rate": null,
         "aged_hops": [
           {
             "name": "Perle",
@@ -2717,6 +2755,9 @@ const recipeData = [
         "tasting_notes": "Compare to Hofbrau Dunkel and Ayinger Dunkel, mine has similar body, is much darker in color and roastier but smoother and a touch less bitter\nCompare to Treehouse, color is the same but a touch less bitter\nI like my less bitter version better but could cut back the roastiness a bit\nCompared to BJCP, this is black versus dark brown and shows some signs of roastiness which is verboten\nOverall, a very nice and enjoyable beer, just a touch past the style guideline in color and roast; chocolate roast overtakes malty, bready notes that are desired\nVery favorable reviews from club mini-comp, scores consistently around 38 from everyone, 1st place out of 3\n",
         "inventory_applied": false,
         "brew_date_dt": null,
+        "hop_crop_years": null,
+        "hop_aroma_loss_rate": null,
+        "hop_bittering_loss_rate": null,
         "aged_hops": null
       }
     ]
@@ -2741,7 +2782,7 @@ const recipeData = [
     "batch_size_unit": "gal",
     "efficiency": 65.0,
     "efficiency_unit": "%",
-    "mash_type": "Step Mash (Full)",
+    "mash_type": "Single Infusion",
     "strike_vol_method": "Full Volume",
     "og": 1.0559,
     "fg": 1.0112,
@@ -2770,12 +2811,12 @@ const recipeData = [
     "fermentation_temp_unit": "°F",
     "carbonation": 2.4,
     "carbonation_unit": "vol CO₂",
-    "strike_volume": 5.4,
+    "strike_volume": 4.4,
     "strike_volume_unit": "gal",
-    "strike_temp": 147.6,
+    "strike_temp": 156.8,
     "strike_temp_unit": "°F",
-    "camden_mash_tablets": 0.27,
-    "camden_mash_grams": 0.16,
+    "camden_mash_tablets": 0.22,
+    "camden_mash_grams": 0.13,
     "camden_sparge_tablets": 0.05,
     "camden_sparge_grams": 0.03,
     "notes_label_1": "Design Notes",
@@ -2786,35 +2827,24 @@ const recipeData = [
     "mash_steps": [
       {
         "step_order": 1,
-        "step_label": "Maltose Rest",
-        "temp_f": 144.0,
+        "step_label": "Single Infusion",
+        "temp_f": 152.0,
         "temp_unit": "°F",
-        "time_min": 30.0,
+        "time_min": 60.0,
         "time_unit": "min",
-        "time_in_minutes": 30.0,
-        "adjustment_gal": -1.0,
+        "time_in_minutes": 60.0,
+        "adjustment_gal": -2.0,
         "adjustment_unit": "gal"
       },
       {
         "step_order": 2,
-        "step_label": "Dextrin Rest",
-        "temp_f": 162.0,
-        "temp_unit": "°F",
-        "time_min": 30.0,
-        "time_unit": "min",
-        "time_in_minutes": 30.0,
-        "adjustment_gal": 0.0,
-        "adjustment_unit": "gal"
-      },
-      {
-        "step_order": 3,
         "step_label": "Mash Out",
         "temp_f": 170.0,
         "temp_unit": "°F",
         "time_min": 10.0,
         "time_unit": "min",
         "time_in_minutes": 10.0,
-        "adjustment_gal": 0.0,
+        "adjustment_gal": 2.0,
         "adjustment_unit": "gal"
       }
     ],
@@ -2985,6 +3015,9 @@ const recipeData = [
         "tasting_notes": "new notes\nmore and the old fashioned save to boot",
         "inventory_applied": true,
         "brew_date_dt": "2026-05-18",
+        "hop_crop_years": "{\"101\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"107\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"103\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"108\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"102\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"104\": {\"crop_year\": 2017, \"hemisphere\": \"Northern\"}}",
+        "hop_aroma_loss_rate": null,
+        "hop_bittering_loss_rate": null,
         "aged_hops": [
           {
             "name": "Amarillo",
@@ -3065,6 +3098,50 @@ const recipeData = [
             "status": "fresh"
           }
         ]
+      },
+      {
+        "session_id": 189,
+        "session_date": null,
+        "brew_date": null,
+        "actual_og": 1.052,
+        "actual_fg": 1.025,
+        "actual_abv": 3.5,
+        "actual_abv_unit": "%",
+        "apparent_attenuation": 51.9,
+        "apparent_attenuation_unit": "%",
+        "mash_efficiency": -443.2,
+        "mash_efficiency_unit": "%",
+        "observed_color": "",
+        "brew_day_notes": "",
+        "tasting_notes": "",
+        "inventory_applied": false,
+        "brew_date_dt": null,
+        "hop_crop_years": "{\"101\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"107\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"108\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"103\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"104\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"102\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}}",
+        "hop_aroma_loss_rate": null,
+        "hop_bittering_loss_rate": null,
+        "aged_hops": null
+      },
+      {
+        "session_id": 190,
+        "session_date": null,
+        "brew_date": null,
+        "actual_og": 1.052,
+        "actual_fg": 1.011,
+        "actual_abv": 5.4,
+        "actual_abv_unit": "%",
+        "apparent_attenuation": 78.8,
+        "apparent_attenuation_unit": "%",
+        "mash_efficiency": -443.2,
+        "mash_efficiency_unit": "%",
+        "observed_color": "",
+        "brew_day_notes": "",
+        "tasting_notes": "",
+        "inventory_applied": false,
+        "brew_date_dt": null,
+        "hop_crop_years": "{\"101\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"107\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"108\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"103\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"104\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"102\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}}",
+        "hop_aroma_loss_rate": null,
+        "hop_bittering_loss_rate": null,
+        "aged_hops": null
       }
     ]
   },
@@ -3088,28 +3165,28 @@ const recipeData = [
     "batch_size_unit": "gal",
     "efficiency": 73.0,
     "efficiency_unit": "%",
-    "mash_type": "Extract",
-    "strike_vol_method": "N/A",
-    "og": 1.0159,
-    "fg": 1.0041,
-    "abv": 1.6,
+    "mash_type": "Step Mash (Full)",
+    "strike_vol_method": "Full Volume",
+    "og": 1.0604,
+    "fg": 1.0157,
+    "abv": 5.9,
     "abv_unit": "%",
-    "ibu": 259.7,
-    "srm": 2.0,
-    "srm_hex": "#FFE699",
-    "bitterness_balance": 2077.8,
+    "ibu": 180.0,
+    "srm": 43.1,
+    "srm_hex": "#600000",
+    "bitterness_balance": 297.4,
     "bitterness_balance_unit": "%",
     "bitterness_label": "Bitter Leaning",
     "grain_temp": 68.0,
     "grain_temp_unit": "°F",
     "water_treatments": "",
-    "sparge_amount": 5.25,
+    "sparge_amount": 1.0,
     "sparge_amount_unit": "gal",
     "sparge_temp": 170.0,
     "sparge_temp_unit": "°F",
-    "kettle_target_vol": 5.25,
-    "kettle_water": 5.09,
-    "is_extract": true,
+    "kettle_target_vol": "—",
+    "kettle_water": "—",
+    "is_extract": false,
     "boil_time": 60.0,
     "boil_time_unit": "min",
     "boil_time_in_minutes": 60.0,
@@ -3117,14 +3194,14 @@ const recipeData = [
     "fermentation_temp_unit": "°F",
     "carbonation": 2.4,
     "carbonation_unit": "vol CO₂",
-    "strike_volume": "—",
+    "strike_volume": 4.22,
     "strike_volume_unit": "gal",
-    "strike_temp": "—",
+    "strike_temp": 118.3,
     "strike_temp_unit": "°F",
-    "camden_mash_tablets": 0.0,
-    "camden_mash_grams": 0.0,
-    "camden_sparge_tablets": 0.25,
-    "camden_sparge_grams": 0.15,
+    "camden_mash_tablets": 0.21,
+    "camden_mash_grams": 0.13,
+    "camden_sparge_tablets": 0.05,
+    "camden_sparge_grams": 0.03,
     "notes_label_1": "Design Notes",
     "notes_1": "post - not connected message test",
     "notes_label_2": "Process Notes",
@@ -3133,17 +3210,70 @@ const recipeData = [
     "mash_steps": [
       {
         "step_order": 1,
-        "step_label": "Steep",
-        "temp_f": 155.0,
+        "step_label": "Beta Glucan Rest",
+        "temp_f": 113.0,
         "temp_unit": "°F",
-        "time_min": 20.0,
+        "time_min": 15.0,
         "time_unit": "min",
-        "time_in_minutes": 20.0,
+        "time_in_minutes": 15.0,
+        "adjustment_gal": -2.0,
+        "adjustment_unit": "gal"
+      },
+      {
+        "step_order": 2,
+        "step_label": "Protein Rest",
+        "temp_f": 122.0,
+        "temp_unit": "°F",
+        "time_min": 15.0,
+        "time_unit": "min",
+        "time_in_minutes": 15.0,
+        "adjustment_gal": 0.5,
+        "adjustment_unit": "gal"
+      },
+      {
+        "step_order": 3,
+        "step_label": "Maltose Rest",
+        "temp_f": 144.0,
+        "temp_unit": "°F",
+        "time_min": 30.0,
+        "time_unit": "min",
+        "time_in_minutes": 30.0,
+        "adjustment_gal": 1.55,
+        "adjustment_unit": "gal"
+      },
+      {
+        "step_order": 4,
+        "step_label": "Dextrin Rest",
+        "temp_f": 162.0,
+        "temp_unit": "°F",
+        "time_min": 30.0,
+        "time_unit": "min",
+        "time_in_minutes": 30.0,
+        "adjustment_gal": 0.0,
+        "adjustment_unit": "gal"
+      },
+      {
+        "step_order": 5,
+        "step_label": "Mash Out",
+        "temp_f": 170.0,
+        "temp_unit": "°F",
+        "time_min": 10.0,
+        "time_unit": "min",
+        "time_in_minutes": 10.0,
         "adjustment_gal": 0.0,
         "adjustment_unit": "gal"
       }
     ],
-    "grains": [],
+    "grains": [
+      {
+        "name": "Brown Malt",
+        "amount": 10.0,
+        "unit": "lbs",
+        "max_extract": 32.0,
+        "lovibond": 70.0,
+        "pct_of_grist": 100.0
+      }
+    ],
     "hops": [
       {
         "name": "Azacca",
@@ -3275,27 +3405,7 @@ const recipeData = [
         "attenuation_unit": "%"
       }
     ],
-    "sessions": [
-      {
-        "session_id": 156,
-        "session_date": "05-26-2026",
-        "brew_date": null,
-        "actual_og": null,
-        "actual_fg": null,
-        "actual_abv": null,
-        "actual_abv_unit": "%",
-        "apparent_attenuation": null,
-        "apparent_attenuation_unit": "%",
-        "mash_efficiency": null,
-        "mash_efficiency_unit": "%",
-        "observed_color": "",
-        "brew_day_notes": "",
-        "tasting_notes": "",
-        "inventory_applied": false,
-        "brew_date_dt": null,
-        "aged_hops": null
-      }
-    ]
+    "sessions": []
   },
   {
     "recipe_id": 206,
@@ -3408,7 +3518,52 @@ const recipeData = [
       }
     ],
     "yeast": [],
-    "sessions": []
+    "sessions": [
+      {
+        "session_id": 186,
+        "session_date": "07-01-2026",
+        "brew_date": null,
+        "actual_og": 1.045,
+        "actual_fg": 1.008,
+        "actual_abv": 4.9,
+        "actual_abv_unit": "%",
+        "apparent_attenuation": 82.2,
+        "apparent_attenuation_unit": "%",
+        "mash_efficiency": -2581.3,
+        "mash_efficiency_unit": "%",
+        "observed_color": "gold",
+        "brew_day_notes": "",
+        "tasting_notes": "",
+        "inventory_applied": false,
+        "brew_date_dt": null,
+        "hop_crop_years": "{\"388\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}}",
+        "hop_aroma_loss_rate": null,
+        "hop_bittering_loss_rate": null,
+        "aged_hops": null
+      },
+      {
+        "session_id": 187,
+        "session_date": null,
+        "brew_date": null,
+        "actual_og": null,
+        "actual_fg": null,
+        "actual_abv": null,
+        "actual_abv_unit": "%",
+        "apparent_attenuation": null,
+        "apparent_attenuation_unit": "%",
+        "mash_efficiency": null,
+        "mash_efficiency_unit": "%",
+        "observed_color": "",
+        "brew_day_notes": "",
+        "tasting_notes": "",
+        "inventory_applied": false,
+        "brew_date_dt": null,
+        "hop_crop_years": null,
+        "hop_aroma_loss_rate": null,
+        "hop_bittering_loss_rate": null,
+        "aged_hops": null
+      }
+    ]
   },
   {
     "recipe_id": 209,
