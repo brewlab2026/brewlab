@@ -175,6 +175,7 @@
                             <button class="details-btn btn-sub" onclick="toggleDetails('mash-${r.recipe_id}')">Mash & Process</button>
                             <div id="mash-${r.recipe_id}" style="display:none;" class="nested-section">
                                 <p><strong>Batch:</strong> ${r.batch_size} ${r.batch_size_unit} | <strong>Type:</strong> ${r.mash_type} | <strong>Method:</strong> ${r.strike_vol_method} | <strong>Eff:</strong> ${r.is_extract ? '0%' : r.efficiency + '%'}</p>
+                                ${r.total_grain_lbs ? `<p><strong>Total Grain:</strong> ${r.total_grain_lbs} ${r.total_grain_unit || 'lbs'}</p>` : ''}
                                 <p><strong>Water Treatments:</strong> ${r.water_treatments || 'None'}</p>
                                 <p><strong>Camden ${r.is_extract ? 'Steep' : 'Strike'}:</strong> ${r.camden_mash_tablets} tabs / ${r.camden_mash_grams}g</p>
                                 <p><strong>Camden ${r.is_extract ? 'Kettle Water' : 'Sparge'}:</strong> ${r.camden_sparge_tablets} tabs / ${r.camden_sparge_grams}g</p>
@@ -183,8 +184,12 @@
                                 <table class="mash-table">
                                     <thead><tr><th>Step</th><th>Temp</th><th>Time</th><th>Adj</th></tr></thead>
                                     <tbody>
-                                        ${(r.mash_steps || []).map(m => `
+                                        ${(r.mash_steps || []).map((m, idx) => `
                                             <tr><td>${m.step_label}</td><td>${m.temp_f}°F</td><td>${m.time_min} min</td><td>${m.adjustment_gal} gal</td></tr>
+                                            ${idx > 0 && m.adj_temp_f !== null && m.adj_temp_f !== undefined && parseFloat(m.adjustment_gal) > 0 ? `
+                                            <tr><td colspan="4" style="padding: 2px 4px 6px 16px; color: ${m.adj_temp_over_boiling ? '#f1c40f' : '#95a5a6'}; font-size: 0.85em;">
+                                                ↳ Adj Temp: ${m.adj_temp_f}°F${m.adj_temp_over_boiling ? ' ⚠' : ''}
+                                            </td></tr>` : ''}
                                         `).join('')}
                                     </tbody>
                                 </table>
