@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 06-07-2026 21:18:35
+// Exported: 06-08-2026 12:18:54
 
 const exportMeta = {
-  "export_datetime": "06-07-2026 21:18:35",
+  "export_datetime": "06-08-2026 12:18:54",
   "app_version": "1.0.0",
   "db_version": "1.0",
   "schema_version": "1.1"
@@ -71,6 +71,8 @@ const recipeData = [
     "notes_label_2": "Process Notes",
     "notes_2": "Adjust hop quantities for aged hops per recipe guideline\r\nFlameout hops - add and immediately flash chill to 170F then whirlpool hops for 20 minutes\r\nSprinkle on yeast (no rehydration necessary for ales at 1052)\r\nDry hop at 85% attenuation, immediately start ramp down to 58F over 24 hours\r\n  dry hop using weights in bag per my guideline\r\nIdeally keep hop contact time to 48 hours\r\nCold crash/lower temperature  after 48 hours of dry hopping\r\nCold crash for 3 days once crash temp is reached\r\nKeg after 3 days of cold crashing (purge keg with CO2 first)\r\nBurst carbonate at 30psi for 24 hours, then pull PRV, put on 12 psi for 12 hours\r\nFine tune carbonation to 2.5 volumes",
     "notes_date": "2026-03-20",
+    "total_grain_lbs": 10.12,
+    "total_grain_unit": "lbs",
     "mash_steps": [
       {
         "step_order": 1,
@@ -81,7 +83,10 @@ const recipeData = [
         "time_unit": "min",
         "time_in_minutes": 60.0,
         "adjustment_gal": 0.0,
-        "adjustment_unit": "gal"
+        "adjustment_unit": "gal",
+        "adj_temp_f": 159.9,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": false
       }
     ],
     "grains": [
@@ -341,6 +346,8 @@ const recipeData = [
     "notes_label_2": "Process Notes",
     "notes_2": "Adjust hop quantities for aged hops per recipe guideline\r\nFlameout hops - add and immediately flash chill to 170F\r\nSprinkle on yeast (no rehydration necessary for ales at 1052)\r\nDry hop at 85% attenuation, immediately start ramp down to 58F over 24 hours\r\n  dry hop using weights in bag per my guideline (3.7 ounce aged hops, 9.2 ounce weight, which is large shot glass & 2 bolts)\r\nIdeally keep hop contact time to 48 hours\r\nCold crash/lower temperature  after 48 hours of dry hopping\r\nCold crash for 3 days once crash temp is reached\r\nKeg after 3 days of cold crashing (purge keg with CO2 first)\r\nBurst carbonate at 30psi for 24 hours, then pull PRV, put on 12 psi for 12 hours\r\nFine tune carbonation to 2.5 volumes",
     "notes_date": "2026-03-20",
+    "total_grain_lbs": 5.3,
+    "total_grain_unit": "lbs",
     "mash_steps": [
       {
         "step_order": 1,
@@ -351,7 +358,10 @@ const recipeData = [
         "time_unit": "min",
         "time_in_minutes": 60.0,
         "adjustment_gal": -0.2,
-        "adjustment_unit": "gal"
+        "adjustment_unit": "gal",
+        "adj_temp_f": 159.0,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": false
       }
     ],
     "grains": [
@@ -765,6 +775,8 @@ const recipeData = [
     "notes_label_2": "Process Notes",
     "notes_2": "",
     "notes_date": null,
+    "total_grain_lbs": 10.0,
+    "total_grain_unit": "lbs",
     "mash_steps": [
       {
         "step_order": 1,
@@ -775,7 +787,10 @@ const recipeData = [
         "time_unit": "min",
         "time_in_minutes": 60.0,
         "adjustment_gal": 0.0,
-        "adjustment_unit": "gal"
+        "adjustment_unit": "gal",
+        "adj_temp_f": 158.8,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": false
       }
     ],
     "grains": [
@@ -980,6 +995,8 @@ const recipeData = [
     "notes_label_2": "Process Notes",
     "notes_2": "Fermentation Schedule\r\n  Pitch at 64°F and hold until fermentation is 1/3 complete (Restrains harsh phenolic (spicy) and fusel alcohol flavors, securing a clean base)\r\n  Raise temperature by 1° every 12 hours over the next 3 days to reach 70°F (Encourages desirable fruity esters).\r\n  Hold at 70° until FG is stable (Reach full attenuation)",
     "notes_date": "2025-11-22",
+    "total_grain_lbs": 5.69,
+    "total_grain_unit": "lbs",
     "mash_steps": [
       {
         "step_order": 1,
@@ -990,7 +1007,10 @@ const recipeData = [
         "time_unit": "min",
         "time_in_minutes": 60.0,
         "adjustment_gal": -0.2,
-        "adjustment_unit": "gal"
+        "adjustment_unit": "gal",
+        "adj_temp_f": 158.5,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": false
       },
       {
         "step_order": 2,
@@ -1001,7 +1021,10 @@ const recipeData = [
         "time_unit": "min",
         "time_in_minutes": 10.0,
         "adjustment_gal": 0.0,
-        "adjustment_unit": "gal"
+        "adjustment_unit": "gal",
+        "adj_temp_f": null,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": false
       }
     ],
     "grains": [
@@ -1176,7 +1199,7 @@ const recipeData = [
     "bitterness_label": "Bitter Leaning",
     "grain_temp": 68.0,
     "grain_temp_unit": "°F",
-    "water_treatments": "per special Brun'water file",
+    "water_treatments": "per special Brun'water - Dark Mild 2026 -  '23 water, Try 7 (2.5 gal)",
     "sparge_amount": 1.0,
     "sparge_amount_unit": "gal",
     "sparge_temp": 170.0,
@@ -1200,10 +1223,12 @@ const recipeData = [
     "camden_sparge_tablets": 0.05,
     "camden_sparge_grams": 0.03,
     "notes_label_1": "Design Notes",
-    "notes_1": "New version based on DRC without chocolate - see google drive file Dark Mild Recipe w/DRC\r\nFor the initial version, no coloring grains till we see what the DRC does, then consider some midnight wheat for coloring per the above document.",
+    "notes_1": "New version based on DRC without chocolate - see google drive file Dark Mild Recipe w/DRC\r\nFor the initial version, no coloring grains till we see what the DRC does, then consider some midnight wheat for coloring per the above document.\r\n- similar water chemistry to previous tries, just a little less Na (5 ppm). Target ph still 5.4\r\n- plan to use new thermometer and measure bed temps - this may be the one - see process on the wall\r\n- heat sparge to 170 and let it cool from there as we sparge - don't want water to be over 170 during sparge itself (no tannin extraction at this temp), per Google, over sparging isn't possible with a 1 gallon sparge int this beer",
     "notes_label_2": "Process Notes",
     "notes_2": "only process change will be to dry hop at 85% attenuation for 2 days per my guidelines",
     "notes_date": "2026-03-20",
+    "total_grain_lbs": 3.47,
+    "total_grain_unit": "lbs",
     "mash_steps": [
       {
         "step_order": 1,
@@ -1214,7 +1239,10 @@ const recipeData = [
         "time_unit": "min",
         "time_in_minutes": 60.0,
         "adjustment_gal": -0.2,
-        "adjustment_unit": "gal"
+        "adjustment_unit": "gal",
+        "adj_temp_f": 157.8,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": false
       }
     ],
     "grains": [
@@ -1427,6 +1455,8 @@ const recipeData = [
     "notes_label_2": "Process Notes",
     "notes_2": "Chill rapidly to fermentation temperature and hold till fermentation is complete\r\ngradually raise temp to 68 and hold for 2 day diacetyl rest\r\ncold crash 3 days\r\ncarbonate by rolling  till it's done",
     "notes_date": "2026-04-12",
+    "total_grain_lbs": 10.37,
+    "total_grain_unit": "lbs",
     "mash_steps": [
       {
         "step_order": 1,
@@ -1437,7 +1467,10 @@ const recipeData = [
         "time_unit": "min",
         "time_in_minutes": 20.0,
         "adjustment_gal": -1.0,
-        "adjustment_unit": "gal"
+        "adjustment_unit": "gal",
+        "adj_temp_f": 126.8,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": false
       },
       {
         "step_order": 2,
@@ -1448,7 +1481,10 @@ const recipeData = [
         "time_unit": "min",
         "time_in_minutes": 60.0,
         "adjustment_gal": 0.0,
-        "adjustment_unit": "gal"
+        "adjustment_unit": "gal",
+        "adj_temp_f": null,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": false
       },
       {
         "step_order": 3,
@@ -1459,7 +1495,10 @@ const recipeData = [
         "time_unit": "min",
         "time_in_minutes": 10.0,
         "adjustment_gal": 0.0,
-        "adjustment_unit": "gal"
+        "adjustment_unit": "gal",
+        "adj_temp_f": null,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": false
       }
     ],
     "grains": [
@@ -1917,6 +1956,8 @@ const recipeData = [
     "notes_label_2": "Process Notes",
     "notes_2": "here is a new note",
     "notes_date": null,
+    "total_grain_lbs": 9.88,
+    "total_grain_unit": "lbs",
     "mash_steps": [
       {
         "step_order": 1,
@@ -1927,7 +1968,10 @@ const recipeData = [
         "time_unit": "min",
         "time_in_minutes": 60.0,
         "adjustment_gal": 0.0,
-        "adjustment_unit": "gal"
+        "adjustment_unit": "gal",
+        "adj_temp_f": 158.2,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": false
       },
       {
         "step_order": 2,
@@ -1938,7 +1982,10 @@ const recipeData = [
         "time_unit": "min",
         "time_in_minutes": 10.0,
         "adjustment_gal": 0.0,
-        "adjustment_unit": "gal"
+        "adjustment_unit": "gal",
+        "adj_temp_f": null,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": false
       }
     ],
     "grains": [
@@ -2151,6 +2198,8 @@ const recipeData = [
     "notes_label_2": "Process Notes",
     "notes_2": "Adjust hop quantities for aged hops per recipe guideline\r\nAI says keep the anvil lid on during the flameout to trap volatile oils that would otherwise escape with steam! \r\nSprinkle on yeast (no rehydration necessary for ales at 1052)\r\nDry hop at 85% attenuation, immediately start ramp down to 58F over 24 hours\r\n  dry hop using weights in bag per my guideline  (1 oz hops, 2.5-3 oz weight, which is either small shot glass (3.2 oz) or 2 bolts (2.8 oz)\r\nIdeally keep hop contact time to 48 hours\r\nCold crash/lower temperature  after 48 hours of dry hopping\r\nCold crash for 3 days once crash temp is reached\r\nKeg after 3 days of cold crashing (purge keg with CO2 first)\r\nBurst carbonate at 30psi for 24 hours, then pull PRV, put on 12 psi for 12 hours\r\nFine tune carbonation to 2.5 volumes",
     "notes_date": "2026-04-29",
+    "total_grain_lbs": 10.45,
+    "total_grain_unit": "lbs",
     "mash_steps": [
       {
         "step_order": 1,
@@ -2161,7 +2210,10 @@ const recipeData = [
         "time_unit": "min",
         "time_in_minutes": 60.0,
         "adjustment_gal": 0.0,
-        "adjustment_unit": "gal"
+        "adjustment_unit": "gal",
+        "adj_temp_f": 159.0,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": false
       }
     ],
     "grains": [
@@ -2340,6 +2392,8 @@ const recipeData = [
     "notes_label_2": "Process Notes",
     "notes_2": "Adjust hop quantities for aged hops per recipe guideline\r\nAI says keep the anvil lid on during the flameout to trap volatile oils that would otherwise escape with steam! \r\nSprinkle on yeast (no rehydration necessary for ales at 1052)\r\nDry hop at 85% attenuation, immediately start ramp down to 58F over 24 hours  dry hop using weights in bag per my guideline (1 oz hops, 2.5-3 oz weight, which is either small shot glass (3.2 oz) or 2 bolts (2.8 oz)Ideally keep hop contact time to 48 hours\r\nCold crash/lower temperature  after 48 hours of dry hopping\r\nCold crash for 3 days once crash temp is reached\r\nKeg after 3 days of cold crashing (purge keg with CO2 first)Burst carbonate at 30psi for 24 hours, then pull PRV, put on 12 psi for 12 hours\r\nFine tune carbonation to 2.5 volumes",
     "notes_date": "2026-04-29",
+    "total_grain_lbs": 5.47,
+    "total_grain_unit": "lbs",
     "mash_steps": [
       {
         "step_order": 1,
@@ -2350,7 +2404,10 @@ const recipeData = [
         "time_unit": "min",
         "time_in_minutes": 60.0,
         "adjustment_gal": -0.2,
-        "adjustment_unit": "gal"
+        "adjustment_unit": "gal",
+        "adj_temp_f": 159.2,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": false
       }
     ],
     "grains": [
@@ -2618,6 +2675,8 @@ const recipeData = [
     "notes_label_2": "Process Notes",
     "notes_2": "Pitch at 44-46°F then raise temp to 50 over next 36 hours\r\n",
     "notes_date": "2025-09-23",
+    "total_grain_lbs": 10.25,
+    "total_grain_unit": "lbs",
     "mash_steps": [
       {
         "step_order": 1,
@@ -2628,7 +2687,10 @@ const recipeData = [
         "time_unit": "min",
         "time_in_minutes": 30.0,
         "adjustment_gal": -1.25,
-        "adjustment_unit": "gal"
+        "adjustment_unit": "gal",
+        "adj_temp_f": 154.4,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": false
       },
       {
         "step_order": 2,
@@ -2639,7 +2701,10 @@ const recipeData = [
         "time_unit": "min",
         "time_in_minutes": 30.0,
         "adjustment_gal": 1.25,
-        "adjustment_unit": "gal"
+        "adjustment_unit": "gal",
+        "adj_temp_f": 222.1,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": true
       },
       {
         "step_order": 3,
@@ -2650,7 +2715,10 @@ const recipeData = [
         "time_unit": "min",
         "time_in_minutes": 10.0,
         "adjustment_gal": 0.0,
-        "adjustment_unit": "gal"
+        "adjustment_unit": "gal",
+        "adj_temp_f": null,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": false
       }
     ],
     "grains": [
@@ -2783,7 +2851,7 @@ const recipeData = [
     "efficiency": 65.0,
     "efficiency_unit": "%",
     "mash_type": "Single Infusion",
-    "strike_vol_method": "Full Volume",
+    "strike_vol_method": "Ratio",
     "og": 1.0559,
     "fg": 1.0112,
     "abv": 5.9,
@@ -2811,12 +2879,12 @@ const recipeData = [
     "fermentation_temp_unit": "°F",
     "carbonation": 2.4,
     "carbonation_unit": "vol CO₂",
-    "strike_volume": 4.4,
+    "strike_volume": 1.52,
     "strike_volume_unit": "gal",
-    "strike_temp": 156.8,
+    "strike_temp": 166.0,
     "strike_temp_unit": "°F",
-    "camden_mash_tablets": 0.22,
-    "camden_mash_grams": 0.13,
+    "camden_mash_tablets": 0.08,
+    "camden_mash_grams": 0.05,
     "camden_sparge_tablets": 0.05,
     "camden_sparge_grams": 0.03,
     "notes_label_1": "Design Notes",
@@ -2824,6 +2892,8 @@ const recipeData = [
     "notes_label_2": "Process Notes",
     "notes_2": "new note, and more notes, mmmm, now some unsaved not to test save all",
     "notes_date": "2026-05-18",
+    "total_grain_lbs": 5.06,
+    "total_grain_unit": "lbs",
     "mash_steps": [
       {
         "step_order": 1,
@@ -2833,8 +2903,11 @@ const recipeData = [
         "time_min": 60.0,
         "time_unit": "min",
         "time_in_minutes": 60.0,
-        "adjustment_gal": -2.0,
-        "adjustment_unit": "gal"
+        "adjustment_gal": 0.0,
+        "adjustment_unit": "gal",
+        "adj_temp_f": 166.0,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": false
       },
       {
         "step_order": 2,
@@ -2845,7 +2918,10 @@ const recipeData = [
         "time_unit": "min",
         "time_in_minutes": 10.0,
         "adjustment_gal": 2.0,
-        "adjustment_unit": "gal"
+        "adjustment_unit": "gal",
+        "adj_temp_f": 185.9,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": false
       }
     ],
     "grains": [
@@ -3207,6 +3283,8 @@ const recipeData = [
     "notes_label_2": "Process Notes",
     "notes_2": "note 2A",
     "notes_date": "2026-05-13",
+    "total_grain_lbs": 10.0,
+    "total_grain_unit": "lbs",
     "mash_steps": [
       {
         "step_order": 1,
@@ -3217,7 +3295,10 @@ const recipeData = [
         "time_unit": "min",
         "time_in_minutes": 15.0,
         "adjustment_gal": -2.0,
-        "adjustment_unit": "gal"
+        "adjustment_unit": "gal",
+        "adj_temp_f": 118.3,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": false
       },
       {
         "step_order": 2,
@@ -3228,7 +3309,10 @@ const recipeData = [
         "time_unit": "min",
         "time_in_minutes": 15.0,
         "adjustment_gal": 0.5,
-        "adjustment_unit": "gal"
+        "adjustment_unit": "gal",
+        "adj_temp_f": 206.6,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": false
       },
       {
         "step_order": 3,
@@ -3239,7 +3323,10 @@ const recipeData = [
         "time_unit": "min",
         "time_in_minutes": 30.0,
         "adjustment_gal": 1.55,
-        "adjustment_unit": "gal"
+        "adjustment_unit": "gal",
+        "adj_temp_f": 217.8,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": true
       },
       {
         "step_order": 4,
@@ -3250,7 +3337,10 @@ const recipeData = [
         "time_unit": "min",
         "time_in_minutes": 30.0,
         "adjustment_gal": 0.0,
-        "adjustment_unit": "gal"
+        "adjustment_unit": "gal",
+        "adj_temp_f": null,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": false
       },
       {
         "step_order": 5,
@@ -3260,8 +3350,11 @@ const recipeData = [
         "time_min": 10.0,
         "time_unit": "min",
         "time_in_minutes": 10.0,
-        "adjustment_gal": 0.0,
-        "adjustment_unit": "gal"
+        "adjustment_gal": 0.5,
+        "adjustment_unit": "gal",
+        "adj_temp_f": 278.0,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": true
       }
     ],
     "grains": [
@@ -3447,7 +3540,7 @@ const recipeData = [
     "sparge_temp": 170.0,
     "sparge_temp_unit": "°F",
     "kettle_target_vol": 5.25,
-    "kettle_water": 4.51,
+    "kettle_water": 3.52,
     "is_extract": true,
     "boil_time": 60.0,
     "boil_time_unit": "min",
@@ -3456,19 +3549,21 @@ const recipeData = [
     "fermentation_temp_unit": "°F",
     "carbonation": 2.4,
     "carbonation_unit": "vol CO₂",
-    "strike_volume": 0.44,
+    "strike_volume": 1.44,
     "strike_volume_unit": "gal",
-    "strike_temp": 164.9,
+    "strike_temp": 158.0,
     "strike_temp_unit": "°F",
-    "camden_mash_tablets": 0.02,
-    "camden_mash_grams": 0.01,
-    "camden_sparge_tablets": 0.23,
-    "camden_sparge_grams": 0.14,
+    "camden_mash_tablets": 0.07,
+    "camden_mash_grams": 0.04,
+    "camden_sparge_tablets": 0.18,
+    "camden_sparge_grams": 0.11,
     "notes_label_1": "Design Notes",
     "notes_1": "",
     "notes_label_2": "Process Notes",
     "notes_2": "",
     "notes_date": null,
+    "total_grain_lbs": 1.0,
+    "total_grain_unit": "lbs",
     "mash_steps": [
       {
         "step_order": 1,
@@ -3478,8 +3573,11 @@ const recipeData = [
         "time_min": 20.0,
         "time_unit": "min",
         "time_in_minutes": 20.0,
-        "adjustment_gal": 0.0,
-        "adjustment_unit": "gal"
+        "adjustment_gal": 1.0,
+        "adjustment_unit": "gal",
+        "adj_temp_f": 158.0,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": false
       }
     ],
     "grains": [
@@ -3627,6 +3725,8 @@ const recipeData = [
     "notes_label_2": "Process Notes",
     "notes_2": "",
     "notes_date": null,
+    "total_grain_lbs": 0,
+    "total_grain_unit": "lbs",
     "mash_steps": [
       {
         "step_order": 1,
@@ -3637,7 +3737,10 @@ const recipeData = [
         "time_unit": "min",
         "time_in_minutes": 20.0,
         "adjustment_gal": 0.0,
-        "adjustment_unit": "gal"
+        "adjustment_unit": "gal",
+        "adj_temp_f": null,
+        "adj_temp_unit": "°F",
+        "adj_temp_over_boiling": false
       }
     ],
     "grains": [],
