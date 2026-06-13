@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 06-13-2026 11:27:43
+// Exported: 06-13-2026 11:35:30
 
 const exportMeta = {
-  "export_datetime": "06-13-2026 11:27:43",
+  "export_datetime": "06-13-2026 11:35:30",
   "app_version": "1.0.0",
   "db_version": "1.1",
   "schema_version": "1.1"
@@ -3213,7 +3213,7 @@ const recipeData = [
     "notes_label_1": "Design Notes",
     "notes_1": "more new notes Line 2 added ii under lines. making sme updates and save now making some updates and no save",
     "notes_label_2": "Process Notes",
-    "notes_2": "verify export, flag set",
+    "notes_2": "verify export, flag set, this time for real",
     "notes_date": "2026-05-18",
     "total_grain_lbs": 17.0,
     "total_grain_unit": "lbs",
