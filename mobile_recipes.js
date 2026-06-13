@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 06-13-2026 11:35:30
+// Exported: 06-13-2026 11:36:32
 
 const exportMeta = {
-  "export_datetime": "06-13-2026 11:35:30",
+  "export_datetime": "06-13-2026 11:36:32",
   "app_version": "1.0.0",
   "db_version": "1.1",
   "schema_version": "1.1"
@@ -3156,19 +3156,19 @@ const recipeData = [
   {
     "recipe_id": 116,
     "name": "Test#1-update",
-    "search": "test#1-update 1a american light lager",
-    "style_id": 1,
-    "style": "1A American Light Lager",
-    "style_og_min": 1.028,
-    "style_og_max": 1.04,
-    "style_fg_min": 0.997,
-    "style_fg_max": 1.008,
+    "search": "test#1-update 2c international dark lager",
+    "style_id": 7,
+    "style": "2C International Dark Lager",
+    "style_og_min": 1.044,
+    "style_og_max": 1.056,
+    "style_fg_min": 1.008,
+    "style_fg_max": 1.012,
     "style_ibu_min": 8.0,
-    "style_ibu_max": 12.0,
-    "style_srm_min": 2.0,
-    "style_srm_max": 3.0,
-    "style_abv_min": 2.8,
-    "style_abv_max": 4.2,
+    "style_ibu_max": 20.0,
+    "style_srm_min": 14.0,
+    "style_srm_max": 22.0,
+    "style_abv_min": 4.2,
+    "style_abv_max": 6.0,
     "batch_size": 5.25,
     "batch_size_unit": "gal",
     "efficiency": 65.0,
@@ -3182,7 +3182,7 @@ const recipeData = [
     "ibu": 70.8,
     "srm": 49.5,
     "srm_hex": "#600000",
-    "bitterness_balance": 132.6,
+    "bitterness_balance": 144.3,
     "bitterness_balance_unit": "%",
     "bitterness_label": "Bitter Leaning",
     "grain_temp": 68.0,
