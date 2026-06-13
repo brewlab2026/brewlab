@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 06-13-2026 11:36:32
+// Exported: 06-13-2026 11:37:45
 
 const exportMeta = {
-  "export_datetime": "06-13-2026 11:36:32",
+  "export_datetime": "06-13-2026 11:37:45",
   "app_version": "1.0.0",
   "db_version": "1.1",
   "schema_version": "1.1"
@@ -3532,13 +3532,13 @@ const recipeData = [
         "session_id": 199,
         "session_date": "01-01-2026",
         "brew_date": "07-01-2026",
-        "actual_og": null,
+        "actual_og": 1.052,
         "actual_fg": null,
         "actual_abv": null,
         "actual_abv_unit": "%",
         "apparent_attenuation": null,
         "apparent_attenuation_unit": "%",
-        "mash_efficiency": null,
+        "mash_efficiency": -131.2,
         "mash_efficiency_unit": "%",
         "observed_color": "",
         "brew_day_notes": "default values for both, 7/1 brew date, chal 2.71 oz, 2.8 years, chal 2023",
