@@ -209,7 +209,7 @@
                                 <div class="notes-box">${r.notes_2 || ''}</div>
                             </div>
 
-                            <button class="details-btn btn-sub" onclick="toggleDetails('log-${r.recipe_id}')">Brew Log (History)</button>
+                            <button class="details-btn btn-sub" onclick="toggleDetails('log-${r.recipe_id}')">Session Log (History)</button>
                             <div id="log-${r.recipe_id}" style="display:none;" class="nested-section">
                                 ${(r.sessions || []).map(s => `
                                     <button class="details-btn" style="background:#111; color:#3498db; border:1px solid #333; margin-bottom:5px; text-align:left;" onclick="toggleDetails('sess-${s.session_id}')">
