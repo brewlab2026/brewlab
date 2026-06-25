@@ -77,7 +77,7 @@
         <div id="alarm-overlay" style="display:none; margin-top: 10px; width: 100%;">
             <div style="display: flex; gap: 10px; width: 100%;">
                 <button onclick="stopAlarm()" style="flex: 1; background: #c0392b; color: white; padding: 15px; border-radius: 5px; font-size: 0.95em;">SILENCE &amp; CONTINUE</button>
-                <button onclick="stopAlarmSoundOnly(true)" style="flex: 1; background: #7f8c8d; color: white; padding: 15px; border-radius: 5px; font-size: 0.95em;">SILENCE ONLY</button>
+                <button onclick="stopAlarmSoundOnly()" style="flex: 1; background: #7f8c8d; color: white; padding: 15px; border-radius: 5px; font-size: 0.95em;">SILENCE ONLY</button>
             </div>
         </div>
 
@@ -469,18 +469,14 @@
         }
     }
 
-    function stopAlarmSoundOnly(keepOverlay = false) {
+    function stopAlarmSoundOnly() {
         // HELPER: Silences audio without moving the index, useful for skipStep and backStep.
-        // Pass keepOverlay=true (Silence Only button) to leave the overlay visible so the
-        // user can still see the buttons after killing the sound.
         if (alarmInterval) { 
             clearInterval(alarmInterval); 
             alarmInterval = null; 
         }
-        if (!keepOverlay) {
-            const overlay = document.getElementById('alarm-overlay');
-            if (overlay) overlay.style.display = 'none';
-        }
+        const overlay = document.getElementById('alarm-overlay');
+        if (overlay) overlay.style.display = 'none';
     }
 
     function startContinuousAlarm() {
