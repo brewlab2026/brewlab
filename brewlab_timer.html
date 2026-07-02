@@ -11,7 +11,18 @@
         body { margin: 0; padding: 0; font-family: sans-serif; background: #121212; color: #e0e0e0; width: 100%; overflow-x: hidden; }
         .header { width: 100%; padding: 15px; background: #1e1e1e; border-bottom: 1px solid #333; }
         .recipe-picker { background: #2d2d2d; padding: 15px; border-radius: 8px; border: 1px solid #444; margin-bottom: 20px; }
-        select { width: 100%; padding: 12px; background: #1e1e1e; color: #fff; border-radius: 5px; font-size: 16px; border: 1px solid #444; }
+        #searchBar { width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #444; background: #1e1e1e; color: #fff; font-size: 16px; box-sizing: border-box; margin-bottom: 10px; }
+        #recipe-list { max-height: 280px; overflow-y: auto; border: 1px solid #333; border-radius: 5px; }
+        .recipe-list-item { padding: 12px; border-bottom: 1px solid #333; cursor: pointer; }
+        .recipe-list-item:last-child { border-bottom: none; }
+        .recipe-list-item:active { background: #333; }
+        .recipe-list-item.selected { background: #1a2533; border-left: 4px solid #f1c40f; }
+        .recipe-list-item .r-name { font-weight: bold; color: #f1c40f; font-size: 1.05em; }
+        .recipe-list-item .r-style { color: #bdc3c7; font-size: 0.85em; font-style: italic; margin-top: 2px; }
+        .recipe-list-empty { padding: 15px; color: #95a5a6; font-size: 0.9em; }
+        #pickerCollapsed { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .picker-collapsed-name { color: #f1c40f; font-weight: bold; font-size: 1.1em; flex: 1; }
+        .picker-change-btn { background: #34495e; color: #fff; border-radius: 5px; padding: 8px 14px; font-size: 0.85em; }
         .timer-box { text-align: center; background: #000; padding: 30px; border: 2px solid #f1c40f; border-radius: 15px; display: none; }
         #timerDisplay { font-size: 5em; font-family: monospace; color: #f1c40f; margin: 10px 0; font-weight: bold; }
         button { cursor: pointer; border: none; font-weight: bold; transition: 0.2s; touch-action: manipulation; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
@@ -39,10 +50,17 @@
 
     <div style="padding: 15px;">
         <div class="recipe-picker">
-            <label for="recipeSelect" style="color: #95a5a6; font-size: 0.9em; display: block; margin-bottom: 5px;">Select Recipe:</label>
-            <select id="recipeSelect" onchange="loadRecipe()">
-                <option value="">-- Choose a Recipe --</option>
-            </select>
+            <div id="pickerExpanded">
+                <label for="searchBar" style="color: #95a5a6; font-size: 0.9em; display: block; margin-bottom: 5px;">Select Recipe:</label>
+                <input type="text" id="searchBar" placeholder="Search recipes or styles..." oninput="renderRecipeList()">
+                <div id="recipe-list"></div>
+            </div>
+            <div id="pickerCollapsed" style="display: none;">
+                <span style="color: #95a5a6; font-size: 0.9em;">Recipe:</span>
+                <span id="selectedRecipeName" class="picker-collapsed-name"></span>
+                <button type="button" onclick="expandPicker()" class="picker-change-btn">Change Recipe</button>
+            </div>
+            <input type="hidden" id="recipeSelect" value="">
         </div>
 
         <div id="timerContainer" class="timer-box">
@@ -241,6 +259,8 @@
     function executeRestore(state) {
         // Standard assignments
         document.getElementById('recipeSelect').value = state.recipeIdx;
+        renderRecipeList();
+        collapsePicker(state.recipeName);
         timeline = state.timeline;
         currentIdx = state.currentIdx;
         initialStepTime = state.initialStepTime;
@@ -593,20 +613,68 @@
     }
 
     window.onload = () => {
-        
-        const select = document.getElementById('recipeSelect');
-        if(typeof recipeData !== 'undefined') {
-            recipeData.forEach((r, index) => {
-                let opt = document.createElement('option');
-                opt.value = index;
-                opt.innerHTML = r.name;
-                select.appendChild(opt);
-            });
-        }
- 
+
+        renderRecipeList();
         loadState();
 
     };
+
+    // Builds the scrollable recipe list, filtered by the search box, mirroring
+    // the mobile viewer's search-and-list pattern instead of a <select> dropdown.
+    function renderRecipeList() {
+        const list = document.getElementById('recipe-list');
+        const searchBar = document.getElementById('searchBar');
+        const term = (searchBar && searchBar.value ? searchBar.value : "").toLowerCase();
+        const selectedIdx = document.getElementById('recipeSelect').value;
+
+        if (typeof recipeData === 'undefined') {
+            list.innerHTML = "<div class='recipe-list-empty'>No recipes found.</div>";
+            return;
+        }
+
+        const items = recipeData
+            .map((r, index) => ({ r, index }))
+            .filter(({ r }) =>
+                (r.display_name || r.name || "").toLowerCase().includes(term) ||
+                (r.style || "").toLowerCase().includes(term)
+            );
+
+        if (items.length === 0) {
+            list.innerHTML = "<div class='recipe-list-empty'>No matching recipes.</div>";
+            return;
+        }
+
+        list.innerHTML = items.map(({ r, index }) => `
+            <div class="recipe-list-item ${String(index) === String(selectedIdx) ? 'selected' : ''}" onclick="selectRecipe(${index})">
+                <div class="r-name">${r.display_name || r.name}</div>
+                <div class="r-style">${r.style || 'Unknown Style'}</div>
+            </div>
+        `).join('');
+    }
+
+    // Called when the user taps a recipe in the list (replaces the old <select> onchange)
+    function selectRecipe(idx) {
+        document.getElementById('recipeSelect').value = idx;
+        renderRecipeList();
+        loadRecipe();
+    }
+
+    // Collapse the picker down to just the selected recipe's name, once one is loaded
+    function collapsePicker(name) {
+        document.getElementById('pickerExpanded').style.display = 'none';
+        document.getElementById('selectedRecipeName').textContent = name || '';
+        document.getElementById('pickerCollapsed').style.display = 'flex';
+    }
+
+    // Re-open the search box and list so a different recipe can be picked
+    function expandPicker() {
+        document.getElementById('pickerCollapsed').style.display = 'none';
+        document.getElementById('pickerExpanded').style.display = 'block';
+        const searchBar = document.getElementById('searchBar');
+        searchBar.value = '';
+        renderRecipeList();
+        searchBar.focus();
+    }
 
     function loadRecipe() {
         const idx = document.getElementById('recipeSelect').value;
@@ -644,6 +712,7 @@
 
         updateUI();
         saveState();
+        collapsePicker(currentRecipeName);
 
     }
 
@@ -920,17 +989,16 @@
         };
         // 4. Define the "Cancel" action
         cancelBtn.onclick = () => {
-            // if the user selects a different recipe from the picklist, then cancels, we need to reset the picklist to the original recipe
+            // if the user picked a different recipe from the list, then cancels, we need to
+            // reset the picker back to the original (currently active) recipe
             const recipeSelect = document.getElementById('recipeSelect');
-            
-            // Loop through the options to find the one with the matching TEXT
-            for (let i = 0; i < recipeSelect.options.length; i++) {
-                if (recipeSelect.options[i].text === currentRecipeName) {
-                    recipeSelect.selectedIndex = i; // This selects by the position (the index)
-                    break; 
-                }
-            }
-            
+            const matchIdx = (typeof recipeData !== 'undefined')
+                ? recipeData.findIndex(r => r.name === currentRecipeName)
+                : -1;
+            recipeSelect.value = matchIdx >= 0 ? matchIdx : "";
+            renderRecipeList();
+            collapsePicker(currentRecipeName);
+
             overlay.style.display = 'none';
         };
 

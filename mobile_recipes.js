@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 07-02-2026 00:06:37
+// Exported: 07-02-2026 17:31:23
 
 const exportMeta = {
-  "export_datetime": "07-02-2026 00:06:37",
+  "export_datetime": "07-02-2026 17:31:23",
   "app_version": "1.0.0",
   "db_version": "1.3",
   "schema_version": "1.2"
@@ -1854,7 +1854,30 @@ const recipeData = [
         "attenuation_unit": "%"
       }
     ],
-    "sessions": []
+    "sessions": [
+      {
+        "session_id": 252,
+        "session_date": "07-02-2026",
+        "brew_date": null,
+        "actual_og": 1.033,
+        "actual_fg": null,
+        "actual_abv": null,
+        "actual_abv_unit": "%",
+        "apparent_attenuation": null,
+        "apparent_attenuation_unit": "%",
+        "mash_efficiency": 71.4,
+        "mash_efficiency_unit": "%",
+        "observed_color": "",
+        "brew_day_notes": "everything went more or less to plan, mash temps more or less stable around 152, corrected ph = 5.4",
+        "tasting_notes": "",
+        "inventory_applied": true,
+        "brew_date_dt": null,
+        "hop_crop_years": "{\"422\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"423\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"424\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"425\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}}",
+        "hop_aroma_loss_rate": null,
+        "hop_bittering_loss_rate": null,
+        "aged_hops": null
+      }
+    ]
   },
   {
     "recipe_id": 123,
