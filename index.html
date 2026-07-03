@@ -198,6 +198,8 @@
                                 ${r.is_extract ? `<p><strong>Kettle Target Vol:</strong> ${r.kettle_target_vol} gal</p><p><strong>Kettle Water:</strong> ${r.kettle_water} gal</p>` : `<p><strong>Sparge:</strong> ${r.sparge_temp}°F / ${r.sparge_amount} ${r.sparge_amount_unit}</p>`}
                                 <p><strong>Boil Time:</strong> ${r.boil_time} ${r.boil_time_unit}</p>
                                 <p><strong>Fermentation:</strong> ${r.fermentation_temp}°F | <strong>Carb:</strong> ${r.carbonation} vol</p>
+                                ${r.fermentation_schedule ? `<p><strong>Ferm. Schedule:</strong> ${r.fermentation_schedule}</p>` : ''}
+                                ${r.carbonation_method ? `<p><strong>Carb. Method:</strong> ${r.carbonation_method}</p>` : ''}
                             </div>
 
                             <button class="details-btn btn-sub" onclick="toggleDetails('notes-${r.recipe_id}')">Recipe Notes</button>
