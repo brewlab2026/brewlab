@@ -634,8 +634,9 @@
         const items = recipeData
             .map((r, index) => ({ r, index }))
             .filter(({ r }) =>
-                (r.display_name || r.name || "").toLowerCase().includes(term) ||
-                (r.style || "").toLowerCase().includes(term)
+                !r.archived &&
+                ((r.display_name || r.name || "").toLowerCase().includes(term) ||
+                (r.style || "").toLowerCase().includes(term))
             );
 
         if (items.length === 0) {
