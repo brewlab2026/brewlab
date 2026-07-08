@@ -49,6 +49,19 @@
     .mash-table { width: 100%; border-collapse: collapse; font-size: 0.85em; margin-bottom: 10px; }
     .mash-table th { text-align: left; color: #95a5a6; border-bottom: 1px solid #444; padding: 4px; }
     .mash-table td { padding: 6px 4px; border-bottom: 1px solid #333; }
+
+    /* Archive view */
+    .archived-sub { color: #95a5a6; font-size: 0.8em; font-style: italic; margin-bottom: 8px; }
+    .header-icon { color: #f1c40f; text-decoration: none; font-size: 1.5em; position: relative; }
+    .archive-badge {
+        position: absolute; top: -6px; right: -12px; background: #c0392b; color: #fff;
+        font-size: 0.38em; line-height: 1; padding: 3px 5px; border-radius: 8px; font-weight: bold;
+    }
+    .header-logo { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+    .view-badge {
+        display: none; background: #95a5a6; color: #121212; font-size: 0.65em; font-weight: bold;
+        text-transform: uppercase; letter-spacing: 0.5px; padding: 2px 8px; border-radius: 10px; margin-left: 8px; vertical-align: middle;
+    }
 </style>
 </head>
 <body onload="render()">
@@ -56,14 +69,15 @@
     <div class="header" style="padding: 15px; background: #1e1e1e; border-bottom: 1px solid #333;">
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
             
-            <div style="display: flex; align-items: center; gap: 10px;">
+            <div class="header-logo" onclick="setView('active')" title="Return to Active Recipes">
                 <img src="brewlab_icon.png" alt="Logo" style="height: 32px; border-radius: 6px;">
-                <h2 style="margin: 0; white-space: nowrap; font-size: 1.5em;">Brew Lab</h2>
+                <h2 id="headerTitle" style="margin: 0; white-space: nowrap; font-size: 1.5em;">Brew Lab<span id="viewBadge" class="view-badge">Archived</span></h2>
             </div>
 
             <div style="display: flex; gap: 15px; align-items: center;">
-                <a href="brewlab_timer.html" title="Launch Timer" style="color: #f1c40f; text-decoration: none; font-size: 1.5em;">⏱️</a>
-                <a href="https://sites.google.com/view/homebrew-by-bill/brew-lab" target="_blank" title="View Documentation" style="color: #f1c40f; text-decoration: none; font-size: 1.5em;">📖</a>
+                <a href="#" id="archiveToggleBtn" class="header-icon" title="View Archived Recipes" onclick="toggleArchiveView(); return false;">📦<span id="archiveBadge" class="archive-badge" style="display:none;"></span></a>
+                <a href="brewlab_timer.html" title="Launch Timer" class="header-icon">⏱️</a>
+                <a href="https://sites.google.com/view/homebrew-by-bill/brew-lab" target="_blank" title="View Documentation" class="header-icon">📖</a>
             </div>
         </div>
 
@@ -91,6 +105,65 @@
         function toggleDetails(id) {
             const el = document.getElementById(id);
             if (el) { el.style.display = el.style.display === 'none' || el.style.display === '' ? 'block' : 'none'; }
+        }
+
+        // ── Archive view state ───────────────────────────────────────────────
+        let currentView = 'active'; // 'active' | 'archived'
+
+        function isSet(v) { return v !== null && v !== undefined; }
+
+        function setView(view) {
+            if (currentView === view) { return; }
+            currentView = view;
+            render();
+        }
+
+        function toggleArchiveView() {
+            setView(currentView === 'archived' ? 'active' : 'archived');
+        }
+
+        // Reflects currentView in the header: title badge, search placeholder,
+        // and whether the archive-entry icon is shown (hidden while already
+        // viewing the archive — the way back is the Brew Lab logo, same pattern
+        // as the timer's "tap the logo to go home" navigation).
+        function updateHeaderForView() {
+            const archiveBtn   = document.getElementById('archiveToggleBtn');
+            const archiveBadge = document.getElementById('archiveBadge');
+            const viewBadge    = document.getElementById('viewBadge');
+            const searchBar    = document.getElementById('searchBar');
+
+            const archivedCount = (typeof recipeData !== 'undefined')
+                ? recipeData.filter(r => r.archived).length : 0;
+
+            if (currentView === 'archived') {
+                archiveBtn.style.display = 'none';
+                viewBadge.style.display = 'inline-block';
+                searchBar.placeholder = 'Search archived recipes...';
+            } else {
+                archiveBtn.style.display = archivedCount > 0 ? '' : 'none';
+                archiveBadge.style.display = archivedCount > 0 ? 'inline-block' : 'none';
+                archiveBadge.textContent = archivedCount;
+                viewBadge.style.display = 'none';
+                searchBar.placeholder = 'Search recipes or styles...';
+            }
+        }
+
+        // Renders the "Calibration Overrides" block at the end of the Mash &
+        // Process section — only fields this recipe actually overrides are
+        // shown, same rule as the print view. 0 is a meaningful, set value
+        // for the calibration factor (excludes post-boil hops entirely), so
+        // it's checked with isSet(), never a truthy check.
+        function renderCalibSection(r) {
+            const hasCalib = isSet(r.recipe_mash_strike_ratio_default) || !!r.recipe_lid_state ||
+                              !!r.recipe_chill_mode || isSet(r.recipe_post_boil_calibration_factor);
+            if (!hasCalib) { return ''; }
+            return `
+                <div class="section-title" style="margin-top:14px;">Calibration Overrides</div>
+                ${isSet(r.recipe_mash_strike_ratio_default) ? `<p><strong>Mash Strike Ratio:</strong> ${Number(r.recipe_mash_strike_ratio_default).toFixed(2)} qt/lb</p>` : ''}
+                ${r.recipe_lid_state ? `<p><strong>Lid State:</strong> ${r.recipe_lid_state}</p>` : ''}
+                ${r.recipe_chill_mode ? `<p><strong>Chill Mode:</strong> ${r.recipe_chill_mode}</p>` : ''}
+                ${isSet(r.recipe_post_boil_calibration_factor) ? `<p><strong>Post-Boil IBU Calibration:</strong> ${Number(r.recipe_post_boil_calibration_factor).toFixed(2)}×</p>` : ''}
+            `;
         }
 
         // Format a gravity value (OG/FG) to 3dp, showing '—' if null/zero/invalid
@@ -128,15 +201,27 @@
                     return;
                 }
 
-                const filtered = recipeData.filter(r => 
-                    (r.display_name || r.name || "").toLowerCase().includes(term) || 
-                    (r.style || "").toLowerCase().includes(term)
+                updateHeaderForView();
+
+                const filtered = recipeData.filter(r =>
+                    (currentView === 'archived' ? !!r.archived : !r.archived) &&
+                    ((r.display_name || r.name || "").toLowerCase().includes(term) ||
+                     (r.style || "").toLowerCase().includes(term))
                 );
+
+                if (filtered.length === 0) {
+                    const emptyMsg = currentView === 'archived'
+                        ? 'No archived recipes.'
+                        : (term ? `No recipes match "${term}".` : 'No recipes yet.');
+                    list.innerHTML = `<div class="recipe-card" style="text-align:center; color:#95a5a6;">${emptyMsg}</div>`;
+                    return;
+                }
 
                 list.innerHTML = filtered.map(r => `
                     <div class="recipe-card">
                         <div class="name">${r.display_name || r.name}</div>
                         <div class="style">${r.style || "Unknown Style"}</div>
+                        ${r.archived ? `<div class="archived-sub">📦 Archived ${r.archived_date || ''}${r.archived_reason ? ' — ' + r.archived_reason : ''}</div>` : ''}
                         <div class="vitals-row">
                             <span>OG: ${fmtGravity(r.og)}</span><span>FG: ${fmtGravity(r.fg)}</span><span>ABV: ${r.abv}%</span><span>IBU: ${r.ibu}</span><span>SRM: ${r.srm}</span>
                         </div>
@@ -200,6 +285,7 @@
                                 <p><strong>Fermentation:</strong> ${r.fermentation_temp}°F | <strong>Carb:</strong> ${r.carbonation} vol</p>
                                 ${r.fermentation_schedule ? `<p><strong>Ferm. Schedule:</strong> ${r.fermentation_schedule}</p>` : ''}
                                 ${r.carbonation_method ? `<p><strong>Carb. Method:</strong> ${r.carbonation_method}</p>` : ''}
+                                ${renderCalibSection(r)}
                             </div>
 
                             <button class="details-btn btn-sub" onclick="toggleDetails('notes-${r.recipe_id}')">Recipe Notes</button>
