@@ -112,6 +112,15 @@
 
         function isSet(v) { return v !== null && v !== undefined; }
 
+        // Same 3-tier thresholds as the main app: ≤5% aligned, 5–75% leaning
+        // (normal stylistic variation), 75%+ unusual enough to flag.
+        function styleBalanceColor(bb) {
+            const a = Math.abs(bb);
+            if (a <= 5) { return '#2ecc71'; }
+            if (a < 75) { return '#f39c12'; }
+            return '#d64040';
+        }
+
         function setView(view) {
             if (currentView === view) { return; }
             currentView = view;
@@ -227,7 +236,7 @@
                         </div>
                         <div class="swatch-row">
                             <div class="color-swatch" style="background-color: ${r.srm_hex};"></div>
-                            <span>Balance: ${r.bitterness_label || 'N/A'} (${r.bitterness_balance} ${r.bitterness_balance_unit || ''})</span>
+                            ${isSet(r.bitterness_balance) ? `<span>Style Balance: <strong style="color:${styleBalanceColor(r.bitterness_balance)}">${r.bitterness_balance > 0 ? '+' : ''}${r.bitterness_balance}%</strong> — ${r.bitterness_label || ''}</span>` : ''}
                         </div>
                         
                         <button class="details-btn btn-main" onclick="toggleDetails('details-${r.recipe_id}')">▼ View Recipe Details</button>
