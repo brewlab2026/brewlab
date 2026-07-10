@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 07-09-2026 21:01:01
+// Exported: 07-10-2026 00:36:45
 
 const exportMeta = {
-  "export_datetime": "07-09-2026 21:01:01",
+  "export_datetime": "07-10-2026 00:36:45",
   "app_version": "1.0.0",
   "db_version": "1.6",
   "schema_version": "1.5"
@@ -1167,8 +1167,8 @@ const recipeData = [
         "inventory_applied": false,
         "brew_date_dt": "2026-07-01",
         "hop_crop_years": "{\"436\": {\"crop_year\": 2022, \"hemisphere\": \"Northern\"}, \"437\": {\"crop_year\": 2022, \"hemisphere\": \"Northern\"}}",
-        "hop_aroma_loss_rate": 0.1,
-        "hop_bittering_loss_rate": 0.05,
+        "hop_aroma_loss_rate": null,
+        "hop_bittering_loss_rate": null,
         "aged_hops": [
           {
             "name": "Saaz-Czech",
@@ -1180,7 +1180,7 @@ const recipeData = [
             "crop_year": 2022,
             "hemisphere": "Northern",
             "age_years": 3.8,
-            "adjusted_amount": 1.19,
+            "adjusted_amount": 1.33,
             "status": "adjusted"
           },
           {
@@ -1193,7 +1193,7 @@ const recipeData = [
             "crop_year": 2022,
             "hemisphere": "Northern",
             "age_years": 3.8,
-            "adjusted_amount": 0.69,
+            "adjusted_amount": 0.74,
             "status": "adjusted"
           }
         ]
@@ -1946,9 +1946,9 @@ const recipeData = [
     "recipe_id": 123,
     "name": "Demo",
     "search": "demo 21a american ipa",
-    "archived": false,
-    "archived_reason": null,
-    "archived_date": null,
+    "archived": true,
+    "archived_reason": "Demo recipe for installation pkg",
+    "archived_date": "Jul 10, 2026",
     "style_id": 63,
     "style": "21A American IPA",
     "style_og_min": 1.056,
@@ -3351,176 +3351,6 @@ const recipeData = [
             "age_years": 0.7,
             "adjusted_amount": 0.52,
             "status": "fresh"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "recipe_id": 240,
-    "name": "inv check",
-    "search": "inv check 1d american wheat beer",
-    "archived": false,
-    "archived_reason": null,
-    "archived_date": null,
-    "style_id": 4,
-    "style": "1D American Wheat Beer",
-    "style_og_min": 1.04,
-    "style_og_max": 1.055,
-    "style_fg_min": 1.008,
-    "style_fg_max": 1.013,
-    "style_ibu_min": 15.0,
-    "style_ibu_max": 30.0,
-    "style_srm_min": 3.0,
-    "style_srm_max": 6.0,
-    "style_abv_min": 4.0,
-    "style_abv_max": 5.5,
-    "batch_size": 5.25,
-    "batch_size_unit": "gal",
-    "efficiency": 73.0,
-    "efficiency_unit": "%",
-    "mash_type": "Single Infusion",
-    "strike_vol_method": "Full Volume",
-    "og": 1.0352,
-    "fg": 1.0088,
-    "abv": 3.5,
-    "abv_unit": "%",
-    "ibu": 2.9,
-    "srm": 2.6,
-    "srm_hex": "#FFD878",
-    "bitterness_balance": -82.6,
-    "bitterness_balance_unit": "%",
-    "bitterness_label": "Malt-forward",
-    "grain_temp": 68.0,
-    "grain_temp_unit": "°F",
-    "water_treatments": "",
-    "sparge_amount": 1.0,
-    "sparge_amount_unit": "gal",
-    "sparge_temp": 170.0,
-    "sparge_temp_unit": "°F",
-    "kettle_target_vol": "—",
-    "kettle_water": "—",
-    "is_extract": false,
-    "boil_time": 60.0,
-    "boil_time_unit": "min",
-    "boil_time_in_minutes": 60.0,
-    "fermentation_temp": 68.0,
-    "fermentation_temp_unit": "°F",
-    "fermentation_schedule": "",
-    "carbonation": 2.4,
-    "carbonation_unit": "vol CO₂",
-    "carbonation_method": "",
-    "strike_volume": 5.48,
-    "strike_volume_unit": "gal",
-    "strike_temp": "—",
-    "strike_temp_unit": "°F",
-    "computed_sparge": null,
-    "camden_mash_tablets": 0.27,
-    "camden_mash_grams": 0.16,
-    "camden_sparge_tablets": 0.05,
-    "camden_sparge_grams": 0.03,
-    "notes_label_1": "Design Notes",
-    "notes_1": "",
-    "notes_label_2": "Process Notes",
-    "notes_2": "",
-    "notes_date": null,
-    "total_grain_lbs": 0,
-    "total_grain_unit": "lbs",
-    "recipe_mash_strike_ratio_default": null,
-    "recipe_lid_state": null,
-    "recipe_chill_mode": null,
-    "recipe_post_boil_calibration_factor": null,
-    "mash_steps": [
-      {
-        "step_order": 1,
-        "step_label": "Single Infusion",
-        "temp_f": 152.0,
-        "temp_unit": "°F",
-        "time_min": 60.0,
-        "time_unit": "min",
-        "time_in_minutes": 60.0,
-        "adjustment_gal": 0.0,
-        "adjustment_unit": "gal",
-        "adj_temp_f": null,
-        "adj_temp_unit": "°F",
-        "adj_temp_over_boiling": false
-      },
-      {
-        "step_order": 2,
-        "step_label": "Mash Out",
-        "temp_f": 170.0,
-        "temp_unit": "°F",
-        "time_min": 10.0,
-        "time_unit": "min",
-        "time_in_minutes": 10.0,
-        "adjustment_gal": 0.0,
-        "adjustment_unit": "gal",
-        "adj_temp_f": null,
-        "adj_temp_unit": "°F",
-        "adj_temp_over_boiling": false
-      }
-    ],
-    "grains": [],
-    "hops": [
-      {
-        "name": "bill",
-        "amount": 0.1,
-        "unit": "oz",
-        "usage": "Boil",
-        "time": 60,
-        "time_unit": "min",
-        "time_in_minutes": 60,
-        "alpha_acid": 0.065,
-        "hop_form": "Pellet",
-        "crop_year": 2022,
-        "hemisphere": "Northern"
-      }
-    ],
-    "boil_additions": [
-      {
-        "name": "Malt Extract - Liquid (LME)",
-        "amount": 5.0,
-        "unit": "lbs",
-        "time": 60.0,
-        "time_unit": "min",
-        "time_in_minutes": 60.0
-      }
-    ],
-    "yeast": [],
-    "sessions": [
-      {
-        "session_id": 262,
-        "session_date": "07-01-2026",
-        "brew_date": "07-01-2026",
-        "actual_og": null,
-        "actual_fg": null,
-        "actual_abv": null,
-        "actual_abv_unit": "%",
-        "apparent_attenuation": null,
-        "apparent_attenuation_unit": "%",
-        "mash_efficiency": null,
-        "mash_efficiency_unit": "%",
-        "observed_color": "",
-        "brew_day_notes": "",
-        "tasting_notes": "",
-        "inventory_applied": true,
-        "brew_date_dt": "2026-07-01",
-        "hop_crop_years": "{\"476\": {\"crop_year\": 2022, \"hemisphere\": \"Northern\"}}",
-        "hop_aroma_loss_rate": 0.125,
-        "hop_bittering_loss_rate": 0.085,
-        "aged_hops": [
-          {
-            "name": "bill",
-            "amount": 0.1,
-            "unit": "oz",
-            "usage": "Boil",
-            "time": 60.0,
-            "time_unit": "min",
-            "crop_year": 2022,
-            "hemisphere": "Northern",
-            "age_years": 3.8,
-            "adjusted_amount": 0.13,
-            "status": "adjusted"
           }
         ]
       }
