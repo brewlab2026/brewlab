@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 07-10-2026 00:36:45
+// Exported: 07-10-2026 21:22:24
 
 const exportMeta = {
-  "export_datetime": "07-10-2026 00:36:45",
+  "export_datetime": "07-10-2026 21:22:24",
   "app_version": "1.0.0",
   "db_version": "1.6",
   "schema_version": "1.5"
@@ -1250,7 +1250,7 @@ const recipeData = [
     "boil_time_in_minutes": 90.0,
     "fermentation_temp": 64.0,
     "fermentation_temp_unit": "°F",
-    "fermentation_schedule": "",
+    "fermentation_schedule": "• Pitch at 64°F and hold until fermentation is 1/3 complete (Restrains harsh phenolic (spicy) and fusel alcohol flavors, securing a clean base)\r\n• Raise temperature by 1° every 12 hours over the next 3 days to reach 70°F (Encourages desirable fruity esters).\r\n• Hold at 70° until FG is stable (Reach full attenuation)",
     "carbonation": 3.0,
     "carbonation_unit": "vol CO₂",
     "carbonation_method": "",
@@ -1264,9 +1264,9 @@ const recipeData = [
     "camden_sparge_tablets": 0.05,
     "camden_sparge_grams": 0.03,
     "notes_label_1": "Design Notes",
-    "notes_1": "This was a recipe design to a) make something quick, b) use the BE-134 yeast and c) use up anything I have and not get anything new\r\nRecipe designed on Gemini session - summary is in google docs\r\nTarget is really a sessionable dark Belgian ale not 100% suited to any particular style although it's marginally close a Dubbel\r\nSince we are using older dry yeast, we will want to rehydrate the yeast for 15 minutes before adding to the starter\r\n  prevents osmotic shock in old yeast; rehydration gives the yeast some time to revitalize themselves (or at least this is what AI says :-))",
+    "notes_1": "This was a recipe design to a) make something quick, b) use the BE-134 yeast and c) use up anything I have and not get anything new\r\nRecipe designed on Gemini session - summary is in google docs\r\nTarget is really a sessionable dark Belgian ale not 100% suited to any particular style although it's marginally close a Dubbel\r\nSince we are using older dry yeast, we will want to rehydrate the yeast for 15 minutes before adding to the starter\r\n  • prevents osmotic shock in old yeast; rehydration gives the yeast some time to revitalize themselves (or at least this is what AI says :-))",
     "notes_label_2": "Process Notes",
-    "notes_2": "Fermentation Schedule\r\n  Pitch at 64°F and hold until fermentation is 1/3 complete (Restrains harsh phenolic (spicy) and fusel alcohol flavors, securing a clean base)\r\n  Raise temperature by 1° every 12 hours over the next 3 days to reach 70°F (Encourages desirable fruity esters).\r\n  Hold at 70° until FG is stable (Reach full attenuation)",
+    "notes_2": "",
     "notes_date": "2025-11-22",
     "total_grain_lbs": 5.69,
     "total_grain_unit": "lbs",
@@ -1435,7 +1435,7 @@ const recipeData = [
         "tasting_notes": "easy drinking, right hop level, not too spicy/Belgiany (as I like), well received by wizards and others who have tried it",
         "inventory_applied": false,
         "brew_date_dt": null,
-        "hop_crop_years": null,
+        "hop_crop_years": "{\"38\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"39\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}}",
         "hop_aroma_loss_rate": null,
         "hop_bittering_loss_rate": null,
         "aged_hops": null
@@ -1744,9 +1744,9 @@ const recipeData = [
     "camden_sparge_tablets": 0.05,
     "camden_sparge_grams": 0.03,
     "notes_label_1": "Design Notes",
-    "notes_1": "version 2 with DRC and a little chocolate \r\n- key goal this time is lower the amount of crystal from ~12% to a more traditional amount, replace it with something flavorful, cut down on sweet sharpness\r\n- pale chocolate over English chocolate, allows us to use a little more without being sharp or acrid as quickly\r\n- last version was too light in color - add the midnight wheat in last ten minutes of mash\r\n- same water chemistry as try 7, Target ph still 5.4,  .01 extra baking soda to hit ph target with new grain bill. Note, I left midnight wheat out of grain bill in Brun'water since its only in the last 10 mins, who knows if this is right but ph worked out correctly!\r\n- lower mash temp to 152 (we moved to 153 last time because of the crystal amount)\r\n- ferment a little cooler to focus on malt flavor over yeast characteristics\r\n** Question - do I really need the dry hop - what does it do? maybe a small floral freshness lift. but it doesn't seem like any of the Brits dry hop a mild and no dry hop wop would let the malt shine perhaps a little more, Maybe a split batch if at all possible? **\r\n** worth noting - this was 2023 crop year hops with no adjustments for age - something to remember when we get fresh hops **\r\n",
+    "notes_1": "version 2 with DRC and a little chocolate \r\n• key goal this time is lower the amount of crystal from ~12% to a more traditional amount, replace it with something flavorful, cut down on sweet sharpness\r\n  • pale chocolate over English chocolate, allows us to use a little more without being sharp or acrid as quickly\r\n  • last version was too light in color - add the midnight wheat in last ten minutes of mash\r\n  • same water chemistry as try 7, Target ph still 5.4,  .01 extra baking soda to hit ph target with new grain bill. Note, I left midnight wheat out of grain bill in Brun'water since its only in the last 10 mins, who knows if this is right but ph worked out correctly!\r\n  • lower mash temp to 152°F (we moved to 153°F last time because of the crystal amount)\r\n  • ferment a little cooler to focus on malt flavor over yeast characteristics\r\n** Question - do I really need the dry hop - what does it do? maybe a small floral freshness lift. but it doesn't seem like any of the Brits dry hop a mild and no dry hop wop would let the malt shine perhaps a little more, Maybe a split batch if at all possible? **\r\n** worth noting - this was 2023 crop year hops with no adjustments for age - something to remember when we get fresh hops **\r\n",
     "notes_label_2": "Process Notes",
-    "notes_2": "- mash temp 152 - target 153 on anvil per sheet on the wall\r\n- heat sparge to 170 and let it cool from there as we sparge - don't want water to be over 170 during sparge itself (no tannin extraction at this temp), per Google, over sparging isn't possible with a 1 gallon sparge in this beer (tannins come from over sparging, not letting the basket drip into the kettle too long)\r\n- keep process change to dry hop at 85% attenuation for 2 days per my guidelines\r\nDry hop with 2 bolts should be more than enough!",
+    "notes_2": "- mash temp 152°F - target 153°F on anvil per sheet on the wall\r\n- heat sparge to 170°F and let it cool from there as we sparge - don't want water to be over 170°F during sparge itself (no tannin extraction at this temp), per Google, over sparging isn't possible with a 1 gallon sparge in this beer (tannins come from over sparging, not letting the basket drip into the kettle too long)\r\n- keep process change to dry hop at 85% attenuation for 2 days per my guidelines\r\nDry hop with 2 bolts should be more than enough!",
     "notes_date": "2026-03-20",
     "total_grain_lbs": 3.56,
     "total_grain_unit": "lbs",
