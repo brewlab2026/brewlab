@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 07-11-2026 11:05:33
+// Exported: 07-11-2026 23:21:44
 
 const exportMeta = {
-  "export_datetime": "07-11-2026 11:05:33",
+  "export_datetime": "07-11-2026 23:21:44",
   "app_version": "1.0.0",
   "db_version": "1.6",
   "schema_version": "1.5"
@@ -3620,7 +3620,7 @@ const recipeData = [
     "bitterness_label": "Hop-forward",
     "grain_temp": 68.0,
     "grain_temp_unit": "°F",
-    "water_treatments": "yes, need some",
+    "water_treatments": "• temp °F\r\n• bullet 2\r\nyes, need some",
     "sparge_amount": 1.0,
     "sparge_amount_unit": "gal",
     "sparge_temp": 170.0,
@@ -3633,10 +3633,10 @@ const recipeData = [
     "boil_time_in_minutes": 90.0,
     "fermentation_temp": 75.0,
     "fermentation_temp_unit": "°F",
-    "fermentation_schedule": "",
+    "fermentation_schedule": "line 1 no bullet, more temp °C\r\n• line 2 bullet\r\nline 3 tep is °°",
     "carbonation": 2.4,
     "carbonation_unit": "vol CO₂",
-    "carbonation_method": "BUrst Carbonate, 30psi for 72 years",
+    "carbonation_method": "• BUrst Carbonate, 40°F, 30psi for 72 years",
     "strike_volume": 4.0,
     "strike_volume_unit": "gal",
     "strike_temp": 131.0,
@@ -3647,9 +3647,9 @@ const recipeData = [
     "camden_sparge_tablets": 0.24,
     "camden_sparge_grams": 0.15,
     "notes_label_1": "Design Notes",
-    "notes_1": "more new notes Line 2 added ii under lines. making some updates and save now making some updates and no save",
+    "notes_1": "more new notes Line 2 added ii under lines. making some updates and save now making some updates and no save\r\n• °\r\n• zh;fF;kf\r\n\r\n• in °F",
     "notes_label_2": "Process Notes",
-    "notes_2": "20th times a charm for sue",
+    "notes_2": "• 20th times a charm for sue °F\r\n• ms:m:SM\r\ntemp is °C",
     "notes_date": "2026-05-18",
     "total_grain_lbs": 13.35,
     "total_grain_unit": "lbs",
@@ -3893,8 +3893,8 @@ const recipeData = [
         "mash_efficiency": -197.1,
         "mash_efficiency_unit": "%",
         "observed_color": "",
-        "brew_day_notes": "fdFHHH",
-        "tasting_notes": "ooh-la-la treble ooh-la-la, quadruple",
+        "brew_day_notes": "fdFHHH\n• aFlajfLK\n• temp 4°C",
+        "tasting_notes": "ooh-la-la treble ooh-la-la, quadruple\ntemp 5°F\n• bullet 1\n• bullet 2\n",
         "inventory_applied": false,
         "brew_date_dt": "2026-07-02",
         "hop_crop_years": "{\"107\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"473\": {\"crop_year\": 2021, \"hemisphere\": \"Northern\"}, \"474\": {\"crop_year\": 2020, \"hemisphere\": \"Northern\"}, \"475\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"421\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"108\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"418\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}}",
