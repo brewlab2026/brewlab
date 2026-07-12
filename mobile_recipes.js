@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 07-11-2026 23:21:44
+// Exported: 07-12-2026 09:43:10
 
 const exportMeta = {
-  "export_datetime": "07-11-2026 23:21:44",
+  "export_datetime": "07-12-2026 09:43:10",
   "app_version": "1.0.0",
   "db_version": "1.6",
   "schema_version": "1.5"
@@ -4507,9 +4507,9 @@ const recipeData = [
     "recipe_id": 206,
     "name": "test45-extract",
     "search": "test45-extract 1b american lager",
-    "archived": false,
+    "archived": true,
     "archived_reason": null,
-    "archived_date": null,
+    "archived_date": "Jul 12, 2026",
     "style_id": 2,
     "style": "1B American Lager",
     "style_og_min": 1.04,
