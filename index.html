@@ -264,7 +264,7 @@
                         
                         <div id="details-${r.recipe_id}" style="display:none; margin-top:15px;">
                             
-                            <button class="details-btn btn-sub" onclick="toggleDetails('recipe-${r.recipe_id}')">Recipe (Ingredients)</button>
+                            <button class="details-btn btn-sub" onclick="toggleDetails('recipe-${r.recipe_id}')">Ingredients</button>
                             <div id="recipe-${r.recipe_id}" style="display:none;" class="nested-section">
                                 <div class="section-title">Grains</div>
                                 <ul>${(r.grains || []).map(g => `
@@ -318,7 +318,7 @@
                                 ${renderCalibSection(r)}
                             </div>
 
-                            <button class="details-btn btn-sub" onclick="toggleDetails('notes-${r.recipe_id}')">Recipe Notes</button>
+                            <button class="details-btn btn-sub" onclick="toggleDetails('notes-${r.recipe_id}')">Notes</button>
                             <div id="notes-${r.recipe_id}" style="display:none;" class="nested-section">
                                 <p><strong>Date:</strong> ${r.notes_date || 'N/A'}</p>
                                 <div class="section-title">${r.notes_label_1 || 'Note 1'}</div>
@@ -327,7 +327,7 @@
                                 <div class="notes-box">${r.notes_2 || ''}</div>
                             </div>
 
-                            <button class="details-btn btn-sub" onclick="toggleDetails('log-${r.recipe_id}')">Session Log (History)</button>
+                            <button class="details-btn btn-sub" onclick="toggleDetails('log-${r.recipe_id}')">Session Logs</button>
                             <div id="log-${r.recipe_id}" style="display:none;" class="nested-section">
                                 ${(r.sessions || []).map(s => `
                                     <button class="details-btn" style="background:#111; color:#3498db; border:1px solid #333; margin-bottom:5px; text-align:left;" onclick="toggleDetails('sess-${s.session_id}')">
@@ -335,7 +335,8 @@
                                     </button>
                                     <div id="sess-${s.session_id}" style="display:none; padding:10px; background:#000; border:1px solid #444; border-radius:4px; font-size:0.9em; margin-bottom:10px;">
                                         <p><strong>Actual OG:</strong> ${fmtGravity(s.actual_og)} | <strong>FG:</strong> ${fmtGravity(s.actual_fg)} | <strong>ABV:</strong> ${fmtAbv(s.actual_abv)}</p>
-                                        <p><strong>Efficiency:</strong> ${s.mash_efficiency}% | <strong>Atten:</strong> ${s.apparent_attenuation}${s.apparent_attenuation_unit || '%'}</p>
+                                        <p><strong>Efficiency:</strong> ${isSet(s.mash_efficiency) ? s.mash_efficiency + '%' : '—'} | <strong>Atten:</strong> ${isSet(s.apparent_attenuation) ? s.apparent_attenuation + (s.apparent_attenuation_unit || '%') : '—'}</p>
+                                        <p><strong>Calories (12oz):</strong> ${isSet(s.calories_12oz) ? s.calories_12oz : '—'} | <strong>Carbs (12oz):</strong> ${isSet(s.carbs_12oz) ? s.carbs_12oz + (s.carbs_12oz_unit || 'g') : '—'}</p>
                                         <p><strong>Observed Color:</strong> ${s.observed_color || 'N/A'}</p>
                                         
                                         ${s.aged_hops && s.aged_hops.length > 0 ? `
@@ -365,10 +366,21 @@
                                             </div>
                                         ` : ''}
 
-                                        <div class="section-title">Brew Day Notes</div>
-                                        <div class="pre-wrap-block" style="margin-bottom:10px;">${s.brew_day_notes || 'N/A'}</div>
-                                        <div class="section-title">Tasting Notes</div>
-                                        <div class="pre-wrap-block">${s.tasting_notes || 'N/A'}</div>
+                                        ${(s.brew_day_notes || s.tasting_notes) ? `
+                                            <div style="margin: 10px 0;">
+                                                <button class="details-btn" 
+                                                        style="background:#222; color:#f1c40f; border:1px solid #444; padding: 5px 10px; font-size: 0.85em; width: auto;" 
+                                                        onclick="toggleDetails('sess-notes-${s.session_id}')">
+                                                    View Session Notes ▾
+                                                </button>
+                                                <div id="sess-notes-${s.session_id}" style="display:none; margin-top: 5px; background: #111; padding: 10px; border-radius: 4px; border: 1px solid #333;">
+                                                    <div class="section-title">Brew Day Notes</div>
+                                                    <div class="pre-wrap-block" style="margin-bottom:10px;">${s.brew_day_notes || 'N/A'}</div>
+                                                    <div class="section-title">Tasting Notes</div>
+                                                    <div class="pre-wrap-block">${s.tasting_notes || 'N/A'}</div>
+                                                </div>
+                                            </div>
+                                        ` : ''}
                                     </div>
                                 `).join(r.sessions.length === 0 ? 'No sessions recorded.' : '')}
                             </div>
