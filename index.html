@@ -289,7 +289,7 @@
 
                             <button class="details-btn btn-sub" onclick="toggleDetails('mash-${r.recipe_id}')">Mash & Process</button>
                             <div id="mash-${r.recipe_id}" style="display:none;" class="nested-section">
-                                <p><strong>Batch:</strong> ${r.batch_size} ${r.batch_size_unit} | <strong>Type:</strong> ${r.mash_type} | <strong>Method:</strong> ${r.strike_vol_method} | <strong>Eff:</strong> ${r.is_extract ? '0%' : r.efficiency + '%'}</p>
+                                <p><strong>Batch:</strong> ${r.batch_size} ${r.batch_size_unit} | <strong>Type:</strong> ${r.mash_type} | <strong>Method:</strong> ${r.strike_vol_method} | <strong>Eff:</strong> ${r.is_extract ? 'N/A' : r.efficiency + '%'}</p>
                                 ${r.total_grain_lbs ? `<p><strong>Total Grain:</strong> ${r.total_grain_lbs} ${r.total_grain_unit || 'lbs'}</p>` : ''}
                                 ${renderTextField('Water Treatments', r.water_treatments, 'None')}
                                 <p><strong>Camden ${r.is_extract ? 'Steep' : 'Strike'}:</strong> ${r.camden_mash_tablets} tabs / ${r.camden_mash_grams}g</p>
@@ -321,10 +321,14 @@
                             <button class="details-btn btn-sub" onclick="toggleDetails('notes-${r.recipe_id}')">Notes</button>
                             <div id="notes-${r.recipe_id}" style="display:none;" class="nested-section">
                                 <p><strong>Date:</strong> ${r.notes_date || 'N/A'}</p>
+                                ${r.notes_1 ? `
                                 <div class="section-title">${r.notes_label_1 || 'Note 1'}</div>
-                                <div class="notes-box">${r.notes_1 || 'No notes available.'}</div>
+                                <div class="notes-box">${r.notes_1}</div>
+                                ` : ''}
+                                ${r.notes_2 ? `
                                 <div class="section-title">${r.notes_label_2 || 'Note 2'}</div>
-                                <div class="notes-box">${r.notes_2 || ''}</div>
+                                <div class="notes-box">${r.notes_2}</div>
+                                ` : ''}
                             </div>
 
                             <button class="details-btn btn-sub" onclick="toggleDetails('log-${r.recipe_id}')">Session Logs</button>
