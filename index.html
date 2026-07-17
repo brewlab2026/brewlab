@@ -174,7 +174,7 @@
                 ${isSet(r.recipe_mash_strike_ratio_default) ? `<p><strong>Mash Strike Ratio:</strong> ${Number(r.recipe_mash_strike_ratio_default).toFixed(2)} qt/lb</p>` : ''}
                 ${r.recipe_lid_state ? `<p><strong>Lid State:</strong> ${r.recipe_lid_state}</p>` : ''}
                 ${r.recipe_chill_mode ? `<p><strong>Chill Mode:</strong> ${r.recipe_chill_mode}</p>` : ''}
-                ${isSet(r.recipe_post_boil_calibration_factor) ? `<p><strong>Post-Boil IBU Calibration:</strong> ${Number(r.recipe_post_boil_calibration_factor).toFixed(2)}×</p>` : ''}
+                ${isSet(r.recipe_post_boil_calibration_factor) ? `<p><strong>Post-Boil IBU Calibration:</strong> ${Number(r.recipe_post_boil_calibration_factor).toFixed(2)}</p>` : ''}
             `;
         }
 
