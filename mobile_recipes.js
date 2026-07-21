@@ -1,11 +1,11 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 07-17-2026 10:28:32
+// Exported: 07-20-2026 23:23:28
 
 const exportMeta = {
-  "export_datetime": "07-17-2026 10:28:32",
+  "export_datetime": "07-20-2026 23:23:28",
   "app_version": "1.0.0",
-  "db_version": "1.6",
-  "schema_version": "1.5"
+  "db_version": "1.8",
+  "schema_version": "1.6"
 };
 
 const recipeData = [
@@ -79,10 +79,10 @@ const recipeData = [
     "notes_date": "Mar 20, 2026",
     "total_grain_lbs": 10.12,
     "total_grain_unit": "lbs",
-    "recipe_mash_strike_ratio_default": null,
-    "recipe_lid_state": null,
-    "recipe_chill_mode": null,
-    "recipe_post_boil_calibration_factor": null,
+    "recipe_mash_strike_ratio_default": 1.2,
+    "recipe_lid_state": "on",
+    "recipe_chill_mode": "kettle",
+    "recipe_post_boil_calibration_factor": 1.0,
     "mash_steps": [
       {
         "step_order": 1,
@@ -364,10 +364,10 @@ const recipeData = [
     "notes_date": "Mar 20, 2026",
     "total_grain_lbs": 5.3,
     "total_grain_unit": "lbs",
-    "recipe_mash_strike_ratio_default": null,
-    "recipe_lid_state": null,
-    "recipe_chill_mode": null,
-    "recipe_post_boil_calibration_factor": null,
+    "recipe_mash_strike_ratio_default": 1.2,
+    "recipe_lid_state": "on",
+    "recipe_chill_mode": "kettle",
+    "recipe_post_boil_calibration_factor": 1.0,
     "mash_steps": [
       {
         "step_order": 1,
@@ -601,6 +601,8 @@ const recipeData = [
         "hop_crop_years": "{\"63\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"64\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"70\": {\"crop_year\": 2021, \"hemisphere\": \"Northern\"}, \"67\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"72\": {\"crop_year\": 2021, \"hemisphere\": \"Northern\"}, \"71\": {\"crop_year\": 2020, \"hemisphere\": \"Northern\"}, \"68\": {\"crop_year\": 2021, \"hemisphere\": \"Northern\"}, \"66\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"69\": {\"crop_year\": 2021, \"hemisphere\": \"Northern\"}, \"65\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}}",
         "hop_aroma_loss_rate": 0.125,
         "hop_bittering_loss_rate": 0.085,
+        "hop_aroma_calibration_factor": null,
+        "hop_bittering_calibration_factor": null,
         "aged_hops": [
           {
             "name": "Warrior",
@@ -806,10 +808,10 @@ const recipeData = [
     "notes_date": null,
     "total_grain_lbs": 10.0,
     "total_grain_unit": "lbs",
-    "recipe_mash_strike_ratio_default": null,
-    "recipe_lid_state": null,
-    "recipe_chill_mode": null,
-    "recipe_post_boil_calibration_factor": null,
+    "recipe_mash_strike_ratio_default": 1.2,
+    "recipe_lid_state": "on",
+    "recipe_chill_mode": "kettle",
+    "recipe_post_boil_calibration_factor": 1.0,
     "mash_steps": [
       {
         "step_order": 1,
@@ -1016,10 +1018,10 @@ const recipeData = [
     "boil_time_in_minutes": 90.0,
     "fermentation_temp": 64.0,
     "fermentation_temp_unit": "°F",
-    "fermentation_schedule": "Diacetyl rest at 68F, Cold crash usual 3 days; lager 2-3 weeks at refrigerator temp of ~40F",
+    "fermentation_schedule": "Diacetyl rest at 68F at 80–85% attenuation (around SG 1.016–1.018), Cold crash usual 3 days; lager 2-3 weeks at refrigerator temp of ~40F",
     "carbonation": 2.6,
     "carbonation_unit": "vol CO₂",
-    "carbonation_method": "Burst carbonate prior to lagering at 30 psi for 24 hours, release PRV, set to 13 psi @ 40F for 2.6 volumes",
+    "carbonation_method": "Burst carbonate prior to lagering at 30 psi for 24 hours, release PRV, set to 13 psi @ 40F for 2.6 volumes, top up every 7-10 days while lagering",
     "strike_volume": 6.71,
     "strike_volume_unit": "gal",
     "strike_temp": 156.1,
@@ -1030,16 +1032,16 @@ const recipeData = [
     "camden_sparge_tablets": 0.05,
     "camden_sparge_grams": 0.03,
     "notes_label_1": "Design Notes",
-    "notes_1": "Based on my pre-Anvil cream ale recipe, changes:\r\n- Swap Liberty hops (not available) for Saaz (a more traditional choice anyway) and US-05 for 1056 (cheaper and just as good a choice for a cream ale, all it needs something nice and clean)\r\n- Proportionally lower mash ingredients to achieve 1050-1053 OG and reflect 5.25 gallon batch size (pre-Anvil recipe was 5.5 gals and routinely resulted in higher OG than target)\r\n- Do a mash out - improves mash viscosity, better sparge & efficiency (Gemini & Chatgpt recommend for this style)\r\n- Lower fermentation temp a bit and add a diacetyl rest at 68F (Gemini recommends the rest as a good insurance policy)\r\n- Cold crash usual 3 days\r\nDraft Water target: Ca 50–60, Mg 5–10, Na 10–15, Su 60–75, CL 50–60, Bicarb (< 50) which is damn close to Brun'water's yellow balanced profile\r\nDraft pH target: 5.3",
+    "notes_1": "Based on my pre-Anvil cream ale recipe, changes:\r\n- Swap Liberty hops (not available) for Saaz (a more traditional choice anyway) and US-05 for 1056 (cheaper and just as good a choice for a cream ale, all it needs is something nice and clean)\r\n- Proportionally lower mash ingredients to achieve 1050-1053 OG and reflect 5.25 gallon batch size (pre-Anvil recipe was 5.5 gals and routinely resulted in higher OG than target)\r\n- Do a mash out - improves mash viscosity, better sparge & efficiency (Gemini & Chatgpt recommend for this style)\r\n- Lower fermentation temp a bit and add a diacetyl rest at 68F (Gemini recommends the rest as a good insurance policy)\r\n- Cold crash usual 3 days\r\nDraft Water target: Ca 50–60, Mg 5–10, Na 10–15, Su 60–75, CL 50–60, Bicarb (< 50) which is damn close to Brun'water's yellow balanced profile. in reality, I overshot SU and CL by 5% and undershot CA by 5% which seems pretty reasonable and close enough.\r\nDraft pH target: 5.3",
     "notes_label_2": "Process Notes",
-    "notes_2": "May need to so some adjusting for aged hops",
+    "notes_2": "Follow same \"new wall\" mash process, bump Anvil mash setting by 1°F to reflect past tests and see what happens with our first 5 gallon batch using the new process.",
     "notes_date": "Jun 24, 2026",
     "total_grain_lbs": 10.0,
     "total_grain_unit": "lbs",
-    "recipe_mash_strike_ratio_default": null,
-    "recipe_lid_state": null,
-    "recipe_chill_mode": null,
-    "recipe_post_boil_calibration_factor": null,
+    "recipe_mash_strike_ratio_default": 1.2,
+    "recipe_lid_state": "on",
+    "recipe_chill_mode": "kettle",
+    "recipe_post_boil_calibration_factor": 1.0,
     "mash_steps": [
       {
         "step_order": 1,
@@ -1155,7 +1157,7 @@ const recipeData = [
       {
         "session_id": 213,
         "session_date": "Jul 01, 2026",
-        "brew_date": "07-01-2026",
+        "brew_date": "07-21-2026",
         "actual_og": null,
         "actual_fg": null,
         "actual_abv": null,
@@ -1168,13 +1170,15 @@ const recipeData = [
         "carbs_12oz": null,
         "carbs_12oz_unit": "g",
         "observed_color": "",
-        "brew_day_notes": "aged hops with toned down loss rates - still need to look at this",
+        "brew_day_notes": "aged hops toned down - that way if they are better than I think, we don't overshoot the range and if they're not as good, we are still well above the lower end of the range.",
         "tasting_notes": "",
         "inventory_applied": false,
-        "brew_date_dt": "Jul 01, 2026",
+        "brew_date_dt": "Jul 21, 2026",
         "hop_crop_years": "{\"436\": {\"crop_year\": 2022, \"hemisphere\": \"Northern\"}, \"437\": {\"crop_year\": 2022, \"hemisphere\": \"Northern\"}}",
-        "hop_aroma_loss_rate": null,
-        "hop_bittering_loss_rate": null,
+        "hop_aroma_loss_rate": 0.125,
+        "hop_bittering_loss_rate": 0.085,
+        "hop_aroma_calibration_factor": 1.0,
+        "hop_bittering_calibration_factor": 0.8,
         "aged_hops": [
           {
             "name": "Saaz-Czech",
@@ -1185,8 +1189,8 @@ const recipeData = [
             "time_unit": "min",
             "crop_year": 2022,
             "hemisphere": "Northern",
-            "age_years": 3.8,
-            "adjusted_amount": 1.33,
+            "age_years": 3.9,
+            "adjusted_amount": 1.26,
             "status": "adjusted"
           },
           {
@@ -1198,7 +1202,7 @@ const recipeData = [
             "time_unit": "min",
             "crop_year": 2022,
             "hemisphere": "Northern",
-            "age_years": 3.8,
+            "age_years": 3.9,
             "adjusted_amount": 0.74,
             "status": "adjusted"
           }
@@ -1276,10 +1280,10 @@ const recipeData = [
     "notes_date": "Nov 22, 2025",
     "total_grain_lbs": 5.69,
     "total_grain_unit": "lbs",
-    "recipe_mash_strike_ratio_default": null,
-    "recipe_lid_state": null,
-    "recipe_chill_mode": null,
-    "recipe_post_boil_calibration_factor": null,
+    "recipe_mash_strike_ratio_default": 1.2,
+    "recipe_lid_state": "on",
+    "recipe_chill_mode": "kettle",
+    "recipe_post_boil_calibration_factor": 1.0,
     "mash_steps": [
       {
         "step_order": 1,
@@ -1447,6 +1451,8 @@ const recipeData = [
         "hop_crop_years": "{\"38\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"39\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}}",
         "hop_aroma_loss_rate": null,
         "hop_bittering_loss_rate": null,
+        "hop_aroma_calibration_factor": null,
+        "hop_bittering_calibration_factor": null,
         "aged_hops": null
       }
     ]
@@ -1521,10 +1527,10 @@ const recipeData = [
     "notes_date": "Mar 20, 2026",
     "total_grain_lbs": 3.47,
     "total_grain_unit": "lbs",
-    "recipe_mash_strike_ratio_default": null,
-    "recipe_lid_state": null,
-    "recipe_chill_mode": null,
-    "recipe_post_boil_calibration_factor": null,
+    "recipe_mash_strike_ratio_default": 1.2,
+    "recipe_lid_state": "on",
+    "recipe_chill_mode": "kettle",
+    "recipe_post_boil_calibration_factor": 1.0,
     "mash_steps": [
       {
         "step_order": 1,
@@ -1688,6 +1694,8 @@ const recipeData = [
         "hop_crop_years": "{\"73\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"74\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"75\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"76\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}}",
         "hop_aroma_loss_rate": null,
         "hop_bittering_loss_rate": null,
+        "hop_aroma_calibration_factor": null,
+        "hop_bittering_calibration_factor": null,
         "aged_hops": null
       }
     ]
@@ -1762,10 +1770,10 @@ const recipeData = [
     "notes_date": "Mar 20, 2026",
     "total_grain_lbs": 3.56,
     "total_grain_unit": "lbs",
-    "recipe_mash_strike_ratio_default": null,
-    "recipe_lid_state": null,
-    "recipe_chill_mode": null,
-    "recipe_post_boil_calibration_factor": null,
+    "recipe_mash_strike_ratio_default": 1.2,
+    "recipe_lid_state": "on",
+    "recipe_chill_mode": "kettle",
+    "recipe_post_boil_calibration_factor": 1.0,
     "mash_steps": [
       {
         "step_order": 1,
@@ -1953,6 +1961,8 @@ const recipeData = [
         "hop_crop_years": "{\"422\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"423\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"424\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"425\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}}",
         "hop_aroma_loss_rate": null,
         "hop_bittering_loss_rate": null,
+        "hop_aroma_calibration_factor": null,
+        "hop_bittering_calibration_factor": null,
         "aged_hops": null
       }
     ]
@@ -2027,10 +2037,10 @@ const recipeData = [
     "notes_date": "Apr 12, 2026",
     "total_grain_lbs": 11.25,
     "total_grain_unit": "lbs",
-    "recipe_mash_strike_ratio_default": null,
-    "recipe_lid_state": null,
-    "recipe_chill_mode": null,
-    "recipe_post_boil_calibration_factor": null,
+    "recipe_mash_strike_ratio_default": 1.2,
+    "recipe_lid_state": "on",
+    "recipe_chill_mode": "kettle",
+    "recipe_post_boil_calibration_factor": 1.0,
     "mash_steps": [
       {
         "step_order": 1,
@@ -2266,6 +2276,8 @@ const recipeData = [
         "hop_crop_years": "{\"404\": {\"crop_year\": 2024, \"hemisphere\": \"Northern\"}, \"405\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"406\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"407\": {\"crop_year\": 2021, \"hemisphere\": \"Northern\"}, \"146\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"143\": {\"crop_year\": 2021, \"hemisphere\": \"Northern\"}, \"145\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"144\": {\"crop_year\": 2021, \"hemisphere\": \"Northern\"}}",
         "hop_aroma_loss_rate": 0.125,
         "hop_bittering_loss_rate": 0.085,
+        "hop_aroma_calibration_factor": null,
+        "hop_bittering_calibration_factor": null,
         "aged_hops": [
           {
             "name": "El Dorado",
@@ -2396,6 +2408,8 @@ const recipeData = [
         "hop_crop_years": "{\"404\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"405\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"406\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"407\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"146\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"143\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"145\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"144\": {\"crop_year\": 2019, \"hemisphere\": \"Northern\"}}",
         "hop_aroma_loss_rate": 0.125,
         "hop_bittering_loss_rate": 0.085,
+        "hop_aroma_calibration_factor": null,
+        "hop_bittering_calibration_factor": null,
         "aged_hops": [
           {
             "name": "El Dorado",
@@ -2575,10 +2589,10 @@ const recipeData = [
     "notes_date": null,
     "total_grain_lbs": 9.88,
     "total_grain_unit": "lbs",
-    "recipe_mash_strike_ratio_default": null,
-    "recipe_lid_state": null,
-    "recipe_chill_mode": null,
-    "recipe_post_boil_calibration_factor": null,
+    "recipe_mash_strike_ratio_default": 1.2,
+    "recipe_lid_state": "on",
+    "recipe_chill_mode": "kettle",
+    "recipe_post_boil_calibration_factor": 1.0,
     "mash_steps": [
       {
         "step_order": 1,
@@ -2779,6 +2793,8 @@ const recipeData = [
         "hop_crop_years": "{\"9\": {\"crop_year\": 2024, \"hemisphere\": \"Northern\"}, \"7\": {\"crop_year\": 2020, \"hemisphere\": \"Northern\"}, \"4\": {\"crop_year\": 2023, \"hemisphere\": \"Northern\"}, \"5\": {\"crop_year\": 2024, \"hemisphere\": \"Northern\"}, \"6\": {\"crop_year\": 2020, \"hemisphere\": \"Northern\"}, \"8\": {\"crop_year\": 2024, \"hemisphere\": \"Northern\"}, \"12\": {\"crop_year\": 2020, \"hemisphere\": \"Northern\"}}",
         "hop_aroma_loss_rate": 0.125,
         "hop_bittering_loss_rate": 0.085,
+        "hop_aroma_calibration_factor": null,
+        "hop_bittering_calibration_factor": null,
         "aged_hops": [
           {
             "name": "Warrior",
@@ -2945,10 +2961,10 @@ const recipeData = [
     "notes_date": "Apr 29, 2026",
     "total_grain_lbs": 10.45,
     "total_grain_unit": "lbs",
-    "recipe_mash_strike_ratio_default": null,
-    "recipe_lid_state": null,
-    "recipe_chill_mode": null,
-    "recipe_post_boil_calibration_factor": null,
+    "recipe_mash_strike_ratio_default": 1.2,
+    "recipe_lid_state": "on",
+    "recipe_chill_mode": "kettle",
+    "recipe_post_boil_calibration_factor": 1.0,
     "mash_steps": [
       {
         "step_order": 1,
@@ -3149,10 +3165,10 @@ const recipeData = [
     "notes_date": "Apr 29, 2026",
     "total_grain_lbs": 5.47,
     "total_grain_unit": "lbs",
-    "recipe_mash_strike_ratio_default": null,
-    "recipe_lid_state": null,
-    "recipe_chill_mode": null,
-    "recipe_post_boil_calibration_factor": null,
+    "recipe_mash_strike_ratio_default": 1.2,
+    "recipe_lid_state": "on",
+    "recipe_chill_mode": "kettle",
+    "recipe_post_boil_calibration_factor": 1.0,
     "mash_steps": [
       {
         "step_order": 1,
@@ -3305,6 +3321,8 @@ const recipeData = [
         "hop_crop_years": "{\"168\": {\"crop_year\": 2020, \"hemisphere\": \"Northern\"}, \"169\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"170\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"172\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}, \"171\": {\"crop_year\": 2025, \"hemisphere\": \"Northern\"}}",
         "hop_aroma_loss_rate": 0.125,
         "hop_bittering_loss_rate": 0.084,
+        "hop_aroma_calibration_factor": null,
+        "hop_bittering_calibration_factor": null,
         "aged_hops": [
           {
             "name": "Perle",
@@ -3445,10 +3463,10 @@ const recipeData = [
     "notes_date": "Sep 23, 2025",
     "total_grain_lbs": 10.25,
     "total_grain_unit": "lbs",
-    "recipe_mash_strike_ratio_default": null,
-    "recipe_lid_state": null,
-    "recipe_chill_mode": null,
-    "recipe_post_boil_calibration_factor": null,
+    "recipe_mash_strike_ratio_default": 1.2,
+    "recipe_lid_state": "on",
+    "recipe_chill_mode": "kettle",
+    "recipe_post_boil_calibration_factor": 1.0,
     "mash_steps": [
       {
         "step_order": 1,
@@ -3601,6 +3619,8 @@ const recipeData = [
         "hop_crop_years": null,
         "hop_aroma_loss_rate": null,
         "hop_bittering_loss_rate": null,
+        "hop_aroma_calibration_factor": null,
+        "hop_bittering_calibration_factor": null,
         "aged_hops": null
       }
     ]
@@ -3925,6 +3945,8 @@ const recipeData = [
         "hop_crop_years": "{\"107\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"473\": {\"crop_year\": 2021, \"hemisphere\": \"Northern\"}, \"474\": {\"crop_year\": 2020, \"hemisphere\": \"Northern\"}, \"475\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"421\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"108\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"418\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}}",
         "hop_aroma_loss_rate": 0.125,
         "hop_bittering_loss_rate": 0.085,
+        "hop_aroma_calibration_factor": null,
+        "hop_bittering_calibration_factor": null,
         "aged_hops": null
       },
       {
@@ -3950,6 +3972,8 @@ const recipeData = [
         "hop_crop_years": "{\"107\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"473\": {\"crop_year\": 2021, \"hemisphere\": \"Northern\"}, \"474\": {\"crop_year\": 2020, \"hemisphere\": \"Northern\"}, \"475\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"421\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"108\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"418\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}}",
         "hop_aroma_loss_rate": 0.3,
         "hop_bittering_loss_rate": 0.085,
+        "hop_aroma_calibration_factor": null,
+        "hop_bittering_calibration_factor": null,
         "aged_hops": [
           {
             "name": "Amarillo",
@@ -4013,7 +4037,7 @@ const recipeData = [
             "crop_year": 2021,
             "hemisphere": "Northern",
             "age_years": 4.8,
-            "adjusted_amount": 1.41,
+            "adjusted_amount": 2.45,
             "status": "adjusted"
           },
           {
@@ -4067,6 +4091,8 @@ const recipeData = [
         "hop_crop_years": "{\"107\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"473\": {\"crop_year\": 2021, \"hemisphere\": \"Northern\"}, \"474\": {\"crop_year\": 2020, \"hemisphere\": \"Northern\"}, \"475\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"421\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"108\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"418\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}}",
         "hop_aroma_loss_rate": 0.2,
         "hop_bittering_loss_rate": 0.085,
+        "hop_aroma_calibration_factor": null,
+        "hop_bittering_calibration_factor": null,
         "aged_hops": null
       },
       {
@@ -4092,6 +4118,8 @@ const recipeData = [
         "hop_crop_years": "{\"107\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"473\": {\"crop_year\": 2021, \"hemisphere\": \"Northern\"}, \"474\": {\"crop_year\": 2020, \"hemisphere\": \"Northern\"}, \"475\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"421\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"108\": {\"crop_year\": 2023, \"hemisphere\": \"Northern\"}, \"418\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}}",
         "hop_aroma_loss_rate": 0.125,
         "hop_bittering_loss_rate": 0.085,
+        "hop_aroma_calibration_factor": null,
+        "hop_bittering_calibration_factor": null,
         "aged_hops": [
           {
             "name": "Amarillo",
@@ -4155,7 +4183,7 @@ const recipeData = [
             "crop_year": 2021,
             "hemisphere": "Northern",
             "age_years": 4.8,
-            "adjusted_amount": 1.41,
+            "adjusted_amount": 1.6,
             "status": "adjusted"
           },
           {
@@ -4209,6 +4237,8 @@ const recipeData = [
         "hop_crop_years": "{\"107\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"473\": {\"crop_year\": 2021, \"hemisphere\": \"Northern\"}, \"474\": {\"crop_year\": 2020, \"hemisphere\": \"Northern\"}, \"475\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"421\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"108\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"418\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}}",
         "hop_aroma_loss_rate": 0.125,
         "hop_bittering_loss_rate": 0.085,
+        "hop_aroma_calibration_factor": null,
+        "hop_bittering_calibration_factor": null,
         "aged_hops": null
       }
     ]
@@ -4242,10 +4272,10 @@ const recipeData = [
     "fg": 1.0169,
     "abv": 6.3,
     "abv_unit": "%",
-    "ibu": 113.9,
+    "ibu": 180.6,
     "srm": 48.4,
     "srm_hex": "#600000",
-    "bitterness_balance": 162.4,
+    "bitterness_balance": 316.1,
     "bitterness_balance_unit": "%",
     "bitterness_label": "Hop-forward",
     "grain_temp": 68.0,
@@ -4283,10 +4313,10 @@ const recipeData = [
     "notes_date": "May 13, 2026",
     "total_grain_lbs": 11.0,
     "total_grain_unit": "lbs",
-    "recipe_mash_strike_ratio_default": null,
-    "recipe_lid_state": "off",
+    "recipe_mash_strike_ratio_default": 1.2,
+    "recipe_lid_state": "on",
     "recipe_chill_mode": "kettle",
-    "recipe_post_boil_calibration_factor": 0.0,
+    "recipe_post_boil_calibration_factor": 1.0,
     "mash_steps": [
       {
         "step_order": 1,
@@ -4504,6 +4534,8 @@ const recipeData = [
         "hop_crop_years": "{\"378\": {\"crop_year\": 2021, \"hemisphere\": \"Northern\"}, \"379\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"227\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"228\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"226\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"380\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}}",
         "hop_aroma_loss_rate": 0.125,
         "hop_bittering_loss_rate": 0.085,
+        "hop_aroma_calibration_factor": 1.0,
+        "hop_bittering_calibration_factor": 1.0,
         "aged_hops": [
           {
             "name": "CTZ",
@@ -4657,10 +4689,10 @@ const recipeData = [
     "notes_date": null,
     "total_grain_lbs": 1.0,
     "total_grain_unit": "lbs",
-    "recipe_mash_strike_ratio_default": null,
-    "recipe_lid_state": null,
-    "recipe_chill_mode": null,
-    "recipe_post_boil_calibration_factor": null,
+    "recipe_mash_strike_ratio_default": 1.2,
+    "recipe_lid_state": "on",
+    "recipe_chill_mode": "kettle",
+    "recipe_post_boil_calibration_factor": 1.0,
     "mash_steps": [
       {
         "step_order": 1,
@@ -4763,6 +4795,8 @@ const recipeData = [
         "hop_crop_years": "{\"388\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"448\": {\"crop_year\": 2022, \"hemisphere\": \"Northern\"}, \"449\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}}",
         "hop_aroma_loss_rate": 0.125,
         "hop_bittering_loss_rate": 0.085,
+        "hop_aroma_calibration_factor": null,
+        "hop_bittering_calibration_factor": null,
         "aged_hops": null
       },
       {
@@ -4788,6 +4822,8 @@ const recipeData = [
         "hop_crop_years": "{\"388\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}, \"448\": {\"crop_year\": 2022, \"hemisphere\": \"Northern\"}, \"449\": {\"crop_year\": null, \"hemisphere\": \"Northern\"}}",
         "hop_aroma_loss_rate": 0.125,
         "hop_bittering_loss_rate": 0.085,
+        "hop_aroma_calibration_factor": null,
+        "hop_bittering_calibration_factor": null,
         "aged_hops": null
       }
     ]
