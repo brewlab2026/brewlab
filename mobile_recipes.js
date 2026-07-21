@@ -1,8 +1,8 @@
 // Brew Lab export — auto-generated, do not edit manually.
-// Exported: 07-20-2026 23:23:28
+// Exported: 07-21-2026 10:43:27
 
 const exportMeta = {
-  "export_datetime": "07-20-2026 23:23:28",
+  "export_datetime": "07-21-2026 10:43:27",
   "app_version": "1.0.0",
   "db_version": "1.8",
   "schema_version": "1.6"
@@ -1129,7 +1129,7 @@ const recipeData = [
     "boil_additions": [
       {
         "name": "Whirlfloc Tablet",
-        "amount": 0.25,
+        "amount": 0.5,
         "unit": "tablets",
         "time": 15.0,
         "time_unit": "min",

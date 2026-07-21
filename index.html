@@ -160,21 +160,24 @@
             }
         }
 
-        // Renders the "Calibration Overrides" block at the end of the Mash &
-        // Process section — only fields this recipe actually overrides are
-        // shown, same rule as the print view. 0 is a meaningful, set value
-        // for the calibration factor (excludes post-boil hops entirely), so
-        // it's checked with isSet(), never a truthy check.
+        // Renders the "Post-Boil Hop Calibration" block at the end of the
+        // Mash & Process section. Always shown (Session 16: these are now
+        // ordinary always-populated recipe fields, not sometimes-set
+        // overrides, so there's no meaningful "nothing to show" case
+        // anymore) — deliberately not gated on differing from the current
+        // global default, unlike the edit page's collapsible box: on
+        // mobile there's no adjacent "current global" value to compare
+        // against without memorizing it, so showing the actual values
+        // plainly is more useful here. Mash Strike Ratio isn't part of
+        // this block — it's shown on the Batch line above instead, since
+        // it's a mash-water calculation input, not a post-boil IBU
+        // calibration knob.
         function renderCalibSection(r) {
-            const hasCalib = isSet(r.recipe_mash_strike_ratio_default) || !!r.recipe_lid_state ||
-                              !!r.recipe_chill_mode || isSet(r.recipe_post_boil_calibration_factor);
-            if (!hasCalib) { return ''; }
             return `
-                <div class="section-title" style="margin-top:14px;">Calibration Overrides</div>
-                ${isSet(r.recipe_mash_strike_ratio_default) ? `<p><strong>Mash Strike Ratio:</strong> ${Number(r.recipe_mash_strike_ratio_default).toFixed(2)} qt/lb</p>` : ''}
-                ${r.recipe_lid_state ? `<p><strong>Lid State:</strong> ${r.recipe_lid_state}</p>` : ''}
-                ${r.recipe_chill_mode ? `<p><strong>Chill Mode:</strong> ${r.recipe_chill_mode}</p>` : ''}
-                ${isSet(r.recipe_post_boil_calibration_factor) ? `<p><strong>Post-Boil IBU Calibration:</strong> ${Number(r.recipe_post_boil_calibration_factor).toFixed(2)}</p>` : ''}
+                <div class="section-title" style="margin-top:14px;">Post-Boil Hop Calibration</div>
+                <p><strong>Lid State:</strong> ${r.recipe_lid_state}</p>
+                <p><strong>Chill Mode:</strong> ${r.recipe_chill_mode}</p>
+                <p><strong>Post-Boil IBU Calibration:</strong> ${Number(r.recipe_post_boil_calibration_factor).toFixed(2)}</p>
             `;
         }
 
@@ -289,7 +292,7 @@
 
                             <button class="details-btn btn-sub" onclick="toggleDetails('mash-${r.recipe_id}')">Mash & Process</button>
                             <div id="mash-${r.recipe_id}" style="display:none;" class="nested-section">
-                                <p><strong>Batch:</strong> ${r.batch_size} ${r.batch_size_unit} | <strong>Type:</strong> ${r.mash_type} | <strong>Method:</strong> ${r.strike_vol_method} | <strong>Eff:</strong> ${r.is_extract ? 'N/A' : r.efficiency + '%'}</p>
+                                <p><strong>Batch:</strong> ${r.batch_size} ${r.batch_size_unit} | <strong>Type:</strong> ${r.mash_type} | <strong>Method:</strong> ${r.strike_vol_method}${r.strike_vol_method === 'Ratio' ? ` | <strong>Ratio:</strong> ${Number(r.recipe_mash_strike_ratio_default).toFixed(2)} qt/lb` : ''} | <strong>Eff:</strong> ${r.is_extract ? 'N/A' : r.efficiency + '%'}</p>
                                 ${r.total_grain_lbs ? `<p><strong>Total Grain:</strong> ${r.total_grain_lbs} ${r.total_grain_unit || 'lbs'}</p>` : ''}
                                 ${renderTextField('Water Treatments', r.water_treatments, 'None')}
                                 <p><strong>Camden ${r.is_extract ? 'Steep' : 'Strike'}:</strong> ${r.camden_mash_tablets} tabs / ${r.camden_mash_grams}g</p>
